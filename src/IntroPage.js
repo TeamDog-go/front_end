@@ -13,8 +13,8 @@ class IntroPage extends Component {
         </header>
         <p>Paragraph text</p>
         {/* image */}
-        <Button className='previous' onClick='' label='Previous' />
-        <Button className='previous' onClick='' label='Next' />
+        <Button onClick='' label='Previous' />
+        <Button onClick='' label='Next' />
       </div>
     )
   }
