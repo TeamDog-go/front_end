@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Route, Link } from 'react-router-dom'
+import {Button} from 'primereact/components/button/Button'
 
 class IntroPage extends Component {
   constructor (props) {
@@ -13,8 +13,8 @@ class IntroPage extends Component {
         </header>
         <p>Paragraph text</p>
         {/* image */}
-        <button className='previous' type='submit'>Previous</button>
-        <button className='previous' type='submit'>Next</button>
+        <Button className='previous' onClick='' label='Previous' />
+        <Button className='previous' onClick='' label='Next' />
       </div>
     )
   }

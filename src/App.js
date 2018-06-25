@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import IntroPage from '/.IntroPage'
+import IntroPage from 'IntroPage'
 
 class App extends Component {
   render() {
