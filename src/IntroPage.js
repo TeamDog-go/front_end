@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 import dogAndChild from './Media/dogAndChild.jpg'
+import pawprint from './Media/pawprint.png'
 
 class IntroPage extends Component {
   constructor (props) {
@@ -15,16 +16,16 @@ class IntroPage extends Component {
           </header>
           <p className='tagline'>Find a Happy, Healthy Dog</p>
           <img className='introPageImage' src={dogAndChild} />
-          <ul className='introPageText'>
-            <li>Many dogs have behavior and health problems because of where they came from.</li>
-            <li>These problems can be emotionally and financially expensive.</li>
-            <li>Lots of people buy or adopt from puppy farms and disreputable rescues, and they have no idea!</li>
-            <li>We can help you evaluate the quality of breeders, shelters, and more with just a few questions!</li>
-          </ul>
+          <div className='introPageText'>
+            <p><img className='pawprint' src={pawprint} />Many dogs have <strong>behavior and health problems</strong> because of where they came from.</p>
+            <p><img className='pawprint' src={pawprint} />These problems can be <strong>emotionally and financially expensive.</strong></p>
+            <p><img className='pawprint' src={pawprint} />Lots of people buy or adopt from risky places and <strong>they have no idea!</strong></p>
+            <p><img className='pawprint' src={pawprint} /><strong>Use PupSource to help your family find a happy, healthy dog!</strong></p>
+          </div>
         </div>
         <div className='navButtonDiv'>
           <Button className='navButton' onClick='' label='Previous' />
-          <Button className='navButton' onClick='' label='Next' />
+          <Button className='navButton' onClick='' label='Let&apos;s Go!' />
         </div>
       </div>
     )
