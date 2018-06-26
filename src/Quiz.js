@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
 import BasicQ from './BasicQ'
+// import Results from './Results'
 
 class Quiz extends Component {
   constructor (props) {
@@ -42,11 +42,19 @@ class Quiz extends Component {
   }
 
   render () {
-    return (
-      <div>
-        <BasicQ question={this.state.currentQ} savedanswers={this.state.answers} index={this.state.currentIndex} addAnswer={this.addAnswer} prevAnswer={this.prevAnswer} />
-      </div>
-    )
+    if (this.state.answers.length < this.props.questions.length) {
+      return (
+        <div>
+          <BasicQ question={this.state.currentQ} savedanswers={this.state.answers} index={this.state.currentIndex} addAnswer={this.addAnswer} prevAnswer={this.prevAnswer} />
+        </div>
+      )
+    } else if (this.state.answers.length === this.props.questions.length) {
+      return (
+        <div>
+          {/* <Results answers={this.state.answers} /> */}
+        </div>
+      )
+    }
   }
 }
 
