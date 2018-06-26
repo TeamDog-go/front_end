@@ -7,7 +7,6 @@ import './App.css'
 import breederQuestions from './BreederQuestions'
 import Quiz from './Quiz'
 import SelectSourcePage from './SelectSourcePage'
-import IntroPage from './IntroPage'
 
 class App extends Component {
   constructor (props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import BasicQ from './BasicQ'
-// import Results from './Results'
+import Results from './Results'
 
 class Quiz extends Component {
   constructor (props) {
@@ -51,7 +51,7 @@ class Quiz extends Component {
     } else if (this.state.answers.length === this.props.questions.length) {
       return (
         <div>
-          {/* <Results answers={this.state.answers} /> */}
+          <Results answers={this.state.answers} />
         </div>
       )
     }
