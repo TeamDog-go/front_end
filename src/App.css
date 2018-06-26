@@ -140,8 +140,8 @@ max-width: 300px;
   width: 50%;
 }
 
-.sourceTooltip .ui-tooltip {
-  border-radius: 0;
+.sourceTooltip .ui-tooltip-text {
+  color: brown;
 }
 
 @media all and (min-width: 768px) {
