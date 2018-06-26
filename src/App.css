@@ -10,9 +10,8 @@ body {
 
 .megaWrapper {
   padding: 20px;
-  /* box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.1); */
-  box-shadow: 0 0 8px 10px rgba(0, 0, 0, 0.05);
-  /* box-shadow: inset 0 0 10px 8px rgba(0, 0, 0, 0.05); */
+  box-shadow: 0 20px 40px 10px rgba(0, 0, 0, 0.25);
+  border: 1px solid #BEC1BE;
 }
 
 /* p {
@@ -37,7 +36,7 @@ header {
 
 .headerImage {
   /* max-width: 10%; */
-  max-height: 1.8rem;
+  min-height: 4rem;
 }
 
 .titleDiv {
@@ -61,7 +60,7 @@ header {
   align-items: center;
 }
 
-.introPageImage {
+.introPageImage, .selectSourcePageImage {
   max-width: 100%;
   align-self: center;
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
@@ -108,9 +107,41 @@ header {
   margin: 20px 0;
 }
 
-.navButton {
+.navButton, .sourceButton {
 background-color: #3D8696;
 color: white;
+border-radius: 0;
+padding: 6px 0;
+max-width: 300px;
+}
+
+.navButton {
+  min-width: 200px;
+}
+
+/* Source Page */
+
+.selectSourcePageImage {
+  max-width: 50%;
+}
+
+.sourceQuestionText {
+  text-align: center;
+}
+
+.selectSourcePageDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sourceButton {
+  margin: 15px 0;
+  width: 50%;
+}
+
+.sourceTooltip .ui-tooltip {
+  border-radius: 0;
 }
 
 @media all and (min-width: 768px) {

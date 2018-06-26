@@ -1,19 +1,22 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 import dogAndChild from './Media/dogAndChild.jpg'
-import pawprint from './Media/pawprint.png'
-import dogHouse from './Media/dogHouse.png'
+// import pawprint from './Media/pawprint.png'
+// import dogHouse from './Media/dogHouse.png'
+import PQlogo from './Media/PQlogo.jpg'
+// import Link from 'react-router-dom'
 
 class IntroPage extends Component {
   constructor (props) {
     super()
   }
+
   render () {
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
-            <img className='headerImage' src={dogHouse} />
+            <img className='headerImage' src={PQlogo} />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
@@ -29,8 +32,8 @@ class IntroPage extends Component {
           </ul>
         </div>
         <div className='navButtonDiv'>
-          <Button className='navButton' onClick='' label='Previous' />
-          <Button className='navButton' onClick='' label='Let&apos;s Go!' />
+          {/* <Button className='navButton' onClick='' label='Previous' /> */}
+          <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Let&apos;s Go!' />
         </div>
       </div>
     )
