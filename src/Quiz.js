@@ -7,65 +7,44 @@ class Quiz extends Component {
     super(props)
     this.state = {
       answers: [],
+      currentIndex: 0,
       currentQ: {}
     }
     this.addAnswer = this.addAnswer.bind(this)
-    this.removeAnswer = this.removeAnswer.bind(this)
     this.prevAnswer = this.prevAnswer.bind(this)
   }
 
   addAnswer (answerIndex, newAnswer) {
-    console.log('add answer', answerIndex, newAnswer)
     const update = this.state.answers
     if (answerIndex === this.state.answers.length) {
       update.splice(answerIndex, 0, newAnswer)
     } else if (answerIndex !== this.state.answers.length) {
       update.splice(answerIndex, 1, newAnswer)
     }
-    // console.log({update})
-    const totalLength = this.props.questions.length - 1
-    const index = Math.min(update.length, totalLength)
+    const index = Math.min(this.state.currentIndex + 1, this.props.questions.length - 1)
     this.setState({
       answers: update,
       currentQ: this.props.questions[index],
-      index: index
+      currentIndex: index
     })
   }
 
-  removeAnswer () {
-    // console.log(this.state.answers)
-    this.state.answers.pop()
-    // console.log(this.state.answers)
-    const totalLength = this.props.questions.length - 1
-    const index = Math.min(this.state.answers.length, totalLength)
-    this.setState({
-      answers: this.state.answers,
-      currentQ: this.props.questions[index],
-      index: index
-    })
-  }
   prevAnswer () {
-    const prev = this.props.questions.indexOf(this.state.currentQ) - 1
-    const index = Math.max(prev, 0)
-    // console.log('prev answer', prev, index)
+    const prev = Math.max(this.state.currentIndex - 1, 0)
     this.setState({
-      currentQ: this.props.questions[index],
-      index: index
+      currentQ: this.props.questions[prev],
+      currentIndex: prev
     })
   }
 
   componentDidMount () {
-    const index = (this.state.answers.length)
-    this.setState({
-      currentQ: this.props.questions[index],
-      index: index})
+    this.setState({currentQ: this.props.questions[0]})
   }
 
   render () {
-    // console.log('Quiz Render answer array', this.state.answers, 'answer array length', this.state.answers.length, 'props array length', this.props.questions.length)
     return (
       <div>
-        <BasicQ question={this.state.currentQ} savedanswers={this.state.answers} index={this.state.index} addAnswer={this.addAnswer} removeAnswer={this.removeAnswer} prevAnswer={this.prevAnswer} />
+        <BasicQ question={this.state.currentQ} savedanswers={this.state.answers} index={this.state.currentIndex} addAnswer={this.addAnswer} prevAnswer={this.prevAnswer} />
       </div>
     )
   }
