@@ -1,28 +1,146 @@
-.App {
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 40px 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.megaWrapper {
+  padding: 20px;
+  /* box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 8px 10px rgba(0, 0, 0, 0.05);
+  /* box-shadow: inset 0 0 10px 8px rgba(0, 0, 0, 0.05); */
+}
+
+/* p {
+  max-width: 90%;
+} */
+
+/* Intro Page */
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Jaldi', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.header {
+  margin: 0;
+}
+
+.headerImage {
+  /* max-width: 10%; */
+  max-height: 1.8rem;
+}
+
+.titleDiv {
+  margin: 0;
+  width: 100%;
+  border-bottom: 2px solid #3D8696;
+  padding: 0;
+}
+
+.tagline {
+  /* padding: 15px 0 0 0; */
+  font-family: 'Jaldi', sans-serif;
+  font-size: 1.5rem;
+  margin: 0;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.introPageDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.introPageImage {
+  max-width: 100%;
+  align-self: center;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
+  margin: 25px 0;
 }
 
-.App-title {
-  font-size: 1.5em;
+.introPageText {
+  line-height: 1.3rem;
+  list-style: none;
+  padding: 0;
 }
 
-.App-intro {
-  font-size: large;
+.introPageText li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+}
+.introPageText li:before {
+  content: '';
+  width: 1.3rem;
+  height: 1.3rem;
+  position: absolute;
+  background-image: url('./Media/pawprint.png');
+  background-size: cover;
+  background-position: center;
+  left: 0;
+  top: 25%;
+  transform: translateY(-50%);
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* .pawprint {
+  max-width: 18px;
+  margin-right: 5px;
+  display: inline;
+} */
+
+.introPageText {
+  margin: 8px 0;
+}
+
+.navButtonDiv {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+.navButton {
+background-color: #3D8696;
+color: white;
+}
+
+@media all and (min-width: 768px) {
+  header {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .header {
+    margin: 0;
+  }
+  
+  .headerImage {
+    /* max-width: 10%; */
+    max-height: 2.4rem;
+  }
+ 
+  .introPageDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .introPageImage {
+    max-width: 50%;
+  }
+
+  .introPageText {
+    margin-top: 35px;
+    margin-left: 40px;
+  }
+
 }
