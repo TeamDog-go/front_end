@@ -6,23 +6,30 @@ import 'primereact/resources/primereact.min.css'
 import './App.css'
 import breederQuestions from './BreederQuestions'
 import Quiz from './Quiz'
+import SelectSourcePage from './SelectSourcePage'
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      source: 'breeder'
+      source: ''
     }
   }
 
+// Use individual routes for each source instead of putting in state /:sourcename 
+// All routes in one place in App
+// Keep App smallllll
+
   render () {
-    if (this.state.source === 'breeder') {
-      return (
-        <div className='App'>
-          <Route path='/' render={(props) => <Quiz questions={breederQuestions} />} />
-        </div>
-      )
-    } else { return null }
+    return (
+      <div className='App'>
+        <Route exact path='/' render={(props) => <IntroPage {...props} />} />
+        <Route path='/source' render={(props) => <SelectSourcePage {...props} />} />
+        <Route path='/breeder' render={(props) => <Quiz questions={breederQuestions} {...props} />} />
+        {/* <Route path='/shelter' render={(props) => <Quiz questions={shelterQuestions} {...props} />} /> */}
+        {/* <Route path='/individual' render={(props) => <Quiz questions={individualQuestions} {...props} />} /> */}
+      </div>
+    )
   }
 }
 

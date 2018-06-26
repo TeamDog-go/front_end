@@ -3,11 +3,17 @@ import {Button} from 'primereact/components/button/Button'
 import dogAndChild from './Media/dogAndChild.jpg'
 import pawprint from './Media/pawprint.png'
 import dogHouse from './Media/dogHouse.png'
+import Link from 'react-router-dom'
 
 class IntroPage extends Component {
   constructor (props) {
     super()
   }
+
+//   toSelectSource (source) {
+// this.props.history.push(/source)
+//   }
+
   render () {
     return (
       <div className='megaWrapper'>
@@ -30,7 +36,7 @@ class IntroPage extends Component {
         </div>
         <div className='navButtonDiv'>
           <Button className='navButton' onClick='' label='Previous' />
-          <Button className='navButton' onClick='' label='Let&apos;s Go!' />
+          <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Let&apos;s Go!' />
         </div>
       </div>
     )
