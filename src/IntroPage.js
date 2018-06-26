@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 import dogAndChild from './Media/dogAndChild.jpg'
 import pawprint from './Media/pawprint.png'
+import dogHouse from './Media/dogHouse.png'
 
 class IntroPage extends Component {
   constructor (props) {
@@ -12,18 +13,19 @@ class IntroPage extends Component {
       <div>
         <div className='titleDiv'>
           <header>
-            <h2 className='header'>PupSource</h2>
+            <img className='headerImage' src={dogHouse} />
+            <h2 className='header'>&nbsp;PupSource</h2>
           </header>
         </div>
         <div className='introPageDiv'>
-          <p className='tagline'>Find a Happy, Healthy Dog</p>
+          <p className='tagline'>Sniff Out a Good Spot!</p>
           <img className='introPageImage' src={dogAndChild} />
-          <div className='introPageText'>
-            <p><img className='pawprint' src={pawprint} />Many dogs have <strong>behavior and health problems</strong> because of where they came from.</p>
-            <p><img className='pawprint' src={pawprint} />These problems can be <strong>emotionally and financially expensive.</strong></p>
-            <p><img className='pawprint' src={pawprint} />Lots of people buy or adopt from risky places and <strong>they have no idea!</strong></p>
-            <p><img className='pawprint' src={pawprint} /><strong>Use PupSource to help your family find a happy, healthy dog!</strong></p>
-          </div>
+          <ul className='introPageText'>
+            <li>Many dogs have <strong>behavior and health problems</strong> because of where they came from.</li>
+            <li>These problems can be <strong>emotionally and financially expensive.</strong></li>
+            <li>Lots of people buy or adopt from risky places and <strong>they have no idea!</strong></li>
+            <li><strong>Use PupSource to help your family find a happy, healthy dog!</strong></li>
+          </ul>
         </div>
         <div className='navButtonDiv'>
           <Button className='navButton' onClick='' label='Previous' />
