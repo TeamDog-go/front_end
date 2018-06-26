@@ -7,6 +7,7 @@ import './App.css'
 import breederQuestions from './BreederQuestions'
 import Quiz from './Quiz'
 import SelectSourcePage from './SelectSourcePage'
+import IntroPage from './IntroPage'
 
 class App extends Component {
   constructor (props) {
@@ -15,10 +16,6 @@ class App extends Component {
       source: ''
     }
   }
-
-// Use individual routes for each source instead of putting in state /:sourcename 
-// All routes in one place in App
-// Keep App smallllll
 
   render () {
     return (
