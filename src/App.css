@@ -4,13 +4,20 @@
 }
 
 body {
-  margin: 0 40px;
+  margin: 40px 40px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-p {
-  max-width: 90%;
+.megaWrapper {
+  padding: 20px;
+  /* box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 8px 10px rgba(0, 0, 0, 0.05);
+  /* box-shadow: inset 0 0 10px 8px rgba(0, 0, 0, 0.05); */
 }
+
+/* p {
+  max-width: 90%;
+} */
 
 /* Intro Page */
 
@@ -20,7 +27,7 @@ header {
   align-items: center;
   font-family: 'Jaldi', sans-serif;
   font-weight: 700;
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
@@ -30,7 +37,7 @@ header {
 
 .headerImage {
   /* max-width: 10%; */
-  max-height: 2.8rem;
+  max-height: 1.8rem;
 }
 
 .titleDiv {
@@ -45,6 +52,7 @@ header {
   font-family: 'Jaldi', sans-serif;
   font-size: 1.5rem;
   margin: 0;
+  text-align: center;
 }
 
 .introPageDiv {
@@ -105,4 +113,34 @@ background-color: #3D8696;
 color: white;
 }
 
+@media all and (min-width: 768px) {
+  header {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .header {
+    margin: 0;
+  }
+  
+  .headerImage {
+    /* max-width: 10%; */
+    max-height: 2.4rem;
+  }
+ 
+  .introPageDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
 
+  .introPageImage {
+    max-width: 50%;
+  }
+
+  .introPageText {
+    margin-top: 35px;
+    margin-left: 40px;
+  }
+
+}

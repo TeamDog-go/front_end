@@ -10,15 +10,17 @@ class IntroPage extends Component {
   }
   render () {
     return (
-      <div>
+      <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
             <img className='headerImage' src={dogHouse} />
-            <h2 className='header'>&nbsp;PupSource</h2>
+            <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
-        <div className='introPageDiv'>
+        <div>
           <p className='tagline'>Sniff Out a Good Spot!</p>
+        </div>
+        <div className='introPageDiv'>
           <img className='introPageImage' src={dogAndChild} />
           <ul className='introPageText'>
             <li>Many dogs have <strong>behavior and health problems</strong> because of where they came from.</li>
