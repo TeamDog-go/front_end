@@ -23,10 +23,9 @@ class IntroPage extends Component {
         <div className='introPageDiv'>
           <img className='introPageImage' src={dogAndChild} />
           <ul className='introPageText'>
-            <li>Many dogs have <strong>behavior and health problems</strong> because of where they came from.</li>
-            <li>These problems can be <strong>emotionally and financially expensive.</strong></li>
-            <li>Lots of people buy or adopt from risky places and <strong>they have no idea!</strong></li>
-            <li><strong>Use PupSource to help your family find a happy, healthy dog!</strong></li>
+            <li>Looking for a pup? Dogs can have <strong>behavior and health problems</strong> because of where they came from.</li>
+            <li>Lots of people buy or adopt from <strong>risky places</strong> and <strong>they have no idea!</strong></li>
+            <li><strong>Use PupSource to find out if the .......!</strong></li>
           </ul>
         </div>
         <div className='navButtonDiv'>
