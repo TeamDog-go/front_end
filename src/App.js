@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Route} from 'react-router-dom'
-// import IntroPage from './IntroPage'
+import IntroPage from './IntroPage'
 import 'primereact/resources/themes/pepper-grinder/theme.css'
 import 'primereact/resources/primereact.min.css'
 import './App.css'
