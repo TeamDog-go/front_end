@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import {Route} from 'react-router-dom'
+import './App.css'
+
+import breederQuestions from './BreederQuestions'
+import Quiz from './Quiz'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+  constructor (props) {
+    super(props)
+    this.state = {
+      source: 'breeder'
+    }
+  }
+
+  render () {
+    if (this.state.source === 'breeder') {
+      return (
+        <div className='App'>
+          <Route path='/' render={(props) => <Quiz questions={breederQuestions} />} />
+        </div>
+      )
+    } else { return null }
   }
 }
 
-export default App;
+export default App
