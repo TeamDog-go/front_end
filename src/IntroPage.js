@@ -10,10 +10,12 @@ class IntroPage extends Component {
   render () {
     return (
       <div>
-        <div className='introPageDiv'>
+        <div className='titleDiv'>
           <header>
             <h2 className='header'>PupSource</h2>
           </header>
+        </div>
+        <div className='introPageDiv'>
           <p className='tagline'>Find a Happy, Healthy Dog</p>
           <img className='introPageImage' src={dogAndChild} />
           <div className='introPageText'>

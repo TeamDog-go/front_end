@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {Route, Link} from 'react-router-dom'
-import './App.css'
 import IntroPage from './IntroPage'
-import 'primereact/resources/themes/omega/theme.css'
+import 'primereact/resources/themes/pepper-grinder/theme.css'
 import 'primereact/resources/primereact.min.css'
+import './App.css'
 
 class App extends Component {
   constructor () {

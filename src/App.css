@@ -49,6 +49,13 @@ p {
   margin: 0;
 }
 
+.titleDiv {
+  margin: 0;
+  width: 100%;
+  background-color: #3D8696;
+  margin: 0 -40px;
+}
+
 .tagline {
   padding: 0;
   margin-top: 0;
@@ -89,7 +96,8 @@ p .pawprint {
 }
 
 .navButton {
-/* flex-basis: 0.5; */
+background-color: #3D8696;
+color: white;
 }
 
 
