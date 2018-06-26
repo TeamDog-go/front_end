@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 import dogAndChild from './Media/dogAndChild.jpg'
-import pawprint from './Media/pawprint.png'
-import dogHouse from './Media/dogHouse.png'
+// import pawprint from './Media/pawprint.png'
+// import dogHouse from './Media/dogHouse.png'
+import PQlogo from './Media/PQlogo.jpg'
 // import Link from 'react-router-dom'
 
 class IntroPage extends Component {
@@ -15,7 +16,7 @@ class IntroPage extends Component {
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
-            <img className='headerImage' src={dogHouse} />
+            <img className='headerImage' src={PQlogo} />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>

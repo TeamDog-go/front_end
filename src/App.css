@@ -36,7 +36,7 @@ header {
 
 .headerImage {
   /* max-width: 10%; */
-  max-height: 1.8rem;
+  min-height: 4rem;
 }
 
 .titleDiv {
@@ -111,6 +111,12 @@ header {
 background-color: #3D8696;
 color: white;
 border-radius: 0;
+padding: 6px 0;
+max-width: 300px;
+}
+
+.navButton {
+  min-width: 200px;
 }
 
 /* Source Page */
@@ -132,6 +138,10 @@ border-radius: 0;
 .sourceButton {
   margin: 15px 0;
   width: 50%;
+}
+
+.sourceTooltip .ui-tooltip {
+  border-radius: 0;
 }
 
 @media all and (min-width: 768px) {
