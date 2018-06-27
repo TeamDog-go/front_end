@@ -14,10 +14,6 @@ body {
   border: 1px solid #BEC1BE;
 }
 
-/* p {
-  max-width: 90%;
-} */
-
 /* Intro Page */
 
 header {
@@ -242,12 +238,6 @@ font-size: 1.2rem;
 }
 .answer.feedback {
   max-width: 200px;
-}
-
-.feedback-Answers{
-  display: flex;
-  flex-flow: row wrap;
-  flex-direction: column;
 }
 
 .answer.feedback input[type="radio"]:checked + label:after {
