@@ -135,8 +135,13 @@ font-size: 1.2rem;
   width: 50%;
 }
 
-.ui-tooltip {
-  color:#a52a2a;
+.ui-tooltip .ui-tooltip-text {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  color: black;
+  font-size: 0.8rem;
+  background-color: #f4f4f4;
+  border: 1px solid #c1c1c1;
 }
 
 /* Results Page */

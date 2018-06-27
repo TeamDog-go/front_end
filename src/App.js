@@ -9,6 +9,7 @@ import individualQuestions from './IndividualQuestions'
 import shelterQuestions from './ShelterQuestions'
 import Quiz from './Quiz'
 import SelectSourcePage from './SelectSourcePage'
+import Results from './Results'
 
 class App extends Component {
   constructor (props) {
@@ -26,6 +27,7 @@ class App extends Component {
         <Route path='/breeder' render={(props) => <Quiz questions={breederQuestions} {...props} />} />
         <Route path='/shelter' render={(props) => <Quiz questions={shelterQuestions} {...props} />} />
         <Route path='/individual' render={(props) => <Quiz questions={individualQuestions} {...props} />} />
+        <Route path='/results' renter={(props) => <Results {...props} />} />
       </div>
     )
   }
