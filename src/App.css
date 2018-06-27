@@ -101,7 +101,7 @@ header {
 }
 
 .navButton, .sourceButton {
-background-color: #3D8696;
+background-color: hsl(191, 42%, 41%);
 color: white;
 border-radius: 0;
 padding: 8px 0;
@@ -175,4 +175,52 @@ font-size: 1.2rem;
     margin-left: 40px;
   }
 
+}
+/* Question Page */
+.basicQuestion{
+  display: flex;
+  flex-direction: column;
+}
+
+.basicQuestion-Question{
+  display: flex;
+  justify-content: center;
+  padding: 0 2rem;
+}
+.answer{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.answer input[type="radio"] {
+  display: none;
+}
+
+.answer label {
+  width: 100%;
+  display: block;
+  border: 2px solid hsla(191, 42%, 41%, 1);
+  /* border-radius: 20px; */
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.35);
+  position: relative;
+}
+.answer input[type="radio"]:checked + label {
+  background: hsla(191, 42%, 41%, 1);
+  color: hsla(215, 0%, 100%, 1);
+  box-shadow: 0px 0px 20px hsla(191, 42%, 41%, 0.75);
+}
+.answer input[type="radio"]:checked + label:after {
+    background-color: white;
+    border: 2px solid hsla(191, 42%, 41%, 1);
+    content: url('./Media/check.svg');
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, .75);
 }

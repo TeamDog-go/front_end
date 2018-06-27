@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 
-import dogHouse from './Media/dogHouse.png'
+import PQlogo from './Media/PQlogo.jpg'
 
 class BasicQ extends Component {
   constructor (props) {
@@ -51,24 +51,25 @@ class BasicQ extends Component {
     if (this.props.question.answer) {
       return (
         <div className='megaWrapper'>
-          <div className='titleDiv'>
-            <header>
-              <img className='headerImage' src={dogHouse} alt='logo' />
-              <h2 className='header'>&nbsp;PupQuest Test</h2>
-            </header>
-          </div>
-          <div className='introPageDiv'>
-            <h1>{this.props.question.text}</h1>
-            <br />
-            <form>
-              {this.props.question.answer.map((entry, index) => {
-                return (
-                  <div key={index}>
-                    <input type='radio' name={entry.text} data-score={entry.score} value={entry.value} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.text} />
-                    <label>{entry.text}</label>
-                  </div>)
-              })}
-            </form>
+          <header>
+            <img className='headerImage' src={PQlogo} />
+            <h2 className='header'>&nbsp;PupQuest Test</h2>
+          </header>
+          <div className='basicQuestion'>
+            <div className='basicQuestion-Question'>
+              <h1>{this.props.question.text}</h1>
+            </div>
+            <div className='basicQuestion-Answers'>
+              <form>
+                {this.props.question.answer.map((entry, index) => {
+                  return (
+                    <div key={index} className='answer'>
+                      <input type='radio' id={index} name={entry.text} data-score={entry.score} value={entry.value} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.text} />
+                      <label for={index} >{entry.text}</label>
+                    </div>)
+                })}
+              </form>
+            </div>
           </div>
           <div className='navButtonDiv'>
             {/* <Button className='navButton' onClick={this.props.removeAnswer} label='Previous Question' /> */}
