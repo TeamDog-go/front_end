@@ -14,10 +14,6 @@ body {
   border: 1px solid #BEC1BE;
 }
 
-/* p {
-  max-width: 90%;
-} */
-
 /* Intro Page */
 
 header {
@@ -75,7 +71,7 @@ header {
 .introPageText li {
   position: relative;
   padding-left: 30px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 .introPageText li:before {
   content: '';
@@ -98,6 +94,7 @@ header {
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0;
+  flex-wrap: wrap;
 }
 
 .navButton, .sourceButton {
@@ -112,6 +109,7 @@ font-size: 1.2rem;
 
 .navButton {
   min-width: 200px;
+  margin: 10px 15px;
 }
 
 /* Source Page */
@@ -239,14 +237,9 @@ font-size: 1.2rem;
   font-size: 150%;
 }
 .answer.feedback {
-  width: 10%;
+  max-width: 200px;
 }
 
-.feedback-Answers{
-  display: flex;
-  flex-flow: row wrap;
-  flex-direction: row;
-}
 .answer.feedback input[type="radio"]:checked + label:after {
   content: none;
 }
