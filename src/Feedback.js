@@ -23,8 +23,13 @@ class Feedback extends Component {
   }
 
   render () {
-    const scale = ['Very negative', 'Negative', 'Neutral', 'Positive', 'Very positive']
-    // Can we change to string: very negative, negative, neutral, positive, very positive
+    const feedback = [
+      {label: 'Very negative', value: 1},
+      {label: 'Negative', value: 2},
+      {label: 'Neutral', value: 3},
+      {label: 'Positive', value: 4},
+      {label: 'Very positive', value: 5}
+    ]
     return (
       <div className='megaWrapper'>
         <header>
@@ -37,11 +42,11 @@ class Feedback extends Component {
           </div>
           <div >
             <form className='feedback-Answers'>
-              {scale.map((entry, index) => {
+              {feedback.map((entry, index) => {
                 return (
                   <div key={index} className='answer feedback'>
-                    <input type='radio' id={index} value={entry} checked={(this.state.answer) === (entry)} onChange={(e) => this.handleOptionChange(e)} />
-                    <label for={index}>{entry}</label>
+                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.answer) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
+                    <label htmlFor={index}>{entry.label}</label>
                   </div>)
               })}
             </form>

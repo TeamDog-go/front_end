@@ -65,7 +65,7 @@ class BasicQ extends Component {
                   return (
                     <div key={index} className='answer'>
                       <input type='radio' id={index} name={entry.text} data-score={entry.score} value={entry.value} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.text} />
-                      <label for={index} >{entry.text}</label>
+                      <label htmlFor={index} >{entry.text}</label>
                     </div>)
                 })}
               </form>
