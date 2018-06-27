@@ -5,6 +5,8 @@ import 'primereact/resources/themes/pepper-grinder/theme.css'
 import 'primereact/resources/primereact.min.css'
 import './App.css'
 import breederQuestions from './BreederQuestions'
+import individualQuestions from './IndividualQuestions'
+import shelterQuestions from './ShelterQuestions'
 import Quiz from './Quiz'
 import SelectSourcePage from './SelectSourcePage'
 
@@ -22,8 +24,8 @@ class App extends Component {
         <Route exact path='/' render={(props) => <IntroPage {...props} />} />
         <Route path='/source' render={(props) => <SelectSourcePage {...props} />} />
         <Route path='/breeder' render={(props) => <Quiz questions={breederQuestions} {...props} />} />
-        {/* <Route path='/shelter' render={(props) => <Quiz questions={shelterQuestions} {...props} />} /> */}
-        {/* <Route path='/individual' render={(props) => <Quiz questions={individualQuestions} {...props} />} /> */}
+        <Route path='/shelter' render={(props) => <Quiz questions={shelterQuestions} {...props} />} />
+        <Route path='/individual' render={(props) => <Quiz questions={individualQuestions} {...props} />} />
       </div>
     )
   }
