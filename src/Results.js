@@ -11,6 +11,7 @@ class Results extends Component {
   constructor (props) {
     super()
   }
+
   render () {
     return (
       <div className='megaWrapper'>
