@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import BasicQ from './BasicQ'
 import Results from './Results'
+import Feedback from './Feedback'
 
 class Quiz extends Component {
   constructor (props) {
@@ -8,10 +9,15 @@ class Quiz extends Component {
     this.state = {
       answers: [],
       currentIndex: 0,
-      currentQ: {}
+      currentQ: {},
+      feedbackStart: '',
+      feedbackEnd: '',
+      feedbackCounter: 0
     }
     this.addAnswer = this.addAnswer.bind(this)
     this.prevAnswer = this.prevAnswer.bind(this)
+    this.setFeedbackStart = this.setFeedbackStart.bind(this)
+    this.setFeedbackEnd = this.setFeedbackEnd.bind(this)
   }
 
   addAnswer (answerIndex, newAnswer) {
@@ -37,15 +43,41 @@ class Quiz extends Component {
     })
   }
 
+  setFeedbackStart (value) {
+    this.setState({
+      feedbackStart: value,
+      feedbackCounter: this.state.feedbackCounter + 1
+    })
+  }
+
+  setFeedbackEnd (value) {
+    this.setState({
+      feedbackEnd: value,
+      feedbackCounter: this.state.feedbackCounter + 1
+    })
+  }
+
   componentDidMount () {
     this.setState({currentQ: this.props.questions[0]})
   }
 
   render () {
-    if (this.state.answers.length < this.props.questions.length) {
+    if (this.state.feedbackCounter === 0) {
+      return (
+        <div>
+          <Feedback setFeedback={this.setFeedbackStart} />
+        </div>
+      )
+    } else if (this.state.answers.length < this.props.questions.length) {
       return (
         <div>
           <BasicQ question={this.state.currentQ} savedanswers={this.state.answers} index={this.state.currentIndex} addAnswer={this.addAnswer} prevAnswer={this.prevAnswer} />
+        </div>
+      )
+    } else if (this.state.answers.length === this.props.questions.length && this.state.feedbackCounter === 1) {
+      return (
+        <div>
+          <Feedback setFeedback={this.setFeedbackEnd} />
         </div>
       )
     } else if (this.state.answers.length === this.props.questions.length) {
