@@ -11,7 +11,6 @@ class Quiz extends Component {
       currentIndex: 0,
       currentQ: {},
       feedbackStart: '',
-      feedbackEnd: '',
       feedbackCounter: 0
     }
     this.addAnswer = this.addAnswer.bind(this)
@@ -74,16 +73,10 @@ class Quiz extends Component {
           <BasicQ question={this.state.currentQ} savedanswers={this.state.answers} index={this.state.currentIndex} addAnswer={this.addAnswer} prevAnswer={this.prevAnswer} />
         </div>
       )
-    } else if (this.state.answers.length === this.props.questions.length && this.state.feedbackCounter === 1) {
-      return (
-        <div>
-          <Feedback setFeedback={this.setFeedbackEnd} />
-        </div>
-      )
     } else if (this.state.answers.length === this.props.questions.length) {
       return (
         <div>
-          <Results answers={this.state.answers} />
+          <Results answers={this.state.answers} questions={this.props.questions} feedbackStart={this.state.feedbackStart} {...this.props} />
         </div>
       )
     }

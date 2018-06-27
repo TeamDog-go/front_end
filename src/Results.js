@@ -1,18 +1,56 @@
 import React, {Component} from 'react'
-import {Button} from 'primereact/components/button/Button'
+import {calculation} from './Calculation'
+// import request from 'superagent'
+
+import PQlogo from './Media/PQlogo.jpg'
 import sadPug from './Media/pugSad.jpg'
 // import pawprint from './Media/pawprint.png'
 // import dogHouse from './Media/dogHouse.png'
+
 // import {Tooltip} from 'primereact/components/tooltip/Tooltip'
-import PQlogo from './Media/PQlogo.jpg'
+import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
+import {SelectButton} from 'primereact/components/selectbutton/SelectButton'
 
 class Results extends Component {
   constructor (props) {
-    super()
+    super(props)
+    this.state = {
+      score: '',
+      color: '',
+      feedbackEnd: ''
+    }
+    // has this.props.feedbackStart, this.props.answers, this.props.questions
+  }
+  componentDidUpdate () {
+    if (this.state.feedbackEnd) {
+      // submit to server
+    }
+  }
+  componentDidMount () {
+    const answers = this.props.answers
+    new Promise(function (resolve, reject) {
+      if (answers) {
+        resolve(calculation(answers))
+      } else {
+        reject(new Error('Invalid Data'))
+      }
+    }).then((response) => {
+      this.setState({
+        score: response.score,
+        color: response.color
+      })
+    }).catch((error) => console.log('Error', error))
   }
 
   render () {
+    var feedback = [
+      {label: 'Very negative', value: 1},
+      {label: 'Negative', value: 2},
+      {label: 'Neutral', value: 3},
+      {label: 'Positive', value: 4},
+      {label: 'Very positive', value: 5}
+    ]
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
@@ -23,8 +61,19 @@ class Results extends Component {
         </div>
         <div className='resultsPageDiv'>
           <h4 className='resultsText'>This breeder is...</h4>
-          <img className='resultsColorImage' src={sadPug} />
-          <h2>Red: High Risk</h2>
+          {this.state.color === 'red' && <img className='resultsColorImage' src={sadPug} />}
+          {this.state.color === 'yellow' && <img className='resultsColorImage' src='https://tinyurl.com/yad4kqvb' />}
+          {this.state.color === 'green' && <img className='resultsColorImage' src='https://www.happydoguk.com/media/wysiwyg/Adult-dog---we-know.jpg' />}
+
+          {this.state.color === 'red' && <h2>Red: High Risk</h2>}
+          {this.state.color === 'yellow' && <h2>Yellow: Medium Risk</h2>}
+          {this.state.color === 'green' && <h2>Green: Low Risk</h2>}
+
+          <div className='result-feedback'>
+            <div>Right now, what are your general feelings about this place/person?</div>
+            <SelectButton value={this.state.feedbackEnd} options={feedback} onChange={(e) => this.setState({feedbackEnd: e.value})} />
+          </div>
+
           <Accordion>
             <AccordionTab header='Question that ranked red'>
         The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughters wedding.
@@ -48,7 +97,7 @@ class Results extends Component {
           </Accordion>
         </div>
         <div className='navButtonDiv'>
-          <Button className='navButton' onClick='' label='Learn more on Pupquest' />
+          <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' />
           <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another place' />
         </div>
       </div>
