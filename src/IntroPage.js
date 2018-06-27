@@ -26,9 +26,10 @@ class IntroPage extends Component {
         <div className='introPageDiv'>
           <img className='introPageImage' src={dogAndChild} />
           <ul className='introPageText'>
-            <li>Looking for a pup? Dogs can have <strong>behavior and health problems</strong> because of where they came from.</li>
-            <li>Lots of people buy or adopt from <strong>risky places</strong> and <strong>they have no idea!</strong></li>
-            <li><strong>Use PupSource to find out if the .......!</strong></li>
+            <li>You want the best chance at finding a happy, healthy dog.</li>
+            <li>Dogs can have <strong>serious behavior and health problems</strong> because of where they come from.</li>
+            <li><strong>Telling the good places from the bad can be very tricky!</strong></li>
+            <li>Quickly assess breeders, shelters, and individuals with the <strong>PupQuest Test!</strong></li>
           </ul>
         </div>
         <div className='navButtonDiv'>
