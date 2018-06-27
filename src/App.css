@@ -144,6 +144,12 @@ max-width: 300px;
   color: brown;
 }
 
+/* Results Page */
+
+.resultsColorImage {
+  width: 90%;
+}
+
 @media all and (min-width: 768px) {
   header {
     font-size: 2rem;
