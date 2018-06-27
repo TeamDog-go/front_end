@@ -37,7 +37,7 @@ class IntroPage extends Component {
         <div className='navButtonDiv'>
           {/* <Button className='navButton' onClick='' label='Previous' /> */}
           <Button className='navButton' id='loginButton' onClick={() => this.props.history.push('/login')} label='Login/Register' />
-          <Tooltip tooltipStyleClass='sourceTooltip' for='#loginButton' title='Register or log in to keep a personalized record of your PupQuest Test results' tooltipPosition='right' />
+          <Tooltip tooltipStyleClass='sourceTooltip' for='#loginButton' title='Register or log in to keep a personalized record of your PupQuest Test results' tooltipPosition='top' />
           <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Let&apos;s Go!' />
         </div>
       </div>
