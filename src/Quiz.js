@@ -83,7 +83,7 @@ class Quiz extends Component {
     } else if (this.state.answers.length === this.props.questions.length) {
       return (
         <div>
-          <Results answers={this.state.answers} />
+          <Results answers={this.state.answers} questions={this.props.questions} {...this.props} />
         </div>
       )
     }

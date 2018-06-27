@@ -40,7 +40,7 @@ class Feedback extends Component {
                 return (
                   <div key={index} className='answer feedback'>
                     <input type='radio' id={index} value={entry} checked={Number(this.state.answer) === Number(entry)} onChange={(e) => this.handleOptionChange(e)} />
-                    <label for={index}>{entry}</label>
+                    <label htmlFor={index}>{entry}</label>
                   </div>)
               })}
             </form>
