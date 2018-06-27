@@ -1,22 +1,32 @@
 import React, {Component} from 'react'
-import {Button} from 'primereact/components/button/Button'
+import {calculation} from './Calculation'
+// import request from 'superagent'
+
+import PQlogo from './Media/PQlogo.jpg'
 import sadPug from './Media/pugSad.jpg'
 // import pawprint from './Media/pawprint.png'
 // import dogHouse from './Media/dogHouse.png'
+
 // import {Tooltip} from 'primereact/components/tooltip/Tooltip'
-import PQlogo from './Media/PQlogo.jpg'
+import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
-import {calculation} from './Calculation'
+import {SelectButton} from 'primereact/components/selectbutton/SelectButton'
 
 class Results extends Component {
   constructor (props) {
     super(props)
     this.state = {
       score: '',
-      color: ''
+      color: '',
+      feedbackEnd: ''
+    }
+    // has this.props.feedbackStart, this.props.answers, this.props.questions
+  }
+  componentDidUpdate () {
+    if (this.state.feedbackEnd) {
+      // submit to server
     }
   }
-
   componentDidMount () {
     const answers = this.props.answers
     new Promise(function (resolve, reject) {
@@ -33,6 +43,13 @@ class Results extends Component {
     }).catch((error) => console.log('Error', error))
   }
   render () {
+    var feedback = [
+      {label: 'Very negative', value: 1},
+      {label: 'Negative', value: 2},
+      {label: 'Neutral', value: 3},
+      {label: 'Positive', value: 4},
+      {label: 'Very positive', value: 5}
+    ]
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
@@ -50,6 +67,12 @@ class Results extends Component {
           {this.state.color === 'red' && <h2>Red: High Risk</h2>}
           {this.state.color === 'yellow' && <h2>Yellow: Medium Risk</h2>}
           {this.state.color === 'green' && <h2>Green: Low Risk</h2>}
+
+          <div className='result-feedback'>
+            <div>Right now, what are your general feelings about this place/person?</div>
+            <SelectButton value={this.state.feedbackEnd} options={feedback} onChange={(e) => this.setState({feedbackEnd: e.value})} />
+          </div>
+
           <Accordion>
             <AccordionTab header='Question that ranked red'>
         The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughters wedding.
