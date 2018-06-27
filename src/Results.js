@@ -50,6 +50,11 @@ class Results extends Component {
       {label: 'Positive', value: 4},
       {label: 'Very positive', value: 5}
     ]
+
+    var sourcePath = this.props.match.path
+    var source = sourcePath.match(/\/([^/]+)$/)[1]
+    console.log(source)
+
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
@@ -59,7 +64,7 @@ class Results extends Component {
           </header>
         </div>
         <div className='resultsPageDiv'>
-          <h4 className='resultsText'>This breeder is...</h4>
+          <h4 className='resultsText'>This {source} is...</h4>
           {this.state.color === 'red' && <img className='resultsColorImage' src={sadPug} />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src='https://tinyurl.com/yad4kqvb' />}
           {this.state.color === 'green' && <img className='resultsColorImage' src='https://www.happydoguk.com/media/wysiwyg/Adult-dog---we-know.jpg' />}
@@ -67,6 +72,10 @@ class Results extends Component {
           {this.state.color === 'red' && <h2>Red: High Risk</h2>}
           {this.state.color === 'yellow' && <h2>Yellow: Medium Risk</h2>}
           {this.state.color === 'green' && <h2>Green: Low Risk</h2>}
+
+          {this.state.color === 'red' && <p>This {source} is {this.state.color} because</p>}
+          {this.state.color === 'yellow' && <p>This {source} is {this.state.color} because</p>}
+          {this.state.color === 'green' && <p>This {source} is {this.state.color} because</p>}
 
           <div className='result-feedback'>
             <div>Right now, what are your general feelings about this place/person?</div>
