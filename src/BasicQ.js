@@ -57,7 +57,7 @@ class BasicQ extends Component {
           </header>
           <div className='basicQuestion'>
             <div className='basicQuestion-Question'>
-              <h1>{this.props.question.text}</h1>
+              {this.props.question.text}
             </div>
             <div className='basicQuestion-Answers'>
               <form>
@@ -72,8 +72,6 @@ class BasicQ extends Component {
             </div>
           </div>
           <div className='navButtonDiv'>
-            {/* <Button className='navButton' onClick={this.props.removeAnswer} label='Previous Question' /> */}
-            {/* <Button className='navButton' onClick={this.props.prevAnswer} label='Previous Question' /> */}
             <Button className='navButton' onClick={this.previousQuestion} label='Previous Question' />
             <Button className='navButton' onClick={this.questionSubmit} label='Next Question' />
           </div>
