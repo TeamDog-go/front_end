@@ -12,18 +12,7 @@ import App from '../App'
 import Quiz from '../Quiz'
 import Results from '../Results'
 import Login from '../Login'
-
 import breederQuestions from '../BreederQuestions'
-const answers = [
-  {answer: 'Yes',
-    score: '50',
-    value: 'true'},
-  {answer: 'No',
-    score: '-100',
-    value: 'false'},
-  {answer: "I don't know",
-    score: '0',
-    value: 'undefined'}]
 
 addDecorator(story => (<Router>{story()}</Router>))
 
@@ -37,7 +26,7 @@ storiesOf('Questions, Basic', module)
 
 storiesOf('Quiz', module)
   .add('Quiz page, using Breeder quiz', () => <Quiz questions={breederQuestions} />)
-
+       
 storiesOf('Results', module)
   .add('Quiz page, using Breeder quiz', () => <Results questions={breederQuestions} answers={answers} feedbackStart={2} />)
 
