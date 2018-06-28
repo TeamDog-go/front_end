@@ -33,7 +33,7 @@ class Feedback extends Component {
     return (
       <div className='megaWrapper'>
         <header>
-          <img className='headerImage' src={PQlogo} />
+          <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
           <h2 className='header'>&nbsp;PupQuest Test</h2>
         </header>
         <div className='feedback'>
