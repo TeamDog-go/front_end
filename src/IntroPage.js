@@ -17,7 +17,7 @@ class IntroPage extends Component {
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
-            <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
+            <img className='headerImage' src={PQlogo} />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
@@ -25,7 +25,7 @@ class IntroPage extends Component {
           <p className='tagline'>Sniff Out a Good Spot!</p>
         </div>
         <div className='introPageDiv'>
-          <img className='introPageImage' src={dogAndChild} alt='A happy dog is a happy owner' />
+          <img className='introPageImage' src={dogAndChild} />
           <ul className='introPageText'>
             <li><strong>Happy, healthy dogs</strong> come from quality shelters, breeders, and individuals.</li>
             {/* <li>Where are you going to get your next dog?</li> */}
