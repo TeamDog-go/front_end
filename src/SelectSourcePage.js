@@ -15,12 +15,12 @@ class SelectSourcePage extends Component {
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
-            <img className='headerImage' src={PQlogo} />
+            <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
         <div className='selectSourcePageDiv'>
-          <img className='selectSourcePageImage' src={goldenRetriever} />
+          <img className='selectSourcePageImage' src={goldenRetriever} alt='golden retriever' />
           <h3 className='sourceQuestionText'>Which best describes the place you want to test?</h3>
           <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
           <Tooltip tooltipStyleClass='sourceTooltip' for='#shelterButton' title='For groups that have dogs for adoption in a public building or in foster homes.' tooltipPosition='right' />
