@@ -84,8 +84,8 @@ class Results extends Component {
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
 
-          <div>
-            <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Detailed Results' />
+          <div className='detailedResultsDiv'>
+            <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Show Detailed Results' />
             <Accordion className='accordion hidden'>
               <AccordionTab header='Question that ranked red'>
         The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughters wedding.

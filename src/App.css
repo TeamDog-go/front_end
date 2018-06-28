@@ -152,6 +152,14 @@ font-size: 1.2rem;
   display: none;
 }
 
+.detailedResultsDiv {
+  margin: 40px 0;
+}
+
+.detailedResultsButton {
+/* Center this */
+}
+
 @media all and (min-width: 768px) {
   header {
     font-size: 2rem;
