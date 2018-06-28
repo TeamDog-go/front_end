@@ -53,6 +53,7 @@ class Feedback extends Component {
           </div>
         </div>
         <div className='navButtonDiv'>
+          <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Previous' />
           <Button className='navButton' onClick={this.questionSubmit} label='Next Question' />
         </div>
       </div>

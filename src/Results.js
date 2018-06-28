@@ -20,28 +20,28 @@ class Results extends Component {
     }
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
-  // componentDidUpdate () {
-  // eventual plan is to post/make survey when page loads, submit survey, then PATCH the final response
-  // const results = {
-  //   initial_feedback: this.props.feedbackStart,
-  //   final_feedback: this.state.feedbackEnd,
-  //   final_score: this.state.score,
-  //   color: this.state.color
-  // }
-  // if (this.state.feedbackEnd) {
-  //   let userid
-  //   if (window.localStorage.pupQuestUser) {
-  //     userid = window.localStorage.pupQuestUser
-  //   } else { userid = 4 }
-  //   request
-  //     .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-  //     .send({user_id: userid})
-  //     .then((response) => {
-  //       console.log(response.body.survey.id)
-  //       return response.body.survey.id
-  //     })
-  // submit to server
-  // }
+//  componentDidUpdate () {
+    // eventual plan is to post/make survey when page loads, submit survey, then PATCH the final response
+    // const results = {
+    //   initial_feedback: this.props.feedbackStart,
+    //   final_feedback: this.state.feedbackEnd,
+    //   final_score: this.state.score,
+    //   color: this.state.color
+    // }
+    // if (this.state.feedbackEnd) {
+    //   let userid
+    //   if (window.localStorage.pupQuestUser) {
+    //     userid = window.localStorage.pupQuestUser
+    //   } else { userid = 4 }
+    //   request
+    //     .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+    //     .send({user_id: userid})
+    //     .then((response) => {
+    //       console.log(response.body.survey.id)
+    //       return response.body.survey.id
+    //     })
+      // submit to server
+    // }
   // }
   componentDidMount () {
     const answers = this.props.answers
@@ -76,6 +76,7 @@ class Results extends Component {
           </header>
         </div>
         <div className='resultsPageDiv'>
+
           <h4 className='resultsText'>This breeder is...</h4>
           {this.state.color === 'red' && <img className='resultsColorImage' src={sadPug} alt='High Risk' />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src='https://tinyurl.com/yad4kqvb' alt='Medium Risk' />}
