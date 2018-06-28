@@ -23,21 +23,21 @@ class Results extends Component {
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
-  componentDidUpdate () {
-    if (this.state.feedbackEnd) {
-      let userid
-      if (window.localStorage.pupQuestUser) {
-        userid = window.localStorage.pupQuestUser
-      } else { userid = 4 }
-      request
-        .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-        .send({user_id: userid})
-        .then((response) => {
-          console.log(response)
-        })
+  // componentDidUpdate () {
+    // if (this.state.feedbackEnd) {
+    //   let userid
+    //   if (window.localStorage.pupQuestUser) {
+    //     userid = window.localStorage.pupQuestUser
+    //   } else { userid = 4 }
+    //   request
+    //     .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+    //     .send({user_id: userid})
+    //     .then((response) => {
+    //       console.log(response)
+    //     })
       // submit to server
-    }
-  }
+    // }
+  // }
   componentDidMount () {
     const answers = this.props.answers
     new Promise(function (resolve, reject) {
@@ -94,7 +94,7 @@ class Results extends Component {
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
           <div className='result-feedback'>
-            <div>Right now, what are your general feelings about this place/person?</div>
+            <div className='feedbackQuestionResults'>What are your general feelings about this place/person now?</div>
             <SelectButton value={this.state.feedbackEnd} options={feedback} onChange={(e) => this.setState({feedbackEnd: e.value})} />
           </div>
 
@@ -121,11 +121,6 @@ class Results extends Component {
         now divorced from his wife Kay has nearly succeeded in keeping his promise that his family would one day be completely legitimate.
               </AccordionTab>
             </Accordion>
-          </div>
-
-          <div className='result-feedback'>
-            <div>Right now, what are your general feelings about this place/person?</div>
-            <SelectButton value={this.state.feedbackEnd} options={feedback} onChange={(e) => this.setState({feedbackEnd: e.value})} />
           </div>
         </div>
         <div className='navButtonDiv'>

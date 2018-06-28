@@ -94,7 +94,7 @@ header {
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 
 .navButton, .sourceButton {
@@ -152,12 +152,22 @@ font-size: 1.2rem;
   display: none;
 }
 
+.feedbackQuestionResults {
+  margin: 15px 0;
+}
+
 .detailedResultsDiv {
   margin: 40px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .detailedResultsButton {
-/* Center this */
+width: 80%;
+border-radius: 0;
+background-color: hsla(191, 42%, 41%, 1);
+color: white;
+margin: 10px auto;
 }
 
 /* Question Page */
@@ -224,10 +234,6 @@ font-size: 1.2rem;
 
 .answer.feedback input[type="radio"]:checked + label:after {
   content: none;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 62968582810b3081abe55117c45f5bc4b0313124
 }
 
 .result-feedback{
