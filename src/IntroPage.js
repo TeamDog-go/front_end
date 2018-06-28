@@ -3,7 +3,7 @@ import {Button} from 'primereact/components/button/Button'
 import dogAndChild from './Media/dogAndChild.jpg'
 // import pawprint from './Media/pawprint.png'
 // import dogHouse from './Media/dogHouse.png'
-import PQlogo from './Media/PQlogo.jpg'
+import PQlogo from './Media/PQlogo_rev-02.svg'
 // import Link from 'react-router-dom'
 import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 
@@ -23,6 +23,7 @@ class IntroPage extends Component {
         </div>
         <div>
           <p className='tagline'>Sniff Out a Good Spot!</p>
+          <p className='tagline'> We can help people find happy, healthy dogs</p>
         </div>
         <div className='introPageDiv'>
           <img className='introPageImage' src={dogAndChild} />
