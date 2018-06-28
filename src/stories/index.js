@@ -11,6 +11,7 @@ import BasicQ from '../BasicQ'
 import App from '../App'
 import Quiz from '../Quiz'
 import Results from '../Results'
+import Login from '../Login'
 
 import breederQuestions from '../BreederQuestions'
 const answers = [
@@ -39,3 +40,6 @@ storiesOf('Quiz', module)
 
 storiesOf('Results', module)
   .add('Quiz page, using Breeder quiz', () => <Results questions={breederQuestions} answers={answers} feedbackStart={2} />)
+
+storiesOf('Login', module)
+  .add('Login page', () => <Login />)

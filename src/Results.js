@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {calculation} from './Calculation'
-// import request from 'superagent'
+import request from 'superagent'
 
 import PQlogo from './Media/PQlogo.jpg'
 import sadPug from './Media/pugSad.jpg'
@@ -24,6 +24,16 @@ class Results extends Component {
   }
   componentDidUpdate () {
     if (this.state.feedbackEnd) {
+      let userid
+      if (window.localStorage.pupQuestUser) {
+        userid = window.localStorage.pupQuestUser
+      } else { userid = 4 }
+      request
+        .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+        .send({user_id: userid})
+        .then((response) => {
+          console.log(response)
+        })
       // submit to server
     }
   }
