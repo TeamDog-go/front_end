@@ -94,7 +94,7 @@ header {
   display: flex;
   justify-content: space-evenly;
   margin: 20px 0;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 
 .navButton, .sourceButton {
@@ -148,38 +148,30 @@ font-size: 1.2rem;
   width: 90%;
 }
 
-@media all and (min-width: 768px) {
-  header {
-    font-size: 2rem;
-    margin: 0;
-  }
-  
-  .header {
-    margin: 0;
-  }
-  
-  .headerImage {
-    /* max-width: 10%; */
-    max-height: 2.4rem;
-  }
- 
-  .introPageDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .introPageImage {
-    max-width: 50%;
-  }
-
-  .introPageText {
-    margin-top: 35px;
-    margin-left: 40px;
-  }
-
+.hidden {
+  display: none;
 }
+
+.feedbackQuestionResults {
+  margin: 15px 0;
+}
+
+.detailedResultsDiv {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailedResultsButton {
+width: 80%;
+border-radius: 0;
+background-color: hsla(191, 42%, 41%, 1);
+color: white;
+margin: 10px auto;
+}
+
 /* Question Page */
+/* ---------------------- Question Page ---------------------- */
 .basicQuestion{
   display: flex;
   flex-direction: column;
@@ -302,7 +294,6 @@ font-size: 1.2rem;
     margin-left: 40px;
   }
 }
-
 
 .portal-input{
   height: 40px;

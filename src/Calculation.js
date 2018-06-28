@@ -13,7 +13,8 @@ function calculation (answerArray) {
 
 export {calculation}
 
-function results (answers, questions, surveyID) {
+function results (answers, questions) {
+  // add survey ID ?
   const questionArray = []
   questions.map((entry, index) => {
     questionArray.push({
@@ -25,10 +26,12 @@ function results (answers, questions, surveyID) {
   answers.map((entry, index) => {
     let value
     if (entry.value === 'undefined') {
-      value = undefined
-      // value = null
-    } else if (entry.value === 'false' || entry.value === true) {
-      value = Boolean(entry.value)
+      // value = undefined
+      value = null
+    } else if (entry.value === 'false') {
+      value = false
+    } else if (entry.value === 'true') {
+      value = true
     } else {
       value = entry.value
     }
