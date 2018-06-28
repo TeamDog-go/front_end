@@ -30,8 +30,7 @@ class SelectSourcePage extends Component {
           <Tooltip className='sourceTooltip' for='#individualButton' title='For friends, relatives, neighbors, or Craigslist posters rehoming their dog/a litter of puppies.' tooltipPosition='right' />
         </div>
         <div className='navButtonDiv'>
-          {/* <Button className='navButton' onClick='' label='Previous' /> */}
-          {/* <Button className='navButton' onClick='' label='Let&apos;s Go!' /> */}
+          <Button className='navButton' onClick={() => this.props.history.push('/')} label='Previous' />
         </div>
       </div>
     )
