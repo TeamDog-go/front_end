@@ -83,6 +83,10 @@ class Results extends Component {
           {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong>.</p>}
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
+          <div className='result-feedback'>
+            <div>Right now, what are your general feelings about this place/person?</div>
+            <SelectButton value={this.state.feedbackEnd} options={feedback} onChange={(e) => this.setState({feedbackEnd: e.value})} />
+          </div>
 
           <div className='detailedResultsDiv'>
             <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Show Detailed Results' />
