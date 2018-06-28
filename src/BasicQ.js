@@ -47,7 +47,7 @@ class BasicQ extends Component {
   }
 
   render () {
-    console.log('props.saveanswers', this.props.savedanswers, 'props index-', this.props.index)
+    // console.log('props.saveanswers', this.props.savedanswers, 'props index-', this.props.index)
     if (this.props.question.answer) {
       return (
         <div className='megaWrapper'>

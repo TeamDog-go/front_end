@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {calculation} from './Calculation'
+import {calculation, results} from './Calculation'
 import request from 'superagent'
 
 import PQlogo from './Media/PQlogo.jpg'
@@ -23,6 +23,13 @@ class Results extends Component {
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
   componentDidUpdate () {
+    // eventual plan is to post/make survey when page loads, submit survey, then PATCH the final response
+    const results = {
+      initial_feedback: this.props.feedbackStart,
+      final_feedback: this.state.feedbackEnd,
+      final_score: this.state.score,
+      color: this.state.color
+    }
     if (this.state.feedbackEnd) {
       let userid
       if (window.localStorage.pupQuestUser) {
@@ -32,7 +39,8 @@ class Results extends Component {
         .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
         .send({user_id: userid})
         .then((response) => {
-          console.log(response)
+          console.log(response.body.survey.id)
+          return response.body.survey.id
         })
       // submit to server
     }
@@ -53,6 +61,7 @@ class Results extends Component {
     }).catch((error) => console.log('Error', error))
   }
   render () {
+    console.log(results(this.props.answers, this.props.questions))
     var feedback = [
       {label: 'Very negative', value: 1},
       {label: 'Negative', value: 2},

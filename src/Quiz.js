@@ -16,7 +16,7 @@ class Quiz extends Component {
     this.addAnswer = this.addAnswer.bind(this)
     this.prevAnswer = this.prevAnswer.bind(this)
     this.setFeedbackStart = this.setFeedbackStart.bind(this)
-    this.setFeedbackEnd = this.setFeedbackEnd.bind(this)
+    // this.setFeedbackEnd = this.setFeedbackEnd.bind(this)
   }
 
   addAnswer (answerIndex, newAnswer) {
@@ -49,14 +49,15 @@ class Quiz extends Component {
     })
   }
 
-  setFeedbackEnd (value) {
-    this.setState({
-      feedbackEnd: value,
-      feedbackCounter: this.state.feedbackCounter + 1
-    })
-  }
+  // setFeedbackEnd (value) {
+  //   this.setState({
+  //     feedbackEnd: value,
+  //     feedbackCounter: this.state.feedbackCounter + 1
+  //   })
+  // }
 
   componentDidMount () {
+    console.log(this.props.questions)
     this.setState({currentQ: this.props.questions[0]})
   }
 
