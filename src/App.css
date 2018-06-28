@@ -148,7 +148,6 @@ font-size: 1.2rem;
   width: 90%;
 }
 
-<<<<<<< HEAD
 .hidden {
   display: none;
 }
@@ -163,40 +162,6 @@ font-size: 1.2rem;
 
 /* Question Page */
 /* ---------------------- Question Page ---------------------- */
-=======
-@media all and (min-width: 768px) {
-  header {
-    font-size: 2rem;
-    margin: 0;
-  }
-  
-  .header {
-    margin: 0;
-  }
-  
-  .headerImage {
-    /* max-width: 10%; */
-    max-height: 2.4rem;
-  }
- 
-  .introPageDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .introPageImage {
-    max-width: 50%;
-  }
-
-  .introPageText {
-    margin-top: 35px;
-    margin-left: 40px;
-  }
-
-}
-/* Question Page */
->>>>>>> 480c53b3572ec19adb289db4fc58a1a68384e0f2
 .basicQuestion{
   display: flex;
   flex-direction: column;
@@ -260,6 +225,9 @@ font-size: 1.2rem;
 .answer.feedback input[type="radio"]:checked + label:after {
   content: none;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 62968582810b3081abe55117c45f5bc4b0313124
 }
 
 .result-feedback{
@@ -320,6 +288,41 @@ font-size: 1.2rem;
     margin-left: 40px;
   }
 }
-=======
+
+.portal-input{
+  height: 40px;
+  font-size: 14px;
+  margin: 1.5rem 0;
+  width: 100%
 }
->>>>>>> 480c53b3572ec19adb289db4fc58a1a68384e0f2
+
+.portal-label{
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.ui-float-label input:focus ~ label,
+.ui-float-label input.ui-state-filled ~ label,
+.ui-float-label .ui-inputwrapper-focus ~ label,
+.ui-float-label .ui-inputwrapper-filled ~ label {
+  top:-.04rem;
+  font-size:18px;
+}
+.user-portal{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.login-div{
+  display: flex;
+  flex-direction: column;
+  width: 40%;  
+}
+.register-div{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
