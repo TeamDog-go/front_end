@@ -4,8 +4,6 @@ import request from 'superagent'
 
 import PQlogo from './Media/PQlogo.jpg'
 import sadPug from './Media/pugSad.jpg'
-// import pawprint from './Media/pawprint.png'
-// import dogHouse from './Media/dogHouse.png'
 
 // import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import {Button} from 'primereact/components/button/Button'

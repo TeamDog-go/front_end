@@ -62,10 +62,11 @@ class Quiz extends Component {
   }
 
   render () {
+    console.log(this.props)
     if (this.state.feedbackCounter === 0) {
       return (
         <div>
-          <Feedback setFeedback={this.setFeedbackStart} />
+          <Feedback setFeedback={this.setFeedbackStart} history={this.props.history} />
         </div>
       )
     } else if (this.state.answers.length < this.props.questions.length) {
