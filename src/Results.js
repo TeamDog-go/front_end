@@ -54,15 +54,15 @@ class Results extends Component {
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
-            <img className='headerImage' src={PQlogo} />
+            <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
         <div className='resultsPageDiv'>
           <h4 className='resultsText'>This breeder is...</h4>
-          {this.state.color === 'red' && <img className='resultsColorImage' src={sadPug} />}
-          {this.state.color === 'yellow' && <img className='resultsColorImage' src='https://tinyurl.com/yad4kqvb' />}
-          {this.state.color === 'green' && <img className='resultsColorImage' src='https://www.happydoguk.com/media/wysiwyg/Adult-dog---we-know.jpg' />}
+          {this.state.color === 'red' && <img className='resultsColorImage' src={sadPug} alt='High Risk' />}
+          {this.state.color === 'yellow' && <img className='resultsColorImage' src='https://tinyurl.com/yad4kqvb' alt='Medium Risk' />}
+          {this.state.color === 'green' && <img className='resultsColorImage' src='https://www.happydoguk.com/media/wysiwyg/Adult-dog---we-know.jpg' alt='Low Risk' />}
 
           {this.state.color === 'red' && <h2>Red: High Risk</h2>}
           {this.state.color === 'yellow' && <h2>Yellow: Medium Risk</h2>}
@@ -70,7 +70,7 @@ class Results extends Component {
 
           <div className='result-feedback'>
             <div>Right now, what are your general feelings about this place/person?</div>
-            <SelectButton value={this.state.feedbackEnd} options={feedback} onChange={(e) => this.setState({feedbackEnd: e.value})} />
+            <SelectButton className='result-feedback-score' value={this.state.feedbackEnd} options={feedback} onChange={(e) => this.setState({feedbackEnd: e.value})} />
           </div>
 
           <Accordion>

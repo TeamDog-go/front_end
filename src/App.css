@@ -1,11 +1,10 @@
-
 * {
   box-sizing: border-box;
 }
 
 body {
-  margin: 40px 40px;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 30px 40px;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .megaWrapper {
@@ -14,8 +13,7 @@ body {
   border: 1px solid #BEC1BE;
 }
 
-/* Intro Page */
-
+/* ---------------------- ALL Pages ---------------------- */
 header {
   display: flex;
   justify-content: center;
@@ -24,24 +22,37 @@ header {
   font-weight: 700;
   font-size: 1.5rem;
   margin: 0;
+  line-height: 100%;
 }
-
-.header {
-  margin: 0;
-}
-
 .headerImage {
   /* max-width: 10%; */
   min-height: 4rem;
 }
-
 .titleDiv {
-  margin: 0;
   width: 100%;
   border-bottom: 2px solid #3D8696;
   padding: 0;
+  margin: 0;
 }
 
+.navButtonDiv {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+.navButton, .sourceButton {
+background-color: hsl(191, 42%, 41%);
+color: white;
+border-radius: 0;
+padding: 8px 0;
+min-width: 200px;
+max-width: 300px;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 1.2rem;
+}
+
+/* ---------------------- Intro Page ---------------------- */
 .tagline {
   font-family: 'Jaldi', sans-serif;
   font-size: 1.5rem;
@@ -66,6 +77,7 @@ header {
   line-height: 1.3rem;
   list-style: none;
   padding: 0;
+  margin: 8px 0;
 }
 
 .introPageText li {
@@ -86,50 +98,29 @@ header {
   transform: translateY(-50%);
 }
 
-.introPageText {
-  margin: 8px 0;
-}
-
-.navButtonDiv {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 20px 0;
-  flex-wrap: wrap;
-}
-
-.navButton, .sourceButton {
-background-color: hsl(191, 42%, 41%);
-color: white;
-border-radius: 0;
-padding: 8px 0;
-max-width: 300px;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 1.2rem;
-}
-
-.navButton {
-  min-width: 200px;
-  margin: 10px 15px;
-}
-
-/* Source Page */
-
-.selectSourcePageImage {
-  max-width: 50%;
-}
-
-.sourceQuestionText {
-  text-align: center;
-}
-
+/* ---------------------- Source Page ---------------------- */
 .selectSourcePageDiv {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.selectSourcePageImage {
+  width: 60%;
+  object-fit: cover;
+  object-position: 50% 20%;
+  height: 40vh;
+  margin: 20px 0 0 0;
+}
+
+.sourceQuestionText {
+  text-align: center;
+  margin: 15px auto;
+}
+
 .sourceButton {
-  margin: 15px 0;
+  margin: 6px 0;
   width: 50%;
 }
 
@@ -142,49 +133,22 @@ font-size: 1.2rem;
   border: 1px solid #c1c1c1;
 }
 
-/* Results Page */
-
+/* ---------------------- Results Page ---------------------- */
+.resultsPageDiv{
+  width: 100%;
+}
 .resultsColorImage {
-  width: 90%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  height: 30vh;
 }
 
-@media all and (min-width: 768px) {
-  header {
-    font-size: 2rem;
-    margin: 0;
-  }
-  
-  .header {
-    margin: 0;
-  }
-  
-  .headerImage {
-    /* max-width: 10%; */
-    max-height: 2.4rem;
-  }
- 
-  .introPageDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .introPageImage {
-    max-width: 50%;
-  }
-
-  .introPageText {
-    margin-top: 35px;
-    margin-left: 40px;
-  }
-
-}
-/* Question Page */
+/* ---------------------- Question Page ---------------------- */
 .basicQuestion{
   display: flex;
   flex-direction: column;
 }
-
 .basicQuestion-Question{
   display: flex;
   justify-content: center;
@@ -207,7 +171,7 @@ font-size: 1.2rem;
   /* border-radius: 20px; */
   font-size: 120%;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
   text-align: center;
   box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.35);
   position: relative;
@@ -221,6 +185,7 @@ font-size: 1.2rem;
     background-color: white;
     border: 2px solid hsla(191, 42%, 41%, 1);
     content: url('./Media/check.svg');
+    /* content: url('gs://momentum-final-cohort1.appspot.com/check.svg'); */
     position: absolute;
     top: 10%;
     left: 2%;
@@ -230,6 +195,7 @@ font-size: 1.2rem;
     box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, .75);
 }
 
+/* ---------------------- Feedback Page ---------------------- */
 .feedback-Question{
   display: flex;
   justify-content: center;
@@ -238,8 +204,68 @@ font-size: 1.2rem;
 }
 .answer.feedback {
   max-width: 200px;
+  margin-top: 12px;
 }
 
 .answer.feedback input[type="radio"]:checked + label:after {
   content: none;
+}
+
+.result-feedback{
+  margin: 1rem 0;
+}
+/* ---------------------- Result Feedback / Select ---------------------- */
+.ui-selectbutton.ui-buttonset.ui-widget.ui-corner-all.ui-buttonset-3.result-feedback-score .ui-button{
+  /* background: hsla(191, 42%, 41%, 1);*/
+  /*color: hsla(215, 0%, 100%, 1); */
+  /* box-shadow: 0px 0px 20px hsla(191, 42%, 41%, 0.75) */
+  border-left: hsla(191, 42%, 41%, 1) .1px solid;
+}
+.ui-selectbutton .ui-button.ui-state-focus{
+  outline: none;
+  background: hsla(191, 42%, 41%, 1);
+}
+.ui-selectbutton .ui-button :hover{
+  background: hsla(191, 42%, 41%, .5);
+}
+.ui-button.ui-widget.ui-state-default.ui-button-text-only.ui-state-active{
+  background: hsla(191, 42%, 41%, 1);
+}
+
+/* ---------------------- Media Queries ---------------------- */
+@media all and (max-width: 650px) {
+  .ui-selectbutton.ui-buttonset.ui-widget.ui-corner-all.ui-buttonset-3.result-feedback-score .ui-button{
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 768px) {
+  header {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .header {
+    margin: 0;
+  }
+  
+  .headerImage {
+    /* max-width: 10%; */
+    max-height: 2.4rem;
+  }
+
+  .introPageDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .introPageImage {
+    max-width: 50%;
+  }
+
+  .introPageText {
+    margin-top: 35px;
+    margin-left: 40px;
+  }
 }
