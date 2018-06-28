@@ -13,30 +13,37 @@ function calculation (answerArray) {
 
 export {calculation}
 
-function results (answerArray, questions) {
-  const questionText = questions.map((e) => { return e.text })
-  const userAnswers = answerArray.map((entry, index) => {
+function results (answers, questions) {
+  // add survey ID ?
+  const questionArray = []
+  questions.map((entry, index) => {
+    questionArray.push({
+      question_id: index,
+      content: entry.text
+    })
+  })
+  const answerArray = []
+  answers.map((entry, index) => {
     let value
     if (entry.value === 'undefined') {
-      value = undefined
-    } else if (entry.value === 'false' || entry.value === true) {
-      value = Boolean(entry.value)
+      // value = undefined
+      value = null
+    } else if (entry.value === 'false') {
+      value = false
+    } else if (entry.value === 'true') {
+      value = true
     } else {
       value = entry.value
     }
-    return ({
-      id: index,
-      content: questionText[index],
-      answer: {
-        answer_id: 1,
-        question_id: index,
-        value: value,
-        content: entry.answer
-      }
-
+    answerArray.push({
+      question_id: index,
+      value: value,
+      a_content: entry.answer
     })
   })
-  const final = userAnswers.concat(calculation(answerArray))
-  return final
+  return {
+    questions: questionArray,
+    answers: answerArray
+  }
 }
 export {results}

@@ -47,12 +47,12 @@ class BasicQ extends Component {
   }
 
   render () {
-    console.log('props.saveanswers', this.props.savedanswers, 'props index-', this.props.index)
+    // console.log('props.saveanswers', this.props.savedanswers, 'props index-', this.props.index)
     if (this.props.question.answer) {
       return (
         <div className='megaWrapper'>
           <header>
-            <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
+            <img className='headerImage' src={PQlogo} />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
           <div className='basicQuestion'>
