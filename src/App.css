@@ -156,37 +156,6 @@ font-size: 1.2rem;
 /* Center this */
 }
 
-@media all and (min-width: 768px) {
-  header {
-    font-size: 2rem;
-    margin: 0;
-  }
-  
-  .header {
-    margin: 0;
-  }
-  
-  .headerImage {
-    /* max-width: 10%; */
-    max-height: 2.4rem;
-  }
- 
-  .introPageDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .introPageImage {
-    max-width: 50%;
-  }
-
-  .introPageText {
-    margin-top: 35px;
-    margin-left: 40px;
-  }
-
-}
 /* Question Page */
 /* ---------------------- Question Page ---------------------- */
 .basicQuestion{

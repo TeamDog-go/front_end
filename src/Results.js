@@ -66,37 +66,23 @@ class Results extends Component {
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
-            <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
+            <img className='headerImage' src={PQlogo} />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
         <div className='resultsPageDiv'>
-<<<<<<< HEAD
           <h4 className='resultsText'>This {source} is...</h4>
           {this.state.color === 'red' && <img className='resultsColorImage' src={sadPug} />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src='https://tinyurl.com/yad4kqvb' />}
           {this.state.color === 'green' && <img className='resultsColorImage' src='https://www.happydoguk.com/media/wysiwyg/Adult-dog---we-know.jpg' />}
-=======
-          <h4 className='resultsText'>This breeder is...</h4>
-          {this.state.color === 'red' && <img className='resultsColorImage' src={sadPug} alt='High Risk' />}
-          {this.state.color === 'yellow' && <img className='resultsColorImage' src='https://tinyurl.com/yad4kqvb' alt='Medium Risk' />}
-          {this.state.color === 'green' && <img className='resultsColorImage' src='https://www.happydoguk.com/media/wysiwyg/Adult-dog---we-know.jpg' alt='Low Risk' />}
->>>>>>> 47729859d9a1c6ca27991995c660b128a57e05f6
 
           {this.state.color === 'red' && <h2>Red: High Risk</h2>}
           {this.state.color === 'yellow' && <h2>Yellow: Medium Risk</h2>}
           {this.state.color === 'green' && <h2>Green: Low Risk</h2>}
 
-<<<<<<< HEAD
           {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong>.</p>}
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
-=======
-          <div className='result-feedback'>
-            <div>Right now, what are your general feelings about this place/person?</div>
-            <SelectButton className='result-feedback-score' value={this.state.feedbackEnd} options={feedback} onChange={(e) => this.setState({feedbackEnd: e.value})} />
-          </div>
->>>>>>> 47729859d9a1c6ca27991995c660b128a57e05f6
 
           <div className='detailedResultsDiv'>
             <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Show Detailed Results' />
