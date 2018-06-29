@@ -19,15 +19,15 @@ header {
   justify-content: center;
   align-items: center;
   font-family: 'Jaldi', sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
+  padding: 0;
   margin: 0;
-  line-height: 100%;
 }
 .headerImage {
-  /* max-width: 10%; */
-  min-height: 30%;
-  max-height: 4rem;
+  min-height: 45px;
+  width: auto;
+}
+.header{
+  margin: 0;
 }
 .titleDiv {
   width: 100%;
@@ -39,20 +39,31 @@ header {
 .navButtonDiv {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 35px;
-  flex-wrap: wrap;
+  margin: 15px 0;
+  flex-wrap: wrap-reverse;
 }
 .navButton, .sourceButton {
-background-color: hsl(191, 42%, 41%);
+background-color: hsla(191, 42%, 41%, 0.55);
 color: white;
+/* gonna be honest, not really feeling making these white/light */
 border-radius: 0;
 padding: 8px 0;
 min-width: 200px;
 max-width: 300px;
 font-family: Arial, Helvetica, sans-serif;
 font-size: 1.2rem;
+/* background-color: #f4f4f4; */
+/* color: rgb(34, 33, 33); */
 }
 
+.ui-button.ui-widget.ui-state-default.ui-corner-all:hover {
+  background: hsla(191, 42%, 41%, 1);
+  color: hsla(215, 0%, 100%, 1);
+}
+
+hidden {
+  display: none;
+}
 /* ---------------------- Intro Page ---------------------- */
 .tagline {
   font-family: 'Jaldi', sans-serif;
@@ -65,16 +76,13 @@ font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  border: black 1px dotted;
 }
 
 .introPageImage, .selectSourcePageImage {
   max-width: 100%;
   align-self: center;
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
-  margin: 25px 0;
-  border: black 1px dotted;
+  margin: 20px 0;
 }
 
 .introPageText {
@@ -82,14 +90,12 @@ font-size: 1.2rem;
   list-style: none;
   padding: 0;
   margin: 8px 0;
-  border: black 1px dotted;
 }
 
 .introPageText li {
   position: relative;
   padding-left: 30px;
-  margin-bottom: 25px;
-  border: black 1px dotted;
+  margin-bottom: 20px;
 }
 .introPageText li:before {
   content: '';
@@ -128,6 +134,8 @@ font-size: 1.2rem;
 .sourceButton {
   margin: 6px 0;
   width: 50%;
+  background-color: #f4f4f4;
+  color: rgb(34, 33, 33);
 }
 
 .ui-tooltip .ui-tooltip-text {
@@ -147,6 +155,7 @@ font-size: 1.2rem;
   width: 100%;
   object-fit: cover;
   object-position: 50% 50%;
+
   height: 30vh;
 }
 
@@ -162,7 +171,8 @@ font-size: 1.2rem;
   font-size: 150%;
 }
 .answer{
-  width: 80%;
+  width: 60%;
+  /* //may need to do in-line width for the answers */
   margin: 0 auto;
 }
 
@@ -177,7 +187,7 @@ font-size: 1.2rem;
   /* border-radius: 20px; */
   font-size: 120%;
   padding: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
   text-align: center;
   box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.35);
   position: relative;
@@ -222,9 +232,6 @@ font-size: 1.2rem;
 }
 /* ---------------------- Result Feedback / Select ---------------------- */
 .ui-selectbutton.ui-buttonset.ui-widget.ui-corner-all.ui-buttonset-3.result-feedback-score .ui-button{
-  /* background: hsla(191, 42%, 41%, 1);*/
-  /*color: hsla(215, 0%, 100%, 1); */
-  /* box-shadow: 0px 0px 20px hsla(191, 42%, 41%, 0.75) */
   border-left: hsla(191, 42%, 41%, 1) .1px solid;
 }
 .ui-selectbutton .ui-button.ui-state-focus{
@@ -238,20 +245,37 @@ font-size: 1.2rem;
   background: hsla(191, 42%, 41%, 1);
 }
 
+.feedbackQuestionResults {
+  margin: 15px 0;
+}
+
+.detailedResultsDiv {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailedResultsButton {
+  width: 80%;
+  border-radius: 0;
+  background-color: hsla(191, 42%, 41%, 1);
+  color: white;
+  margin: 10px auto;
+}
+
 /* ---------------------- Media Queries ---------------------- */
 @media all and (max-width: 650px) {
   .ui-selectbutton.ui-buttonset.ui-widget.ui-corner-all.ui-buttonset-3.result-feedback-score .ui-button{
     width: 50%;
+  }
+  .selectSourcePageImage {
+    width: 80%;
   }
 }
 
 @media all and (min-width: 768px) {
   header {
     font-size: 2rem;
-    margin: 0;
-  }
-  
-  .header {
     margin: 0;
   }
   
@@ -264,7 +288,6 @@ font-size: 1.2rem;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-
   }
 
   .introPageImage {
@@ -278,7 +301,7 @@ font-size: 1.2rem;
   }
 }
 
-
+/* ---------------------- Login/Registration Pages ---------------------- */
 .portal-input{
   height: 40px;
   font-size: 14px;
@@ -316,3 +339,8 @@ font-size: 1.2rem;
   flex-direction: column;
   width: 40%;
 }
+
+
+
+
+

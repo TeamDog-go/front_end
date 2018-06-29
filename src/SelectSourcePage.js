@@ -1,21 +1,16 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 import goldenRetriever from './Media/goldenRetriever.jpg'
-// import pawprint from './Media/pawprint.png'
-// import dogHouse from './Media/dogHouse.png'
 import {Tooltip} from 'primereact/components/tooltip/Tooltip'
-import PQlogo from './Media/PQlogo.jpg'
+import PQlogo from './Media/PQlogo_rev-02.svg'
 
 class SelectSourcePage extends Component {
-  constructor (props) {
-    super()
-  }
   render () {
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
-            <img className='headerImage' src={PQlogo} />
+            <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
