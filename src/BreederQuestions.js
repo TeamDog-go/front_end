@@ -1,251 +1,257 @@
 const breederQuestions = [
   {
-    text: 'Are you allowed to visit where the puppies are kept in person?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: 50
+    content: 'Are you allowed to visit where the puppies are kept in person?',
+    source_id: 'breeder',
+    id: 1,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: 50
     },
     {
-      text: 'No',
-      value: false,
-      score: -100
+      o_content: 'No',
+      o_color: 'red',
+      points: -100
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }
     ]
   },
   {
-    text: 'Does the breeder ship puppies?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: -100
+    content: 'Does the breeder ship puppies?',
+    source_id: 'breeder',
+    id: 2,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: -100
     },
     {
-      text: 'No',
-      value: false,
-      score: 10
+      o_content: 'No',
+      o_color: 'red',
+      points: 10
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }
     ]
   },
   {
-    text: 'Is the breeder USDA licensed?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: -100
+    content: 'Is the breeder USDA licensed?',
+    source_id: 'breeder',
+    id: 3,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: -100
     },
     {
-      text: 'No',
-      value: false,
-      score: 10
+      o_content: 'No',
+      o_color: 'red',
+      points: 10
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }
     ]
   }
   // }, // BREAK HERE //
   // {
-  //   text: 'Are you able (and willing) to visit the dogs in person?',
-  //   answer: [{
-  //     text: 'Yes',
-  //     value: true,
-  //     score: 50
+  //   content: 'Are you able (and willing) to visit the dogs in person?',
+  //   options: [{
+  //     content: 'Yes',
+  //     o_color: "green",
+  //     points: 50
   //   }, {
-  //     text: 'No',
-  //     value: false,
-  //     score: -100
+  //     content: 'No',
+  //     o_color: "red",
+  //     points: -100
   //   }, {
-  //     text: 'I don\'t know',
-  //     value: undefined,
-  //     score: 0
+  //     content: 'I don\'t know',
+  //     o_color: "yellow",
+  //     points: 0
   //   }]
   // },
   // {
-  //   text: 'Where are the puppies being raised?',
-  //   answer: [{
-  //     text: 'In the home with the family',
-  //     value: true,
-  //     score: 50
+  //   content: 'Where are the puppies being raised?',
+  //   options: [{
+  //     content: 'In the home with the family',
+  //     o_color: "green",
+  //     points: 50
   //   }, {
-  //     text: 'In rows of cages/warehouse',
-  //     value: false,
-  //     score: -100
+  //     content: 'In rows of cages/warehouse',
+  //     o_color: "red",
+  //     points: -100
   //   }, {
-  //     text: 'In a kennel, garage, or outdoors',
-  //     value: undefined, // NEED A BETTER VALUE HERE//
-  //     score: 10
+  //     content: 'In a kennel, garage, or outdoors',
+  //     o_color: "yellow", // NEED A BETTER o_color HERE//
+  //     points: 10
   //   }, {
-  //     text: 'Not applicable, adult dog',
-  //     value: undefined,
-  //     score: 0
+  //     content: 'Not applicable, adult dog',
+  //     o_color: "yellow",
+  //     points: 0
   //   }, {
-  //     text: 'Other',
-  //     value: undefined,
-  //     score: 0
+  //     content: 'Other',
+  //     o_color: "yellow",
+  //     points: 0
   //   }]
   // },
   // {
-  //   text: 'Are the dogs/puppies seen by a veterinarian prior to going home?',
-  //   answer: [{
-  //     text: 'Yes',
-  //     value: true,
-  //     score: 30
+  //   content: 'Are the dogs/puppies seen by a veterinarian prior to going home?',
+  //   options: [{
+  //     content: 'Yes',
+  //     o_color: "green",
+  //     points: 30
   //   }, {
-  //     text: 'No',
-  //     value: false,
-  //     score: 5
+  //     content: 'No',
+  //     o_color: "red",
+  //     points: 5
   //   }, {
-  //     text: 'I don\'t know',
-  //     value: undefined,
-  //     score: 0
+  //     content: 'I don\'t know',
+  //     o_color: "yellow",
+  //     points: 0
   //   }]
   // },
   // {
-  //   text: 'Will the breeder take their dog/puppy back at any point in their lives?',
-  //   answer: [{
-  //     text: 'Yes',
-  //     value: true,
-  //     score: 30
+  //   content: 'Will the breeder take their dog/puppy back at any point in their lives?',
+  //   options: [{
+  //     content: 'Yes',
+  //     o_color: "green",
+  //     points: 30
   //   }, {
-  //     text: 'No',
-  //     value: false,
-  //     score: 10
+  //     content: 'No',
+  //     o_color: "red",
+  //     points: 10
   //   }, {
-  //     text: 'I don\'t know',
-  //     value: undefined,
-  //     score: 0
+  //     content: 'I don\'t know',
+  //     o_color: "yellow",
+  //     points: 0
   //   }]
   // },
   // {
-  //   text: 'Does the breeder require you to meet them in person?',
-  //   answer: [{
-  //     text: 'Yes',
-  //     value: true,
-  //     score: 30
+  //   content: 'Does the breeder require you to meet them in person?',
+  //   options: [{
+  //     content: 'Yes',
+  //     o_color: "green",
+  //     points: 30
   //   }, {
-  //     text: 'No',
-  //     value: false,
-  //     score: -100
+  //     content: 'No',
+  //     o_color: "red",
+  //     points: -100
   //   }, {
-  //     text: 'I don\'t know',
-  //     value: undefined,
-  //     score: 0
+  //     content: 'I don\'t know',
+  //     o_color: "yellow",
+  //     points: 0
   //   }]
   // },
   // {
-  //   text: 'Does the breeder sell puppies directly over the internet? (You can adopt online and they ship you the animal.)',
-  //   answer: [{
-  //     text: 'Yes',
-  //     value: true,
-  //     score: -100
+  //   content: 'Does the breeder sell puppies directly over the internet? (You can adopt online and they ship you the animal.)',
+  //   options: [{
+  //     content: 'Yes',
+  //     o_color: "green",
+  //     points: -100
   //   }, {
-  //     text: 'No, and they explicitly state this',
-  //     value: false,
-  //     score: 20
+  //     content: 'No, and they explicitly state this',
+  //     o_color: "red",
+  //     points: 20
   //   }, {
-  //     text: 'I don\'t know',
-  //     value: undefined,
-  //     score: 0
+  //     content: 'I don\'t know',
+  //     o_color: "yellow",
+  //     points: 0
   //   }
   //   ]
   // },
   // {
-  //   text: 'How many breeds does the breeder have available?',
-  //   answer: [{
-  //     text: '1-2',
-  //     value: true, // True and False values here? //
-  //     score: -100
+  //   content: 'How many breeds does the breeder have available?',
+  //   options: [{
+  //     content: '1-2',
+  //     o_color: "green", // "green" and "red" values here? //
+  //     points: -100
   //   }, {
-  //     text: '3',
-  //     value: false,
-  //     score: 20
+  //     content: '3',
+  //     o_color: "red",
+  //     points: 20
   //   }, {
-  //     text: '4 or more',
-  //     value: false,
-  //     score: -100
+  //     content: '4 or more',
+  //     o_color: "red",
+  //     points: -100
   //   }
   //   ]
   // },
   // {
-  //   text: 'Does the breeder socialize their puppies to people, objects, and a normal home environment?',
-  //   answer: [{
-  //     text: 'Yes, and they are raised in the home ',
-  //     value: true,
-  //     score: 30
+  //   content: 'Does the breeder socialize their puppies to people, objects, and a normal home environment?',
+  //   options: [{
+  //     content: 'Yes, and they are raised in the home ',
+  //     o_color: "green",
+  //     points: 30
   //   }, {
-  //     text: 'Yes, and they are not raised inside the home ',
-  //     value: true,
-  //     score: 10
+  //     content: 'Yes, and they are not raised inside the home ',
+  //     o_color: "green",
+  //     points: 10
   //   }, {
-  //     text: 'No',
-  //     value: false,
-  //     score: -30
+  //     content: 'No',
+  //     o_color: "red",
+  //     points: -30
   //   }, {
-  //     text: 'I don\'t know',
-  //     value: undefined, // NEED TO CONSIDER GIVING -SOME- VALUE TO I DONT KNOW //
-  //     score: 0
+  //     content: 'I don\'t know',
+  //     o_color: "yellow", // NEED TO CONSIDER GIVING -SOME- o_color TO I DONT KNOW //
+  //     points: 0
   //   }, {
-  //     text: 'Not applicable, adult dog(s)', // NA HERE? //
-  //     value: undefined,
-  //     score: 0
+  //     content: 'Not applicable, adult dog(s)', // NA HERE? //
+  //     o_color: "yellow",
+  //     points: 0
   //   }]
   // },
   // {
-  //   text: 'Is the breeder involved with local breed clubs and competitions such as agility, herding, or showing? (AKC membership does not count towards this)',
-  //   answer: [{
-  //     text: 'Yes',
-  //     value: true,
-  //     score: 30
+  //   content: 'Is the breeder involved with local breed clubs and competitions such as agility, herding, or showing? (AKC membership does not count towards this)',
+  //   options: [{
+  //     content: 'Yes',
+  //     o_color: "green",
+  //     points: 30
   //   }, {
-  //     text: 'No',
-  //     value: false,
-  //     score: 10
+  //     content: 'No',
+  //     o_color: "red",
+  //     points: 10
   //   }, {
-  //     text: 'I don\'t know',
-  //     value: undefined, // also false? //
-  //     score: 0
+  //     content: 'I don\'t know',
+  //     o_color: "yellow", // also "red"? //
+  //     points: 0
   //   }]
   // },
   // {
-  //   text: 'Do the breeders provide proof that parents are screened for health problems (hip dysplasia, heart problems)?',
-  //   answer: [{
-  //     text: 'Yes',
-  //     value: true,
-  //     score: 30
+  //   content: 'Do the breeders provide proof that parents are screened for health problems (hip dysplasia, heart problems)?',
+  //   options: [{
+  //     content: 'Yes',
+  //     o_color: "green",
+  //     points: 30
   //   }, {
-  //     text: 'No',
-  //     value: false,
-  //     score: 10
+  //     content: 'No',
+  //     o_color: "red",
+  //     points: 10
   //   }, {
-  //     text: 'I don\'t know',
-  //     value: undefined, // also false? //
-  //     score: 0
+  //     content: 'I don\'t know',
+  //     o_color: "yellow", // also "red"? //
+  //     points: 0
   //   }]
   // },
   // {
-  //   text: 'How much do puppies cost?',
-  //   answer: [{
-  //     text: 'Up to $2000',
-  //     value: true,
-  //     score: 20
+  //   content: 'How much do puppies cost?',
+  //   options: [{
+  //     content: 'Up to $2000',
+  //     o_color: "green",
+  //     points: 20
   //   }, {
-  //     text: 'Between $2000 and $3000 ',
-  //     value: false,
-  //     score: 5
+  //     content: 'Between $2000 and $3000 ',
+  //     o_color: "red",
+  //     points: 5
   //   }, {
-  //     text: 'Over $3000',
-  //     value: undefined,
-  //     score: -20
+  //     content: 'Over $3000',
+  //     o_color: "yellow",
+  //     points: -20
   //   }]
   // }
 ]

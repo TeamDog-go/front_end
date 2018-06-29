@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 import {Password} from 'primereact/components/password/Password'
 import {InputText} from 'primereact/components/inputtext/InputText'
-
-import PQlogo from './Media/PQlogo.jpg'
+import PQlogo from './Media/PQlogo_rev-02.svg'
 
 class Login extends Component {
   constructor (props) {

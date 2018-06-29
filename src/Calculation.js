@@ -1,6 +1,6 @@
 function calculation (answerArray) {
-  const scores = answerArray.map(function (e) { return Number(e.score) })
-  const total = scores.reduce((total, amount) => total + amount)
+  const points = answerArray.map(function (e) { return Number(e.points) })
+  const total = points.reduce((total, amount) => total + amount)
   let colorResult
   if (total < 0) {
     colorResult = 'red'
@@ -16,29 +16,20 @@ export {calculation}
 function results (answers, questions) {
   // add survey ID ?
   const questionArray = []
-  questions.map((entry, index) => {
+  questions.map((entry) => {
     questionArray.push({
-      question_id: index,
-      content: entry.text
+      question_id: entry.id,
+      content: entry.content,
+      source_id: entry.source_id
     })
   })
   const answerArray = []
-  answers.map((entry, index) => {
-    let value
-    if (entry.value === 'undefined') {
-      // value = undefined
-      value = null
-    } else if (entry.value === 'false') {
-      value = false
-    } else if (entry.value === 'true') {
-      value = true
-    } else {
-      value = entry.value
-    }
+  answers.map((entry) => {
     answerArray.push({
-      question_id: index,
-      value: value,
-      a_content: entry.answer
+      a_content: entry.answer,
+      question_id: entry.question_id,
+      a_color: entry.color,
+      points: entry.points
     })
   })
   return {
