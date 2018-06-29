@@ -36,12 +36,12 @@ header {
   margin: 0;
 }
 
-.navButtonDiv {
+/* .navButtonDiv {
   display: flex;
   justify-content: space-evenly;
   margin: 15px 0;
   flex-wrap: wrap-reverse;
-}
+} */
 .navButton, .sourceButton {
 background-color: hsla(191, 42%, 41%, 0.55);
 color: white;
@@ -57,13 +57,77 @@ font-size: 1.2rem;
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all:hover {
-  background: hsla(191, 42%, 41%, 1);
+  background: #3c8494;
   color: hsla(215, 0%, 100%, 1);
+  border: 2px solid hsla(191, 42%, 41%, 1);
 }
 
 hidden {
   display: none;
 }
+/* ---------------------- NAV BUTTONS FLEXBOX ----------------------*/
+.navButtonDiv{
+  display: flex;
+  justify-content: space-between;
+  /* justify-content: center; */
+  width: 75%;
+  margin: 0 auto;
+}
+.arrow {
+  height: 50px;
+  width: 50px;
+  border: none;
+  margin: 2px;
+}
+
+.arrow.back.active {
+  height: 50px;
+  width: 50px;
+  background-image: url('./Media/iconmonstr-arrow-4-240back.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.arrow.back.active:hover {
+  height: 54px;
+  width: 54px;
+  margin: 0px
+}
+
+.arrow.back {
+  height: 50px;
+  width: 50px;
+  background-image: url('./Media/iconmonstr-arrow-4-240backgrey-50.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.arrow.next.active {
+  height: 50px;
+  width: 50px;
+  background-image: url('./Media/iconmonstr-arrow-4-240.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.arrow.next {
+  height: 50px;
+  width: 50px;
+  background-image: url('./Media/iconmonstr-arrow-4-240grey-50.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.arrow.next.active:hover {
+  height: 54px;
+  width: 54px;
+  margin: 0px
+}
+
 /* ---------------------- Intro Page ---------------------- */
 .tagline {
   font-family: 'Jaldi', sans-serif;
@@ -134,8 +198,9 @@ hidden {
 .sourceButton {
   margin: 6px 0;
   width: 50%;
-  background-color: #f4f4f4;
+  background-color: hsla(0, 0%, 96%, 0.1);
   color: rgb(34, 33, 33);
+  border: 2px solid hsla(191, 42%, 41%, 1);
 }
 
 .ui-tooltip .ui-tooltip-text {
@@ -340,7 +405,20 @@ hidden {
   width: 40%;
 }
 
+/* ---------------------- GROWL INFO ---------------------- */
 
+.ui-growl.ui-growl-bottomright {
+	bottom: 150px;
+  right: 50px;
+  width: 15em;
+  
+}
 
+.ui-growl-item-container {
+  background-color:#272c2f;
+}
 
-
+.ui-growl-message {
+	padding: .25em;
+  margin: 0;
+}

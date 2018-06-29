@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import {Button} from 'primereact/components/button/Button'
 import PQlogo from './Media/PQlogo_rev-02.svg'
+import {Growl} from 'primereact/components/growl/Growl'
 
 class Feedback extends Component {
   constructor (props) {
@@ -31,6 +31,7 @@ class Feedback extends Component {
     ]
     return (
       <div className='megaWrapper'>
+        <Growl position='bottomright'ref={(el) => { this.growl = el }} />
         <div className='titleDiv'>
           <header>
             <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
@@ -54,8 +55,9 @@ class Feedback extends Component {
           </div>
         </div>
         <div className='navButtonDiv'>
-          <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Previous' />
-          <Button className='navButton' onClick={this.questionSubmit} label='Next Question' />
+          <button className='arrow back active' onClick={() => this.props.history.push('/source')} />
+          {!this.state.answer && <button className='arrow next' onClick={() => { this.growl.show({ severity: 'warn', life: 1500, detail: 'Please choose a response before continuing the quiz' }) }} label='Next Question' />}
+          {this.state.answer && <button className='arrow next active' onClick={this.questionSubmit} />}
         </div>
       </div>
     )

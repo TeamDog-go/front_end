@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
-import {Button} from 'primereact/components/button/Button'
-
-import PQlogo from './Media/PQlogo.jpg'
+import {Growl} from 'primereact/components/growl/Growl'
+import PQlogo from './Media/PQlogo_rev-02.svg'
 
 class BasicQ extends Component {
   constructor (props) {
@@ -50,7 +49,9 @@ class BasicQ extends Component {
     // console.log('props.saveanswers', this.props.savedanswers, 'props index-', this.props.index)
     if (this.props.question.answer) {
       return (
+
         <div className='megaWrapper'>
+          <Growl position='bottomright'ref={(el) => { this.growl = el }} />
           <div className='titleDiv'>
             <header>
               <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
@@ -74,8 +75,9 @@ class BasicQ extends Component {
             </div>
           </div>
           <div className='navButtonDiv'>
-            <Button className='navButton' onClick={this.previousQuestion} label='Previous Question' />
-            <Button className='navButton' onClick={this.questionSubmit} label='Next Question' />
+            <button className='arrow back active' onClick={this.previousQuestion} />
+            {!this.state.answer && <button className='arrow next' onClick={() => { this.growl.show({ severity: 'warn', life: 1500, detail: 'Please choose a response before continuing the quiz' }) }} label='Next Question' />}
+            {this.state.answer && <button className='arrow next active' onClick={this.questionSubmit} />}
           </div>
         </div>
       )
