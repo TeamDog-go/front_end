@@ -15,20 +15,21 @@ class Results extends Component {
     this.state = {
       score: '',
       color: '',
-      feedbackEnd: ''
+      final_feedback: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
+
   //  componentDidUpdate () {
   // eventual plan is to post/make survey when page loads, submit survey, then PATCH the final response
   // const results = {
   //   initial_feedback: this.props.feedbackStart,
-  //   final_feedback: this.state.feedbackEnd,
+  //   final_feedback: this.state.final_feedback,
   //   final_score: this.state.score,
   //   color: this.state.color
   // }
-  // if (this.state.feedbackEnd) {
+  // if (this.state.final_feedback) {
   //   let userid
   //   if (window.localStorage.pupQuestUser) {
   //     userid = window.localStorage.pupQuestUser
@@ -36,9 +37,17 @@ class Results extends Component {
   //   request
   //     .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
   //     .send({user_id: userid})
+  //      questions
+  //      answers
   //     .then((response) => {
   //       console.log(response.body.survey.id)
   //       return response.body.survey.id
+  //    .then( 
+    //  request
+    //  .put(`https://polar-castle-14061.herokuapp.com/surveys.json/PROBABLYSURVEYID?`)
+    //   result w/final_score, color, and initialfeedback/feeling
+      //
+  // )
   //     })
   // submit to server
   // }
@@ -98,7 +107,7 @@ class Results extends Component {
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
           <div className='result-feedback'>
             <div>Right now, what are your general feelings about this place/person?</div>
-            <SelectButton className='result-feedback-score' value={this.state.feedbackEnd} options={feedback} onChange={(e) => this.setState({feedbackEnd: e.value})} />
+            <SelectButton className='result-feedback-score' value={this.state.final_feedback} options={feedback} onChange={(e) => this.setState({final_feedback: e.value})} />
           </div>
           <div>
             <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Detailed Results' />

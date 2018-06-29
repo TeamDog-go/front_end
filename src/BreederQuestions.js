@@ -2,6 +2,7 @@ const breederQuestions = [
   {
     content: 'Are you allowed to visit where the puppies are kept in person?',
     source_id: 'breeder',
+    id: 1,
     options: [{
       o_content: 'Yes',
       o_color: 'green',
@@ -21,6 +22,7 @@ const breederQuestions = [
   {
     content: 'Does the breeder ship puppies?',
     source_id: 'breeder',
+    id: 2,
     options: [{
       o_content: 'Yes',
       o_color: 'green',
@@ -40,6 +42,7 @@ const breederQuestions = [
   {
     content: 'Is the breeder USDA licensed?',
     source_id: 'breeder',
+    id: 3,
     options: [{
       o_content: 'Yes',
       o_color: 'green',
