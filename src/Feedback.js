@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
-
-import PQlogo from './Media/PQlogo.jpg'
+import PQlogo from './Media/PQlogo_rev-02.svg'
 
 class Feedback extends Component {
   constructor (props) {
@@ -32,10 +31,12 @@ class Feedback extends Component {
     ]
     return (
       <div className='megaWrapper'>
-        <header>
-          <img className='headerImage' src={PQlogo} />
-          <h2 className='header'>&nbsp;PupQuest Test</h2>
-        </header>
+        <div className='titleDiv'>
+          <header>
+            <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
+            <h2 className='header'>&nbsp;PupQuest Test</h2>
+          </header>
+        </div>
         <div className='feedback'>
           <div className='feedback-Question'>
             Right now, what are your general feelings about this place/person?

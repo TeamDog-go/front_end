@@ -51,10 +51,12 @@ class BasicQ extends Component {
     if (this.props.question.answer) {
       return (
         <div className='megaWrapper'>
-          <header>
-            <img className='headerImage' src={PQlogo} />
-            <h2 className='header'>&nbsp;PupQuest Test</h2>
-          </header>
+          <div className='titleDiv'>
+            <header>
+              <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
+              <h2 className='header'>&nbsp;PupQuest Test</h2>
+            </header>
+          </div>
           <div className='basicQuestion'>
             <div className='basicQuestion-Question'>
               {this.props.question.text}
