@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {calculation, results} from './Calculation'
 // import request from 'superagent'
-import PQlogo from './Media/PQlogo.jpg'
+import PQlogo from './Media/PQlogo_rev-02.svg'
 import sadPug from './Media/pugSad.jpg'
 
 // import {Tooltip} from 'primereact/components/tooltip/Tooltip'
