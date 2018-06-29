@@ -1,55 +1,61 @@
 const breederQuestions = [
   {
-    text: 'Are you allowed to visit where the puppies are kept in person?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: 50
+    content: 'Are you allowed to visit where the puppies are kept in person?',
+    source_id: 'breeder',
+    id: 1,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: 50
     },
     {
-      text: 'No',
-      value: false,
-      score: -100
+      o_content: 'No',
+      o_color: 'red',
+      points: -100
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }
     ]
   },
   {
-    text: 'Does the breeder ship puppies?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: -100
+    content: 'Does the breeder ship puppies?',
+    source_id: 'breeder',
+    id: 2,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: -100
     },
     {
-      text: 'No',
-      value: false,
-      score: 10
+      o_content: 'No',
+      o_color: 'red',
+      points: 10
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }
     ]
   },
   {
-    text: 'Is the breeder USDA licensed?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: -100
+    content: 'Is the breeder USDA licensed?',
+    source_id: 'breeder',
+    id: 3,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: -100
     },
     {
-      text: 'No',
-      value: false,
-      score: 10
+      o_content: 'No',
+      o_color: 'red',
+      points: 10
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }
     ]
   }

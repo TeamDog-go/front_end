@@ -8,8 +8,8 @@ class BasicQ extends Component {
     super(props)
     this.state = {
       answer: '',
-      score: '',
-      value: ''
+      points: '',
+      color: ''
     }
     this.questionSubmit = this.questionSubmit.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
@@ -18,22 +18,23 @@ class BasicQ extends Component {
   handleOptionChange (event) {
     this.setState({
       answer: event.target.name,
-      score: event.target.dataset.score,
-      value: event.target.value
+      points: event.target.dataset.points,
+      color: event.target.value
     })
   }
 
   questionSubmit () {
     this.props.addAnswer(this.props.index, {
       answer: this.state.answer,
-      score: this.state.score,
-      value: this.state.value
+      points: this.state.points,
+      color: this.state.color,
+      question_id: this.props.question.id
     })
     const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
     this.setState({
       answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
-      score: this.props.savedanswers[next] ? this.props.savedanswers[next].score : '',
-      value: this.props.savedanswers[next] ? this.props.savedanswers[next].value : ''
+      points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
+      color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
     })
   }
   previousQuestion () {
@@ -41,14 +42,14 @@ class BasicQ extends Component {
     const prev = Math.max(this.props.index - 1, 0)
     this.setState({
       answer: this.props.savedanswers[prev] ? this.props.savedanswers[prev].answer : '',
-      score: this.props.savedanswers[prev] ? this.props.savedanswers[prev].score : '',
-      value: this.props.savedanswers[prev] ? this.props.savedanswers[prev].value : ''
+      points: this.props.savedanswers[prev] ? this.props.savedanswers[prev].points : '',
+      color: this.props.savedanswers[prev] ? this.props.savedanswers[prev].color : ''
     })
   }
 
   render () {
     // console.log('props.saveanswers', this.props.savedanswers, 'props index-', this.props.index)
-    if (this.props.question.answer) {
+    if (this.props.question.options) {
       return (
         <div className='megaWrapper'>
           <div className='titleDiv'>
@@ -59,15 +60,15 @@ class BasicQ extends Component {
           </div>
           <div className='basicQuestion'>
             <div className='basicQuestion-Question'>
-              {this.props.question.text}
+              {this.props.question.content}
             </div>
             <div className='basicQuestion-Answers'>
               <form>
-                {this.props.question.answer.map((entry, index) => {
+                {this.props.question.options.map((entry, index) => {
                   return (
                     <div key={index} className='answer'>
-                      <input type='radio' id={index} name={entry.text} data-score={entry.score} value={entry.value} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.text} />
-                      <label htmlFor={index} >{entry.text}</label>
+                      <input type='radio' id={index} name={entry.o_content} data-points={entry.points} value={entry.o_color} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.o_content} />
+                      <label htmlFor={index} >{entry.o_content}</label>
                     </div>)
                 })}
               </form>

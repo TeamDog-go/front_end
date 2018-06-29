@@ -21,6 +21,10 @@ class Results extends Component {
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
+
+  // compontentDidUpdate () {
+
+  // }
   //  componentDidUpdate () {
   // eventual plan is to post/make survey when page loads, submit survey, then PATCH the final response
   // const results = {
