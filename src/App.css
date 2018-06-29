@@ -40,8 +40,7 @@ header {
   display: flex;
   justify-content: space-evenly;
   margin: 15px 0;
-
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 .navButton, .sourceButton {
 background-color: hsla(191, 42%, 41%, 0.55);
@@ -62,6 +61,9 @@ font-size: 1.2rem;
   color: hsla(215, 0%, 100%, 1);
 }
 
+hidden {
+  display: none;
+}
 /* ---------------------- Intro Page ---------------------- */
 .tagline {
   font-family: 'Jaldi', sans-serif;
@@ -153,6 +155,7 @@ font-size: 1.2rem;
   width: 100%;
   object-fit: cover;
   object-position: 50% 50%;
+
   height: 30vh;
 }
 
@@ -240,6 +243,24 @@ font-size: 1.2rem;
 }
 .ui-button.ui-widget.ui-state-default.ui-button-text-only.ui-state-active{
   background: hsla(191, 42%, 41%, 1);
+}
+
+.feedbackQuestionResults {
+  margin: 15px 0;
+}
+
+.detailedResultsDiv {
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailedResultsButton {
+  width: 80%;
+  border-radius: 0;
+  background-color: hsla(191, 42%, 41%, 1);
+  color: white;
+  margin: 10px auto;
 }
 
 /* ---------------------- Media Queries ---------------------- */
