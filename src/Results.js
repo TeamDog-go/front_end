@@ -1,9 +1,9 @@
+/* global localStorage */
 import React, {Component} from 'react'
 import {calculation, results} from './Calculation'
 import request from 'superagent'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import sadPug from './Media/pugSad.jpg'
-
 // import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
@@ -16,20 +16,20 @@ class Results extends Component {
       score: '',
       color: '',
       final_feedback: '',
-      userid: ''
+      userid: '4'
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
-
   resolveCalculation () {
     console.log(this.props.answers)
+    let answers = this.props.answers
     return new Promise(function (resolve, reject) {
-      if (this.props.answers) {
-        resolve(calculation(this.props.answers))
-      } else {
-        reject(new Error('Invalid Data'))
-      }
+      // if (this.props.answers) {
+      resolve(calculation(answers))
+      // } else {
+      // reject(new Error('Invalid Data'))
+      // }
     }
     )
   }
@@ -37,23 +37,32 @@ class Results extends Component {
   componentDidMount () {
     console.log(this.props.answers)
     console.log(this.props.questions)
-    // if (window.localStorage.pupQuestUser) {
-    //   let userid = window.localStorage.pupQuestUser
-    // } else { let userid = 4 }
     const answers = this.props.answers
     const questions = this.props.questions
     this.resolveCalculation().then((response) => {
       console.log(response.score)
       console.log(response.color)
+      if (window.localStorage.pupQuestUser) {
+        let userid = window.localStorage.pupQuestUser
+        this.setState({
+          userid: userid
+        })
+      } else {
+        let userid = 4
+        this.setState({
+          userid: userid
+        })
+      }
+
       this.setState({
         score: response.score,
         color: response.color,
         initial_feeling: this.props.feedbackStart,
-        final_feedback: response.final_feedback,
-        userid: this.state.userid
+        final_feedback: response.final_feedback
       })
     }
     )
+    console.log(this.state.userid, questions, answers)
     request
       .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
       .send({user_id: this.state.userid, questions: questions, answers: answers})
