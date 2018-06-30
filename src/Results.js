@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {calculation, results} from './Calculation'
-// import request from 'superagent'
+import request from 'superagent'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import sadPug from './Media/pugSad.jpg'
 
@@ -15,58 +15,56 @@ class Results extends Component {
     this.state = {
       score: '',
       color: '',
-      final_feedback: ''
+      final_feedback: '',
+      userid: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
 
-  //  componentDidUpdate () {
-  // eventual plan is to post/make survey when page loads, submit survey, then PATCH the final response
-  // const results = {
-  //   initial_feedback: this.props.feedbackStart,
-  //   final_feedback: this.state.final_feedback,
-  //   final_score: this.state.score,
-  //   color: this.state.color
-  // }
-  // if (this.state.final_feedback) {
-  //   let userid
-  //   if (window.localStorage.pupQuestUser) {
-  //     userid = window.localStorage.pupQuestUser
-  //   } else { userid = 4 }
-  //   request
-  //     .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-  //     .send({user_id: userid})
-  //      questions
-  //      answers
-  //     .then((response) => {
-  //       console.log(response.body.survey.id)
-  //       return response.body.survey.id
-  //    .then( 
-    //  request
-    //  .put(`https://polar-castle-14061.herokuapp.com/surveys.json/PROBABLYSURVEYID?`)
-    //   result w/final_score, color, and initialfeedback/feeling
-      //
-  // )
-  //     })
-  // submit to server
-  // }
-  // }
-  componentDidMount () {
-    const answers = this.props.answers
-    new Promise(function (resolve, reject) {
-      if (answers) {
-        resolve(calculation(answers))
+  resolveCalculation () {
+    console.log(this.props.answers)
+    return new Promise(function (resolve, reject) {
+      if (this.props.answers) {
+        resolve(calculation(this.props.answers))
       } else {
         reject(new Error('Invalid Data'))
       }
-    }).then((response) => {
+    }
+    )
+  }
+
+  componentDidMount () {
+    console.log(this.props.answers)
+    console.log(this.props.questions)
+    // if (window.localStorage.pupQuestUser) {
+    //   let userid = window.localStorage.pupQuestUser
+    // } else { let userid = 4 }
+    const answers = this.props.answers
+    const questions = this.props.questions
+    this.resolveCalculation().then((response) => {
+      console.log(response.score)
+      console.log(response.color)
       this.setState({
         score: response.score,
-        color: response.color
+        color: response.color,
+        initial_feeling: this.props.feedbackStart,
+        final_feedback: response.final_feedback,
+        userid: this.state.userid
       })
-    }).catch((error) => console.log('Error', error))
+    }
+    )
+    request
+      .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+      .send({user_id: this.state.userid, questions: questions, answers: answers})
+      .then((response) => {
+        console.log(response.body.survey.id)
+        return response.body.survey.id
+      })
   }
+  //  .then(
+  //  .put(`https://polar-castle-14061.herokuapp.com/results.json`)
+  //   result w/final_score, color, and initialfeedback/feeling
 
   expandDetailedResults () {
     let detailedResults = document.querySelector('.accordion')
@@ -142,5 +140,53 @@ class Results extends Component {
     )
   }
 }
+
+  //  componentDidUpdate () {
+  //   const results = {
+  //   initial_feedback: this.props.feedbackStart,
+  //   final_feedback: this.state.final_feedback,
+  //   final_score: this.state.score,
+  //   color: this.state.color
+  // }
+  // if (this.state.final_feedback) {
+  //   let userid
+  //   if (window.localStorage.pupQuestUser) {
+  //     userid = window.localStorage.pupQuestUser
+  //   } else { userid = 4 }
+  //   request
+  //     .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+  //     .send({user_id: userid, questions: questions, answers: answers})
+  //      questions
+  //      answers
+  //     .then((response) => {
+  //       console.log(response.body.survey.id)
+  //       return response.body.survey.id
+  //    .then( 
+    //  .put(`https://polar-castle-14061.herokuapp.com/results.json`)
+    //   result w/final_score, color, and initialfeedback/feeling
+      //
+  // )
+  //     })
+  // submit to server
+  // }
+  // }
+  // if (this.state.final_feedback) {
+      // new Promise(function (resolve, reject) {
+      //   if (answers) {
+      //     resolve(calculation(answers))
+      //   } else {
+      //     reject(new Error('Invalid Data'))
+      //   }
+      // }.then((response) => {
+      //   console.log(response.score)
+      //   console.log(response.color)
+      //   this.setState({
+      //     score: response.score,
+      //     color: response.color,
+      //     initial_feeling: initialFeeling,
+      //     final_feedback: response.final_feedback,
+      //     userid: this.state.userid
+      //   })
+      // }).catch((error) => console.log('Error', error))
 
 export default Results
