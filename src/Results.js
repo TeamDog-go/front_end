@@ -17,12 +17,14 @@ class Results extends Component {
       color: '',
       final_feedback: '',
       userid: '',
-      initial_feeling: ''
+      initial_feeling: '',
+      surveyid: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
+
   resolveCalculation () {
     console.log(this.props.answers)
     let answers = this.props.answers
@@ -66,21 +68,17 @@ class Results extends Component {
     console.log(this.state.userid, questions, answers)
     request
       .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-      .send({user_id: this.state.userid, questions: questions, answers: answers})
+      .send({ user_id: this.state.userid, questions: questions, answers: answers })
       // .send({user_id: this.state.userid})
       .then((response) => {
         console.log(response.body.survey.id)
-        return response.body.survey.id
-        let surveyid = response.body.survey.id
-        this.setstate ({
-          surveyid: this.state.surveyid
+        this.setState({
+          surveyid: response.body.survey.id
         })
+        request
+          .put(`https://polar-castle-14061.herokuapp.com/results.json`)
+          .send({ surveyid: response.body.survey.id, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color })
       })
-      .then
-      request
-        .put(`https://polar-castle-14061.herokuapp.com/results.json`)
-        .send({surveyid: this.state.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color })
-      .then 
   }
 
   //  .then(
