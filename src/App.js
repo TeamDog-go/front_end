@@ -29,9 +29,9 @@ class App extends Component {
         <Route path='/breeder' render={(props) => <Quiz questions={breederQuestions} {...props} />} />
         <Route path='/shelter' render={(props) => <Quiz questions={shelterQuestions} {...props} />} />
         <Route path='/individual' render={(props) => <Quiz questions={individualQuestions} {...props} />} />
-        <Route path='/results' renter={(props) => <Results {...props} />} />
-        <Route path='/login' renter={(props) => <Login {...props} />} />
-        <Route path='/register' renter={(props) => <Register {...props} />} />
+        <Route path='/results' render={(props) => <Results {...props} />} />
+        <Route path='/login' render={(props) => <Login {...props} />} />
+        <Route path='/register' render={(props) => <Register {...props} />} />
       </div>
     )
   }
