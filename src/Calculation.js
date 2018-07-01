@@ -22,6 +22,7 @@ function results (answers, questions) {
       content: entry.content,
       source_id: entry.source_id
     })
+    return entry
   })
   const answerArray = []
   answers.map((entry) => {
@@ -31,6 +32,7 @@ function results (answers, questions) {
       a_color: entry.color,
       points: entry.points
     })
+    return entry
   })
   return {
     questions: questionArray,
