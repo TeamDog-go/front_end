@@ -94,7 +94,8 @@ class Results extends Component {
   }
 
   render () {
-    console.log(results(this.props.answers, this.props.questions))
+    // console.log(results(this.props.answers, this.props.questions))
+    console.log(window.localStorage.responseId)
     var feedback = [
       {label: 'Very negative', value: 1},
       {label: 'Negative', value: 2},
