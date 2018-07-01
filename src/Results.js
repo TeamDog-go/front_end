@@ -22,6 +22,7 @@ class Results extends Component {
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
+    this.submitFinalFeelings = this.submitFinalFeelings.bind(this)
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
 
@@ -57,7 +58,6 @@ class Results extends Component {
           userid: userid
         })
       }
-
       this.setState({
         score: response.score,
         color: response.color,
@@ -72,9 +72,6 @@ class Results extends Component {
       // .send({user_id: this.state.userid})
       .then((response) => {
         console.log(response.body.survey.id)
-        // this.setState({
-        //   surveyid: response.body.survey.id
-        // })
         window.localStorage.surveyid = response.body.survey.id
         request
           .put(`https://polar-castle-14061.herokuapp.com/results.json`)
@@ -82,13 +79,16 @@ class Results extends Component {
       })
   }
 
-  //  .then(
-  //  .put(`https://polar-castle-14061.herokuapp.com/results.json`)
-  //   result w/final_score, color, and initialfeedback/feeling
-
   expandDetailedResults () {
     let detailedResults = document.querySelector('.accordion')
     detailedResults.classList.toggle('hidden')
+  }
+
+  submitFinalFeelings (e) {
+    this.setState({final_feedback: e.value})
+    request
+      .put(`https://polar-castle-14061.herokuapp.com/results/???????????????.json`)
+      .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color, final_feedback: this.state.final_feedback })
   }
 
   render () {
@@ -125,7 +125,7 @@ class Results extends Component {
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
           <div className='result-feedback'>
             <div>Right now, what are your general feelings about this place/person?</div>
-            <SelectButton className='result-feedback-score' value={this.state.final_feedback} options={feedback} onChange={(e) => this.setState({final_feedback: e.value})} />
+            <SelectButton className='result-feedback-score' value={this.state.final_feedback} options={feedback} onChange={this.submitFinalFeelings} />
           </div>
           <div>
             <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Detailed Results' />
@@ -160,53 +160,5 @@ class Results extends Component {
     )
   }
 }
-
-  //  componentDidUpdate () {
-  //   const results = {
-  //   initial_feedback: this.props.feedbackStart,
-  //   final_feedback: this.state.final_feedback,
-  //   final_score: this.state.score,
-  //   color: this.state.color
-  // }
-  // if (this.state.final_feedback) {
-  //   let userid
-  //   if (window.localStorage.pupQuestUser) {
-  //     userid = window.localStorage.pupQuestUser
-  //   } else { userid = 4 }
-  //   request
-  //     .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-  //     .send({user_id: userid, questions: questions, answers: answers})
-  //      questions
-  //      answers
-  //     .then((response) => {
-  //       console.log(response.body.survey.id)
-  //       return response.body.survey.id
-  //    .then( 
-    //  .put(`https://polar-castle-14061.herokuapp.com/results.json`)
-    //   result w/final_score, color, and initialfeedback/feeling
-      //
-  // )
-  //     })
-  // submit to server
-  // }
-  // }
-  // if (this.state.final_feedback) {
-      // new Promise(function (resolve, reject) {
-      //   if (answers) {
-      //     resolve(calculation(answers))
-      //   } else {
-      //     reject(new Error('Invalid Data'))
-      //   }
-      // }.then((response) => {
-      //   console.log(response.score)
-      //   console.log(response.color)
-      //   this.setState({
-      //     score: response.score,
-      //     color: response.color,
-      //     initial_feeling: initialFeeling,
-      //     final_feedback: response.final_feedback,
-      //     userid: this.state.userid
-      //   })
-      // }).catch((error) => console.log('Error', error))
 
 export default Results
