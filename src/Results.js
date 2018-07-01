@@ -18,7 +18,6 @@ class Results extends Component {
       final_feedback: '',
       userid: '',
       initial_feeling: ''
-      // surveyid: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
@@ -76,6 +75,9 @@ class Results extends Component {
         request
           .put(`https://polar-castle-14061.herokuapp.com/results.json`)
           .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color })
+          .then((response) => {
+            window.localStorage.responseId = response.body.response.id
+          })
       })
   }
 
@@ -87,7 +89,7 @@ class Results extends Component {
   submitFinalFeelings (e) {
     this.setState({final_feedback: e.value})
     request
-      .put(`https://polar-castle-14061.herokuapp.com/results/???????????????.json`)
+      .put(`https://polar-castle-14061.herokuapp.com/results/${window.localStorage.responseId}.json`)
       .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color, final_feedback: this.state.final_feedback })
   }
 
