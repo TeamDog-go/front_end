@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
-import dogAndChild from './Media/dogAndChild.jpg'
+import boyAndDog from './Media/boyAndDog.jpg'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 // import Link from 'react-router-dom'
 import {Tooltip} from 'primereact/components/tooltip/Tooltip'
@@ -20,7 +20,7 @@ class IntroPage extends Component {
           <p className='tagline'> We can help people find happy, healthy dogs</p>
         </div>
         <div className='introPageDiv'>
-          <img className='introPageImage' src={dogAndChild} alt='dog and girl' />
+          <img className='introPageImage' src={boyAndDog} alt='dog and girl' />
           <ul className='introPageText'>
             <li><strong>Happy, healthy dogs</strong> come from quality shelters, breeders, and individuals.</li>
             {/* <li>Where are you going to get your next dog?</li> */}
