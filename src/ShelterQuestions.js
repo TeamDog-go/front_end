@@ -1,199 +1,202 @@
 const shelterQuestions = [
   {
-    text: 'Are you allowed to visit where the puppies are kept in person?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: 50
+    content: 'Are you allowed to visit where the dogs are kept?',
+    source_id: 'shelter',
+    id: 11,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: 10
     }, {
-      text: 'No',
-      value: false,
-      score: -100
+      o_content: 'No, and it’s a shelter with a building',
+      o_color: 'red',
+      points: -100
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'No, and it’s a rescue',
+      o_color: 'yellow',
+      points: -10
+    }, {
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }]
   },
   {
-    text: 'Are you able (and willing) to visit the dogs in person?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: 50
+    content: 'Does the shelter perform temperament tests/aggression screenings?',
+    source_id: 'shelter',
+    id: 12,
+    options: [{
+      o_content: 'Yes, they use the SAFER test or Assess-A-Pet',
+      o_color: 'green',
+      points: 10
     }, {
-      text: 'No',
-      value: false,
-      score: -100
+      o_content: 'Yes, they use their own methods',
+      o_color: 'yellow',
+      points: 0
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'No, or they just “go by feel”',
+      o_color: 'red',
+      points: -30
+    }, {
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }]
   },
   {
-    text: 'Does the shelter/rescue ship puppies to adopters?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: -100
+    content: 'Where are the puppies being raised?',
+    source_id: 'shelter',
+    id: 13,
+    options: [{
+      o_content: 'In the home with the family',
+      o_color: 'green',
+      points: 10
     }, {
-      text: 'No',
-      value: false,
-      score: 10
+      o_content: 'In very crowded and/or dirty conditions',
+      o_color: 'red',
+      points: -30
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'In a kennel, garage, or outdoors',
+      o_color: 'yellow',
+      points: -10
+    }, {
+      o_content: 'Not applicable, I’m looking for a dog over 4 months old',
+      o_color: 'green',
+      points: 10
     }]
   },
   {
-    text: 'Does the shelter perform temperament tests/aggression screenings?',
-    answer: [{
-      text: 'Yes, they use the SAFER test or Assess-A-Pet',
-      value: true,
-      score: 40
+    content: 'Are the dogs seen by a veterinarian prior to adoption?',
+    source_id: 'shelter',
+    id: 14,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: 10
     }, {
-      text: 'Yes, they use their own methods',
-      value: true,
-      score: 10
+      o_content: 'No, but the shelter/rescue vaccinates them',
+      o_color: 'yellow',
+      points: -10
     }, {
-      text: 'No, or they just “go by feel”',
-      value: false,
-      score: -10
+      o_content: 'No',
+      o_color: 'red',
+      points: -30
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }]
   },
   {
-    text: 'Where are the puppies being raised?',
-    answer: [{
-      text: 'In the home with the family',
-      value: true,
-      score: 50
+    content: 'Will the shelter/rescue take their dogs back at any point in their lives?',
+    source_id: 'shelter',
+    id: 15,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: 10
     }, {
-      text: 'In rows of cages/warehouse/ In very crowded and/or dirty conditions',
-      value: false,
-      score: -100
+      o_content: 'No',
+      o_color: 'yellow',
+      points: -10
     }, {
-      text: 'In a kennel, garage, or outdoors',
-      value: undefined, // NEED A BETTER VALUE HERE//
-      score: 10
-    }, {
-      text: 'Not applicable, adult dog',
-      value: undefined,
-      score: 0
-    }, {
-      text: 'Other',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }]
   },
   {
-    text: 'Are the dogs/puppies seen by a veterinarian prior to going home?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: 30
+    content: 'Does the shelter/rescue require you to meet them in person?',
+    source_id: 'shelter',
+    id: 16,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'green',
+      points: 10
     }, {
-      text: 'No',
-      value: false,
-      score: 5
+      o_content: 'No',
+      o_color: 'red',
+      points: -100
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }]
   },
   {
-    text: 'Will the shelter/rescue take their dogs back at any point in their lives?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: 30
+    content: 'Does the shelter/rescue adopt out dogs directly over the internet? (You can adopt online and they ship you the animal.)',
+    source_id: 'shelter',
+    id: 17,
+    options: [{
+      o_content: 'Yes',
+      o_color: 'red',
+      points: -100
     }, {
-      text: 'No',
-      value: false,
-      score: 10
+      o_content: 'No, and they explicitly state this',
+      o_color: 'green',
+      points: 10
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }]
   },
   {
-    text: 'Does the shelter/rescue require you to meet them in person?',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: 30
+    content: 'Has the individual socialized the puppies to people, objects, and a normal home environment?',
+    source_id: 'shelter',
+    id: 18,
+    options: [{
+      o_content: 'Yes, and they are raised in the home ',
+      o_color: 'green',
+      points: 10
     }, {
-      text: 'No',
-      value: false,
-      score: -100
+      o_content: 'Yes, and they are raised inside the shelter ',
+      o_color: 'yellow',
+      points: 0
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'No',
+      o_color: 'red',
+      points: -30
+    }, {
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }]
   },
   {
-    text: 'Does the shelter/rescue adopt out dogs directly over the internet? (You can adopt online and they ship you the animal.)',
-    answer: [{
-      text: 'Yes',
-      value: true,
-      score: -100
+    content: 'What is the adoption fee for the individual’s dog or puppy?',
+    source_id: 'shelter',
+    id: 19,
+    options: [{
+      o_content: 'Over $350',
+      o_color: 'red',
+      points: -30
     }, {
-      text: 'No, and they explicitly state this',
-      value: false,
-      score: 20
+      o_content: '$0-350',
+      o_color: 'green',
+      points: 20
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
-    }
-    ]
-  },
-  {
-    text: 'Has the individual socialized the puppies to people, objects, and a normal home environment?',
-    answer: [{
-      text: 'Yes, and they are raised in the home ',
-      value: true,
-      score: 30
-    }, {
-      text: 'Yes, and they are not raised inside the home ',
-      value: true,
-      score: 10
-    }, {
-      text: 'No',
-      value: false,
-      score: -30
-    }, {
-      text: 'I don\'t know',
-      value: undefined, // NEED TO CONSIDER GIVING -SOME- VALUE TO I DONT KNOW //
-      score: 0
-    }, {
-      text: 'Not applicable, adult dog(s)',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }]
   },
   {
-    text: 'What is the adoption fee for the individual’s dog or puppy?',
-    answer: [{
-      text: 'Over $350',
-      value: true, // true/false here? //
-      score: -30
+    content: 'What type of shelter/rescue is it?',
+    source_id: 'shelter',
+    id: 19,
+    options: [{
+      o_content: 'Open-admission / municipal',
+      o_color: 'yellow',
+      points: 10
     }, {
-      text: '$0-350',
-      value: false,
-      score: 20
+      o_content: 'Limited-admission / “no-kill”',
+      o_color: 'yellow',
+      points: 10
     }, {
-      text: 'I don\'t know',
-      value: undefined,
-      score: 0
+      o_content: 'I don\'t know / other',
+      o_color: 'yellow',
+      points: 10
     }]
   }
 ]
