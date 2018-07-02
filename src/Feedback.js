@@ -38,12 +38,12 @@ class Feedback extends Component {
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
-        <div className='feedback'>
-          <div className='feedback-Question'>
+        <div className='feedback-question'>
             Right now, what are your general feelings about this place/person?
-          </div>
+        </div>
+        <div className='feedback-array'>
           <div >
-            <form className='feedback-Answers'>
+            <form>
               {feedback.map((entry, index) => {
                 return (
                   <div key={index} className={entry.class}>
