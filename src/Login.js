@@ -3,6 +3,7 @@ import {Button} from 'primereact/components/button/Button'
 import {Password} from 'primereact/components/password/Password'
 import {InputText} from 'primereact/components/inputtext/InputText'
 import PQlogo from './Media/PQlogo_rev-02.svg'
+import request from 'superagent'
 
 class Login extends Component {
   constructor (props) {
@@ -10,8 +11,7 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      registername: '',
-      registerpass: ''
+      error: false
     }
     this.loginSubmit = this.loginSubmit.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
@@ -23,6 +23,22 @@ class Login extends Component {
   }
 
   loginSubmit () {
+    const body = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    request
+      .post('https://polar-castle-14061.herokuapp.com/sessions.json')
+      .send(body)
+      .then(response => {
+        console.log(response)
+        const userid = response.body.id
+        window.localStorage.pupQuestUserId = userid
+      })
+      .catch(error => {
+        this.setState({error: true})
+        console.log(error)
+      })
   }
 
   render () {
@@ -45,9 +61,15 @@ class Login extends Component {
               <span className='ui-float-label'>
                 <Password feedback={false} className='portal-input' name='password' value={this.state.password} onChange={(e) => this.handleOptionChange(e)} />
                 <label className='portal-label' htmlFor='float-input'>Password</label>
+                {this.state.error }
               </span>
             </form>
+            {this.state.error && <div className='error'>{this.state.error}</div>}
+          </div>
+          <div className='navButtonDiv portal'>
             <Button className='navButton' onClick={this.questionSubmit} label='Login' />
+            <Button className='navButton' onClick={() => this.props.history.push('/register')} label='Registration' />
+            <Button className='navButton' onClick={() => this.props.history.push('/')} label='Back' />
           </div>
         </div>
       </div>

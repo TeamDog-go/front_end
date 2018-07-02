@@ -39,6 +39,7 @@ header {
 .hidden {
   display: none;
 }
+
 /* ---------------------- NAV BUTTONS FLEXBOX ----------------------*/
 .navButtonDiv{
   display: flex;
@@ -177,7 +178,7 @@ header {
 .selectSourcePageImage {
   width: 80%;
   object-fit: cover;
-  object-position: 50% 20%;
+  object-position: 50% 90%;
   height: 40vh;
   margin: 10px 0 0 0;
 }
@@ -349,6 +350,85 @@ header {
   margin: 1rem 0;
 }
 
+/* ---------------------- Login/Registration Pages ---------------------- */
+.portal-input{
+  height: 40px;
+  font-size: 14px;
+  margin: 1.2rem 0;
+  width: 100%;
+  border-radius: 0;
+}
+
+.portal-label{
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.navButtonDiv.portal {
+  width: 200px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.navButtonDiv.portal Button{
+  margin: .25rem auto;
+}
+
+.ui-float-label input:focus ~ label,
+.ui-float-label input.ui-state-filled ~ label,
+.ui-float-label .ui-inputwrapper-focus ~ label,
+.ui-float-label .ui-inputwrapper-filled ~ label {
+  top:0.2rem;
+  font-size:18px;
+}
+.user-portal{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.login-div, .register-div{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.ui-button-text-only:hover{
+  padding: 8px 0;
+  border: 1px solid hsla(191, 42%, 41%, 1);
+}
+/* ---------------------- GROWL INFO ---------------------- */
+
+.ui-growl.ui-growl-bottomright {
+	bottom: 150px;
+  right: 50px;
+  width: 15em;
+  
+}
+
+.ui-growl-item-container {
+  background-color:#272c2f;
+}
+
+.ui-growl-message {
+	padding: .25em;
+  margin: 0;
+}
+
+/* ---------------------- Conditional Statements ---------------------- */
+
+.error{
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #BEC1BE;
+  background-color:red;
+  margin-bottom: 1rem;
+  color: #272c2f;
+  font-style: italic;
+}
+
 /* ---------------------- Media Queries ---------------------- */
 
 @media all and (min-width: 768px) {
@@ -373,61 +453,22 @@ header {
     margin-left: 20px;
     margin-right: 10px;
   }
-}
 
-/* ---------------------- Login/Registration Pages ---------------------- */
-.portal-input{
-  height: 40px;
-  font-size: 14px;
-  margin: 1.5rem 0;
-  width: 100%
-}
+  /* .megaWrapper {
+    background-color: #3c8494;
+  } */
 
-.portal-label{
-  margin: 0;
-  font-size: 20px;
-  font-weight: bold;
-  padding-left: 10px;
-}
-
-.ui-float-label input:focus ~ label,
-.ui-float-label input.ui-state-filled ~ label,
-.ui-float-label .ui-inputwrapper-focus ~ label,
-.ui-float-label .ui-inputwrapper-filled ~ label {
-  top:-.04rem;
-  font-size:18px;
-}
-.user-portal{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.login-div{
-  display: flex;
-  flex-direction: column;
-  width: 40%;  
-}
-.register-div{
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-}
-
-/* ---------------------- GROWL INFO ---------------------- */
-
-.ui-growl.ui-growl-bottomright {
-	bottom: 150px;
-  right: 50px;
-  width: 15em;
+  .navButtonDiv.portal {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+  }
+  .login-div{
+    width: 60%;
+  }
+  .register-div{
+    width: 60%;
+  }
   
-}
-
-.ui-growl-item-container {
-  background-color:#272c2f;
-}
-
-.ui-growl-message {
-	padding: .25em;
-  margin: 0;
 }
