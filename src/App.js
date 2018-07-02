@@ -10,6 +10,8 @@ import shelterQuestions from './ShelterQuestions.js'
 import Quiz from './Quiz'
 import SelectSourcePage from './SelectSourcePage'
 import Results from './Results'
+import Login from './Login'
+import Register from './Register'
 
 class App extends Component {
   constructor (props) {
@@ -27,7 +29,9 @@ class App extends Component {
         <Route path='/breeder' render={(props) => <Quiz questions={breederQuestions} {...props} />} />
         <Route path='/shelter' render={(props) => <Quiz questions={shelterQuestions} {...props} />} />
         <Route path='/individual' render={(props) => <Quiz questions={individualQuestions} {...props} />} />
-        <Route path='/results' renter={(props) => <Results {...props} />} />
+        <Route path='/results' render={(props) => <Results {...props} />} />
+        <Route path='/login' render={(props) => <Login {...props} />} />
+        <Route path='/register' render={(props) => <Register {...props} />} />
       </div>
     )
   }
