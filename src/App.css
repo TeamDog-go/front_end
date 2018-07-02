@@ -43,7 +43,16 @@ header {
 /* ---------------------- NAV BUTTONS FLEXBOX ----------------------*/
 .navButtonDiv{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.navButtonDivIntro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 75%;
   margin: 0 auto;
 }
@@ -53,6 +62,7 @@ header {
   color: white;
   border-radius: 0;
   padding: 8px 0;
+  margin: 10px;
   min-width: 200px;
   max-width: 300px;
   font-family: Arial, Helvetica, sans-serif;
@@ -127,6 +137,11 @@ header {
   font-size: 1.5rem;
   margin: 0;
   text-align: center;
+  line-height: 1.6rem;
+}
+
+.taglineDiv {
+  margin-top: 2rem;
 }
 
 .introPageDiv {
@@ -166,6 +181,12 @@ header {
   top: 25%;
   transform: translateY(-50%);
 }
+
+/* .registerToSaveText {
+  font-size: .6rem;
+  margin: 0;
+  padding: 0;
+} */
 
 /* ---------------------- Source Page ---------------------- */
 .selectSourcePageDiv {
@@ -337,6 +358,7 @@ header {
   justify-content: center;
   padding: 1rem 2rem;
   font-size: 150%;
+  font-weight: 700;
 }
 .answer.feedback {
   max-width: 200px;
@@ -455,6 +477,9 @@ header {
     margin-right: 10px;
   }
 
+  .navButtonDiv {
+    justify-content: space-between;
+  }
   /* .megaWrapper {
     background-color: #3c8494;
   } */
@@ -470,6 +495,10 @@ header {
   }
   .register-div{
     width: 60%;
+  }
+
+  #loginButton {
+    order: -1;
   }
   
 }

@@ -48,6 +48,10 @@ const shelterQuestions = [
     source: 'shelter',
     id: 13,
     options: [{
+      o_content: 'Not applicable, I’m looking for a dog over 4 months old',
+      o_color: 'green',
+      points: 10
+    }, {
       o_content: 'In the home with the family',
       o_color: 'green',
       points: 10
