@@ -31,7 +31,7 @@ class IntroPage extends Component {
             <li><strong>Quickly assess</strong> breeders, shelters, and individuals with the <strong>PupQuest Test!</strong></li>
           </ul>
         </div>
-        <div className='navButtonDiv'>
+        <div className='navButtonDivIntro'>
           {/* <Button className='navButton' onClick='' label='Previous' /> */}
           <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Let&apos;s Go!' />
           {/* <p className='registerToSaveText'>Want to save all your results? Sign In or Register!</p> */}

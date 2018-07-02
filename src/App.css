@@ -44,6 +44,14 @@ header {
 .navButtonDiv{
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.navButtonDivIntro {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   width: 75%;
   margin: 0 auto;
@@ -350,6 +358,7 @@ header {
   justify-content: center;
   padding: 1rem 2rem;
   font-size: 150%;
+  font-weight: 700;
 }
 .answer.feedback {
   max-width: 200px;
