@@ -174,6 +174,12 @@ header {
   transform: translateY(-50%);
 }
 
+/* .registerToSaveText {
+  font-size: .6rem;
+  margin: 0;
+  padding: 0;
+} */
+
 /* ---------------------- Source Page ---------------------- */
 .selectSourcePageDiv {
   width: 100%;
@@ -480,6 +486,10 @@ header {
   }
   .register-div{
     width: 60%;
+  }
+
+  #loginButton {
+    order: -1;
   }
   
 }
