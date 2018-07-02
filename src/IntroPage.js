@@ -15,9 +15,11 @@ class IntroPage extends Component {
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
-        <div>
-          <p className='tagline'>Sniff Out a Good Spot!</p>
-          <p className='tagline'> We can help people find happy, healthy dogs</p>
+        <div className='taglineDiv'>
+          {/* <p className='tagline'>Sniff Out a Good Spot!</p> */}
+          {/* <p className='tagline'>Helping you find a happy, healthy puppy!</p> */}
+          <p className='tagline'>Because <em>where</em> your pup comes from matters!</p>
+
         </div>
         <div className='introPageDiv'>
           <img className='introPageImage' src={boyAndDog} alt='dog and girl' />
