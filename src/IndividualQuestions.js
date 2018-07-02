@@ -1,7 +1,7 @@
 const individualQuestions = [
   {
     content: 'Will the owner allow you to visit where the puppies/dogs are kept?',
-    source_id: 'individual',
+    source: 'individual',
     id: 21,
     options: [{
       content: 'Yes',
@@ -19,7 +19,7 @@ const individualQuestions = [
   },
   {
     content: 'Where is the dog living?',
-    source_id: 'individual',
+    source: 'individual',
     id: 22,
     options: [{
       content: 'In the home with the family',
@@ -41,7 +41,7 @@ const individualQuestions = [
   },
   {
     content: 'Do you know this individual?',
-    source_id: 'individual',
+    source: 'individual',
     id: 23,
     options: [{
       content: 'Yes, I know them personally and trust them',
@@ -55,7 +55,7 @@ const individualQuestions = [
   },
   {
     content: 'Why is the individual giving this dog/puppy away?',
-    source_id: 'individual',
+    source: 'individual',
     id: 24,
     options: [{
       content: 'Their own dog had puppies',
@@ -85,7 +85,7 @@ const individualQuestions = [
   },
   {
     content: 'Is the individual offering a trial period before the adoption is final? (You can take the dog home for a short time to make sure it’s a good fit.)',
-    source_id: 'individual',
+    source: 'individual',
     id: 25,
     options: [{
       content: 'Yes',
@@ -102,7 +102,7 @@ const individualQuestions = [
     }]
   }, {
     content: 'Has the individual socialized the puppies to people, objects, and a normal home environment?',
-    source_id: 'individual',
+    source: 'individual',
     id: 26,
     options: [{
       content: 'Yes, and they are raised in the home ',
@@ -128,7 +128,7 @@ const individualQuestions = [
   },
   {
     content: 'Does the individual have vet records for the puppies/dog showing it is up to date on vaccines?',
-    source_id: 'individual',
+    source: 'individual',
     id: 27,
     options: [{
       content: 'Yes',
@@ -146,7 +146,7 @@ const individualQuestions = [
   },
   {
     content: 'Does the dog have any history of behavior problems such as fear, aggression, or separation anxiety?',
-    source_id: 'individual',
+    source: 'individual',
     id: 28,
     options: [{
       content: 'Yes',
@@ -163,7 +163,7 @@ const individualQuestions = [
     }]
   }, {
     content: 'Are any of the following types of phrases used in the dog’s description: “outside dog”, “protective”, “needs a firm hand”, “dominant”, “good guard dog”?',
-    source_id: 'individual',
+    source: 'individual',
     id: 29,
     options: [{
       content: 'Yes',
@@ -180,7 +180,7 @@ const individualQuestions = [
     }]
   }, {
     content: 'What is the adoption fee for the individual’s dog or puppy?',
-    source_id: 'individual',
+    source: 'individual',
     id: 30,
     options: [{
       content: 'Over $350',

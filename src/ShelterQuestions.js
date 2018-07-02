@@ -1,7 +1,7 @@
 const shelterQuestions = [
   {
     content: 'Are you allowed to visit where the dogs are kept?',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 11,
     options: [{
       o_content: 'Yes',
@@ -23,7 +23,7 @@ const shelterQuestions = [
   },
   {
     content: 'Does the shelter perform temperament tests/aggression screenings?',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 12,
     options: [{
       o_content: 'Yes, they use the SAFER test or Assess-A-Pet',
@@ -45,7 +45,7 @@ const shelterQuestions = [
   },
   {
     content: 'Where are the puppies being raised?',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 13,
     options: [{
       o_content: 'In the home with the family',
@@ -67,7 +67,7 @@ const shelterQuestions = [
   },
   {
     content: 'Are the dogs seen by a veterinarian prior to adoption?',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 14,
     options: [{
       o_content: 'Yes',
@@ -89,7 +89,7 @@ const shelterQuestions = [
   },
   {
     content: 'Will the shelter/rescue take their dogs back at any point in their lives?',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 15,
     options: [{
       o_content: 'Yes',
@@ -107,7 +107,7 @@ const shelterQuestions = [
   },
   {
     content: 'Does the shelter/rescue require you to meet them in person?',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 16,
     options: [{
       o_content: 'Yes',
@@ -125,7 +125,7 @@ const shelterQuestions = [
   },
   {
     content: 'Does the shelter/rescue adopt out dogs directly over the internet? (You can adopt online and they ship you the animal.)',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 17,
     options: [{
       o_content: 'Yes',
@@ -143,7 +143,7 @@ const shelterQuestions = [
   },
   {
     content: 'Has the individual socialized the puppies to people, objects, and a normal home environment?',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 18,
     options: [{
       o_content: 'Yes, and they are raised in the home ',
@@ -165,7 +165,7 @@ const shelterQuestions = [
   },
   {
     content: 'What is the adoption fee for the individual’s dog or puppy?',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 19,
     options: [{
       o_content: 'Over $350',
@@ -183,7 +183,7 @@ const shelterQuestions = [
   },
   {
     content: 'What type of shelter/rescue is it?',
-    source_id: 'shelter',
+    source: 'shelter',
     id: 19,
     options: [{
       o_content: 'Open-admission / municipal',
