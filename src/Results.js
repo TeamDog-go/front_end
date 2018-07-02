@@ -1,6 +1,7 @@
+/* global localStorage */
 import React, {Component} from 'react'
 import {calculation, results} from './Calculation'
-// import request from 'superagent'
+import request from 'superagent'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/red-doggo.png'
 import yellowDog from './Media/yellow-doggo.png'
@@ -17,57 +18,70 @@ class Results extends Component {
     this.state = {
       score: '',
       color: '',
-      final_feedback: ''
+      final_feedback: '',
+      userid: '',
+      initial_feeling: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
+    this.resolveCalculation = this.resolveCalculation.bind(this)
+    this.submitFinalFeelings = this.submitFinalFeelings.bind(this)
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
 
-  //  componentDidUpdate () {
-  // eventual plan is to post/make survey when page loads, submit survey, then PATCH the final response
-  // const results = {
-  //   initial_feedback: this.props.feedbackStart,
-  //   final_feedback: this.state.final_feedback,
-  //   final_score: this.state.score,
-  //   color: this.state.color
-  // }
-  // if (this.state.final_feedback) {
-  //   let userid
-  //   if (window.localStorage.pupQuestUser) {
-  //     userid = window.localStorage.pupQuestUser
-  //   } else { userid = 4 }
-  //   request
-  //     .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-  //     .send({user_id: userid})
-  //      questions
-  //      answers
-  //     .then((response) => {
-  //       console.log(response.body.survey.id)
-  //       return response.body.survey.id
-  //    .then(
-  //  request
-  //  .put(`https://polar-castle-14061.herokuapp.com/surveys.json/PROBABLYSURVEYID?`)
-  //   result w/final_score, color, and initialfeedback/feeling
-  //
-  // )
-  //     })
-  // submit to server
-  // }
-  // }
+  resolveCalculation () {
+    console.log(this.props.answers)
+    let answers = this.props.answers
+    return new Promise(function (resolve, reject) {
+      // if (this.props.answers) {
+      resolve(calculation(answers))
+      // } else {
+      // reject(new Error('Invalid Data'))
+      // }
+    }
+    )
+  }
+
   componentDidMount () {
+    console.log(this.props.answers)
+    console.log(this.props.questions)
     const answers = this.props.answers
-    new Promise(function (resolve, reject) {
-      if (answers) {
-        resolve(calculation(answers))
+    const questions = this.props.questions
+    this.resolveCalculation().then((response) => {
+      console.log(response.score)
+      console.log(response.color)
+      if (window.localStorage.pupQuestUser) {
+        let userid = window.localStorage.pupQuestUser
+        this.setState({
+          userid: userid
+        })
       } else {
-        reject(new Error('Invalid Data'))
+        let userid = 4
+        this.setState({
+          userid: userid
+        })
       }
-    }).then((response) => {
       this.setState({
         score: response.score,
-        color: response.color
+        color: response.color,
+        initial_feeling: this.props.feedbackStart,
+        final_feedback: response.final_feedback
       })
-    }).catch((error) => console.log('Error', error))
+    })
+    console.log(this.state.userid, questions, answers)
+    request
+      .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+      .send({ user_id: this.state.userid, questions: questions, answers: answers })
+      // .send({user_id: this.state.userid})
+      .then((response) => {
+        console.log(response.body.survey.id)
+        window.localStorage.surveyid = response.body.survey.id
+        request
+          .put(`https://polar-castle-14061.herokuapp.com/results.json`)
+          .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color })
+          .then((response) => {
+            window.localStorage.responseId = response.body.response.id
+          })
+      })
   }
 
   expandDetailedResults () {
@@ -75,8 +89,16 @@ class Results extends Component {
     detailedResults.classList.toggle('hidden')
   }
 
+  submitFinalFeelings (e) {
+    this.setState({final_feedback: e.value})
+    request
+      .put(`https://polar-castle-14061.herokuapp.com/results/${window.localStorage.responseId}.json`)
+      .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color, final_feedback: this.state.final_feedback })
+  }
+
   render () {
-    console.log(results(this.props.answers, this.props.questions))
+    // console.log(results(this.props.answers, this.props.questions))
+    console.log(window.localStorage.responseId)
     var feedback = [
       {label: 'Very negative', value: 1},
       {label: 'Negative', value: 2},
@@ -109,7 +131,7 @@ class Results extends Component {
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
           <div className='result-feedback'>
             <div>Right now, what are your general feelings about this place/person?</div>
-            <SelectButton value={this.state.final_feedback} options={feedback} onChange={(e) => this.setState({final_feedback: e.value})} />
+            <SelectButton className='result-feedback-score' value={this.state.final_feedback} options={feedback} onChange={this.submitFinalFeelings} />
           </div>
           <div>
             <div className='detailedResults'>
