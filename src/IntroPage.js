@@ -20,7 +20,7 @@ class IntroPage extends Component {
           <p className='tagline'> We can help people find happy, healthy dogs</p>
         </div>
         <div className='introPageDiv'>
-          <img className='introPageImage' src={dogAndChild} />
+          <img className='introPageImage' src={dogAndChild} alt='dog and girl' />
           <ul className='introPageText'>
             <li><strong>Happy, healthy dogs</strong> come from quality shelters, breeders, and individuals.</li>
             {/* <li>Where are you going to get your next dog?</li> */}

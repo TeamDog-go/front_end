@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
-import goldenRetriever from './Media/goldenRetriever.jpg'
+import sourceDog from './Media/adorable-blur.jpg'
 import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 
@@ -15,7 +15,7 @@ class SelectSourcePage extends Component {
           </header>
         </div>
         <div className='selectSourcePageDiv'>
-          <img className='selectSourcePageImage' src={goldenRetriever} />
+          <img className='selectSourcePageImage' src={sourceDog} alt='curious dog' />
           <h3 className='sourceQuestionText'>Which best describes the place you want to test?</h3>
           <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
           <Tooltip tooltipStyleClass='sourceTooltip' for='#shelterButton' title='For groups that have dogs for adoption in a public building or in foster homes.' tooltipPosition='right' />
