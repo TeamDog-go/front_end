@@ -278,6 +278,39 @@ header {
   margin: 10px 10%;
 }
 
+.detailedResultsButton:hover {
+  border: hsla(191, 42%, 41%, 1) 1px solid;
+}
+
+.color-1{
+  background-color: #CA0020;
+  color: #F7F7F7;
+}
+
+.ui-button.ui-widget.ui-state-default.ui-button-text-only .ui-button-text.ui-c  input[value="Very negative"]
+/* input[value="Very negative"] */
+{
+  background-color: #CA0020;
+  color: #F7F7F7;
+}
+
+
+.color-2{
+  background-color: #F4A881;
+  color: rgb(81, 81, 81);
+}
+.color-3{
+  background-color: #F7F7F7;
+  color: rgb(30, 30, 30);
+}
+.color-4{
+  background-color: #92D1DD;
+  color: rgb(81, 81, 81);
+}
+.color-5{
+  background-color: #3C8494;
+  color: #F7F7F7;
+}
 
 /* ---------------------- Question Page ---------------------- */
 .basicQuestion{

@@ -81,7 +81,7 @@ const breederQuestions = [
     }]
   },
   {
-    content: 'Are the puppies seen by a veterinarian prior to going home?', // no red result????
+    content: 'Are the puppies seen by a veterinarian prior to going home?',
     source: 'breeder',
     id: 5,
     options: [{
@@ -90,8 +90,8 @@ const breederQuestions = [
       points: 10
     }, {
       o_content: 'No',
-      o_color: 'yellow',
-      points: -10
+      o_color: 'red',
+      points: -30
     }, {
       o_content: 'I don\'t know',
       o_color: 'yellow',
