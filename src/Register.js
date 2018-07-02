@@ -3,15 +3,15 @@ import {Button} from 'primereact/components/button/Button'
 import {Password} from 'primereact/components/password/Password'
 import {InputText} from 'primereact/components/inputtext/InputText'
 import PQlogo from './Media/PQlogo_rev-02.svg'
+import request from 'superagent'
 
 class Register extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      username: '',
-      password: '',
       registername: '',
-      registerpass: ''
+      registerpass: '',
+      error: ''
     }
     this.registerSubmit = this.registerSubmit.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
@@ -23,6 +23,21 @@ class Register extends Component {
   }
 
   registerSubmit () {
+    const body = {
+      username: this.state.registername,
+      password: this.state.registerpass
+    }
+    request
+      .post('https://polar-castle-14061.herokuapp.com/users.json')
+      .send(body)
+      .then(response => {
+        const userid = response.body.id
+        window.localStorage.pupQuestUserId = userid
+      })
+      .catch(error => {
+        this.setState({error: error})
+        console.log(error)
+      })
   }
 
   render () {
@@ -30,6 +45,7 @@ class Register extends Component {
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
+            {/* <header onClick={() => this.props.history.push('/')}> */}
             <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
@@ -47,7 +63,12 @@ class Register extends Component {
                 <label className='portal-label' htmlFor='float-input'>Password</label>
               </span>
             </form>
-            <Button className='navButton' onClick={this.questionSubmit} label='Register' />
+            {this.state.error && <div className='error'>{this.state.error}</div>}
+          </div>
+          <div className='navButtonDiv portal'>
+            <Button className='navButton' onClick={this.registerSubmit} label='Register' />
+            <Button className='navButton' onClick={() => this.props.history.push('/login')} label='Login' />
+            <Button className='navButton' onClick={() => this.props.history.push('/')} label='Back' />
           </div>
         </div>
       </div>
