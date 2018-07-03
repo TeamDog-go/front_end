@@ -13,7 +13,12 @@ import Quiz from '../Quiz'
 import Results from '../Results'
 import Login from '../Login'
 import breederQuestions from '../BreederQuestions'
+import Feedback from '../Feedback'
+import Source from '../SelectSourcePage'
+const answers = [{}]
 
+// const props = {history: 'history'}
+const match = {path: '/breeder'}
 addDecorator(story => (<Router>{story()}</Router>))
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />)
@@ -26,9 +31,15 @@ storiesOf('Questions, Basic', module)
 
 storiesOf('Quiz', module)
   .add('Quiz page, using Breeder quiz', () => <Quiz questions={breederQuestions} />)
-       
+
 storiesOf('Results', module)
-  .add('Quiz page, using Breeder quiz', () => <Results questions={breederQuestions} answers={answers} feedbackStart={2} />)
+  .add('Quiz page, using Breeder quiz, green', () => <Results questions={breederQuestions} answers={answers} feedbackStart={2} match={match} />)
 
 storiesOf('Login', module)
   .add('Login page', () => <Login />)
+
+storiesOf('Feedback', module)
+  .add('Feedback page', () => <Feedback />)
+
+storiesOf('Source', module)
+  .add('Source page', () => <Source />)

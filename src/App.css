@@ -19,6 +19,7 @@ header {
   justify-content: center;
   align-items: center;
   font-family: 'Jaldi', sans-serif;
+  font-size: 1.2rem;
   padding: 0 0 .25rem 0;
   margin: 0;
 }
@@ -35,7 +36,6 @@ header {
   padding: 0;
   margin: 0 0 .5rem 0;
 }
-
 .hidden {
   display: none;
 }
@@ -43,28 +43,37 @@ header {
 /* ---------------------- NAV BUTTONS FLEXBOX ----------------------*/
 .navButtonDiv{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 75%;
   margin: 0 auto;
 }
 
-.navButton {
-  background-color: hsla(191, 42%, 41%, .85);
-  color: white;
-  border-radius: 0;
-  padding: 8px 0;
-  min-width: 200px;
-  max-width: 300px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
+.navButtonDivIntro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 75%;
+  margin: 0 auto;
 }
 
-.ui-button.ui-widget.ui-state-default.ui-corner-all:hover {
-  background: #3c8494;
-  color: hsla(215, 0%, 100%, 1);
-  border: 2px solid hsla(191, 42%, 41%, 1);
-  padding: 0;
-  }
+.navButton {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  background-color: hsla(191, 42%, 41%, .85);
+  color: white;
+  min-width: 150px;
+  max-width: 200px;
+  padding: 8px 0;
+  border-radius: 0;
+  border: 1px solid hsla(191, 42%, 41%, 1);
+}
+.ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.ui-button-text-only:hover{
+  padding: 6px 0;;
+  border: 1px solid hsla(191, 42%, 41%, 1);
+  background-color: #3C8494;
+  color: white;
+}
 
 .arrow {
   height: 50px;
@@ -127,6 +136,11 @@ header {
   font-size: 1.5rem;
   margin: 0;
   text-align: center;
+  line-height: 1.6rem;
+}
+
+.taglineDiv {
+  margin-top: 2rem;
 }
 
 .introPageDiv {
@@ -167,6 +181,12 @@ header {
   transform: translateY(-50%);
 }
 
+/* .registerToSaveText {
+  font-size: .6rem;
+  margin: 0;
+  padding: 0;
+} */
+
 /* ---------------------- Source Page ---------------------- */
 .selectSourcePageDiv {
   width: 100%;
@@ -203,6 +223,13 @@ header {
 .ui-button.ui-widget.ui-state-default.ui-corner-all.sourceButton:hover {
   background: #3c8494;
   color: hsla(215, 0%, 100%, 1);
+  border: #3c8494 2px solid;
+  padding: 8px 0;
+}
+.ui-button.ui-widget.ui-state-default.ui-corner-all.sourceButton:focus {
+  background: #3c8494;
+  color: hsla(215, 0%, 100%, 1);
+  border: #3c8494 2px solid;
   padding: 8px 0;
 }
 
@@ -215,70 +242,6 @@ header {
   border: 1px solid #c1c1c1;
 }
 
-/* ---------------------- Results Page ---------------------- */
-.resultsPageDiv{
-  width: 100%;
-}
-.resultsColorImage {
-  margin-top: 10px;
-  width: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
-  height: 30vh;
-}
-.navButtonDiv-results{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-
-/* -------- Result Feedback / Select ------- */
-.result-feedback{
-  display: flex;
-  flex-direction: column;
-}
-
-.ui-selectbutton{
-  flex-direction: row;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.ui-selectbutton .ui-button {
-  display: flex;
-  flex-grow: 1;
-}
-
-.ui-button.ui-widget.ui-state-default.ui-button-text-only:hover{
-  background: hsla(191, 42%, 41%, .5);
-}
-.ui-button.ui-widget.ui-state-default.ui-button-text-only.ui-state-active{
-  background: hsla(191, 42%, 41%, 1);
-  color: white;
-}
-
-.feedbackQuestionResults {
-  margin: 15px 0;
-}
-
-.detailedResultsDiv {
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  border: black solid 1px;
-}
-
-.detailedResultsButton {
-  width: 80%;
-  border-radius: 0;
-  background-color: hsla(191, 42%, 41%, 1);
-  color: white;
-  margin: 10px 10%;
-}
-
-
 /* ---------------------- Question Page ---------------------- */
 .basicQuestion{
   display: flex;
@@ -287,12 +250,13 @@ header {
 .basicQuestion-Question{
   display: flex;
   justify-content: center;
-  padding: 1rem 2rem;
+  padding: 3rem 2rem 2rem 2rem;
   font-size: 150%;
+  font-weight: 700;
 }
+
 .answer{
-  width: 55%;
-  /* //may need to do in-line width for the answers */
+  width: 65%;
   margin: 0 auto;
 }
 
@@ -304,50 +268,29 @@ header {
   width: 100%;
   display: block;
   border: 2px solid hsla(191, 42%, 41%, 1);
-  /* border-radius: 20px; */
   font-size: 120%;
   padding: 1rem;
   margin-bottom: 1rem;
   text-align: center;
-  box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.35);
+  /* box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.35); */
   position: relative;
 }
 .answer input[type="radio"]:checked + label {
   background: hsla(191, 42%, 41%, 1);
   color: hsla(215, 0%, 100%, 1);
-  box-shadow: 0px 0px 20px hsla(191, 42%, 41%, 0.75);
+  /* box-shadow: 0px 0px 20px hsla(191, 42%, 41%, 0.75); */
 }
 .answer input[type="radio"]:checked + label:after {
     background-color: white;
     border: 2px solid hsla(191, 42%, 41%, 1);
     content: url('./Media/check.svg');
     position: absolute;
-    top: 10%;
-    left: 2%;
+    top: 15%;
+    left: 3%;
     height: 35px;
     width: 35px;
     border-radius: 50%;
-    box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, .75);
-}
-
-/* ---------------------- Feedback Page ---------------------- */
-.feedback-Question{
-  display: flex;
-  justify-content: center;
-  padding: 1rem 2rem;
-  font-size: 150%;
-}
-.answer.feedback {
-  max-width: 200px;
-  margin-top: 12px;
-}
-
-.answer.feedback input[type="radio"]:checked + label:after {
-  content: none;
-}
-
-.result-feedback{
-  margin: 1rem 0;
+    /* box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, .75); */
 }
 
 /* ---------------------- Login/Registration Pages ---------------------- */
@@ -367,12 +310,19 @@ header {
 }
 
 .navButtonDiv.portal {
-  width: 200px;
-  flex-wrap: wrap;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
   margin: 0 auto;
+  margin-top: 2rem;
+  /* border: black 1px solid; */
 }
-.navButtonDiv.portal Button{
-  margin: .25rem auto;
+.navButtonDiv.back {
+  display: flex;
+  width: 90%;
+  justify-content: flex-start;
+  margin: 0 auto;
+  margin-top: 1rem;
 }
 
 .ui-float-label input:focus ~ label,
@@ -394,17 +344,35 @@ header {
   width: 90%;
 }
 
-.ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.ui-button-text-only:hover{
-  padding: 8px 0;
-  border: 1px solid hsla(191, 42%, 41%, 1);
+.ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.login.ui-button-text-only:hover{
+  padding: 6px 55% 6px 45%;
+  border: 2px solid hsla(191, 42%, 41%, 1);
+  background-color: #3C8494;
+  color: white;
 }
+
+Button.navButton.login {
+  border: 2px solid hsla(191, 42%, 41%, 1);
+  padding: 6px 55% 6px 45%;
+} 
+.ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.register.ui-button-text-only:hover{
+  padding: 6px 60% 6px 40%;
+  border: 2px solid hsla(191, 42%, 41%, 1);
+  background-color: #3C8494;
+  color: white;
+}
+
+Button.navButton.register {
+  border: 2px solid hsla(191, 42%, 41%, 1);
+  padding: 6px 60% 6px 40%;
+} 
+
 /* ---------------------- GROWL INFO ---------------------- */
 
 .ui-growl.ui-growl-bottomright {
 	bottom: 150px;
   right: 50px;
   width: 15em;
-  
 }
 
 .ui-growl-item-container {
@@ -423,21 +391,165 @@ header {
   padding: 10px;
   text-align: center;
   border: 1px solid #BEC1BE;
-  background-color:red;
+  background-color:#CA0020;
   margin-bottom: 1rem;
   color: #272c2f;
   font-style: italic;
+}
+
+/* ---------------------- Feedback Page ---------------------- */
+.feedback-question{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  /* word-break: break-all; //Maybe try and make this one line????? */
+  padding: 1rem 2rem;
+  font-size: 150%;
+}
+.feedback-array{
+  width: 60%;
+  margin: 0 auto;
+}
+.feedback {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.color-1{
+  background-color: #CA0020;
+  color: #F7F7F7;
+}
+.color-2{
+  background-color: #F4A881;
+  color: rgb(66, 65, 65);
+}
+.color-3{
+  background-color: #F7F7F7;
+  color: rgb(30, 30, 30);
+}
+.color-4{
+  background-color: #92D1DD;
+  color: rgb(66, 65, 65);
+}
+.color-5{
+  background-color: #3C8494;
+  color: #F7F7F7;
+}
+
+.answer.feedback input[type="radio"]:checked + label {
+  background-color:initial;
+  color: inherit;
+}
+/* ---------------------- Results Page ---------------------- */
+.resultsPageDiv{
+  width: 95%;
+  margin: 0 auto;
+}
+.resultsColorImage {
+  margin-top: 10px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  height: 32vh;
+}
+
+.result-feedback-question{
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.detailedResultsDiv {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  border: black solid 1px;
+}
+
+.detailedResultsButton {
+  width: 80%;
+  border-radius: 0;
+  background-color: hsla(191, 42%, 41%, .85);
+  border: 2px solid hsla(191, 42%, 41%, 1);
+  color: white;
+  margin: 8px 10%;
+}
+.ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover{
+  border: 2px solid hsla(191, 42%, 41%, 1);
+  background-color: hsla(191, 42%, 41%, 1);
+  color: white;
+}
+
+.nav-results{
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* -------- Result Select ------- */
+/* .ui-selectbutton{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 150px;
+}
+.ui-selectbutton .ui-button {
+  display: flex;
+  flex-grow: 1;
+}
+
+.ui-button.ui-widget.ui-state-default.ui-button-text-only:hover{
+  background: hsla(191, 42%, 41%, .5);
+}
+.ui-button.ui-widget.ui-state-default.ui-button-text-only.ui-state-active{
+  background: hsla(191, 42%, 41%, 1);
+  color: white;
+} */
+
+.result-feedback-array{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+}
+.result-feedback{
+  margin: 0 auto;
+  display: flex;
+  flex-grow: 1;
+  min-width: 180px;
+}
+
+.result-feedback label{
+  padding: 3px;
+  margin: 0;
+  border-bottom: none;
+}
+
+.result-feedback-array .result-feedback  input[type="radio"]:checked + label {
+  background-color:initial;
+  color: inherit;
+}
+
+.result-feedback input[type="radio"]:checked + label:after {
+    background-color: white;
+    border: 1px solid hsla(191, 42%, 41%, 1);
+    content: url('./Media/check.svg');
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
 }
 
 /* ---------------------- Media Queries ---------------------- */
 
 @media all and (min-width: 768px) {
   header {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin: 0;
   }
   
-
   .introPageDiv {
     display: flex;
     flex-direction: row;
@@ -454,21 +566,55 @@ header {
     margin-right: 10px;
   }
 
+  .resultsColorImage {
+    height: 45vh;
+  }
+  .navButtonDiv {
+    justify-content: space-between;
+  }
   /* .megaWrapper {
     background-color: #3c8494;
   } */
 
-  .navButtonDiv.portal {
+  .ui-selectbutton{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .result-feedback label{
+    border: 1.5px solid hsla(191, 42%, 41%, 1);
+    border-right: none;
+  }
+  .result-feedback{
+    display: flex;
+    flex-grow: 1;
+    min-width: 50px;
+  }
+
+  .result-feedback-array{
     width: 100%;
     flex-direction: row;
     flex-wrap: nowrap;
-    margin: 0 auto;
   }
+
+  .answer, .feedback {
+    width: 50%;
+  }
+  
+  /* .megaWrapper {
+    background-color: #3c8494;
+  } */
+
   .login-div{
     width: 60%;
   }
   .register-div{
     width: 60%;
+  }
+
+  #loginButton {
+    order: -1;
   }
   
 }

@@ -45,10 +45,12 @@ class Register extends Component {
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
-            {/* <header onClick={() => this.props.history.push('/')}> */}
             <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
+        </div>
+        <div className='navButtonDiv back'>
+          <button className='arrow back active' onClick={() => this.props.history.push('/')} />
         </div>
         <div className='user-portal'>
           <div className='register-div'>
@@ -64,12 +66,12 @@ class Register extends Component {
               </span>
             </form>
             {this.state.error && <div className='error'>{this.state.error}</div>}
+            <Button className='navButton register' onClick={this.registerSubmit} label='Register' />
           </div>
-          <div className='navButtonDiv portal'>
-            <Button className='navButton' onClick={this.registerSubmit} label='Register' />
-            <Button className='navButton' onClick={() => this.props.history.push('/login')} label='Login' />
-            <Button className='navButton' onClick={() => this.props.history.push('/')} label='Back' />
-          </div>
+
+        </div>
+        <div className='navButtonDiv portal'>
+          <Button className='navButton' onClick={() => this.props.history.push('/login')} label='Login' />
         </div>
       </div>
     )

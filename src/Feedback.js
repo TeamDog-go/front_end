@@ -23,11 +23,11 @@ class Feedback extends Component {
 
   render () {
     const feedback = [
-      {label: 'Very negative', value: 1},
-      {label: 'Negative', value: 2},
-      {label: 'Neutral', value: 3},
-      {label: 'Positive', value: 4},
-      {label: 'Very positive', value: 5}
+      {label: 'Very negative', value: 1, class: 'answer feedback color-1'},
+      {label: 'Negative', value: 2, class: 'answer feedback color-2'},
+      {label: 'Neutral', value: 3, class: 'answer feedback color-3'},
+      {label: 'Positive', value: 4, class: 'answer feedback color-4'},
+      {label: 'Very positive', value: 5, class: 'answer feedback color-5'}
     ]
     return (
       <div className='megaWrapper'>
@@ -38,15 +38,15 @@ class Feedback extends Component {
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
-        <div className='feedback'>
-          <div className='feedback-Question'>
+        <div className='feedback-question'>
             Right now, what are your general feelings about this place/person?
-          </div>
+        </div>
+        <div className='feedback-array'>
           <div >
-            <form className='feedback-Answers'>
+            <form>
               {feedback.map((entry, index) => {
                 return (
-                  <div key={index} className='answer feedback'>
+                  <div key={index} className={entry.class}>
                     <input type='radio' id={index} value={entry.value} checked={Number(this.state.answer) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
                     <label htmlFor={index}>{entry.label}</label>
                   </div>)

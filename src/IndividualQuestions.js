@@ -4,15 +4,15 @@ const individualQuestions = [
     source: 'individual',
     id: 21,
     options: [{
-      content: 'Yes',
+      o_content: 'Yes',
       o_color: 'green',
       points: 10
     }, {
-      content: 'No',
+      o_content: 'No',
       o_color: 'red',
-      points: -100
+      points: -30
     }, {
-      content: 'I don\'t know',
+      o_content: 'I don\'t know',
       o_color: 'yellow',
       points: 0
     }]
@@ -22,19 +22,19 @@ const individualQuestions = [
     source: 'individual',
     id: 22,
     options: [{
-      content: 'In the home with the family',
+      o_content: 'In the home with the family',
       o_color: 'green',
       points: 10
     }, {
-      content: 'In rows of cages/warehouse',
+      o_content: 'In rows of cages/warehouse',
       o_color: 'red',
       points: -30
     }, {
-      content: 'In a kennel, garage, or outdoors',
+      o_content: 'In a kennel, garage, or outdoors',
       o_color: 'yellow',
       points: -10
     }, {
-      content: 'I don\'t know',
+      o_content: 'I don\'t know',
       o_color: 'yellow',
       points: 0
     }]
@@ -44,13 +44,17 @@ const individualQuestions = [
     source: 'individual',
     id: 23,
     options: [{
-      content: 'Yes, I know them personally and trust them',
+      o_content: 'Yes, I know them personally and trust them',
       o_color: 'green',
       points: 10
     }, {
-      content: 'No, they are a friend of a friend or listed their dog on a site like Craigslist ',
+      o_content: 'No, they are a friend of a friend or family member',
       o_color: 'yellow',
-      points: -10 // 0 or -10, not sure which
+      points: 0
+    }, {
+      content: 'No, I found them on a website such as Craigslist or Facebook',
+      o_color: 'yellow',
+      points: -10
     }]
   },
   {
@@ -58,27 +62,27 @@ const individualQuestions = [
     source: 'individual',
     id: 24,
     options: [{
-      content: 'Their own dog had puppies',
+      o_content: 'Their own dog had puppies',
       o_color: 'yellow',
       points: 0
     }, {
-      content: 'Moving',
+      o_content: 'Moving',
       o_color: 'green',
       points: 10
     }, {
-      content: 'Behavior problem',
+      o_content: 'Behavior problem',
       o_color: 'red',
       points: -30
     }, {
-      content: 'Allergies',
+      o_content: 'Allergies',
       o_color: 'yellow',
       points: -10
     }, {
-      content: 'Too much work/too energetic',
+      o_content: 'Too much work/too energetic',
       o_color: 'yellow',
       points: -10
     }, {
-      content: 'Can’t afford the dog(s) (?)',
+      o_content: 'Can’t afford the dog',
       o_color: 'yellow',
       points: 0
     }]
@@ -88,15 +92,15 @@ const individualQuestions = [
     source: 'individual',
     id: 25,
     options: [{
-      content: 'Yes',
+      o_content: 'Yes',
       o_color: 'green',
       points: 30
     }, {
-      content: 'No',
+      o_content: 'No',
       o_color: 'yellow',
       points: -10
     }, {
-      content: 'I don\'t know',
+      o_content: 'I don\'t know',
       o_color: 'yellow',
       points: 0
     }]
@@ -105,41 +109,41 @@ const individualQuestions = [
     source: 'individual',
     id: 26,
     options: [{
-      content: 'Yes, and they are raised in the home ',
+      o_content: 'Yes, and they are raised in the home ',
       o_color: 'green',
       points: 10
     }, {
-      content: 'Yes, and they are not raised inside the home ',
+      o_content: 'Yes, and they are not raised inside the home ',
       o_color: 'yellow',
       points: -10
     }, {
-      content: 'No',
+      o_content: 'No',
       o_color: 'red',
       points: -30
     }, {
-      content: 'I don\'t know',
-      o_color: 'yellow', // NEED TO CONSIDER GIVING -SOME- VALUE TO I DONT KNOW //
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
       points: 0
     }, {
-      content: 'Not applicable, adult dog(s)',
+      o_content: 'Not applicable, adult dog(s)',
       o_color: 'yellow',
       points: 0
     }]
   },
   {
-    content: 'Does the individual have vet records for the puppies/dog showing it is up to date on vaccines?',
+    content: 'Does the individual have vet records for the puppy/dog showing it is up to date on vaccines?',
     source: 'individual',
     id: 27,
     options: [{
-      content: 'Yes',
+      o_content: 'Yes',
       o_color: 'green',
       points: 10
     }, {
-      content: 'No',
+      o_content: 'No',
       o_color: 'red',
       points: -30
     }, {
-      content: 'I don\'t know',
+      o_content: 'I don\'t know',
       o_color: 'yellow',
       points: 0
     }]
@@ -149,15 +153,15 @@ const individualQuestions = [
     source: 'individual',
     id: 28,
     options: [{
-      content: 'Yes',
+      o_content: 'Yes',
       o_color: 'green',
       points: 10
     }, {
-      content: 'No',
+      o_content: 'No',
       o_color: 'red',
       points: -30
     }, {
-      content: 'I don\'t know',
+      o_content: 'I don\'t know',
       o_color: 'yellow',
       points: 0
     }]
@@ -166,15 +170,15 @@ const individualQuestions = [
     source: 'individual',
     id: 29,
     options: [{
-      content: 'Yes',
+      o_content: 'Yes',
       o_color: 'red',
       points: -30
     }, {
-      content: 'No',
+      o_content: 'No',
       o_color: 'green',
       points: 10
     }, {
-      content: 'I don\'t know',
+      o_content: 'I don\'t know',
       o_color: 'yellow',
       points: 0
     }]
@@ -183,15 +187,15 @@ const individualQuestions = [
     source: 'individual',
     id: 30,
     options: [{
-      content: 'Over $350',
+      o_content: 'Over $350',
       o_color: 'green',
       points: 10
     }, {
-      content: '$0-350',
+      o_content: '$0-350',
       o_color: 'red',
       points: -30
     }, {
-      content: 'I don\'t know',
+      o_content: 'I don\'t know',
       o_color: 'yellow',
       points: 0
     }]
