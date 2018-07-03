@@ -25,6 +25,7 @@ class Results extends Component {
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
     this.submitFinalFeelings = this.submitFinalFeelings.bind(this)
+    this.handleOptionChange = this.handleOptionChange.bind(this)
     // has this.props.feedbackStart, this.props.answers, this.props.questions
   }
 
@@ -39,6 +40,11 @@ class Results extends Component {
       // }
     }
     )
+  }
+  handleOptionChange (event) {
+    this.setState({
+      final_feedback: event.target.value
+    })
   }
 
   componentDidMount () {
@@ -99,13 +105,21 @@ class Results extends Component {
   render () {
     // console.log(results(this.props.answers, this.props.questions))
     console.log(window.localStorage.responseId)
-    var feedback = [
-      {label: 'Very negative', value: 1},
-      {label: 'Negative', value: 2},
-      {label: 'Neutral', value: 3},
-      {label: 'Positive', value: 4},
-      {label: 'Very positive', value: 5}
+    const feedback = [
+      {label: 'Very negative', value: 1, class: 'answer result-feedback color-1'},
+      {label: 'Negative', value: 2, class: 'answer result-feedback color-2'},
+      {label: 'Neutral', value: 3, class: 'answer result-feedback color-3'},
+      {label: 'Positive', value: 4, class: 'answer result-feedback color-4'},
+      {label: 'Very positive', value: 5, class: 'answer result-feedback color-5'}
     ]
+
+    // var feedback = [
+    //   {label: 'Very negative', value: 1},
+    //   {label: 'Negative', value: 2},
+    //   {label: 'Neutral', value: 3},
+    //   {label: 'Positive', value: 4},
+    //   {label: 'Very positive', value: 5}
+    // ]
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
 
@@ -129,9 +143,18 @@ class Results extends Component {
           {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
-          <div className='result-feedback'>
+          <div className='result-feedback-question'>
             <div>Right now, what are your general feelings about this place/person?</div>
-            <SelectButton className='result-feedback-score' value={this.state.final_feedback} options={feedback} onChange={this.submitFinalFeelings} />
+            <div className='result-feedback-array'>
+              {feedback.map((entry, index) => {
+                return (
+                  <div key={index} className={entry.class}>
+                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feedback) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
+                    <label htmlFor={index}>{entry.label}</label>
+                  </div>)
+              })}
+              {/* <SelectButton className='result-feedback-score' value={this.state.final_feedback} options={feedback} onChange={this.submitFinalFeelings} /> */}
+            </div>
           </div>
           <div>
             <div className='detailedResults'>
@@ -159,7 +182,7 @@ class Results extends Component {
               </Accordion>
             </div>
           </div>
-          <div className='navButtonDiv-results'>
+          <div className='navButtonDiv nav-results'>
             <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' />
             <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another place' />
           </div>

@@ -50,7 +50,11 @@ class Login extends Component {
             <h2 className='header'>&nbsp;PupQuest Test</h2>
           </header>
         </div>
+        <div className='navButtonDiv back'>
+          <button className='arrow back active' onClick={() => this.props.history.push('/')} />
+        </div>
         <div className='user-portal'>
+
           <div className='login-div'>
             <h2>Login</h2>
             <form>
@@ -65,12 +69,12 @@ class Login extends Component {
               </span>
             </form>
             {this.state.error && <div className='error'>{this.state.error}</div>}
+            <Button className='navButton login' onClick={this.questionSubmit} label='Login' />
           </div>
-          <div className='navButtonDiv portal'>
-            <Button className='navButton' onClick={this.questionSubmit} label='Login' />
-            <Button className='navButton' onClick={() => this.props.history.push('/register')} label='Registration' />
-            <Button className='navButton' onClick={() => this.props.history.push('/')} label='Back' />
-          </div>
+
+        </div>
+        <div className='navButtonDiv portal'>
+          <Button className='navButton' onClick={() => this.props.history.push('/register')} label='Registration' />
         </div>
       </div>
     )
