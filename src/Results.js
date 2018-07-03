@@ -113,15 +113,9 @@ class Results extends Component {
       {label: 'Very positive', value: 5, class: 'answer result-feedback color-5'}
     ]
 
-    // var feedback = [
-    //   {label: 'Very negative', value: 1},
-    //   {label: 'Negative', value: 2},
-    //   {label: 'Neutral', value: 3},
-    //   {label: 'Positive', value: 4},
-    //   {label: 'Very positive', value: 5}
-    // ]
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
+    const capSource = source.charAt(0).toUpperCase() + source.slice(1)
 
     return (
       <div className='megaWrapper'>
@@ -135,10 +129,10 @@ class Results extends Component {
           {this.state.color === 'red' && <img className='resultsColorImage' src={redDog} alt='High Risk' />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src={yellowDog} alt='Medium Risk' />}
           {this.state.color === 'green' && <img className='resultsColorImage' src={greenDog} alt='Low Risk' />}
-          <h3 className='resultsText'>This {source} is...</h3>
-          {this.state.color === 'red' && <h2>Red: High Risk</h2>}
-          {this.state.color === 'yellow' && <h2>Yellow: Medium Risk</h2>}
-          {this.state.color === 'green' && <h2>Green: Low Risk</h2>}
+          {/* <h3 className='resultsText'>This {source} is rated</h3> */}
+          {this.state.color === 'red' && <h3>{capSource} rating: <strong className='resultsText'>Red- High Risk</strong></h3>}
+          {this.state.color === 'yellow' && <h3>{capSource} rating: <strong className='resultsText'>Yellow- Medium Risk</strong></h3>}
+          {this.state.color === 'green' && <h3>{capSource} rating: <strong className='resultsText'>Green- Low Risk</strong></h3>}
 
           {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
@@ -183,8 +177,10 @@ class Results extends Component {
             </div>
           </div>
           <div className='navButtonDiv nav-results'>
-            <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' />
-            <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another place' />
+            <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
+            {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' /> */}
+            {/* <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another place' /> */}
+            <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another' />
           </div>
         </div>
       </div>
