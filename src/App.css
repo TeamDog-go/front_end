@@ -64,13 +64,20 @@ header {
   color: white;
   min-width: 150px;
   max-width: 200px;
-  padding: 8px 0;
+  padding: 5px 0;
   border-radius: 0;
-  border: 1px solid hsla(191, 42%, 41%, 1);
+  border: 2px solid hsla(191, 42%, 41%, 1);
 }
+
 .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.ui-button-text-only:hover{
-  padding: 6px 0;;
-  border: 1px solid hsla(191, 42%, 41%, 1);
+  padding: 5px 0;
+  border: 2px solid hsla(191, 42%, 41%, 1);
+  background-color: #3C8494;
+  color: white;
+}
+.ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.ui-button-text-only:focus{
+  padding: 5px 0;
+  border: 2px solid hsla(191, 42%, 41%, 1);
   background-color: #3C8494;
   color: white;
 }
@@ -311,11 +318,10 @@ header {
 
 .navButtonDiv.portal {
   display: flex;
-  width: 100%;
+  width: 95%;
   justify-content: flex-end;
   margin: 0 auto;
   margin-top: 2rem;
-  /* border: black 1px solid; */
 }
 .navButtonDiv.back {
   display: flex;
@@ -341,11 +347,11 @@ header {
 .login-div, .register-div{
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 50%;
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.login.ui-button-text-only:hover{
-  padding: 6px 55% 6px 45%;
+  padding: 6px 60% 6px 40%;
   border: 2px solid hsla(191, 42%, 41%, 1);
   background-color: #3C8494;
   color: white;
@@ -353,10 +359,10 @@ header {
 
 Button.navButton.login {
   border: 2px solid hsla(191, 42%, 41%, 1);
-  padding: 6px 55% 6px 45%;
+  padding: 6px 60% 6px 40%;
 } 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.register.ui-button-text-only:hover{
-  padding: 6px 60% 6px 40%;
+  padding: 6px 67% 6px 33%;
   border: 2px solid hsla(191, 42%, 41%, 1);
   background-color: #3C8494;
   color: white;
@@ -364,7 +370,7 @@ Button.navButton.login {
 
 Button.navButton.register {
   border: 2px solid hsla(191, 42%, 41%, 1);
-  padding: 6px 60% 6px 40%;
+  padding: 6px 67% 6px 33%;
 } 
 
 /* ---------------------- GROWL INFO ---------------------- */
@@ -417,7 +423,9 @@ Button.navButton.register {
 }
 
 .color-1{
-  background-color: #CA0020;
+  /* background-color: #CA0020; */
+  /* background-color: #BF2F4A; */
+  background-color: #C3364E;
   color: #F7F7F7;
 }
 .color-2{
@@ -445,13 +453,22 @@ Button.navButton.register {
 .resultsPageDiv{
   width: 95%;
   margin: 0 auto;
+  font-size: 18px;
 }
+.resultsPageDiv h3{
+  margin: 5px auto;
+}
+
 .resultsColorImage {
-  margin-top: 10px;
+  margin-top: 5px;
   width: 100%;
   object-fit: cover;
   object-position: 50% 50%;
   height: 32vh;
+}
+
+.resultsText{
+  font-size: 120%
 }
 
 .result-feedback-question{
@@ -510,19 +527,20 @@ Button.navButton.register {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  margin: 0 auto;
+  margin: 5px auto;
 }
 .result-feedback{
   margin: 0 auto;
   display: flex;
   flex-grow: 1;
   min-width: 180px;
+  font-size: 0.9rem;
 }
 
 .result-feedback label{
-  padding: 3px;
   margin: 0;
   border-bottom: none;
+  padding: 6px 0;
 }
 
 .result-feedback-array .result-feedback  input[type="radio"]:checked + label {
@@ -567,7 +585,7 @@ Button.navButton.register {
   }
 
   .resultsColorImage {
-    height: 45vh;
+    height: 40vh;
   }
   .navButtonDiv {
     justify-content: space-between;
@@ -602,19 +620,14 @@ Button.navButton.register {
     width: 50%;
   }
   
-  /* .megaWrapper {
-    background-color: #3c8494;
-  } */
-
-  .login-div{
-    width: 60%;
-  }
-  .register-div{
-    width: 60%;
+  .megaWrapper {
+    background-color: #3c849440;
   }
 
-  #loginButton {
-    order: -1;
+  .login-div, .register-div{
+    width: 40%;
   }
-  
+  .navButtonDiv.portal {
+    width: 85%;
+  }
 }
