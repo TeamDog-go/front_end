@@ -10,7 +10,7 @@ const individualQuestions = [
     }, {
       o_content: 'No',
       o_color: 'red',
-      points: -100
+      points: -30
     }, {
       o_content: 'I don\'t know',
       o_color: 'yellow',
@@ -48,11 +48,11 @@ const individualQuestions = [
       o_color: 'green',
       points: 10
     }, {
-      o_content: 'No, they are a friend of a friend',
+      o_content: 'No, they are a friend of a friend or family member',
       o_color: 'yellow',
-      points: -10
+      points: 0
     }, {
-      o_content: 'No, the dog is listed on a site like Craigslist',
+      content: 'No, I found them on a website such as Craigslist or Facebook',
       o_color: 'yellow',
       points: -10
     }]

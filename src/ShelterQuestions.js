@@ -40,6 +40,7 @@ const shelterQuestions = [
     source: 'shelter',
     id: 13,
     options: [{
+
       o_content: 'Yes',
       o_color: 'green',
       points: 10
