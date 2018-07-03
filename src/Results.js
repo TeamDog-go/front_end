@@ -102,7 +102,6 @@ class Results extends Component {
   }
 
   render () {
-    console.log(results(this.props.answers, this.props.questions))
     console.log(window.localStorage.responseId)
     const feeling = [
       {label: 'Very negative', value: 1, class: 'answer result-feeling color-1'},
@@ -128,7 +127,6 @@ class Results extends Component {
           {this.state.color === 'red' && <img className='resultsColorImage' src={redDog} alt='High Risk' />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src={yellowDog} alt='Medium Risk' />}
           {this.state.color === 'green' && <img className='resultsColorImage' src={greenDog} alt='Low Risk' />}
-          {/* <h3 className='resultsText'>This {source} is rated</h3> */}
           {this.state.color === 'red' && <h3>{capSource} rating: <strong className='resultsText'>Red- High Risk</strong></h3>}
           {this.state.color === 'yellow' && <h3>{capSource} rating: <strong className='resultsText'>Yellow- Medium Risk</strong></h3>}
           {this.state.color === 'green' && <h3>{capSource} rating: <strong className='resultsText'>Green- Low Risk</strong></h3>}
@@ -137,7 +135,7 @@ class Results extends Component {
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
           <div className='result-feeling-question'>
-            <div>Right now, what are your general feelings about this place/person?</div>
+            <div>Now, how do you feel about this {source}?</div>
             <div className='result-feeling-array'>
               {feeling.map((entry, index) => {
                 return (

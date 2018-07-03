@@ -172,7 +172,7 @@ const breederQuestions = [
     }]
   },
   {
-    content: 'How much do puppies cost?',
+    content: 'How much do the puppies cost?',
     source: 'breeder',
     id: 10,
     options: [{

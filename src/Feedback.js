@@ -11,6 +11,7 @@ class feeling extends Component {
     this.questionSubmit = this.questionSubmit.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
   }
+
   handleOptionChange (event) {
     this.setState({
       feeling: event.target.value
@@ -22,6 +23,9 @@ class feeling extends Component {
   }
 
   render () {
+    console.log(this.props)
+    var sourcePath = this.props.match.path
+    var source = sourcePath.match(/\/([^/]+)$/)[1]
     const feeling = [
       {label: 'Very negative', value: 1, class: 'answer feeling color-1'},
       {label: 'Negative', value: 2, class: 'answer feeling color-2'},
@@ -39,7 +43,7 @@ class feeling extends Component {
           </header>
         </div>
         <div className='feeling-question'>
-            Right now, what are your general feelings about this place/person?
+            How do you currently feel about this {source}?
         </div>
         <div className='feeling-array'>
           <div >
