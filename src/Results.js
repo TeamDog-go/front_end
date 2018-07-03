@@ -1,6 +1,5 @@
-/* global localStorage */
 import React, {Component} from 'react'
-import {calculation, results} from './Calculation'
+import {calculation} from './Calculation'
 import request from 'superagent'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/red-doggo.png'
@@ -10,7 +9,6 @@ import greenDog from './Media/green-doggo.png'
 // import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
-import {SelectButton} from 'primereact/components/selectbutton/SelectButton'
 
 class Results extends Component {
   constructor (props) {
@@ -18,15 +16,14 @@ class Results extends Component {
     this.state = {
       score: '',
       color: '',
-      final_feedback: '',
-      userid: '',
-      initial_feeling: ''
+      final_feeling: '',
+      userid: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
-    this.submitFinalFeelings = this.submitFinalFeelings.bind(this)
+    // this.submitFinalFeeling = this.submitFinalFeeling.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
-    // has this.props.feedbackStart, this.props.answers, this.props.questions
+    // has this.props.initial_feeling, this.props.answers, this.props.questions
   }
 
   resolveCalculation () {
@@ -43,51 +40,60 @@ class Results extends Component {
   }
   handleOptionChange (event) {
     this.setState({
-      final_feedback: event.target.value
+      final_feeling: event.target.value
     })
   }
 
   componentDidMount () {
-    console.log(this.props.answers)
-    console.log(this.props.questions)
-    const answers = this.props.answers
-    const questions = this.props.questions
-    this.resolveCalculation().then((response) => {
-      console.log(response.score)
-      console.log(response.color)
-      if (window.localStorage.pupQuestUser) {
-        let userid = window.localStorage.pupQuestUser
-        this.setState({
-          userid: userid
-        })
-      } else {
-        let userid = 4
-        this.setState({
-          userid: userid
-        })
-      }
-      this.setState({
-        score: response.score,
-        color: response.color,
-        initial_feeling: this.props.feedbackStart,
-        final_feedback: response.final_feedback
-      })
+    const questionsAttributesData = this.props.questions.map((entry, index) => {
+      return (
+        {content: entry.content,
+          source: entry.source,
+          answers_attributes: [{
+            a_content: this.props.answers[index].answer,
+            a_color: this.props.answers[index].color,
+            a_points: this.props.answers[index].points
+          }]
+        }
+      )
     })
-    console.log(this.state.userid, questions, answers)
-    request
-      .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-      .send({ user_id: this.state.userid, questions: questions, answers: answers })
-      // .send({user_id: this.state.userid})
+    this.resolveCalculation()
       .then((response) => {
-        console.log(response.body.survey.id)
-        window.localStorage.surveyid = response.body.survey.id
+        this.setState({
+          score: response.score,
+          color: response.color,
+          final_feeling: response.final_feeling
+        })
+        return (
+          {final_score: response.score,
+            color: response.color,
+            initial_feeling: this.props.inital_feelings}
+        )
+      })
+      .then((response) => {
+        console.log(response)
         request
-          .put(`https://polar-castle-14061.herokuapp.com/results.json`)
-          .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color })
+          .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+          .send({survey: { user_id: window.localStorage.pupQuestUser ? window.localStorage.pupQuestUser : 4,
+            result_attributes: response,
+            questions_attributes: questionsAttributesData }})
           .then((response) => {
-            window.localStorage.responseId = response.body.response.id
+            console.log(response)
+            window.localStorage.surveyid = response.body.survey.id
+            window.localStorage.resultId = response.body.survey.result.id
           })
       })
+  }
+
+  componentDidUpdate () {
+    if (this.state.final_feeling && window.localStorage.resultId) {
+      request
+        .put(`https://polar-castle-14061.herokuapp.com/results/${window.localStorage.resultId}.json`)
+        .send({ final_feeling: this.state.final_feeling })
+        .then((response) => {
+          console.log(response)
+        })
+    }
   }
 
   expandDetailedResults () {
@@ -95,22 +101,15 @@ class Results extends Component {
     detailedResults.classList.toggle('hidden')
   }
 
-  submitFinalFeelings (e) {
-    this.setState({final_feedback: e.value})
-    request
-      .put(`https://polar-castle-14061.herokuapp.com/results/${window.localStorage.responseId}.json`)
-      .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color, final_feedback: this.state.final_feedback })
-  }
-
   render () {
-    // console.log(results(this.props.answers, this.props.questions))
+    console.log(results(this.props.answers, this.props.questions))
     console.log(window.localStorage.responseId)
-    const feedback = [
-      {label: 'Very negative', value: 1, class: 'answer result-feedback color-1'},
-      {label: 'Negative', value: 2, class: 'answer result-feedback color-2'},
-      {label: 'Neutral', value: 3, class: 'answer result-feedback color-3'},
-      {label: 'Positive', value: 4, class: 'answer result-feedback color-4'},
-      {label: 'Very positive', value: 5, class: 'answer result-feedback color-5'}
+    const feeling = [
+      {label: 'Very negative', value: 1, class: 'answer result-feeling color-1'},
+      {label: 'Negative', value: 2, class: 'answer result-feeling color-2'},
+      {label: 'Neutral', value: 3, class: 'answer result-feeling color-3'},
+      {label: 'Positive', value: 4, class: 'answer result-feeling color-4'},
+      {label: 'Very positive', value: 5, class: 'answer result-feeling color-5'}
     ]
 
     var sourcePath = this.props.match.path
@@ -137,17 +136,16 @@ class Results extends Component {
           {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
-          <div className='result-feedback-question'>
+          <div className='result-feeling-question'>
             <div>Right now, what are your general feelings about this place/person?</div>
-            <div className='result-feedback-array'>
-              {feedback.map((entry, index) => {
+            <div className='result-feeling-array'>
+              {feeling.map((entry, index) => {
                 return (
                   <div key={index} className={entry.class}>
-                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feedback) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
+                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feeling) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
                     <label htmlFor={index}>{entry.label}</label>
                   </div>)
               })}
-              {/* <SelectButton className='result-feedback-score' value={this.state.final_feedback} options={feedback} onChange={this.submitFinalFeelings} /> */}
             </div>
           </div>
           <div>

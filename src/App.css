@@ -1,3 +1,20 @@
+:root {
+  --mainColor: hsla(191, 42%, 41%, 1);
+  --mainColor-light: hsla(191, 42%, 41%, 0.85);
+  --lightColor: hsla(0, 0%, 96%, 0.1);
+  --darkColor: rgb(34, 33, 33);
+  --whiteText: #F7F7F7;
+  --alertLvl1: #C3364E;
+  --alertLvl2: #F4A881;
+  --alertLvl3: #F7F7F7;
+  --alertLvl4: #92D1DD;
+  --bodyBackground: #BEC1BE;
+  --tooltipBorder: #c1c1c1;
+  --tooltipBackground: #f4f4f4;
+}
+  /* background-color: #CA0020; */
+  /* background-color: #BF2F4A; */
+
 * {
   box-sizing: border-box;
 }
@@ -10,7 +27,7 @@ body {
 .megaWrapper {
   padding: 20px;
   box-shadow: 0 20px 40px 10px rgba(0, 0, 0, 0.25);
-  border: 1px solid #BEC1BE;
+  border: 1px solid var(--bodyBackground);
 }
 
 /* ---------------------- ALL Pages ---------------------- */
@@ -60,26 +77,26 @@ header {
 .navButton {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
-  background-color: hsla(191, 42%, 41%, .85);
-  color: white;
+  background-color: var(--mainColor-light);
+  color: var(--whiteText);
   min-width: 150px;
   max-width: 200px;
   padding: 5px 0;
   border-radius: 0;
-  border: 2px solid hsla(191, 42%, 41%, 1);
+  border: 2px solid var(--mainColor);
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.ui-button-text-only:hover{
   padding: 5px 0;
-  border: 2px solid hsla(191, 42%, 41%, 1);
-  background-color: #3C8494;
-  color: white;
+  border: 2px solid var(--mainColor);
+  background-color: var(--mainColor);
+  color: var(--whiteText);
 }
 .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.ui-button-text-only:focus{
   padding: 5px 0;
-  border: 2px solid hsla(191, 42%, 41%, 1);
-  background-color: #3C8494;
-  color: white;
+  border: 2px solid var(--mainColor);
+  background-color: var(--mainColor);
+  color: var(--whiteText);
 }
 
 .arrow {
@@ -222,31 +239,31 @@ header {
   padding: 8px 0;
   min-width: 200px;
   max-width: 300px;
-  background-color: hsla(0, 0%, 96%, 0.1);
-  color: rgb(34, 33, 33);
-  border: 2px solid hsla(191, 42%, 41%, 1);
+  background-color: var(--lightColor);
+  color: var(--darkColor);
+  border: 2px solid var(--mainColor);
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.sourceButton:hover {
-  background: #3c8494;
-  color: hsla(215, 0%, 100%, 1);
-  border: #3c8494 2px solid;
+  background: var(--mainColor);
+  color: var(--whiteText);
+  border: var(--mainColor) 2px solid;
   padding: 8px 0;
 }
 .ui-button.ui-widget.ui-state-default.ui-corner-all.sourceButton:focus {
-  background: #3c8494;
-  color: hsla(215, 0%, 100%, 1);
-  border: #3c8494 2px solid;
+  background: var(--mainColor);
+  color: var(--whiteText);
+  border: var(--mainColor) 2px solid;
   padding: 8px 0;
 }
 
 .ui-tooltip .ui-tooltip-text {
   font-family: Arial, Helvetica, sans-serif;
   padding: 10px;
-  color: black;
+  color: var(--darkColor);
   font-size: 0.8rem;
-  background-color: #f4f4f4;
-  border: 1px solid #c1c1c1;
+  background-color: var(--tooltipBackground);
+  border: 1px solid var(--tooltipBorder);
 }
 
 /* ---------------------- Question Page ---------------------- */
@@ -274,7 +291,7 @@ header {
 .answer label {
   width: 100%;
   display: block;
-  border: 2px solid hsla(191, 42%, 41%, 1);
+  border: 2px solid var(--mainColor);
   font-size: 120%;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -283,13 +300,13 @@ header {
   position: relative;
 }
 .answer input[type="radio"]:checked + label {
-  background: hsla(191, 42%, 41%, 1);
-  color: hsla(215, 0%, 100%, 1);
+  background: var(--mainColor);
+  color: var(--whiteText);
   /* box-shadow: 0px 0px 20px hsla(191, 42%, 41%, 0.75); */
 }
 .answer input[type="radio"]:checked + label:after {
-    background-color: white;
-    border: 2px solid hsla(191, 42%, 41%, 1);
+    background-color: var(--whiteText);
+    border: 2px solid var(--mainColor);
     content: url('./Media/check.svg');
     position: absolute;
     top: 15%;
@@ -352,24 +369,24 @@ header {
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.login.ui-button-text-only:hover{
   padding: 6px 60% 6px 40%;
-  border: 2px solid hsla(191, 42%, 41%, 1);
-  background-color: #3C8494;
-  color: white;
+  border: 2px solid var(--mainColor);
+  background-color: var(--mainColor);
+  color: var(--whiteText);
 }
 
 Button.navButton.login {
-  border: 2px solid hsla(191, 42%, 41%, 1);
+  border: 2px solid var(--mainColor);
   padding: 6px 60% 6px 40%;
 } 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.register.ui-button-text-only:hover{
   padding: 6px 67% 6px 33%;
-  border: 2px solid hsla(191, 42%, 41%, 1);
-  background-color: #3C8494;
-  color: white;
+  border: 2px solid var(--mainColor);
+  background-color: var(--mainColor);
+  color: var(--whiteText);
 }
 
 Button.navButton.register {
-  border: 2px solid hsla(191, 42%, 41%, 1);
+  border: 2px solid var(--mainColor);
   padding: 6px 67% 6px 33%;
 } 
 
@@ -382,7 +399,7 @@ Button.navButton.register {
 }
 
 .ui-growl-item-container {
-  background-color:#272c2f;
+  background-color: var(--darkColor);
 }
 
 .ui-growl-message {
@@ -396,15 +413,15 @@ Button.navButton.register {
   width: 100%;
   padding: 10px;
   text-align: center;
-  border: 1px solid #BEC1BE;
-  background-color:#CA0020;
+  border: 1px solid var(--tooltipBorder);
+  background-color:var(--alertLvl1);
   margin-bottom: 1rem;
-  color: #272c2f;
+  color: var(--darkColor);
   font-style: italic;
 }
 
-/* ---------------------- Feedback Page ---------------------- */
-.feedback-question{
+/* ---------------------- feeling Page ---------------------- */
+.feeling-question{
   width: 90%;
   margin: 0 auto;
   display: flex;
@@ -413,39 +430,37 @@ Button.navButton.register {
   padding: 1rem 2rem;
   font-size: 150%;
 }
-.feedback-array{
+.feeling-array{
   width: 60%;
   margin: 0 auto;
 }
-.feedback {
+.feeling {
   width: 100%;
   margin-top: 12px;
 }
 
 .color-1{
-  /* background-color: #CA0020; */
-  /* background-color: #BF2F4A; */
-  background-color: #C3364E;
-  color: #F7F7F7;
+  background-color: var(--alertLvl1);
+  color: var(--whiteText);
 }
 .color-2{
-  background-color: #F4A881;
-  color: rgb(66, 65, 65);
+  background-color: var(--alertLvl2);
+  color: var(--darkColor);
 }
 .color-3{
-  background-color: #F7F7F7;
-  color: rgb(30, 30, 30);
+  background-color: var(--whiteText);
+  color: var(--darkColor);
 }
 .color-4{
-  background-color: #92D1DD;
-  color: rgb(66, 65, 65);
+  background-color: var(--alertLvl4);
+  color: var(--darkColor);
 }
 .color-5{
-  background-color: #3C8494;
-  color: #F7F7F7;
+  background-color: var(--mainColor);
+  color: var(--whiteText);
 }
 
-.answer.feedback input[type="radio"]:checked + label {
+.answer.feeling input[type="radio"]:checked + label {
   background-color:initial;
   color: inherit;
 }
@@ -471,7 +486,7 @@ Button.navButton.register {
   font-size: 120%
 }
 
-.result-feedback-question{
+.result-feeling-question{
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
@@ -481,21 +496,21 @@ Button.navButton.register {
   margin: 2rem auto;
   display: flex;
   flex-direction: column;
-  border: black solid 1px;
+  border: var(--darkColor) solid 1px;
 }
 
 .detailedResultsButton {
   width: 80%;
   border-radius: 0;
-  background-color: hsla(191, 42%, 41%, .85);
-  border: 2px solid hsla(191, 42%, 41%, 1);
-  color: white;
+  background-color: var(--mainColor-light);
+  border: 2px solid var(--mainColor);
+  color: var(--whiteText);
   margin: 8px 10%;
 }
 .ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover{
-  border: 2px solid hsla(191, 42%, 41%, 1);
-  background-color: hsla(191, 42%, 41%, 1);
-  color: white;
+  border: 2px solid var(--mainColor);
+  background-color: var(--mainColor);
+  color: var(--whiteText);
 }
 
 .nav-results{
@@ -519,17 +534,17 @@ Button.navButton.register {
   background: hsla(191, 42%, 41%, .5);
 }
 .ui-button.ui-widget.ui-state-default.ui-button-text-only.ui-state-active{
-  background: hsla(191, 42%, 41%, 1);
-  color: white;
+  background: var(--mainColor);
+  color: var(--whiteText);
 } */
 
-.result-feedback-array{
+.result-feeling-array{
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   margin: 5px auto;
 }
-.result-feedback{
+.result-feeling{
   margin: 0 auto;
   display: flex;
   flex-grow: 1;
@@ -537,24 +552,24 @@ Button.navButton.register {
   font-size: 0.9rem;
 }
 
-.result-feedback label{
+.result-feeling label{
   margin: 0;
   border-bottom: none;
   padding: 6px 0;
 }
 
-.result-feedback-array .result-feedback  input[type="radio"]:checked + label {
+.result-feeling-array .result-feeling  input[type="radio"]:checked + label {
   background-color:initial;
   color: inherit;
 }
 
-.result-feedback input[type="radio"]:checked + label:after {
-    background-color: white;
-    border: 1px solid hsla(191, 42%, 41%, 1);
+.result-feeling input[type="radio"]:checked + label:after {
+    background-color: var(--whiteText);
+    border: 1px solid var(--mainColor);
     content: url('./Media/check.svg');
     position: absolute;
-    top: 5%;
-    left: 1%;
+    top: 15%;
+    left: 5%;
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -590,9 +605,6 @@ Button.navButton.register {
   .navButtonDiv {
     justify-content: space-between;
   }
-  /* .megaWrapper {
-    background-color: #3c8494;
-  } */
 
   .ui-selectbutton{
     flex-direction: row;
@@ -600,29 +612,32 @@ Button.navButton.register {
     width: 100%;
   }
 
-  .result-feedback label{
-    border: 1.5px solid hsla(191, 42%, 41%, 1);
+  .result-feeling label{
+    border: 1.5px solid var(--mainColor);
     border-right: none;
   }
-  .result-feedback{
+  .result-feeling{
     display: flex;
     flex-grow: 1;
     min-width: 50px;
   }
 
-  .result-feedback-array{
+  .result-feeling-array{
     width: 100%;
     flex-direction: row;
     flex-wrap: nowrap;
   }
+  .result-feeling input[type="radio"]:checked + label:after {
+    left: 2%;
+}
 
-  .answer, .feedback {
+  .answer, .feeling {
     width: 50%;
   }
   
-  .megaWrapper {
+  /* .megaWrapper {
     background-color: #3c849440;
-  }
+  } */
 
   .login-div, .register-div{
     width: 40%;
