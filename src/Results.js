@@ -1,6 +1,5 @@
-/* global localStorage */
 import React, {Component} from 'react'
-import {calculation, results} from './Calculation'
+import {calculation} from './Calculation'
 import request from 'superagent'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/red-doggo.png'
@@ -17,15 +16,14 @@ class Results extends Component {
     this.state = {
       score: '',
       color: '',
-      final_feedback: '',
-      userid: '',
-      initial_feeling: ''
+      final_feeling: '',
+      userid: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
-    this.submitFinalFeelings = this.submitFinalFeelings.bind(this)
+    // this.submitFinalFeeling = this.submitFinalFeeling.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
-    // has this.props.feedbackStart, this.props.answers, this.props.questions
+    // has this.props.initial_feeling, this.props.answers, this.props.questions
   }
 
   resolveCalculation () {
@@ -42,63 +40,65 @@ class Results extends Component {
   }
   handleOptionChange (event) {
     this.setState({
-      final_feedback: event.target.value
+      final_feeling: event.target.value
     })
   }
 
   componentDidMount () {
-    console.log(this.props.answers)
-    console.log(this.props.questions)
-    const answers = this.props.answers
-    const questions = this.props.questions
-    this.resolveCalculation().then((response) => {
-      console.log(response.score)
-      console.log(response.color)
-      if (window.localStorage.pupQuestUser) {
-        let userid = window.localStorage.pupQuestUser
-        this.setState({
-          userid: userid
-        })
-      } else {
-        let userid = 4
-        this.setState({
-          userid: userid
-        })
-      }
-      this.setState({
-        score: response.score,
-        color: response.color,
-        initial_feeling: this.props.feedbackStart,
-        final_feedback: response.final_feedback
-      })
+    const questionsAttributesData = this.props.questions.map((entry, index) => {
+      return (
+        {content: entry.content,
+          source: entry.source,
+          answers_attributes: [{
+            a_content: this.props.answers[index].answer,
+            a_color: this.props.answers[index].color,
+            a_points: this.props.answers[index].points
+          }]
+        }
+      )
     })
-    console.log(this.state.userid, questions, answers)
-    request
-      .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-      .send({ user_id: this.state.userid, questions: questions, answers: answers })
-      // .send({user_id: this.state.userid})
+    this.resolveCalculation()
       .then((response) => {
-        console.log(response.body.survey.id)
-        window.localStorage.surveyid = response.body.survey.id
+        this.setState({
+          score: response.score,
+          color: response.color,
+          final_feeling: response.final_feeling
+        })
+        return (
+          {final_score: response.score,
+            color: response.color,
+            initial_feeling: this.props.inital_feelings}
+        )
+      })
+      .then((response) => {
+        console.log(response)
         request
-          .put(`https://polar-castle-14061.herokuapp.com/results.json`)
-          .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color })
+          .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+          .send({survey: { user_id: window.localStorage.pupQuestUser ? window.localStorage.pupQuestUser : 4,
+            result_attributes: response,
+            questions_attributes: questionsAttributesData }})
           .then((response) => {
-            window.localStorage.responseId = response.body.response.id
+            console.log(response)
+            window.localStorage.surveyid = response.body.survey.id
+            window.localStorage.resultId = response.body.survey.result.id
           })
       })
+  }
+
+  componentDidUpdate () {
+    if (this.state.final_feeling && window.localStorage.resultId) {
+      request
+        .put(`https://polar-castle-14061.herokuapp.com/results/${window.localStorage.resultId}.json`)
+        .send({ final_feeling: this.state.final_feeling })
+        .then((response) => {
+          console.log(response)
+        })
+    }
   }
 
   expandDetailedResults () {
     let detailedResults = document.querySelector('.accordion')
     detailedResults.classList.toggle('hidden')
-  }
-
-  submitFinalFeelings (e) {
-    this.setState({final_feedback: e.value})
-    request
-      .put(`https://polar-castle-14061.herokuapp.com/results/${window.localStorage.responseId}.json`)
-      .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color, final_feedback: this.state.final_feedback })
   }
 
   render () {
@@ -142,11 +142,10 @@ class Results extends Component {
               {feeling.map((entry, index) => {
                 return (
                   <div key={index} className={entry.class}>
-                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feedback) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
+                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feeling) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
                     <label htmlFor={index}>{entry.label}</label>
                   </div>)
               })}
-              {/* <SelectButton className='result-feeling-score' value={this.state.final_feedback} options={feeling} onChange={this.submitFinalFeelings} /> */}
             </div>
           </div>
           <div>
