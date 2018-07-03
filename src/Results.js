@@ -9,7 +9,6 @@ import greenDog from './Media/green-doggo.png'
 // import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
-// import {SelectButton} from 'primereact/components/selectbutton/SelectButton'
 
 class Results extends Component {
   constructor (props) {
@@ -103,12 +102,14 @@ class Results extends Component {
   }
 
   render () {
+    console.log(results(this.props.answers, this.props.questions))
+    console.log(window.localStorage.responseId)
     const feeling = [
-      {label: 'Very negative', value: 1, class: 'answer result-feedback color-1'},
-      {label: 'Negative', value: 2, class: 'answer result-feedback color-2'},
-      {label: 'Neutral', value: 3, class: 'answer result-feedback color-3'},
-      {label: 'Positive', value: 4, class: 'answer result-feedback color-4'},
-      {label: 'Very positive', value: 5, class: 'answer result-feedback color-5'}
+      {label: 'Very negative', value: 1, class: 'answer result-feeling color-1'},
+      {label: 'Negative', value: 2, class: 'answer result-feeling color-2'},
+      {label: 'Neutral', value: 3, class: 'answer result-feeling color-3'},
+      {label: 'Positive', value: 4, class: 'answer result-feeling color-4'},
+      {label: 'Very positive', value: 5, class: 'answer result-feeling color-5'}
     ]
 
     var sourcePath = this.props.match.path
@@ -135,9 +136,9 @@ class Results extends Component {
           {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
           {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
-          <div className='result-feedback-question'>
+          <div className='result-feeling-question'>
             <div>Right now, what are your general feelings about this place/person?</div>
-            <div className='result-feedback-array'>
+            <div className='result-feeling-array'>
               {feeling.map((entry, index) => {
                 return (
                   <div key={index} className={entry.class}>
@@ -145,7 +146,6 @@ class Results extends Component {
                     <label htmlFor={index}>{entry.label}</label>
                   </div>)
               })}
-              {/* <SelectButton className='result-feedback-score' value={this.state.final_feeling} options={feeling} onChange={this.submitFinalFeelings} /> */}
             </div>
           </div>
           <div>

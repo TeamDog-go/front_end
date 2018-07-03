@@ -10,13 +10,12 @@ class Quiz extends Component {
       answers: [],
       currentIndex: 0,
       currentQ: {},
-      feedbackStart: '',
-      feedbackCounter: 0
+      initial_feeling: '',
+      feelingSet: false
     }
     this.addAnswer = this.addAnswer.bind(this)
     this.prevAnswer = this.prevAnswer.bind(this)
-    this.setFeedbackStart = this.setFeedbackStart.bind(this)
-    // this.setFeedbackEnd = this.setFeedbackEnd.bind(this)
+    this.setInitialFeeling = this.setInitialFeeling.bind(this)
   }
 
   addAnswer (answerIndex, newAnswer) {
@@ -42,31 +41,22 @@ class Quiz extends Component {
     })
   }
 
-  setFeedbackStart (value) {
+  setInitialFeeling (value) {
     this.setState({
-      feedbackStart: value,
-      feedbackCounter: this.state.feedbackCounter + 1
+      initial_feeling: value,
+      feelingSet: true
     })
   }
 
-  // setFeedbackEnd (value) {
-  //   this.setState({
-  //     feedbackEnd: value,
-  //     feedbackCounter: this.state.feedbackCounter + 1
-  //   })
-  // }
-
   componentDidMount () {
-    console.log(this.props.questions)
     this.setState({currentQ: this.props.questions[0]})
   }
 
   render () {
-    console.log(this.props)
-    if (this.state.feedbackCounter === 0) {
+    if (!this.state.feelingSet) {
       return (
         <div>
-          <Feedback setFeedback={this.setFeedbackStart} history={this.props.history} />
+          <Feedback setInitialFeeling={this.setInitialFeeling} history={this.props.history} />
         </div>
       )
     } else if (this.state.answers.length < this.props.questions.length) {
@@ -78,7 +68,7 @@ class Quiz extends Component {
     } else if (this.state.answers.length === this.props.questions.length) {
       return (
         <div>
-          <Results answers={this.state.answers} questions={this.props.questions} feedbackStart={this.state.feedbackStart} {...this.props} />
+          <Results answers={this.state.answers} questions={this.props.questions} initial_feeling={this.state.initial_feeling} {...this.props} />
         </div>
       )
     }
