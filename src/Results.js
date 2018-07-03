@@ -1,6 +1,5 @@
-/* global localStorage */
 import React, {Component} from 'react'
-import {calculation, results} from './Calculation'
+import {calculation} from './Calculation'
 import request from 'superagent'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/red-doggo.png'
@@ -10,7 +9,7 @@ import greenDog from './Media/green-doggo.png'
 // import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
-import {SelectButton} from 'primereact/components/selectbutton/SelectButton'
+// import {SelectButton} from 'primereact/components/selectbutton/SelectButton'
 
 class Results extends Component {
   constructor (props) {
@@ -19,8 +18,7 @@ class Results extends Component {
       score: '',
       color: '',
       final_feedback: '',
-      userid: '',
-      initial_feeling: ''
+      userid: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
@@ -48,44 +46,41 @@ class Results extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props.answers)
-    console.log(this.props.questions)
-    const answers = this.props.answers
-    const questions = this.props.questions
-    this.resolveCalculation().then((response) => {
-      console.log(response.score)
-      console.log(response.color)
-      if (window.localStorage.pupQuestUser) {
-        let userid = window.localStorage.pupQuestUser
-        this.setState({
-          userid: userid
-        })
-      } else {
-        let userid = 4
-        this.setState({
-          userid: userid
-        })
-      }
-      this.setState({
-        score: response.score,
-        color: response.color,
-        initial_feeling: this.props.feedbackStart,
-        final_feedback: response.final_feedback
-      })
+    const questionsAttributesData = this.props.questions.map((entry, index) => {
+      return (
+        {content: entry.content,
+          source: entry.source,
+          answers_attributes: [{
+            a_content: this.props.answers[index].answer,
+            a_color: this.props.answers[index].color,
+            a_points: this.props.answers[index].points
+          }]
+        }
+      )
     })
-    console.log(this.state.userid, questions, answers)
-    request
-      .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-      .send({ user_id: this.state.userid, questions: questions, answers: answers })
-      // .send({user_id: this.state.userid})
+    this.resolveCalculation()
       .then((response) => {
-        console.log(response.body.survey.id)
-        window.localStorage.surveyid = response.body.survey.id
+        this.setState({
+          score: response.score,
+          color: response.color,
+          final_feedback: response.final_feedback
+        })
+        return (
+          {final_score: response.score,
+            color: response.color,
+            initial_feeling: this.props.feedbackStart}
+        )
+      })
+      .then((response) => {
+        console.log(response)
         request
-          .put(`https://polar-castle-14061.herokuapp.com/results.json`)
-          .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color })
+          .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+          .send({survey: { user_id: window.localStorage.pupQuestUser ? window.localStorage.pupQuestUser : 4,
+            result_attributes: response,
+            questions_attributes: questionsAttributesData }})
           .then((response) => {
-            window.localStorage.responseId = response.body.response.id
+            console.log(response)
+            window.localStorage.surveyid = response.body.survey.id
           })
       })
   }
@@ -103,8 +98,6 @@ class Results extends Component {
   }
 
   render () {
-    // console.log(results(this.props.answers, this.props.questions))
-    console.log(window.localStorage.responseId)
     const feedback = [
       {label: 'Very negative', value: 1, class: 'answer result-feedback color-1'},
       {label: 'Negative', value: 2, class: 'answer result-feedback color-2'},
