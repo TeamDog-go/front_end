@@ -17,14 +17,14 @@ class Results extends Component {
     this.state = {
       score: '',
       color: '',
-      final_feedback: '',
+      final_feeling: '',
       userid: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
-    this.submitFinalFeelings = this.submitFinalFeelings.bind(this)
+    // this.submitFinalFeeling = this.submitFinalFeeling.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
-    // has this.props.feedbackStart, this.props.answers, this.props.questions
+    // has this.props.initial_feeling, this.props.answers, this.props.questions
   }
 
   resolveCalculation () {
@@ -41,7 +41,7 @@ class Results extends Component {
   }
   handleOptionChange (event) {
     this.setState({
-      final_feedback: event.target.value
+      final_feeling: event.target.value
     })
   }
 
@@ -63,12 +63,12 @@ class Results extends Component {
         this.setState({
           score: response.score,
           color: response.color,
-          final_feedback: response.final_feedback
+          final_feeling: response.final_feeling
         })
         return (
           {final_score: response.score,
             color: response.color,
-            initial_feeling: this.props.feedbackStart}
+            initial_feeling: this.props.inital_feelings}
         )
       })
       .then((response) => {
@@ -81,8 +81,20 @@ class Results extends Component {
           .then((response) => {
             console.log(response)
             window.localStorage.surveyid = response.body.survey.id
+            window.localStorage.resultId = response.body.survey.result.id
           })
       })
+  }
+
+  componentDidUpdate () {
+    if (this.state.final_feeling && window.localStorage.resultId) {
+      request
+        .put(`https://polar-castle-14061.herokuapp.com/results/${window.localStorage.resultId}.json`)
+        .send({ final_feeling: this.state.final_feeling })
+        .then((response) => {
+          console.log(response)
+        })
+    }
   }
 
   expandDetailedResults () {
@@ -90,15 +102,8 @@ class Results extends Component {
     detailedResults.classList.toggle('hidden')
   }
 
-  submitFinalFeelings (e) {
-    this.setState({final_feedback: e.value})
-    request
-      .put(`https://polar-castle-14061.herokuapp.com/results/${window.localStorage.responseId}.json`)
-      .send({ surveyid: window.localStorage.surveyid, final_score: this.state.score, initial_feeling: this.state.initial_feeling, color: this.state.color, final_feedback: this.state.final_feedback })
-  }
-
   render () {
-    const feedback = [
+    const feeling = [
       {label: 'Very negative', value: 1, class: 'answer result-feedback color-1'},
       {label: 'Negative', value: 2, class: 'answer result-feedback color-2'},
       {label: 'Neutral', value: 3, class: 'answer result-feedback color-3'},
@@ -133,14 +138,14 @@ class Results extends Component {
           <div className='result-feedback-question'>
             <div>Right now, what are your general feelings about this place/person?</div>
             <div className='result-feedback-array'>
-              {feedback.map((entry, index) => {
+              {feeling.map((entry, index) => {
                 return (
                   <div key={index} className={entry.class}>
-                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feedback) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
+                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feeling) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
                     <label htmlFor={index}>{entry.label}</label>
                   </div>)
               })}
-              {/* <SelectButton className='result-feedback-score' value={this.state.final_feedback} options={feedback} onChange={this.submitFinalFeelings} /> */}
+              {/* <SelectButton className='result-feedback-score' value={this.state.final_feeling} options={feeling} onChange={this.submitFinalFeelings} /> */}
             </div>
           </div>
           <div>
