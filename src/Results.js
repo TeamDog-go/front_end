@@ -113,13 +113,6 @@ class Results extends Component {
       {label: 'Very positive', value: 5, class: 'answer result-feedback color-5'}
     ]
 
-    // var feedback = [
-    //   {label: 'Very negative', value: 1},
-    //   {label: 'Negative', value: 2},
-    //   {label: 'Neutral', value: 3},
-    //   {label: 'Positive', value: 4},
-    //   {label: 'Very positive', value: 5}
-    // ]
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
 
