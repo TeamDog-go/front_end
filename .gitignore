@@ -21,7 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 snippets.js
-SnippetsNicelyNames
+SnippetsNicelyNames.js
 IntroPage-Blank.js
 IntroPage-Spot.js
 IntroPage-Start.js
