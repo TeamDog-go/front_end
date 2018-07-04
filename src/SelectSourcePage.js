@@ -4,6 +4,7 @@ import sourceDog from './Media/adorable-blur.jpg'
 import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import {Dialog} from 'primereact/components/dialog/Dialog'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class SelectSourcePage extends Component {
   constructor (props) {
@@ -32,16 +33,28 @@ class SelectSourcePage extends Component {
         <div className='selectSourcePageDiv'>
           <img className='selectSourcePageImage' src={sourceDog} alt='curious dog' />
           <h3 className='sourceQuestionText'>Which best describes the place you want to test?</h3>
-          <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
-          <Dialog header='Info' visible={this.state.visible} width='350px' modal onHide={this.onHide}>For groups that have dogs for adoption in a public building or in foster homes.</Dialog>
-          <Button label='?' onClick={this.onClick} />
+          <div>
+            <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
+            <Dialog header='Info' visible={this.state.visible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.visible} >For organizations that adopt dogs out of a public building or foster homes.</Dialog>
+            <div className='moreInfoModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClick} />
+            </div>
+            <Tooltip tooltipStyleClass='sourceTooltip' for='#shelterButton' title='For groups that have dogs for adoption in a public building or in foster homes.' tooltipPosition='right' />
+          </div>
+          <div>
+            <Button className='sourceButton' id='breederButton' onClick={() => this.props.history.push('/breeder')} label='Breeder' />
+            <Dialog header='Info' visible={this.state.visible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.visible} >For professional and hobby breeders.</Dialog>
+            <div className='moreInfoModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClick} />
+            </div>
+            <Tooltip className='sourceTooltip' for='#breederButton' title='For professional and hobby breeders.' tooltipPosition='right' />
+          </div>
 
-          <Button label='Show' icon='pi pi-info-circle' onClick={this.onClick} />
-          <Tooltip tooltipStyleClass='sourceTooltip' for='#shelterButton' title='For groups that have dogs for adoption in a public building or in foster homes.' tooltipPosition='right' />
-          <Button className='sourceButton' id='breederButton' onClick={() => this.props.history.push('/breeder')} label='Breeder' />
-          <Tooltip className='sourceTooltip' for='#breederButton' title='For professional and hobby breeders.' tooltipPosition='right' />
-          <Button className='sourceButton' id='individualButton' onClick={() => this.props.history.push('/individual')} label='Individual' />
-          <Tooltip className='sourceTooltip' for='#individualButton' title='For friends, relatives, neighbors, or Craigslist posters rehoming their dog/a litter of puppies.' tooltipPosition='right' />
+          <div>
+            <Button className='sourceButton' id='individualButton' onClick={() => this.props.history.push('/individual')} label='Individual' />
+            <Dialog header='Info' visible={this.state.visible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.visible} >For friends, relatives, neighbors, or Craigslist posters rehoming their dog or litter of puppies.</Dialog>
+            <div className='moreInfoModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClick} />
+            </div>
+            <Tooltip className='sourceTooltip' for='#individualButton' title='For friends, relatives, neighbors, or Craigslist posters rehoming their dog/a litter of puppies.' tooltipPosition='right' />
+          </div>
         </div>
         <div className='navButtonDiv'>
           <button className='arrow back active' onClick={() => this.props.history.push('/')} />

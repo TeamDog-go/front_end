@@ -14,9 +14,9 @@ import Login from './Login'
 import Register from './Register'
 import { library } from '@fortawesome/fontawesome-svg-core'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleDown, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faChevronCircleDown)
+library.add(faChevronCircleDown, faQuestionCircle)
 
 class App extends Component {
   constructor (props) {

@@ -266,6 +266,11 @@ header {
   border: 1px solid var(--tooltipBorder);
 }
 
+.moreInfoModal {
+  display: inline-flex;
+  padding-left: 5px;
+}
+
 /* ---------------------- Question Page ---------------------- */
 .basicQuestion{
   display: flex;
