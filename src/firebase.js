@@ -1,16 +1,16 @@
 import firebase from 'firebase/app'
-import 'firebase/storage'
+// import 'firebase/storage'
 // import 'firebase/auth'
 // import 'firebase/database'
 // import 'firebase/functions'
 
 var config = {
-  apiKey: 'AIzaSyB0IQttl1DeIKXmPZzqkQ3HLIZvZRu90FQ',
-  authDomain: 'momentum-final-cohort1.firebaseapp.com',
-  databaseURL: 'https://momentum-final-cohort1.firebaseio.com',
-  projectId: 'momentum-final-cohort1',
-  storageBucket: 'momentum-final-cohort1.appspot.com',
-  messagingSenderId: '711830112074'
+  apiKey: 'AIzaSyAiDZHOqNHbqYy8gYTtlclnC7PCcXBNyWw',
+  authDomain: 'spotcheck-quiz.firebaseapp.com',
+  databaseURL: 'https://spotcheck-quiz.firebaseio.com',
+  projectId: 'spotcheck-quiz',
+  storageBucket: 'spotcheck-quiz.appspot.com',
+  messagingSenderId: '791864635258'
 }
 
 firebase.initializeApp(config)

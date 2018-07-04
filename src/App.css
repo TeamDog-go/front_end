@@ -130,7 +130,6 @@ header {
   width: 54px;
   margin: 0px
 }
-
 .arrow.back {
   height: 50px;
   width: 50px;
@@ -139,7 +138,6 @@ header {
   background-repeat: no-repeat;
   border: none;
 }
-
 .arrow.next.active {
   height: 50px;
   width: 50px;
@@ -148,7 +146,6 @@ header {
   background-repeat: no-repeat;
   border: none;
 }
-
 .arrow.next {
   height: 50px;
   width: 50px;
@@ -157,7 +154,6 @@ header {
   background-repeat: no-repeat;
   border: none;
 }
-
 .arrow.next.active:hover {
   height: 54px;
   width: 54px;
@@ -387,6 +383,19 @@ header {
     border-radius: 50%;
     /* box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, .75); */
 }
+/* ------------- ProgressBar ------------ */
+.ui-progressbar{
+  width: 95%;
+  margin: 0 auto;
+  background-color: var(--tooltipBackground);
+}
+/* .ui-progressbar-determinate{} */
+.ui-progressbar-value{
+  background-color: var(--mainColor);
+}
+/* .ui-progressbar-label{} */
+
+
 
 /* ---------------------- Login/Registration Pages ---------------------- */
 .portal-input{
@@ -611,7 +620,6 @@ Button.navButton.register {
     position: relative;
     bottom: auto;
   }
-
   .navButton {
     background-color: var(--mainColor-light);
   }
@@ -648,17 +656,17 @@ Button.navButton.register {
     margin: 0 auto 50px auto;
   }
 
+  .ui-progressbar{
+    width: 85%;
+    margin-top: 2rem;
+  }
+
   .basicQuestion{
     width: 70%;
   }
   .basicQuestion-Question{
     margin: 2rem auto;
   }
-
-  .resultsColorImage {
-    height: 40vh;
-  }
- 
   .answer, .feeling {
     width: 75%;
   }
@@ -666,6 +674,10 @@ Button.navButton.register {
     padding:1rem;
   } */
 
+
+  .resultsColorImage {
+    height: 40vh;
+  }
   .result-feeling label{
     border: 1.5px solid var(--mainColor);
     border-right: none;
@@ -676,7 +688,6 @@ Button.navButton.register {
     flex-grow: 1;
     min-width: 50px;
   }
-
   .result-feeling-array{
     width: 100%;
     flex-direction: row;
@@ -702,18 +713,15 @@ Button.navButton.register {
   .navButtonDiv.portal {
     width: 85%;
   }
-
   .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.login.ui-button-text-only:hover{
     padding: 6px 60% 6px 40%;
   }
-  
   Button.navButton.login {
     padding: 6px 60% 6px 40%;
   } 
   .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.register.ui-button-text-only:hover{
     padding: 6px 67% 6px 33%;
   }
-  
   Button.navButton.register {
     padding: 6px 67% 6px 33%;
   } 

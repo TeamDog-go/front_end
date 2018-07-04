@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {ProgressBar} from 'primereact/components/progressbar/ProgressBar'
 import {Growl} from 'primereact/components/growl/Growl'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 
@@ -8,7 +9,8 @@ class BasicQ extends Component {
     this.state = {
       answer: '',
       points: '',
-      color: ''
+      color: '',
+      value: 0
     }
     this.questionSubmit = this.questionSubmit.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
@@ -18,7 +20,8 @@ class BasicQ extends Component {
     this.setState({
       answer: event.target.name,
       points: event.target.dataset.points,
-      color: event.target.value
+      color: event.target.value,
+      value: 10 + 10 * this.props.savedanswers.length
     })
   }
 
@@ -59,6 +62,7 @@ class BasicQ extends Component {
               <h2 className='header'>&nbsp;Spot Check</h2>
             </header>
           </div>
+          <ProgressBar value={this.state.value} />
           <div className='basicQuestion'>
             <div className='basicQuestion-Question'>
               {this.props.question.content}
