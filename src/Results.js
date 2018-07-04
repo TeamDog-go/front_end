@@ -135,25 +135,13 @@ class Results extends Component {
           {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
           {this.state.color === 'green' && <p>This {source} has good practices. This greatly increases the chances your future dog will be happy and healthy! (It's not a guarantee, but it's a great start!)</p>}
-          <div className='result-feeling-question'>
-            <div>Now, how do you feel about this {source}?</div>
-            <div className='result-feeling-array'>
-              {feeling.map((entry, index) => {
-                return (
-                  <div key={index} className={entry.class}>
-                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feeling) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
-                    <label htmlFor={index}>{entry.label}</label>
-                  </div>)
-              })}
-            </div>
-          </div>
           <div>
             <div className='detailedResults'>
               <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
               Show Detailed Results <FontAwesomeIcon icon='chevron-circle-down' />
               </button>
               <Accordion className='accordion hidden'>
-                <AccordionTab header='Question that ranked red'>
+                <AccordionTab className='detailedResultsAccordion' header='Question that ranked red'>
         The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughters wedding.
         His beloved son Michael has just come home from the war, but does not intend to become part of his fathers business.
         Through Michaels life the nature of the family business becomes clear. The business of the family is just like the head
@@ -175,6 +163,19 @@ class Results extends Component {
               </Accordion>
             </div>
           </div>
+          <div className='result-feeling-question'>
+            <div>Now, how do you feel about this {source}?</div>
+            <div className='result-feeling-array'>
+              {feeling.map((entry, index) => {
+                return (
+                  <div key={index} className={entry.class}>
+                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feeling) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
+                    <label htmlFor={index}>{entry.label}</label>
+                  </div>)
+              })}
+            </div>
+          </div>
+    
           <div className='navButtonDiv nav-results'>
             <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
             {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' /> */}

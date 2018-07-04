@@ -3,8 +3,23 @@ import {Button} from 'primereact/components/button/Button'
 import sourceDog from './Media/adorable-blur.jpg'
 import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import PQlogo from './Media/PQlogo_rev-02.svg'
+import {Dialog} from 'primereact/components/dialog/Dialog'
 
 class SelectSourcePage extends Component {
+  constructor (props) {
+    super()
+    this.state = {visible: false}
+    this.onClick = this.onClick.bind(this)
+    this.onHide = this.onHide.bind(this)
+  }
+
+  onClick (event) {
+    this.setState({visible: true})
+  }
+
+  onHide (event) {
+    this.setState({visible: false})
+  }
   render () {
     return (
       <div className='megaWrapper'>
@@ -18,6 +33,10 @@ class SelectSourcePage extends Component {
           <img className='selectSourcePageImage' src={sourceDog} alt='curious dog' />
           <h3 className='sourceQuestionText'>Which best describes the place you want to test?</h3>
           <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
+          <Dialog header='Info' visible={this.state.visible} width='350px' modal onHide={this.onHide}>For groups that have dogs for adoption in a public building or in foster homes.</Dialog>
+          <Button label='?' onClick={this.onClick} />
+
+          <Button label='Show' icon='pi pi-info-circle' onClick={this.onClick} />
           <Tooltip tooltipStyleClass='sourceTooltip' for='#shelterButton' title='For groups that have dogs for adoption in a public building or in foster homes.' tooltipPosition='right' />
           <Button className='sourceButton' id='breederButton' onClick={() => this.props.history.push('/breeder')} label='Breeder' />
           <Tooltip className='sourceTooltip' for='#breederButton' title='For professional and hobby breeders.' tooltipPosition='right' />

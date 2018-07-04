@@ -510,13 +510,18 @@ Button.navButton.register {
   padding:10px 0;
   font-weight: 700;
 }
-.ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover{
+.ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover {
   border: 2px solid var(--mainColor);
   background-color: var(--mainColor);
   color: var(--whiteText);
   
 }
-
+.ui-accordion-header.ui-widget.ui-state-default.ui-corner-all.detailedResultsAccordion:hover {
+  border: 2px solid var(--mainColor);
+  background-color: var(--mainColor);
+  color: var(--whiteText);
+  
+}
 .ui-accordion-content {
 background-color: transparent;
 }
