@@ -9,17 +9,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SelectSourcePage extends Component {
   constructor (props) {
     super()
-    this.state = {visible: false}
-    this.onClick = this.onClick.bind(this)
+    this.state = {
+      visible: false,
+      sheltervisible: false,
+      breedervisible: false,
+      individualvisible: false}
+    this.onClickShelter = this.onClickShelter.bind(this)
+    this.onClickBreeder = this.onClickBreeder.bind(this)
+    this.onClickIndividual = this.onClickIndividual.bind(this)
     this.onHide = this.onHide.bind(this)
   }
 
-  onClick (event) {
-    this.setState({visible: true})
+  onClickShelter (event) {
+    this.setState({sheltervisible: true})
+  }
+
+  onClickBreeder (event) {
+    this.setState({breedervisible: true})
+  }
+
+  onClickIndividual (event) {
+    this.setState({individualvisible: true})
   }
 
   onHide (event) {
-    this.setState({visible: false})
+    this.setState({
+      sheltervisible: false,
+      breedervisible: false,
+      individualvisible: false})
   }
   render () {
     return (
@@ -35,25 +52,25 @@ class SelectSourcePage extends Component {
           <h3 className='sourceQuestionText'>Which best describes the place you want to test?</h3>
           <div>
             <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
-            <Dialog header='Info' visible={this.state.visible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.visible} >For organizations that adopt dogs out of a public building or foster homes.</Dialog>
-            <div className='moreInfoModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClick} />
+            <Dialog header='Info' visible={this.state.sheltervisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.sheltervisible} >For organizations that adopt dogs out of a public building or foster homes.</Dialog>
+            <div className='moreInfoModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClickShelter} />
             </div>
             <Tooltip tooltipStyleClass='sourceTooltip' for='#shelterButton' title='For groups that have dogs for adoption in a public building or in foster homes.' tooltipPosition='right' />
           </div>
           <div>
             <Button className='sourceButton' id='breederButton' onClick={() => this.props.history.push('/breeder')} label='Breeder' />
-            <Dialog header='Info' visible={this.state.visible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.visible} >For professional and hobby breeders.</Dialog>
-            <div className='moreInfoModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClick} />
+            <Dialog header='Info' visible={this.state.breedervisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.breedervisible} >For professional and hobby breeders.</Dialog>
+            <div className='moreInfoModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClickBreeder} />
             </div>
             <Tooltip className='sourceTooltip' for='#breederButton' title='For professional and hobby breeders.' tooltipPosition='right' />
           </div>
 
           <div>
             <Button className='sourceButton' id='individualButton' onClick={() => this.props.history.push('/individual')} label='Individual' />
-            <Dialog header='Info' visible={this.state.visible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.visible} >For friends, relatives, neighbors, or Craigslist posters rehoming their dog or litter of puppies.</Dialog>
-            <div className='moreInfoModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClick} />
+            <Dialog header='Info' visible={this.state.individualvisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.individualvisible} >For friends, relatives, neighbors, or Craigslist posters rehoming their dog/litter of puppies.</Dialog>
+            <div className='moreInfoModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClickIndividual} />
             </div>
-            <Tooltip className='sourceTooltip' for='#individualButton' title='For friends, relatives, neighbors, or Craigslist posters rehoming their dog/a litter of puppies.' tooltipPosition='right' />
+            <Tooltip className='sourceTooltip' for='#individualButton' title='For friends, relatives, neighbors, or Craigslist posters rehoming their dog/litter of puppies.' tooltipPosition='right' />
           </div>
         </div>
         <div className='navButtonDiv'>
