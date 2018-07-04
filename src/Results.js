@@ -5,6 +5,7 @@ import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/red-doggo.png'
 import yellowDog from './Media/yellow-doggo.png'
 import greenDog from './Media/green-doggo.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import {Button} from 'primereact/components/button/Button'
@@ -133,7 +134,7 @@ class Results extends Component {
 
           {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
           {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
-          {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
+          {this.state.color === 'green' && <p>This {source} has good practices. This greatly increases the chances your future dog will be happy and healthy! (It's not a guarantee, but it's a great start!)</p>}
           <div className='result-feeling-question'>
             <div>Now, how do you feel about this {source}?</div>
             <div className='result-feeling-array'>
@@ -148,7 +149,9 @@ class Results extends Component {
           </div>
           <div>
             <div className='detailedResults'>
-              <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Detailed Results' />
+              <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
+              Show Detailed Results <FontAwesomeIcon icon='chevron-circle-down' />
+              </button>
               <Accordion className='accordion hidden'>
                 <AccordionTab header='Question that ranked red'>
         The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughters wedding.

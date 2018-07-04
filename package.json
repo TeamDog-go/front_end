@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
+    "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
+    "@fortawesome/react-fontawesome": "^0.1.0-11",
     "classnames": "^2.2.6",
     "firebase": "^5.1.0",
     "primereact": "^1.6.2",
@@ -23,8 +26,8 @@
     "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.8",
     "@storybook/addon-actions": "^3.4.8",
-    "@storybook/addon-links": "^3.4.8"
+    "@storybook/addon-links": "^3.4.8",
+    "@storybook/react": "^3.4.8"
   }
 }

@@ -502,15 +502,38 @@ Button.navButton.register {
 .detailedResultsButton {
   width: 80%;
   border-radius: 0;
-  background-color: var(--mainColor-light);
+  background-color: var(--tooltipBackground);
   border: 2px solid var(--mainColor);
-  color: var(--whiteText);
+  color: var(--darkColor);
   margin: 8px 10%;
+  font-size: 1rem;
+  padding:10px 0;
+  font-weight: 700;
 }
 .ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover{
   border: 2px solid var(--mainColor);
   background-color: var(--mainColor);
   color: var(--whiteText);
+  
+}
+
+.ui-accordion-content {
+background-color: transparent;
+}
+
+.ui-accordion-header {
+  border-radius: 0;
+  background-color: var(--tooltipBackground);
+  border: .5px solid var(--tooltipBorder);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--darkColor);
+}
+
+.ui-accordion-header:hover {
+  background-color: var(--tooltipBackground);
+  border: .5px solid var(--tooltipBorder);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--darkColor);
 }
 
 .nav-results{

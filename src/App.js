@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import IntroPage from './IntroPage'
 import 'primereact/resources/themes/pepper-grinder/theme.css'
 import 'primereact/resources/primereact.min.css'
@@ -12,6 +12,11 @@ import SelectSourcePage from './SelectSourcePage'
 import Results from './Results'
 import Login from './Login'
 import Register from './Register'
+import { library } from '@fortawesome/fontawesome-svg-core'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faChevronCircleDown)
 
 class App extends Component {
   constructor (props) {
