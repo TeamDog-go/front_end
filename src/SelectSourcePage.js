@@ -52,7 +52,7 @@ class SelectSourcePage extends Component {
           <h3 className='sourceQuestionText'>Which best describes the place you want to test?</h3>
           <div>
             <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
-            <Dialog header='Info' visible={this.state.sheltervisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.sheltervisible} >For organizations that adopt dogs out of a public building or foster homes.</Dialog>
+            <Dialog header='Info' visible={this.state.sheltervisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.sheltervisible} >For groups that have dogs for adoption in a public building or in foster homes.</Dialog>
             <div className='moreInfoModal' id='shelterModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClickShelter} />
             </div>
             <Tooltip tooltipStyleClass='sourceTooltip' for='#shelterModal' title='For groups that have dogs for adoption in a public building or in foster homes.' tooltipPosition='right' />

@@ -275,6 +275,15 @@ header {
   cursor: pointer;
 }
 
+.ui-dialog {
+  background-color: var(--tooltipBackground)
+}
+
+.ui-dialog-titlebar-close {
+  font-size: 3rem;
+  /* display: inline-block; */
+}
+
 /* ---------------------- Question Page ---------------------- */
 .basicQuestion{
   display: flex;
