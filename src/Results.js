@@ -5,8 +5,8 @@ import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/ResultDogR.jpg'
 import yellowDog from './Media/ResultDogY.jpg'
 import greenDog from './Media/ResultDogG.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-// import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
 
@@ -21,7 +21,6 @@ class Results extends Component {
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
-    // this.submitFinalFeeling = this.submitFinalFeeling.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
     // has this.props.initial_feeling, this.props.answers, this.props.questions
   }
@@ -133,7 +132,7 @@ class Results extends Component {
           {this.state.color === 'red' && <img className='resultsColorImage' src={redDog} alt='High Risk' />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src={yellowDog} alt='Medium Risk' />}
           {this.state.color === 'green' && <img className='resultsColorImage' src={greenDog} alt='Low Risk' />}
-          <div className='scale-container'>
+<div className='scale-container'>
             <div className='scale'>
               <div className='scale-red' />
               <div className='scale-yellow' />
@@ -151,9 +150,10 @@ class Results extends Component {
             {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
             {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
             {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
+
           </div>
           <div className='result-feeling-question'>
-            <div>Right now, what are your general feelings about this place/person?</div>
+            <div>Now, how do you feel about this {source}?</div>
             <div className='result-feeling-array'>
               {feeling.map((entry, index) => {
                 return (
@@ -164,32 +164,22 @@ class Results extends Component {
               })}
             </div>
           </div>
-          <div>
-            <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Detailed Results' />
-            <div className='detailedResultsDiv'>
+
+<div className='detailedResults'>
+              <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
+              Show Detailed Results <FontAwesomeIcon icon='chevron-circle-down' />
+              </button>
               <Accordion className='accordion hidden'>
-                <AccordionTab header='Question that ranked red'>
-        The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughters wedding.
-        His beloved son Michael has just come home from the war, but does not intend to become part of his fathers business.
-        Through Michaels life the nature of the family business becomes clear. The business of the family is just like the head
-        of the family, kind and benevolent to those who give respect,
-        but given to ruthless violence whenever anything stands against the good of the family.
+                <AccordionTab className='detailedResultsAccordion' header='Are you allowed to visit the puppies?'>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)
                 </AccordionTab>
-                <AccordionTab header='Question that ranked yellow'>
-        Francis Ford Coppolas legendary continuation and sequel to his landmark 1972 film, The_Godfather parallels the young
-        Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfathers depiction of the dark side of
-        the American dream. In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills his family.
-        Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy, killing the local Black Hand
-        Fanucci after he demands his customary cut of the tyro's business. With Fanucci gone, Vito's communal stature grows.
+                <AccordionTab header='Does the breeder ship puppies via airplane?'>
+                Young puppies are in a period of critical development. A flight is a potentially scary and dangerous experience. Heatstroke and crate phobias are real risks. Steer clear of any breeder who offers to ship you a pup!
                 </AccordionTab>
-                <AccordionTab header='Question that ranked green'>
-        After a break of more than 15 years, director Francis Ford Coppola and writer Mario Puzo returned to the well for this
-        third and final story of the fictional Corleone crime family. Two decades have passed, and crime kingpin Michael Corleone,
-        now divorced from his wife Kay has nearly succeeded in keeping his promise that his family would one day be completely legitimate.
+                <AccordionTab header='Is the breeder United States Department of Agriculture (USDA) licensed?'>
+                Excellent! The USDA oversees farms. If a breeder is USDA licensed, they are a puppy farm! Not having this license is a GOOD thing.
                 </AccordionTab>
               </Accordion>
             </div>
-          </div>
           <div className='navButtonDivIntro'>
             <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
             {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' /> */}

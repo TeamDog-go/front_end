@@ -188,7 +188,6 @@ const breederQuestions = [
       o_color: 'red',
       points: -30
     }]
-  }
 ]
 
 export default breederQuestions
