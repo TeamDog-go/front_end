@@ -28,24 +28,25 @@ class BasicQ extends Component {
       value: 10 + 10 * this.props.savedanswers.length,
       option_id: event.target.id
     })
-    // const body = {
-    //   answer: event.target.name,
-    //   points: event.target.dataset.points,
-    //   color: event.target.value,
-    //   question_id: this.props.question.id
-    // }
-    // this.cancelTimeout = setTimeout(() => {
-    //   this.props.addAnswer(this.props.index, body)
-    //   const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
-    //   if (this.props.index <= this.props.savedanswers.length) {
-    //     this.setState({
-    //       answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
-    //       points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
-    //       // points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
-    //       color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
-    //     })
-    //   }
-    // }, 4500)
+    const body = {
+      answer: event.target.name,
+      points: event.target.dataset.points,
+      color: event.target.value,
+      option_id: event.target.id,
+      question_id: this.props.question.id
+    }
+    this.cancelTimeout = setTimeout(() => {
+      this.props.addAnswer(this.props.index, body)
+      const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
+      if (this.props.index <= this.props.savedanswers.length) {
+        this.setState({
+          answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
+          points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
+          option_id: this.props.savedanswers[next] ? this.props.savedanswers[next].option_id : '',
+          color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
+        })
+      }
+    }, 2750)
   }
 
   questionSubmit () {
@@ -64,7 +65,7 @@ class BasicQ extends Component {
       this.setState({
         answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
         points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
-        // points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
+        option_id: this.props.savedanswers[next] ? this.props.savedanswers[next].option_id : '',
         color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
       })
     }
@@ -76,7 +77,7 @@ class BasicQ extends Component {
     this.setState({
       answer: this.props.savedanswers[prev] ? this.props.savedanswers[prev].answer : '',
       points: this.props.savedanswers[prev] ? this.props.savedanswers[prev].points : '',
-      // points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
+      option_id: this.props.savedanswers[prev] ? this.props.savedanswers[prev].option_id : '',
       color: this.props.savedanswers[prev] ? this.props.savedanswers[prev].color : ''
     })
   }
@@ -103,7 +104,7 @@ class BasicQ extends Component {
                   return (
                     <div key={index} className='answer'>
                       <input type='radio' id={entry.o_id} name={entry.o_content} data-points={entry.points} value={entry.o_color} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.o_content} />
-                      <label htmlFor={index} >{entry.o_content}</label>
+                      <label htmlFor={entry.o_id} >{entry.o_content}</label>
                     </div>)
                 })}
               </form>
