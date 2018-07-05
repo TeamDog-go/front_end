@@ -23,6 +23,7 @@ class Results extends Component {
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
+    this.resultsIconClick = this.resultsIconClick.bind(this)
     // has this.props.initial_feeling, this.props.answers, this.props.questions
   }
 
@@ -77,17 +78,6 @@ class Results extends Component {
     console.log(answersArray)
     this.resolveCalculation()
       .then((response) => {
-        // this.setState({
-        //   score: response.score,
-        //   color: response.color
-        // })
-        // return (
-        //   {final_score: response.score,
-        //     color: response.color,
-        //     initial_feeling: this.props.inital_feelings}
-        // )
-      // })
-      // .then((response) => {
         this.setState({
           score: response.score,
           color: response.color
@@ -100,13 +90,12 @@ class Results extends Component {
             category_id: 1,
             final_score: this.state.score,
             initial_feeling: this.props.initial_feeling,
-            color: this.props.color,
+            color: this.state.color,
             answers_attributes: answersArray
           }})
           .then((response) => {
             console.log(response)
             window.localStorage.surveyid = response.body.survey.id
-            window.localStorage.resultId = response.body.survey.result.id
           })
       })
   }

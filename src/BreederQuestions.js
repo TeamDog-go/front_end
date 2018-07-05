@@ -4,18 +4,18 @@ const breederQuestions = [
     source: 'breeder',
     id: 1,
     options: [{
-      o_id: 0,
+      o_id: 1,
       o_content: 'Yes',
       o_color: 'green',
       points: 10
     },
     {
-      o_id: 1,
+      o_id: 2,
       o_content: 'No',
       o_color: 'red',
       points: -100
     }, {
-      o_id: 2,
+      o_id: 3,
       o_content: 'I don\'t know',
       o_color: 'yellow',
       points: -10
@@ -27,18 +27,18 @@ const breederQuestions = [
     source: 'breeder',
     id: 2,
     options: [{
-      o_id: 0,
+      o_id: 1,
       o_content: 'Yes',
       o_color: 'red',
       points: -30
     },
     {
-      o_id: 1,
+      o_id: 2,
       o_content: 'No',
       o_color: 'green',
       points: 10
     }, {
-      o_id: 2,
+      o_id: 3,
       o_content: 'I don\'t know',
       o_color: 'yellow',
       points: 0
@@ -50,18 +50,18 @@ const breederQuestions = [
     source: 'breeder',
     id: 3,
     options: [{
-      o_id: 0,
+      o_id: 1,
       o_content: 'Yes',
       o_color: 'red',
       points: -100
     },
     {
-      o_id: 1,
+      o_id: 2,
       o_content: 'No',
       o_color: 'green',
       points: 10
     }, {
-      o_id: 2,
+      o_id: 3,
       o_content: 'I don\'t know',
       o_color: 'yellow',
       points: 0
