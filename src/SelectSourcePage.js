@@ -1,10 +1,14 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
-import sourceDog from './Media/adorable-blur.jpg'
 import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import {Dialog} from 'primereact/components/dialog/Dialog'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import dog1 from './Media/adorable-blur.jpg'
+import dog2 from './Media/aussie-puppies.jpg'
+import dog3 from './Media/lab-puppies.jpg'
+import dog4 from './Media/puppy-basket.jpg'
 
 class SelectSourcePage extends Component {
   constructor (props) {
@@ -38,17 +42,26 @@ class SelectSourcePage extends Component {
       breedervisible: false,
       individualvisible: false})
   }
+
+  getRandomPhoto () {
+    const photoArray = [dog1, dog2, dog3, dog4]
+    const photoindex = Math.floor(Math.random() * Math.floor(photoArray.length))
+    // return photoArray[photoindex]
+    const photoSource = photoArray[photoindex]
+    return (<img className='selectSourcePageImage' src={photoSource} alt='adorable dogs' />)
+  }
+
   render () {
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
             <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
-            <h2 className='header'>&nbsp;PupQuest Test</h2>
+            <h2 className='header'>&nbsp;Spot Check</h2>
           </header>
         </div>
         <div className='selectSourcePageDiv'>
-          <img className='selectSourcePageImage' src={sourceDog} alt='curious dog' />
+          {this.getRandomPhoto()}
           <h3 className='sourceQuestionText'>Which best describes the place you want to test?</h3>
           <div>
             <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
