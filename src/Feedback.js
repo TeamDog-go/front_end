@@ -42,9 +42,7 @@ class feeling extends Component {
             <h2 className='header'>&nbsp;Spot Check</h2>
           </header>
         </div>
-        <div className='feeling-question'>
-            How do you currently feel about this {source}?
-        </div>
+        <div className='feeling-question'>How do you currently feel about this {source}?</div>
         <div className='feeling-array'>
           <div >
             <form>

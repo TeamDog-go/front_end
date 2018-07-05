@@ -296,9 +296,7 @@ header {
 .feeling-question{
   width: 90%;
   margin: 0 auto;
-  display: flex;
-  align-content: center;
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   font-size: 150%;
   font-weight: 700;
   text-align: center;
@@ -404,6 +402,7 @@ header {
   width: 95%;
   margin: 0 auto;
   background-color: var(--tooltipBackground);
+  color: var(--whiteText);
 }
 /* .ui-progressbar-determinate{} */
 .ui-progressbar-value{
@@ -599,7 +598,7 @@ background-color: transparent;
 .nav-results{
   width: 100%;
   margin-top: 1rem;
-
+}
 .result-id{
   font-size: 125%;
   font-weight: 700;
@@ -659,14 +658,28 @@ background-color: transparent;
   display: flex;
   flex-direction: column;
 }
-.detailedResultsButton {
+
+/* .ui-button:focus,
+.ui-button:enabled:hover,
+.ui-fileupload-choose:not(.ui-state-disabled):hover {
+  outline: 0 none;
+  border-color: #b2a266;
+  background: #f7f3de;
+  color: #3a3427; }
+
+.ui-button:focus a,
+.ui-button:enabled:hover a,
+.ui-fileupload-choose:not(.ui-state-disabled):hover a {
+  color: #3a3427; } */
+
+/* .detailedResultsButton {
   width: 100%;
   border-radius: 0;
   background-color: var(--mainColor);
   border: 2px solid var(--mainColor);
   color: var(--whiteText);
-}
-.ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover{
+} */
+/* .ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover{
   border: 2px solid var(--mainColor);
   background-color: var(--mainColor-dark);
   color: var(--whiteText);
@@ -676,7 +689,7 @@ background-color: transparent;
   border: 2px solid var(--mainColor);
   background-color: var(--mainColor-dark);
   color: var(--whiteText);
-}
+} */
 
 /* ---------------------- Media Queries ---------------------- */
 /* @media all and (min-width: 375px) and (max-width: 768px){
@@ -850,12 +863,12 @@ background-color: transparent;
   width: 50px;
   height: 50px;
   position: absolute;
-  background-image: url('./Media/pawprint-circle.png');
+  background-image: url('./Media/pawprint-white.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   top:-0.5rem;
-
+}
 .paw-red {
   background-image: url('./Media/pawprint-red.png');
 }

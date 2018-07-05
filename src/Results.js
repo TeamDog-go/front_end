@@ -132,16 +132,7 @@ class Results extends Component {
           {this.state.color === 'red' && <img className='resultsColorImage' src={redDog} alt='High Risk' />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src={yellowDog} alt='Medium Risk' />}
           {this.state.color === 'green' && <img className='resultsColorImage' src={greenDog} alt='Low Risk' />}
-<div className='scale-container'>
-            <div className='scale'>
-              <div className='scale-red' />
-              <div className='scale-yellow' />
-              <div className='scale-green' />
-            </div>
-            {this.state.color === 'red' && <div className='paw paw-red' style={{left: position}} />}
-            {this.state.color === 'green' && <div className='paw paw-green' style={{left: position}} />}
-            {this.state.color === 'yellow' && <div className='paw paw-yellow' style={{left: position}} />}
-          </div>
+
           <div className='result-info'>
             {this.state.color === 'red' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>High Risk</strong></p>}
             {this.state.color === 'yellow' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Medium Risk</strong></p>}
@@ -152,34 +143,46 @@ class Results extends Component {
             {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
 
           </div>
-          <div className='result-feeling-question'>
-            <div>Now, how do you feel about this {source}?</div>
-            <div className='result-feeling-array'>
-              {feeling.map((entry, index) => {
-                return (
-                  <div key={index} className={entry.class}>
-                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feeling) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
-                    <label htmlFor={index}>{entry.label}</label>
-                  </div>)
-              })}
+          <div className='scale-container'>
+            <div className='scale'>
+              <div className='scale-red' />
+              <div className='scale-yellow' />
+              <div className='scale-green' />
+            </div>
+            {this.state.color === 'red' && <div className='paw paw-red' style={{left: position}} />}
+            {this.state.color === 'green' && <div className='paw paw-green' style={{left: position}} />}
+            {this.state.color === 'yellow' && <div className='paw paw-yellow' style={{left: position}} />}
+          </div>
+          <div className='result-info'>
+            <div className='result-feeling-question'>
+              <div>Now, how do you feel about this {source}?</div>
+              <div className='result-feeling-array'>
+                {feeling.map((entry, index) => {
+                  return (
+                    <div key={index} className={entry.class}>
+                      <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feeling) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
+                      <label htmlFor={index}>{entry.label}</label>
+                    </div>)
+                })}
+              </div>
             </div>
           </div>
 
-<div className='detailedResults'>
-              <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
+          <div className='detailedResults'>
+            <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
               Show Detailed Results <FontAwesomeIcon icon='chevron-circle-down' />
-              </button>
-              <Accordion className='accordion hidden'>
-                <AccordionTab className='detailedResultsAccordion' header='Are you allowed to visit the puppies?'>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)
-                </AccordionTab>
-                <AccordionTab header='Does the breeder ship puppies via airplane?'>
+            </button>
+            <Accordion className='accordion hidden'>
+              <AccordionTab className='detailedResultsAccordion' header='Are you allowed to visit the puppies?'>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)
+              </AccordionTab>
+              <AccordionTab header='Does the breeder ship puppies via airplane?'>
                 Young puppies are in a period of critical development. A flight is a potentially scary and dangerous experience. Heatstroke and crate phobias are real risks. Steer clear of any breeder who offers to ship you a pup!
-                </AccordionTab>
-                <AccordionTab header='Is the breeder United States Department of Agriculture (USDA) licensed?'>
+              </AccordionTab>
+              <AccordionTab header='Is the breeder United States Department of Agriculture (USDA) licensed?'>
                 Excellent! The USDA oversees farms. If a breeder is USDA licensed, they are a puppy farm! Not having this license is a GOOD thing.
-                </AccordionTab>
-              </Accordion>
-            </div>
+              </AccordionTab>
+            </Accordion>
+          </div>
           <div className='navButtonDivIntro'>
             <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
             {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' /> */}
