@@ -556,7 +556,7 @@ Button.navButton.register {
   line-height: 1.5rem;
 }
 .detailedResultsButton:focus {
-  box-shadow: none;
+  outline: none;
 }
 
 .fa-chevron-circle-down {

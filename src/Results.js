@@ -66,13 +66,6 @@ class Results extends Component {
       })
       return (
         entry
-
-        // {answers_attributes: [{
-        //   a_content: this.props.answers[index].answer,
-        //   a_color: this.props.answers[index].color,
-        //   a_points: this.props.answers[index].points
-        // }]
-        // }
       )
     })
     console.log(answersArray)
