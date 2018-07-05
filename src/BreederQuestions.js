@@ -67,7 +67,7 @@ const breederQuestions = [
       o_color: 'green',
       points: 10
     }, {
-      o_content: 'In rows of cages or a warehouse',
+      o_content: 'In a warehouse/rows of cages',
       o_color: 'red',
       points: -30
     }, {

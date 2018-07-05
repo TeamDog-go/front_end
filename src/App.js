@@ -12,6 +12,7 @@ import SelectSourcePage from './SelectSourcePage'
 import Results from './Results'
 import Login from './Login'
 import Register from './Register'
+import ResultScale from './ResultScale'
 
 class App extends Component {
   constructor (props) {
@@ -37,6 +38,7 @@ class App extends Component {
         <Route path='/results' render={(props) => <Results {...props} />} />
         <Route path='/login' render={(props) => <Login {...props} />} />
         <Route path='/register' render={(props) => <Register {...props} />} />
+        <Route path='/resultscale' render={(props) => <ResultScale {...props} />} />
       </div>
     )
   }

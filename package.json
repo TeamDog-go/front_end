@@ -5,6 +5,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "firebase": "^5.1.0",
+    "firebase-tools": "^3.19.3",
     "primereact": "^1.6.2",
     "proptypes": "^1.1.0",
     "react": "^16.4.1",
@@ -23,8 +24,8 @@
     "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.8",
     "@storybook/addon-actions": "^3.4.8",
-    "@storybook/addon-links": "^3.4.8"
+    "@storybook/addon-links": "^3.4.8",
+    "@storybook/react": "^3.4.8"
   }
 }

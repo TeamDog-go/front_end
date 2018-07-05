@@ -35,7 +35,7 @@ class feeling extends Component {
         <div className='titleDiv'>
           <header>
             <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
-            <h2 className='header'>&nbsp;PupQuest Test</h2>
+            <h2 className='header'>&nbsp;Spot Check</h2>
           </header>
         </div>
         <div className='feeling-question'>

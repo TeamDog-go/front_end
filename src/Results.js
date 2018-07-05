@@ -45,6 +45,7 @@ class Results extends Component {
   }
 
   componentDidMount () {
+    console.log(this.props.questions, this.props.answer)
     const questionsAttributesData = this.props.questions.map((entry, index) => {
       return (
         {content: entry.content,
@@ -102,7 +103,6 @@ class Results extends Component {
   }
 
   render () {
-    console.log(results(this.props.answers, this.props.questions))
     console.log(window.localStorage.responseId)
     const feeling = [
       {label: 'Very negative', value: 1, class: 'answer result-feeling color-1'},
@@ -115,27 +115,43 @@ class Results extends Component {
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
     const capSource = source.charAt(0).toUpperCase() + source.slice(1)
-
+    let position
+    if (this.state.score < 0) {
+      position = 0
+    } else if (this.state.score > 100) {
+      position = 70 + 'vw'
+    } else { position = 0.7 * this.state.score + 'vw' }
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
             <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
-            <h2 className='header'>&nbsp;PupQuest Test</h2>
+            <h2 className='header'>&nbsp;Spot Check</h2>
           </header>
         </div>
         <div className='resultsPageDiv'>
           {this.state.color === 'red' && <img className='resultsColorImage' src={redDog} alt='High Risk' />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src={yellowDog} alt='Medium Risk' />}
           {this.state.color === 'green' && <img className='resultsColorImage' src={greenDog} alt='Low Risk' />}
-          {/* <h3 className='resultsText'>This {source} is rated</h3> */}
-          {this.state.color === 'red' && <h3>{capSource} rating: <strong className='resultsText'>Red- High Risk</strong></h3>}
-          {this.state.color === 'yellow' && <h3>{capSource} rating: <strong className='resultsText'>Yellow- Medium Risk</strong></h3>}
-          {this.state.color === 'green' && <h3>{capSource} rating: <strong className='resultsText'>Green- Low Risk</strong></h3>}
+          <div className='scale-container'>
+            <div className='scale'>
+              <div className='scale-red' />
+              <div className='scale-yellow' />
+              <div className='scale-green' />
+            </div>
+            {this.state.color === 'red' && <div className='paw paw-red' style={{left: position}} />}
+            {this.state.color === 'green' && <div className='paw paw-green' style={{left: position}} />}
+            {this.state.color === 'yellow' && <div className='paw paw-yellow' style={{left: position}} />}
+          </div>
+          <div className='result-info'>
+            {this.state.color === 'red' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>High Risk</strong></p>}
+            {this.state.color === 'yellow' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Medium Risk</strong></p>}
+            {this.state.color === 'green' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Low Risk</strong></p>}
 
-          {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
-          {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
-          {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
+            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
+            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
+            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
+          </div>
           <div className='result-feeling-question'>
             <div>Right now, what are your general feelings about this place/person?</div>
             <div className='result-feeling-array'>
@@ -149,8 +165,8 @@ class Results extends Component {
             </div>
           </div>
           <div>
-            <div className='detailedResults'>
-              <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Detailed Results' />
+            <Button className='detailedResultsButton' onClick={this.expandDetailedResults} label='Detailed Results' />
+            <div className='detailedResultsDiv'>
               <Accordion className='accordion hidden'>
                 <AccordionTab header='Question that ranked red'>
         The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughters wedding.
@@ -174,7 +190,7 @@ class Results extends Component {
               </Accordion>
             </div>
           </div>
-          <div className='navButtonDiv nav-results'>
+          <div className='navButtonDivIntro'>
             <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
             {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' /> */}
             {/* <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another place' /> */}
