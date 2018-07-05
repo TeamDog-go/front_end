@@ -96,14 +96,15 @@ class Results extends Component {
           .then((response) => {
             console.log(response)
             window.localStorage.surveyid = response.body.survey.id
+            console.log(window.localStorage.surveyid)
           })
       })
   }
 
   componentDidUpdate () {
-    if (this.state.final_feeling && window.localStorage.resultId) {
+    if (this.state.final_feeling) {
       request
-        .put(`https://polar-castle-14061.herokuapp.com/results/${window.localStorage.resultId}.json`)
+        .put(`https://polar-castle-14061.herokuapp.com/surveys/${window.localStorage.surveyid}.json`)
         .send({ final_feeling: this.state.final_feeling })
         .then((response) => {
           console.log(response)
@@ -114,10 +115,18 @@ class Results extends Component {
   expandDetailedResults () {
     let detailedResults = document.querySelector('.accordion')
     detailedResults.classList.toggle('hidden')
+    if (this.state.resultsIcon === 'chevron-circle-down') {
+      this.setState({
+        resultsIcon: 'chevron-circle-up'
+      })
+    } else {
+      this.setState({
+        resultsIcon: 'chevron-circle-down'
+      })
+    }
   }
 
   render () {
-    console.log(window.localStorage.resultId)
     const feeling = [
       {label: 'Very Poor', value: 1, class: 'answer result-feeling color-1'},
       {label: 'Poor', value: 2, class: 'answer result-feeling color-2'},
@@ -201,8 +210,6 @@ class Results extends Component {
           </div>
           <div className='navButtonDivIntro'>
             <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
-            {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' /> */}
-            {/* <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another place' /> */}
             <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another' />
           </div>
         </div>
