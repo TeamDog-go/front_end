@@ -527,12 +527,21 @@ Button.navButton.register {
   font-size: 1rem;
   padding:10px 0;
   font-weight: 700;
+  line-height: 1.5rem;
 }
+
+.detailedResultsButton:focus {
+  box-shadow: none;
+}
+
+.fa-chevron-circle-down {
+  margin-left: 10%;
+}
+
 .ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover {
   border: 2px solid var(--mainColor);
   background-color: var(--mainColor);
   color: var(--whiteText);
-  
 }
 .ui-accordion-header.ui-widget.ui-state-default.ui-corner-all.detailedResultsAccordion:hover {
   border: 2px solid var(--mainColor);
@@ -540,6 +549,7 @@ Button.navButton.register {
   color: var(--whiteText);
   
 }
+
 .ui-accordion-content {
 background-color: transparent;
 }
@@ -557,6 +567,20 @@ background-color: transparent;
   border: .5px solid var(--tooltipBorder);
   font-family: Arial, Helvetica, sans-serif;
   color: var(--darkColor);
+  /* box-shadow: none; */
+}
+
+.ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active {
+  background-color: var(--tooltipBackground)
+}
+
+.ui-accordion-content-wrapper .ui-accordion-content-wrapper-collapsed {
+  background-color: (var(--tooltipBackground))
+}
+/* ui-accordion-toggle-icon pi pi-fw pi-caret-down"></span><span class=" */
+
+.ui-accordion-header-text {
+  color: var(--darkColor)
 }
 
 .nav-results{
@@ -692,5 +716,4 @@ background-color: transparent;
     width: 85%;
   }
 
-  @media
 }
