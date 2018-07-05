@@ -132,7 +132,7 @@ class Results extends Component {
           {this.state.color === 'red' && <img className='resultsColorImage' src={redDog} alt='High Risk' />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src={yellowDog} alt='Medium Risk' />}
           {this.state.color === 'green' && <img className='resultsColorImage' src={greenDog} alt='Low Risk' />}
-<div className='scale-container'>
+          <div className='scale-container'>
             <div className='scale'>
               <div className='scale-red' />
               <div className='scale-yellow' />
@@ -165,21 +165,21 @@ class Results extends Component {
             </div>
           </div>
 
-<div className='detailedResults'>
-              <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
+          <div className='detailedResults'>
+            <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
               Show Detailed Results <FontAwesomeIcon icon='chevron-circle-down' />
-              </button>
-              <Accordion className='accordion hidden'>
-                <AccordionTab className='detailedResultsAccordion' header='Are you allowed to visit the puppies?'>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)
-                </AccordionTab>
-                <AccordionTab header='Does the breeder ship puppies via airplane?'>
+            </button>
+            <Accordion className='accordion hidden'>
+              <AccordionTab className='detailedResultsAccordion' header='Are you allowed to visit the puppies?'>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)
+              </AccordionTab>
+              <AccordionTab header='Does the breeder ship puppies via airplane?'>
                 Young puppies are in a period of critical development. A flight is a potentially scary and dangerous experience. Heatstroke and crate phobias are real risks. Steer clear of any breeder who offers to ship you a pup!
-                </AccordionTab>
-                <AccordionTab header='Is the breeder United States Department of Agriculture (USDA) licensed?'>
+              </AccordionTab>
+              <AccordionTab header='Is the breeder United States Department of Agriculture (USDA) licensed?'>
                 Excellent! The USDA oversees farms. If a breeder is USDA licensed, they are a puppy farm! Not having this license is a GOOD thing.
-                </AccordionTab>
-              </Accordion>
-            </div>
+              </AccordionTab>
+            </Accordion>
+          </div>
           <div className='navButtonDivIntro'>
             <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
             {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more on Pupquest' /> */}
