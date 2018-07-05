@@ -30,11 +30,11 @@ class Feeling extends Component {
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
     const feeling = [
-      {label: 'Very negative', value: 1, class: 'answer feeling color-1'},
-      {label: 'Negative', value: 2, class: 'answer feeling color-2'},
-      {label: 'Neutral', value: 3, class: 'answer feeling color-3'},
-      {label: 'Positive', value: 4, class: 'answer feeling color-4'},
-      {label: 'Very positive', value: 5, class: 'answer feeling color-5'}
+      {label: 'Very Poor', value: 1, class: 'answer feeling color-1'},
+      {label: 'Poor', value: 2, class: 'answer feeling color-2'},
+      {label: 'Average', value: 3, class: 'answer feeling color-3'},
+      {label: 'High', value: 4, class: 'answer feeling color-4'},
+      {label: 'Very High', value: 5, class: 'answer feeling color-5'}
     ]
     return (
       <div className='megaWrapper'>
@@ -45,7 +45,9 @@ class Feeling extends Component {
             <h2 className='header'>&nbsp;Spot Check</h2>
           </header>
         </div>
-        <div className='feeling-question'>How do you currently feel about this {source}?</div>
+        <div className='feeling-question'>Right now, what quality do you feel this {source} is?
+        <p className='sideNote'>(Your answer does not effect the score.)</p>
+        </div>
         <div className='feeling-array'>
           <div >
             <form>

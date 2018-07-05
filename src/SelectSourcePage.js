@@ -62,7 +62,7 @@ class SelectSourcePage extends Component {
         </div>
         <div className='selectSourcePageDiv'>
           {this.getRandomPhoto()}
-          <h3 className='sourceQuestionText'>Which best describes the place you want to test?</h3>
+          <h3 className='sourceQuestionText'>Which best describes the place you want to check?</h3>
           <div>
             <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
             <Dialog header='Info' visible={this.state.sheltervisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.sheltervisible} >For groups that have dogs for adoption in a public building or in foster homes.</Dialog>

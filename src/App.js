@@ -11,9 +11,9 @@ import SelectSourcePage from './SelectSourcePage'
 import Results from './Results'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronCircleDown, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleDown, faQuestionCircle, faChevronCircleUp, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faChevronCircleDown, faQuestionCircle)
+library.add(faChevronCircleDown, faQuestionCircle, faChevronCircleUp, faPlus, faMinus)
 
 class App extends Component {
   constructor (props) {
