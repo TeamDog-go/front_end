@@ -231,7 +231,7 @@ header {
 .selectSourcePageImage {
   width: 100%;
   object-fit: cover;
-  object-position: 50% 100%;
+  object-position: 50% 85%;
   height: 20vh;
   align-self: center;
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
@@ -507,9 +507,6 @@ Button.navButton.register {
   margin: 0 auto;
   font-size: 18px;
 }
-.resultsPageDiv h3{
-  margin: 5px auto;
-}
 
 .resultsColorImage {
   margin-top: 5px;
@@ -518,16 +515,30 @@ Button.navButton.register {
   object-position: 50% 50%;
   height: 28vh;
 }
-.results-header{
-  font-size: 115%;
-  margin: 1rem auto 0 auto;
+
+.result-info{
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
+  padding: 20px 10px;
+  border: 1px solid var(--bodyBackground);
+  margin: 2rem 0;
 }
-.resultsText{
-  font-size: 120%;
+.result-id{
+  font-size: 125%;
+  font-weight: 700;
+  /* border: green 1px solid; */
+}
+.result-rank{
+  font-size: 135%;
+  font-weight: 700;
+  /* border: red 1px solid; */
+}
+.result-text{
+  /* border:blue 1px solid; */
+  margin-top: 20px
 }
 
 .result-feeling-question{
-  margin: 3rem 0 2rem 0;
+  margin: 2rem 0;
   display: flex;
   flex-direction: column;
 }
@@ -726,3 +737,56 @@ Button.navButton.register {
     padding: 6px 67% 6px 33%;
   } 
 }
+
+
+/* ---------------------- Result Scale ---------------------- */
+.scale-container{
+  margin: 1rem auto;
+  width:90%;
+  height: 5vh;
+  position: relative;
+}
+.scale{
+  margin: 0 auto;
+  width:90%;
+  height:30px;
+  display: flex;
+  flex-direction:row;
+  border: black 1px solid;
+  overflow: hidden;
+}
+.scale-red{
+  width: 50%;
+  background-color: #A71A27;
+}
+.scale-yellow{
+  width: 30%;
+  background-color: #D49c38;
+}
+.scale-green{
+  width: 30%;
+  background-color: #116D60;
+}
+
+.paw {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url('./Media/pawprint-circle.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top:-0.5rem;
+}
+
+.paw-red {
+  background-image: url('./Media/pawprint-red.png');
+}
+.paw-yellow {
+  background-image: url('./Media/pawprint-yellow.png');
+}
+.paw-green {
+  background-image: url('./Media/pawprint-green.png');
+}
+
+

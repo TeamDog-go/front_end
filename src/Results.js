@@ -115,7 +115,12 @@ class Results extends Component {
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
     const capSource = source.charAt(0).toUpperCase() + source.slice(1)
-
+    let position
+    if (this.state.score < 0) {
+      position = 0
+    } else if (this.state.score > 100) {
+      position = 70 + 'vw'
+    } else { position = 0.7 * this.state.score + 'vw' }
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
@@ -128,13 +133,25 @@ class Results extends Component {
           {this.state.color === 'red' && <img className='resultsColorImage' src={redDog} alt='High Risk' />}
           {this.state.color === 'yellow' && <img className='resultsColorImage' src={yellowDog} alt='Medium Risk' />}
           {this.state.color === 'green' && <img className='resultsColorImage' src={greenDog} alt='Low Risk' />}
-          {this.state.color === 'red' && <p className='results-header'>{capSource} rating: <strong className='resultsText'>High Risk</strong></p>}
-          {this.state.color === 'yellow' && <p className='results-header'>{capSource} rating: <strong className='resultsText'>Medium Risk</strong></p>}
-          {this.state.color === 'green' && <p className='results-header'>{capSource} rating: <strong className='resultsText'>Low Risk</strong></p>}
-          <br />
-          {this.state.color === 'red' && <p>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
-          {this.state.color === 'yellow' && <p>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
-          {this.state.color === 'green' && <p>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
+          <div className='scale-container'>
+            <div className='scale'>
+              <div className='scale-red' />
+              <div className='scale-yellow' />
+              <div className='scale-green' />
+            </div>
+            {this.state.color === 'red' && <div className='paw paw-red' style={{left: position}} />}
+            {this.state.color === 'green' && <div className='paw paw-green' style={{left: position}} />}
+            {this.state.color === 'yellow' && <div className='paw paw-yellow' style={{left: position}} />}
+          </div>
+          <div className='result-info'>
+            {this.state.color === 'red' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>High Risk</strong></p>}
+            {this.state.color === 'yellow' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Medium Risk</strong></p>}
+            {this.state.color === 'green' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Low Risk</strong></p>}
+
+            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
+            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
+            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
+          </div>
           <div className='result-feeling-question'>
             <div>Right now, what are your general feelings about this place/person?</div>
             <div className='result-feeling-array'>

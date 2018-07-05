@@ -20,6 +20,7 @@ import IntroPageSpot from '../IntroPage-Spot'
 import IntroPageWoof from '../IntroPage-Woof'
 import IntroPageStart from '../IntroPage-Start'
 import IntroPageBlank from '../IntroPage-Blank'
+import ResultScale from '../ResultScale'
 
 const yellowAnswers = [{answer: 'Yes', points: '10', color: 'green', question_id: 1},
   {answer: 'Yes', points: '-30', color: 'red', question_id: 2}, {answer: 'No', points: '10', color: 'green', question_id: 3}, {answer: 'In the home with the family', points: '10', color: 'green', question_id: 4},
@@ -71,3 +72,6 @@ storiesOf('Feedback', module)
 
 storiesOf('Source', module)
   .add('Source page', () => <Source />)
+
+storiesOf('Result Scale', module)
+  .add('Source page', () => <ResultScale />)
