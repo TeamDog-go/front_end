@@ -159,18 +159,16 @@ class Results extends Component {
             {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
             {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!)</p>}
 
-          </div>
-          <div className='scale-container'>
-            <div className='scale'>
-              <div className='scale-red' />
-              <div className='scale-yellow' />
-              <div className='scale-green' />
+            <div className='scale-container'>
+              <div className='scale'>
+                <div className='scale-red' />
+                <div className='scale-yellow' />
+                <div className='scale-green' />
+              </div>
+              <div className='paw' style={{left: position}} />
             </div>
-            {this.state.color === 'red' && <div className='paw paw-red' style={{left: position}} />}
-            {this.state.color === 'green' && <div className='paw paw-green' style={{left: position}} />}
-            {this.state.color === 'yellow' && <div className='paw paw-yellow' style={{left: position}} />}
           </div>
-          <div className='result-info'>
+          <div className='result-box'>
             <h4>One Last Question!</h4>
             <div className='result-feeling-question'>
               <div>Now, what quality do you feel this {source} is?</div>

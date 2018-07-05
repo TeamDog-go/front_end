@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import BasicQ from './BasicQ'
 import Results from './Results'
-import Feedback from './Feedback'
+import Feeling from './Feeling'
 
 class Quiz extends Component {
   constructor (props) {
@@ -53,10 +53,11 @@ class Quiz extends Component {
   }
 
   render () {
+    console.log('answers', this.state.answers)
     if (!this.state.feelingSet) {
       return (
         <div>
-          <Feedback setInitialFeeling={this.setInitialFeeling} history={this.props.history} match={this.props.match} />
+          <Feeling setInitialFeeling={this.setInitialFeeling} history={this.props.history} match={this.props.match} />
         </div>
       )
     } else if (this.state.answers.length < this.props.questions.length) {

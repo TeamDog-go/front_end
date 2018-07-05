@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import IntroPage from './IntroPage'
-// import 'primereact/resources/themes/pepper-grinder/theme.css'
 import 'primereact/resources/primereact.min.css'
 import './App.css'
 import breederQuestions from './BreederQuestions'
@@ -10,9 +9,6 @@ import shelterQuestions from './ShelterQuestions.js'
 import Quiz from './Quiz'
 import SelectSourcePage from './SelectSourcePage'
 import Results from './Results'
-import Login from './Login'
-import Register from './Register'
-// import ResultScale from './ResultScale'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronCircleDown, faQuestionCircle, faChevronCircleUp, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
@@ -26,11 +22,11 @@ class App extends Component {
       source: ''
     }
   }
-  componentDidMount () {
-    window.onbeforeunload = function () {
-      return 'Are you sure you want to navigate away?'
-    }
-  }
+  // componentDidMount () {
+  //   window.onbeforeunload = function () {
+  //     return 'Are you sure you want to navigate away?'
+  //   }
+  // }
 
   render () {
     return (
@@ -41,9 +37,6 @@ class App extends Component {
         <Route path='/shelter' render={(props) => <Quiz questions={shelterQuestions} {...props} />} />
         <Route path='/individual' render={(props) => <Quiz questions={individualQuestions} {...props} />} />
         <Route path='/results' render={(props) => <Results {...props} />} />
-        <Route path='/login' render={(props) => <Login {...props} />} />
-        <Route path='/register' render={(props) => <Register {...props} />} />
-        {/* <Route path='/resultscale' render={(props) => <ResultScale {...props} />} /> */}
       </div>
     )
   }

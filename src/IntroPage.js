@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 // import Link from 'react-router-dom'
-import {Tooltip} from 'primereact/components/tooltip/Tooltip'
+// import {Tooltip} from 'primereact/components/tooltip/Tooltip'
 import cover1 from './Media/boyAndDog.jpg'
 import cover2 from './Media/cover2.jpg'
 import cover3 from './Media/cover3.jpg'
@@ -13,7 +13,6 @@ class IntroPage extends Component {
   getRandomPhoto () {
     const photoArray = [cover1, cover2, cover3, cover4, cover5]
     const photoindex = Math.floor(Math.random() * Math.floor(photoArray.length))
-    // return photoArray[photoindex]
     const photoSource = photoArray[photoindex]
     return (<img className='introPageImage' src={photoSource} alt='Happy dog and owner' />)
   }
@@ -28,10 +27,8 @@ class IntroPage extends Component {
           </header>
         </div>
         <div className='taglineDiv'>
-          {/* <p className='tagline'>Sniff Out a Good Spot!</p> */}
           {/* <p className='tagline'>Helping you find a happy, healthy puppy!</p> */}
           <p className='tagline'>Because <em>where</em> your pup comes from matters!</p>
-
         </div>
         <div className='introPageDiv'>
           {/* <img className='introPageImage' src={boyAndDog} alt='dog and girl' /> */}
@@ -43,13 +40,12 @@ class IntroPage extends Component {
             {/* <li><strong>Knowing the good from the bad</strong> can be very tricky!</li> */}
             <li><strong>Quickly assess</strong> breeders, shelters, and individuals with the <strong>PupQuest Test!</strong></li>
           </ul>
-        </div>
-        <div className='navButtonDivIntro'>
-          {/* <Button className='navButton' onClick='' label='Previous' /> */}
-          <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Let&apos;s Go!' />
-          {/* <p className='registerToSaveText'>Want to save all your results? Sign In or Register!</p> */}
-          <Button className='navButton' id='loginButton' onClick={() => this.props.history.push('/login')} label='Login/Register' />
-          <Tooltip tooltipStyleClass='sourceTooltip' for='#loginButton' title='Register or log in to keep a personalized record of your PupQuest Test results' tooltipPosition='top' />
+          <div className='navButtonDivIntro'>
+            <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Let&apos;s Go!' />
+            {/* <p className='registerToSaveText'>Want to save all your results? Sign In or Register!</p> */}
+            {/* <Button className='navButton' id='loginButton' onClick={() => this.props.history.push('/login')} label='Login/Register' /> */}
+            {/* <Tooltip tooltipStyleClass='sourceTooltip' for='#loginButton' title='Register or log in to keep a personalized record of your PupQuest Test results' tooltipPosition='top' /> */}
+          </div>
         </div>
       </div>
     )
