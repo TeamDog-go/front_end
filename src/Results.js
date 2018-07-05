@@ -17,7 +17,8 @@ class Results extends Component {
       score: '',
       color: '',
       final_feeling: '',
-      userid: ''
+      // userid: '',
+      resultsIcon: 'chevron-circle-down'
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
@@ -43,40 +44,65 @@ class Results extends Component {
     })
   }
 
+  resultsIconClick (event) {
+    if (this.state.resultsIcon === 'chevron-circle-down') {
+      this.setState({
+        resultsIcon: 'chevron-circle-up'
+      })
+    } else {
+      this.setState({
+        resultsIcon: 'chevron-circle-down'
+      })
+    }
+  }
+
   componentDidMount () {
-    console.log(this.props.questions, this.props.answer)
-    const questionsAttributesData = this.props.questions.map((entry, index) => {
+    console.log(this.props.questions, this.props.answers)
+    const answersArray = []
+    this.props.answers.map((entry, index) => {
+      answersArray.push({
+        option_id: this.props.answers[index].option_id
+      })
       return (
-        {content: entry.content,
-          source: entry.source,
-          answers_attributes: [{
-            a_content: this.props.answers[index].answer,
-            a_color: this.props.answers[index].color,
-            a_points: this.props.answers[index].points
-          }]
-        }
+        entry
+
+        // {answers_attributes: [{
+        //   a_content: this.props.answers[index].answer,
+        //   a_color: this.props.answers[index].color,
+        //   a_points: this.props.answers[index].points
+        // }]
+        // }
       )
     })
+    console.log(answersArray)
     this.resolveCalculation()
       .then((response) => {
+        // this.setState({
+        //   score: response.score,
+        //   color: response.color
+        // })
+        // return (
+        //   {final_score: response.score,
+        //     color: response.color,
+        //     initial_feeling: this.props.inital_feelings}
+        // )
+      // })
+      // .then((response) => {
         this.setState({
           score: response.score,
-          color: response.color,
-          final_feeling: response.final_feeling
+          color: response.color
         })
-        return (
-          {final_score: response.score,
-            color: response.color,
-            initial_feeling: this.props.inital_feelings}
-        )
-      })
-      .then((response) => {
         console.log(response)
+        console.log(this.state.color, this.state.score, this.props.initial_feeling)
         request
-          .post(`https://polar-castle-14061.herokuapp.com/survey.json`)
-          .send({survey: { user_id: window.localStorage.pupQuestUser ? window.localStorage.pupQuestUser : 4,
-            result_attributes: response,
-            questions_attributes: questionsAttributesData }})
+          .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+          .send({survey: { user_id: 1,
+            category_id: 1,
+            final_score: this.state.score,
+            initial_feeling: this.props.initial_feeling,
+            color: this.props.color,
+            answers_attributes: answersArray
+          }})
           .then((response) => {
             console.log(response)
             window.localStorage.surveyid = response.body.survey.id
@@ -102,7 +128,7 @@ class Results extends Component {
   }
 
   render () {
-    console.log(window.localStorage.responseId)
+    console.log(window.localStorage.resultId)
     const feeling = [
       {label: 'Very Poor', value: 1, class: 'answer result-feeling color-1'},
       {label: 'Poor', value: 2, class: 'answer result-feeling color-2'},
@@ -138,9 +164,9 @@ class Results extends Component {
             {this.state.color === 'yellow' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Medium Risk</strong></p>}
             {this.state.color === 'green' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Low Risk</strong></p>}
 
-            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for dogs and/or your family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
+            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
             {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
-            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
+            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!)</p>}
 
           </div>
           <div className='scale-container'>
@@ -171,7 +197,7 @@ class Results extends Component {
 
           <div className='detailedResults'>
             <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
-              Show Detailed Results <FontAwesomeIcon icon='chevron-circle-down' />
+              Show Detailed Results <FontAwesomeIcon icon={this.state.resultsIcon} />
             </button>
             <Accordion className='accordion hidden'>
               <AccordionTab className='detailedResultsAccordion' header='Are you allowed to visit the puppies?'>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)

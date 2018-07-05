@@ -30,7 +30,8 @@ function results (answers, questions) {
       a_content: entry.answer,
       question_id: entry.question_id,
       a_color: entry.color,
-      points: entry.points
+      points: entry.points,
+      option_id: entry.o_id
     })
     return entry
   })

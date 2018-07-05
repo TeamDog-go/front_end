@@ -10,7 +10,8 @@ class BasicQ extends Component {
       answer: '',
       points: '',
       color: '',
-      value: 0
+      value: 0,
+      option_id: ''
     }
     this.questionSubmit = this.questionSubmit.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
@@ -21,7 +22,8 @@ class BasicQ extends Component {
       answer: event.target.name,
       points: event.target.dataset.points,
       color: event.target.value,
-      value: 10 + 10 * this.props.savedanswers.length
+      value: 10 + 10 * this.props.savedanswers.length,
+      option_id: event.target.id
     })
   }
 
@@ -30,7 +32,8 @@ class BasicQ extends Component {
       answer: this.state.answer,
       points: this.state.points,
       color: this.state.color,
-      question_id: this.props.question.id
+      question_id: this.props.question.id,
+      option_id: this.state.option_id
     })
     const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
     this.setState({
@@ -72,7 +75,7 @@ class BasicQ extends Component {
                 {this.props.question.options.map((entry, index) => {
                   return (
                     <div key={index} className='answer'>
-                      <input type='radio' id={index} name={entry.o_content} data-points={entry.points} value={entry.o_color} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.o_content} />
+                      <input type='radio' id={entry.o_id} name={entry.o_content} data-points={entry.points} value={entry.o_color} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.o_content} />
                       <label htmlFor={index} >{entry.o_content}</label>
                     </div>)
                 })}
