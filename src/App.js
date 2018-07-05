@@ -15,9 +15,9 @@ import Register from './Register'
 // import ResultScale from './ResultScale'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronCircleDown, faQuestionCircle, faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
+import { faChevronCircleDown, faQuestionCircle, faChevronCircleUp, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faChevronCircleDown, faQuestionCircle, faChevronCircleUp)
+library.add(faChevronCircleDown, faQuestionCircle, faChevronCircleUp, faPlus, faMinus)
 
 class App extends Component {
   constructor (props) {
