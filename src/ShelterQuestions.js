@@ -118,6 +118,10 @@ const shelterQuestions = [
       o_content: 'In a kennel, garage, or outdoors',
       o_color: 'yellow',
       points: -10
+    }, {
+      o_content: 'I don\'t know',
+      o_color: 'yellow',
+      points: 0
     }]
   },
   {
@@ -143,7 +147,7 @@ const shelterQuestions = [
     }]
   },
   {
-    content: 'Will the shelter/rescue take their dogs back at any point in their lives?',
+    content: 'Will the shelter/rescue take your adopted dog back if things don\'t work out?',
     source: 'shelter',
     id: 17,
     options: [{

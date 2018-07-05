@@ -56,7 +56,7 @@ class Quiz extends Component {
     if (!this.state.feelingSet) {
       return (
         <div>
-          <Feedback setInitialFeeling={this.setInitialFeeling} history={this.props.history} />
+          <Feedback setInitialFeeling={this.setInitialFeeling} history={this.props.history} match={this.props.match} />
         </div>
       )
     } else if (this.state.answers.length < this.props.questions.length) {
