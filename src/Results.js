@@ -73,7 +73,7 @@ class Results extends Component {
       .then((response) => {
         console.log(response)
         request
-          .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+          .post(`https://polar-castle-14061.herokuapp.com/survey.json`)
           .send({survey: { user_id: window.localStorage.pupQuestUser ? window.localStorage.pupQuestUser : 4,
             result_attributes: response,
             questions_attributes: questionsAttributesData }})
@@ -104,11 +104,11 @@ class Results extends Component {
   render () {
     console.log(window.localStorage.responseId)
     const feeling = [
-      {label: 'Very negative', value: 1, class: 'answer result-feeling color-1'},
-      {label: 'Negative', value: 2, class: 'answer result-feeling color-2'},
-      {label: 'Neutral', value: 3, class: 'answer result-feeling color-3'},
-      {label: 'Positive', value: 4, class: 'answer result-feeling color-4'},
-      {label: 'Very positive', value: 5, class: 'answer result-feeling color-5'}
+      {label: 'Very Poor', value: 1, class: 'answer result-feeling color-1'},
+      {label: 'Poor', value: 2, class: 'answer result-feeling color-2'},
+      {label: 'Average', value: 3, class: 'answer result-feeling color-3'},
+      {label: 'High', value: 4, class: 'answer result-feeling color-4'},
+      {label: 'Very High', value: 5, class: 'answer result-feeling color-5'}
     ]
 
     var sourcePath = this.props.match.path
@@ -154,8 +154,9 @@ class Results extends Component {
             {this.state.color === 'yellow' && <div className='paw paw-yellow' style={{left: position}} />}
           </div>
           <div className='result-info'>
+            <h4>One Last Question!</h4>
             <div className='result-feeling-question'>
-              <div>Now, how do you feel about this {source}?</div>
+              <div>Now, what quality do you feel this {source} is?</div>
               <div className='result-feeling-array'>
                 {feeling.map((entry, index) => {
                   return (
