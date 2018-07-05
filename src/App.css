@@ -403,7 +403,6 @@ header {
   margin: 0 auto;
   background-color: var(--tooltipBackground);
   color: var(--whiteText);
-  font-weight: 300;
 }
 /* .ui-progressbar-determinate{} */
 .ui-progressbar-value{
@@ -864,7 +863,7 @@ background-color: transparent;
   width: 50px;
   height: 50px;
   position: absolute;
-  background-image: url('./Media/pawprint-circle.png');
+  background-image: url('./Media/pawprint-white.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
