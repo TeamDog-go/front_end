@@ -21,9 +21,5 @@ yarn-debug.log*
 yarn-error.log*
 
 snippets.js
-SnippetsNicelyNames.js
-IntroPage-Blank.js
-IntroPage-Spot.js
-IntroPage-Start.js
-IntroPage-Woof.js
-ResultScale.js
+tempbreeder.json
+tempshelter.json

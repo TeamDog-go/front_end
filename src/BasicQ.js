@@ -17,15 +17,39 @@ class BasicQ extends Component {
     this.previousQuestion = this.previousQuestion.bind(this)
   }
   handleOptionChange (event) {
+    if (this.cancelTimeout) {
+      clearTimeout(this.cancelTimeout)
+    }
     this.setState({
       answer: event.target.name,
       points: event.target.dataset.points,
       color: event.target.value,
       value: 10 + 10 * this.props.savedanswers.length
     })
+    // const body = {
+    //   answer: event.target.name,
+    //   points: event.target.dataset.points,
+    //   color: event.target.value,
+    //   question_id: this.props.question.id
+    // }
+    // this.cancelTimeout = setTimeout(() => {
+    //   this.props.addAnswer(this.props.index, body)
+    //   const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
+    //   if (this.props.index <= this.props.savedanswers.length) {
+    //     this.setState({
+    //       answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
+    //       points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
+    //       // points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
+    //       color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
+    //     })
+    //   }
+    // }, 4500)
   }
 
   questionSubmit () {
+    if (this.cancelTimeout) {
+      clearTimeout(this.cancelTimeout)
+    }
     this.props.addAnswer(this.props.index, {
       answer: this.state.answer,
       points: this.state.points,
@@ -33,27 +57,30 @@ class BasicQ extends Component {
       question_id: this.props.question.id
     })
     const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
-    this.setState({
-      answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
-      points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
-      color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
-    })
+    if (this.props.index <= this.props.savedanswers.length) {
+      this.setState({
+        answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
+        points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
+        // points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
+        color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
+      })
+    }
   }
+
   previousQuestion () {
     this.props.prevAnswer()
     const prev = Math.max(this.props.index - 1, 0)
     this.setState({
       answer: this.props.savedanswers[prev] ? this.props.savedanswers[prev].answer : '',
       points: this.props.savedanswers[prev] ? this.props.savedanswers[prev].points : '',
+      // points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
       color: this.props.savedanswers[prev] ? this.props.savedanswers[prev].color : ''
     })
   }
 
   render () {
-    // console.log('props.saveanswers', this.props.savedanswers, 'props index-', this.props.index)
     if (this.props.question.options) {
       return (
-
         <div className='megaWrapper'>
           <Growl position='bottomright'ref={(el) => { this.growl = el }} />
           <div className='titleDiv'>
@@ -62,7 +89,7 @@ class BasicQ extends Component {
               <h2 className='header'>&nbsp;Spot Check</h2>
             </header>
           </div>
-          <ProgressBar value={this.state.value} />
+          <ProgressBar value={this.state.value} showValue={false} />
           <div className='basicQuestion'>
             <div className='basicQuestion-Question'>
               {this.props.question.content}

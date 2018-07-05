@@ -70,19 +70,19 @@ class Results extends Component {
             initial_feeling: this.props.inital_feelings}
         )
       })
-      .then((response) => {
-        console.log(response)
-        request
-          .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-          .send({survey: { user_id: window.localStorage.pupQuestUser ? window.localStorage.pupQuestUser : 4,
-            result_attributes: response,
-            questions_attributes: questionsAttributesData }})
-          .then((response) => {
-            console.log(response)
-            window.localStorage.surveyid = response.body.survey.id
-            window.localStorage.resultId = response.body.survey.result.id
-          })
-      })
+      // .then((response) => {
+      //   console.log(response)
+      //   request
+      //     .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+      //     .send({survey: { user_id: window.localStorage.pupQuestUser ? window.localStorage.pupQuestUser : 4,
+      //       result_attributes: response,
+      //       questions_attributes: questionsAttributesData }})
+      //     .then((response) => {
+      //       console.log(response)
+      //       window.localStorage.surveyid = response.body.survey.id
+      //       window.localStorage.resultId = response.body.survey.result.id
+      //     })
+      // })
   }
 
   componentDidUpdate () {
@@ -142,31 +142,30 @@ class Results extends Component {
             {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
             {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This is not a guarantee for a healthy, happy dog, but it's a great start!</p>}
 
-          </div>
-          <div className='scale-container'>
-            <div className='scale'>
-              <div className='scale-red' />
-              <div className='scale-yellow' />
-              <div className='scale-green' />
-            </div>
-            {this.state.color === 'red' && <div className='paw paw-red' style={{left: position}} />}
-            {this.state.color === 'green' && <div className='paw paw-green' style={{left: position}} />}
-            {this.state.color === 'yellow' && <div className='paw paw-yellow' style={{left: position}} />}
-          </div>
-          <div className='result-info'>
-            <div className='result-feeling-question'>
-              <div>Now, how do you feel about this {source}?</div>
-              <div className='result-feeling-array'>
-                {feeling.map((entry, index) => {
-                  return (
-                    <div key={index} className={entry.class}>
-                      <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feeling) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
-                      <label htmlFor={index}>{entry.label}</label>
-                    </div>)
-                })}
+            <div className='scale-container'>
+              <div className='scale'>
+                <div className='scale-red' />
+                <div className='scale-yellow' />
+                <div className='scale-green' />
               </div>
+              <div className='paw' style={{left: position}} />
             </div>
           </div>
+
+          {/* <div className='result-box'> */}
+          <div className='result-feeling-question'>
+            <div>Now, how do you feel about this {source}?</div>
+            <div className='result-feeling-array'>
+              {feeling.map((entry, index) => {
+                return (
+                  <div key={index} className={entry.class}>
+                    <input type='radio' id={index} value={entry.value} checked={Number(this.state.final_feeling) === Number(entry.value)} onChange={(e) => this.handleOptionChange(e)} />
+                    <label htmlFor={index}>{entry.label}</label>
+                  </div>)
+              })}
+            </div>
+          </div>
+          {/* </div> */}
 
           <div className='detailedResults'>
             <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
