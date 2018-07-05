@@ -292,6 +292,11 @@ header {
   font-size: 3rem;
 }
 
+.sideNote {
+  font-size: 1rem;
+  margin: 15px;
+}
+
 /* ---------------------- feeling Page ---------------------- */
 .feeling-question{
   width: 90%;
@@ -551,7 +556,7 @@ Button.navButton.register {
   line-height: 1.5rem;
 }
 .detailedResultsButton:focus {
-  box-shadow: none;
+  outline: none;
 }
 
 .fa-chevron-circle-down {
