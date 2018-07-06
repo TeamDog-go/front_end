@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
+import uuid from 'uuid-v4'
 
 class Results extends Component {
   constructor (props) {
@@ -57,6 +58,9 @@ class Results extends Component {
   }
 
   componentDidMount () {
+    if (!window.localStorage.spotCheck_user_id) {
+      window.localStorage.spotCheck_user_id = uuid()
+    }
     console.log(this.props.questions, this.props.answers)
     const answersArray = []
     this.props.answers.map((entry, index) => {
@@ -76,7 +80,7 @@ class Results extends Component {
         console.log(this.state.color, this.state.score, this.props.initial_feeling)
         request
           .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-          .send({survey: { user_id: 1,
+          .send({survey: { user_id: window.localStorage.spotCheck_user_id,
             category_id: 1,
             final_score: this.state.score,
             initial_feeling: this.props.initial_feeling,

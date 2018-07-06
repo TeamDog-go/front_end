@@ -5,6 +5,7 @@ import PQlogo from './Media/PQlogo_rev-02.svg'
 import {Dialog} from 'primereact/components/dialog/Dialog'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import request from 'superagent'
+import moment from 'moment'
 
 import dog1 from './Media/adorable-blur.jpg'
 import dog2 from './Media/aussie-puppies.jpg'
@@ -29,33 +30,53 @@ class SelectSourcePage extends Component {
     this.onHide = this.onHide.bind(this)
   }
 
+  compareUpdate (id, localCopy) {
+    return (
+      request
+        .get(`https://polar-castle-14061.herokuapp.com/timestamps/${id}`)
+        .then((response) => { return response.body.category.updated_at })
+        .then((updated) => {
+          if (localCopy) {
+            return moment(localCopy) < moment(updated)
+          } else return true
+        })
+    )
+  }
+
   onClickShelterInfo (event) {
     this.setState({sheltervisible: true})
   }
 
   onClickShelterChoice () {
-    request
-      .get(`https://polar-castle-14061.herokuapp.com/categories/2`)
-      .then((response) => {
-        console.log(response)
-        return response.body.category.questions.map((entry, index) => {
-          return {
-            content: entry.content,
-            id: entry.id,
-            options: response.body.category.options[index].map((entry, index) => {
-              return {
-                o_content: entry.o_content,
-                o_color: entry.o_color,
-                points: entry.avail_points,
-                question_id: entry.question_id,
-                id: entry.id}
-            })}
-        })
+    this.compareUpdate(2, window.localStorage.spotCheck_shelterQuestions_updated)
+      .then((newer) => {
+        if (!window.localStorage.spotCheck_shelterQuestions || newer) {
+          console.log('shelter Qs Updated', newer)
+          request
+            .get(`https://polar-castle-14061.herokuapp.com/categories/2`)
+            .then((response) => {
+              window.localStorage.spotCheck_shelterQuestions_updated = response.body.category.last_updated
+              return response.body.category.questions.map((entry, index) => {
+                return {
+                  content: entry.content,
+                  id: entry.id,
+                  options: response.body.category.options[index].map((entry, index) => {
+                    return {
+                      o_content: entry.o_content,
+                      o_color: entry.o_color,
+                      points: entry.avail_points,
+                      question_id: entry.question_id,
+                      id: entry.id}
+                  })}
+              })
+            })
+            .then((response) => {
+              window.localStorage.spotCheck_shelterQuestions = JSON.stringify(response)
+            })
+        } else { console.log('shelterQ not updated') }
       })
-      .then((response) => {
-        window.localStorage.spotCheck_shelterQuestions = JSON.stringify(response)
-        this.props.history.push('/shelter')
-      })
+    this.props.history.push('/shelter')
+    // console.log('this is where we nav')
   }
 
   onClickBreederInfo (event) {
@@ -63,55 +84,70 @@ class SelectSourcePage extends Component {
   }
 
   onClickBreederChoice () {
-    request
-      .get(`https://polar-castle-14061.herokuapp.com/categories/1`)
-      .then((response) => {
-        console.log(response)
-        return response.body.category.questions.map((entry, index) => {
-          return {
-            content: entry.content,
-            id: entry.id,
-            options: response.body.category.options[index].map((entry, index) => {
-              return {
-                o_content: entry.o_content,
-                o_color: entry.o_color,
-                points: entry.avail_points,
-                question_id: entry.question_id,
-                id: entry.id}
-            })}
-        })
+    this.compareUpdate(1, window.localStorage.spotCheck_breederQuestions_updated)
+      .then((newer) => {
+        if (!window.localStorage.spotCheck_breederQuestions || newer) {
+          console.log('Breeder Qs Updated', newer)
+          request
+            .get(`https://polar-castle-14061.herokuapp.com/categories/1`)
+            .then((response) => {
+              window.localStorage.spotCheck_breederQuestions_updated = response.body.category.last_updated
+              return response.body.category.questions.map((entry, index) => {
+                return {
+                  content: entry.content,
+                  id: entry.id,
+                  options: response.body.category.options[index].map((entry, index) => {
+                    return {
+                      o_content: entry.o_content,
+                      o_color: entry.o_color,
+                      points: entry.avail_points,
+                      question_id: entry.question_id,
+                      id: entry.id}
+                  })}
+              })
+            })
+            .then((response) => {
+              window.localStorage.spotCheck_breederQuestions = JSON.stringify(response)
+            })
+        } else { console.log('BreederQs Not Updated', newer) }
       })
-      .then((response) => {
-        window.localStorage.spotCheck_breederQuestions = JSON.stringify(response)
-        this.props.history.push('/breeder')
-      })
+    this.props.history.push('/breeder')
+    // console.log('this is where we nav')
   }
+
   onClickIndividualInfo (event) {
     this.setState({individualvisible: true})
   }
   onClickIndividualChoice () {
-    request
-      .get(`https://polar-castle-14061.herokuapp.com/categories/3`)
-      .then((response) => {
-        console.log(response)
-        return response.body.category.questions.map((entry, index) => {
-          return {
-            content: entry.content,
-            id: entry.id,
-            options: response.body.category.options[index].map((entry, index) => {
-              return {
-                o_content: entry.o_content,
-                o_color: entry.o_color,
-                points: entry.avail_points,
-                question_id: entry.question_id,
-                id: entry.id}
-            })}
-        })
+    this.compareUpdate(3, window.localStorage.spotCheck_individualQuestions_updated)
+      .then((newer) => {
+        if (!window.localStorage.spotCheck_individualQuestions || newer) {
+          console.log('individual Qs Updated', newer)
+          request
+            .get(`https://polar-castle-14061.herokuapp.com/categories/3`)
+            .then((response) => {
+              window.localStorage.spotCheck_individualQuestions_updated = response.body.category.last_updated
+              return response.body.category.questions.map((entry, index) => {
+                return {
+                  content: entry.content,
+                  id: entry.id,
+                  options: response.body.category.options[index].map((entry, index) => {
+                    return {
+                      o_content: entry.o_content,
+                      o_color: entry.o_color,
+                      points: entry.avail_points,
+                      question_id: entry.question_id,
+                      id: entry.id}
+                  })}
+              })
+            })
+            .then((response) => {
+              window.localStorage.spotCheck_individualQuestions = JSON.stringify(response)
+            })
+        } else { console.log('IndividualQs Not Updated', newer) }
       })
-      .then((response) => {
-        window.localStorage.spotCheck_individualQuestions = JSON.stringify(response)
-        this.props.history.push('/individual')
-      })
+    this.props.history.push('/individual')
+    // console.log('this is where we nav')
   }
 
   onHide (event) {

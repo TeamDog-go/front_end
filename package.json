@@ -17,7 +17,8 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "storybook": "^1.0.0",
-    "superagent": "^3.8.3"
+    "superagent": "^3.8.3",
+    "uuid-v4": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
