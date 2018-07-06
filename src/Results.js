@@ -18,7 +18,8 @@ class Results extends Component {
       color: '',
       final_feeling: '',
       // userid: '',
-      resultsIcon: 'chevron-circle-down'
+      resultsIcon: 'chevron-circle-down',
+      feedbackArray: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
@@ -98,6 +99,10 @@ class Results extends Component {
                 answerColor: response.body.survey.answers[index].option_color
               })
               console.log(feedbackArray)
+              this.setState({
+                feedbackArray: feedbackArray
+              })
+              console.log(this.state.feedbackArray)
             })
           })
       })
@@ -136,6 +141,8 @@ class Results extends Component {
       {label: 'High', value: 4, class: 'answer result-feeling color-4'},
       {label: 'Very High', value: 5, class: 'answer result-feeling color-5'}
     ]
+
+    const feedbackArray = this.state.feedbackArray
 
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
@@ -201,16 +208,17 @@ class Results extends Component {
             <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
               Show More About My Answers<FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
             </button>
-            <Accordion className='accordion hidden'>
-              <AccordionTab className='detailedResultsAccordion' header='Are you allowed to visit the puppies?'>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)
-              </AccordionTab>
-              <AccordionTab header='Does the breeder ship puppies via airplane?'>
-                Young puppies are in a period of critical development. A flight is a potentially scary and dangerous experience. Heatstroke and crate phobias are real risks. Steer clear of any breeder who offers to ship you a pup!
-              </AccordionTab>
-              <AccordionTab header='Is the breeder United States Department of Agriculture (USDA) licensed?'>
-                Excellent! The USDA oversees farms. If a breeder is USDA licensed, they are a puppy farm! Not having this license is a GOOD thing.
-              </AccordionTab>
-            </Accordion>
+            {this.state.feedbackArray ? <div className='result-feeling-array'>
+              <Accordion className='accordion hidden'>
+                {feedbackArray.map((entry, index) => {
+                  return (
+                    <AccordionTab className='detailedResultsAccordion' header={entry.questionContent}>Your Answer: {entry.answerContent} <br />{entry.answerFeedback}
+                    </AccordionTab>
+                  )
+                })}
+              </Accordion>
+            </div>
+              : <p>An error has occurred</p>}
           </div>
           <div className='navButtonDivIntro'>
             <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
