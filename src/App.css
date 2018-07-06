@@ -495,8 +495,10 @@ header {
   outline: none;
 }
 
-.fa-chevron-circle-down {
-  margin-left: 10%;
+.detailedResultsIcon {
+  margin-left: 20px;
+  padding: 0;
+  /* line-height: 2rem; */
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover {
