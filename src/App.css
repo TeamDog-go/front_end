@@ -68,6 +68,10 @@ header {
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* ---------------------- NAV BUTTONS FLEXBOX ----------------------*/
 .navButtonDiv{
   display: flex;
@@ -522,23 +526,36 @@ font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--darkColor);
   font-size: 1rem;
+  font-weight: 700;
 }
-.ui-accordion-header:hover {
+
+.ui-accordion-header-text {
+  word-break: keep-all;
+}
+.ui-accordion-toggle-icon {
+  display: inline;
+}
+
+.pi-caret-right:before, .ui-accordion .ui-accordion-header a>span {
+  display:inline;
+  text-decoration: none;
+}
+/* .ui-accordion-header:hover {
   background-color: var(--tooltipBackground);
   border: .5px solid var(--tooltipBorder);
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--darkColor);
+  color: var(--darkColor); */
   /* box-shadow: none; */
-}
-.ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active {
+/* } */
+/* .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active {
   background-color: var(--tooltipBackground)
 }
 .ui-accordion-content-wrapper .ui-accordion-content-wrapper-collapsed {
   background-color: (var(--tooltipBackground))
-}
-.ui-accordion-header-text {
+} */
+/* .ui-accordion-header-text {
   color: var(--darkColor)
-}
+} */
 
 .nav-results{
   width: 100%;

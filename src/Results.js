@@ -212,8 +212,10 @@ class Results extends Component {
               <Accordion className='accordion hidden'>
                 {feedbackArray.map((entry, index) => {
                   return (
-                    <AccordionTab className='detailedResultsAccordion' header={entry.questionContent}>Your Answer: {entry.answerContent} <br />{entry.answerFeedback}
+                    // <div key={index} className={entry.color}>
+                    <AccordionTab className='detailedResultsAccordion' header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><br />{entry.answerFeedback}
                     </AccordionTab>
+                    // </div>
                   )
                 })}
               </Accordion>
