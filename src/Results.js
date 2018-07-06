@@ -86,11 +86,19 @@ class Results extends Component {
             answers_attributes: answersArray
           }})
           .then((response) => {
+            const feedbackArray = []
             console.log(response)
             window.localStorage.surveyid = response.body.survey.id
             console.log(window.localStorage.surveyid)
-            // request
-            //   .get(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+            this.props.questions.map((entry, index) => {
+              feedbackArray.push({
+                questionContent: entry.content,
+                answerContent: response.body.survey.answers[index].option_content,
+                answerFeedback: response.body.survey.answers[index].option_feedback,
+                answerColor: response.body.survey.answers[index].option_color
+              })
+              console.log(feedbackArray)
+            })
           })
       })
   }
