@@ -202,7 +202,7 @@ class Results extends Component {
             </Accordion>
           </div>
           <div className='navButtonDivIntro'>
-            <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
+            {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' /> */}
             <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another' />
           </div>
         </div>

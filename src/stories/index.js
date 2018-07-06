@@ -11,16 +11,9 @@ import BasicQ from '../BasicQ'
 import App from '../App'
 import Quiz from '../Quiz'
 import Results from '../Results'
-import Login from '../Login'
 import breederQuestions from '../BreederQuestions'
-import Feedback from '../Feedback'
+import Feeling from '../Feeling'
 import Source from '../SelectSourcePage'
-import Register from '../Register'
-import IntroPageSpot from '../IntroPage-Spot'
-import IntroPageWoof from '../IntroPage-Woof'
-import IntroPageStart from '../IntroPage-Start'
-import IntroPageBlank from '../IntroPage-Blank'
-import ResultScale from '../ResultScale'
 
 const yellowAnswers = [{answer: 'Yes', points: '10', color: 'green', question_id: 1},
   {answer: 'Yes', points: '-30', color: 'red', question_id: 2}, {answer: 'No', points: '10', color: 'green', question_id: 3}, {answer: 'In the home with the family', points: '10', color: 'green', question_id: 4},
@@ -38,15 +31,6 @@ addDecorator(story => (<Router>{story()}</Router>))
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />)
 
-storiesOf('Blank Intro', module)
-  .add('Intro page', () => <IntroPageBlank />)
-storiesOf('Spot Intro', module)
-  .add('Intro page', () => <IntroPageSpot />)
-storiesOf('Woof Intro', module)
-  .add('Intro page', () => <IntroPageWoof />)
-storiesOf('Start Intro', module)
-  .add('Intro page', () => <IntroPageStart />)
-
 storiesOf('App', module)
   .add('Skeleton App', () => <App />)
 
@@ -61,17 +45,8 @@ storiesOf('Results', module)
   .add('Breeder- green', () => <Results questions={breederQuestions} answers={greenAnswers} initial_feeling={2} match={match} />)
   .add('Breeder- red', () => <Results questions={breederQuestions} answers={redAnswers} initial_feeling={2} match={match} />)
 
-storiesOf('Login', module)
-  .add('Login page', () => <Login />)
-
-storiesOf('Register', module)
-  .add('Register page', () => <Register />)
-
-storiesOf('Feedback', module)
-  .add('Feedback page', () => <Feedback />)
+storiesOf('Feeling', module)
+  .add('Feeling page', () => <Feeling />)
 
 storiesOf('Source', module)
   .add('Source page', () => <Source />)
-
-storiesOf('Result Scale', module)
-  .add('Source page', () => <ResultScale />)
