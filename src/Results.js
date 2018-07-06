@@ -26,10 +26,26 @@ class Results extends Component {
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.resultsIconClick = this.resultsIconClick.bind(this)
     this.capitalize = this.capitalize.bind(this)
+    this.filterByColor = this.filterByColor.bind(this)
   }
 
   capitalize (string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
+  filterByColor (array) {
+    let feedbackArrayFilterRed = array.filter(val => {
+      return val.answerColor === 'Red'
+    })
+    let feedbackArrayFilterYellow = array.filter(val => {
+      return val.answerColor === 'Yellow'
+    })
+    let feedbackArrayFilterGreen = array.filter(val => {
+      return val.answerColor === 'Green'
+    })
+    this.setState({ feedbackArray: feedbackArrayFilterRed.concat(feedbackArrayFilterYellow.concat(feedbackArrayFilterGreen))
+    })
+    console.log(this.state.feedbackArray)
   }
 
   resolveCalculation () {
@@ -82,6 +98,7 @@ class Results extends Component {
         })
         console.log(response)
         console.log(this.state.color, this.state.score, this.props.initial_feeling)
+        console.log('pooop', answersArray)
         request
           .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
           .send({survey: { user_id: 1,
@@ -92,21 +109,23 @@ class Results extends Component {
             answers_attributes: answersArray
           }})
           .then((response) => {
-            const feedbackArray = []
+            const feedbackArrayUnfiltered = []
             console.log(response)
             window.localStorage.surveyid = response.body.survey.id
             console.log(window.localStorage.surveyid)
             this.props.questions.map((entry, index) => {
-              feedbackArray.push({
+              feedbackArrayUnfiltered.push({
                 questionContent: entry.content,
                 answerContent: response.body.survey.answers[index].option_content,
                 answerFeedback: response.body.survey.answers[index].option_feedback,
                 answerColor: this.capitalize(response.body.survey.answers[index].option_color)
               })
-              console.log(feedbackArray)
-              this.setState({
-                feedbackArray: feedbackArray
-              })
+              console.log(feedbackArrayUnfiltered)
+              this.filterByColor(feedbackArrayUnfiltered)
+              // console.log(feedbackArray)
+              // this.setState({
+              //   feedbackArray: feedbackArray
+              // })
               console.log(this.state.feedbackArray)
             })
           })
@@ -211,7 +230,7 @@ class Results extends Component {
 
           <div className='detailedResults'>
             <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
-              Show More About My Answers<FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
+            See My Answer Scores <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
             </button>
             {this.state.feedbackArray ? <div className='result-feeling-array'>
               <Accordion className='accordion hidden'>
