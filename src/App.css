@@ -281,12 +281,20 @@ header {
 .moreInfoModal:hover {
   cursor: pointer;
 }
-
-.ui-dialog {
-  background-color: var(--tooltipBackground)
+.ui-dialog .ui-digalog-text {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  color: var(--darkColor);
+  font-size: 0.8rem;
+  background-color: #f4f4f4;
+  border: 1px solid var(--tooltipBorder);
 }
-.ui-dialog-titlebar-close {
-  font-size: 3rem;
+.ui-dialog {
+  background-color: var(--tooltipBackground);
+}
+
+.dialogInfo {
+  font-size: .9rem;
 }
 
 .sideNote {
@@ -503,6 +511,7 @@ header {
 }
 .ui-accordion-content {
 background-color: transparent;
+font-size: 1rem;
 }
 .ui-accordion-header {
   border-radius: 0;

@@ -74,20 +74,22 @@ class Results extends Component {
         })
         console.log(response)
         console.log(this.state.color, this.state.score, this.props.initial_feeling)
-        // request
-        //   .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-        //   .send({survey: { user_id: 1,
-        //     category_id: 1,
-        //     final_score: this.state.score,
-        //     initial_feeling: this.props.initial_feeling,
-        //     color: this.state.color,
-        //     answers_attributes: answersArray
-        //   }})
-        //   .then((response) => {
-        //     console.log(response)
-        //     window.localStorage.surveyid = response.body.survey.id
-        //     console.log(window.localStorage.surveyid)
-        //   })
+        request
+          .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+          .send({survey: { user_id: 1,
+            category_id: 1,
+            final_score: this.state.score,
+            initial_feeling: this.props.initial_feeling,
+            color: this.state.color,
+            answers_attributes: answersArray
+          }})
+          .then((response) => {
+            console.log(response)
+            window.localStorage.surveyid = response.body.survey.id
+            console.log(window.localStorage.surveyid)
+            // request
+            //   .get(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+          })
       })
   }
 
