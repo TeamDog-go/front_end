@@ -24,7 +24,6 @@ class Results extends Component {
     this.resolveCalculation = this.resolveCalculation.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.resultsIconClick = this.resultsIconClick.bind(this)
-    // has this.props.initial_feeling, this.props.answers, this.props.questions
   }
 
   resolveCalculation () {
@@ -64,9 +63,7 @@ class Results extends Component {
       answersArray.push({
         option_id: this.props.answers[index].option_id
       })
-      return (
-        entry
-      )
+      return (entry)
     })
     console.log(answersArray)
     this.resolveCalculation()
@@ -77,20 +74,20 @@ class Results extends Component {
         })
         console.log(response)
         console.log(this.state.color, this.state.score, this.props.initial_feeling)
-        request
-          .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-          .send({survey: { user_id: 1,
-            category_id: 1,
-            final_score: this.state.score,
-            initial_feeling: this.props.initial_feeling,
-            color: this.state.color,
-            answers_attributes: answersArray
-          }})
-          .then((response) => {
-            console.log(response)
-            window.localStorage.surveyid = response.body.survey.id
-            console.log(window.localStorage.surveyid)
-          })
+        // request
+        //   .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+        //   .send({survey: { user_id: 1,
+        //     category_id: 1,
+        //     final_score: this.state.score,
+        //     initial_feeling: this.props.initial_feeling,
+        //     color: this.state.color,
+        //     answers_attributes: answersArray
+        //   }})
+        //   .then((response) => {
+        //     console.log(response)
+        //     window.localStorage.surveyid = response.body.survey.id
+        //     console.log(window.localStorage.surveyid)
+        //   })
       })
   }
 
@@ -131,12 +128,14 @@ class Results extends Component {
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
     const capSource = source.charAt(0).toUpperCase() + source.slice(1)
+
     let position
     if (this.state.score < 0) {
       position = 0
     } else if (this.state.score > 100) {
-      position = 70 + 'vw'
-    } else { position = 0.7 * this.state.score + 'vw' }
+      position = 99 + '%'
+    } else { position = this.state.score + '%' }
+
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
@@ -161,16 +160,17 @@ class Results extends Component {
 
             <div className='scale-container'>
               <div className='scale'>
-                <div className='scale-red' />
-                <div className='scale-yellow' />
                 <div className='scale-green' />
+                <div className='scale-yellow' />
+                <div className='scale-red' />
               </div>
-              <div className='paw' style={{left: position}} />
+              <div className='paw' style={{right: position}} />
             </div>
           </div>
           <div className='result-box'>
-            <h4>One Last Question!</h4>
+
             <div className='result-feeling-question'>
+              <h4>One Last Question!</h4>
               <div>Now, what quality do you feel this {source} is?</div>
               <div className='result-feeling-array'>
                 {feeling.map((entry, index) => {
