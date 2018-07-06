@@ -17,7 +17,8 @@ class SelectSourcePage extends Component {
       visible: false,
       sheltervisible: false,
       breedervisible: false,
-      individualvisible: false}
+      individualvisible: false,
+      showHeader: false}
     this.onClickShelter = this.onClickShelter.bind(this)
     this.onClickBreeder = this.onClickBreeder.bind(this)
     this.onClickIndividual = this.onClickIndividual.bind(this)
@@ -65,14 +66,14 @@ class SelectSourcePage extends Component {
           <h3 className='sourceQuestionText'>Which best describes the place you want to check?</h3>
           <div>
             <Button className='sourceButton' id='shelterButton' onClick={() => this.props.history.push('/shelter')} label='Shelter / Rescue' />
-            <Dialog header='Info' visible={this.state.sheltervisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.sheltervisible} >For groups that have dogs for adoption in a public building or in foster homes.</Dialog>
+            <Dialog className='dialogInfo' showHeader={this.state.showHeader} visible={this.state.sheltervisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.sheltervisible} >For groups that have dogs for adoption in a public building or in foster homes.</Dialog>
             <div className='moreInfoModal' id='shelterModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClickShelter} />
             </div>
             <Tooltip tooltipStyleClass='sourceTooltip' for='#shelterModal' title='For groups that have dogs for adoption in a public building or in foster homes.' tooltipPosition='right' />
           </div>
           <div>
             <Button className='sourceButton' id='breederButton' onClick={() => this.props.history.push('/breeder')} label='Breeder' />
-            <Dialog header='Info' visible={this.state.breedervisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.breedervisible} >For professional and hobby breeders.</Dialog>
+            <Dialog className='dialogInfo' showHeader={this.state.showHeader} visible={this.state.breedervisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.breedervisible} >For professional and hobby breeders.</Dialog>
             <div className='moreInfoModal' id='breederModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClickBreeder} />
             </div>
             <Tooltip className='sourceTooltip' for='#breederModal' title='For professional and hobby breeders.' tooltipPosition='right' />
@@ -80,7 +81,7 @@ class SelectSourcePage extends Component {
 
           <div>
             <Button className='sourceButton' id='individualButton' onClick={() => this.props.history.push('/individual')} label='Individual' />
-            <Dialog header='Info' visible={this.state.individualvisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.individualvisible} >For friends, relatives, neighbors, or Craigslist posters rehoming their dog/litter of puppies.</Dialog>
+            <Dialog className='dialogInfo' showHeader={this.state.showHeader} visible={this.state.individualvisible} width='350px' modal onHide={this.onHide} dismissableMask={this.state.individualvisible} >For friends, relatives, neighbors, or Craigslist posters rehoming their dog/litter of puppies.</Dialog>
             <div className='moreInfoModal' id='individualModal'><FontAwesomeIcon icon='question-circle' onClick={this.onClickIndividual} />
             </div>
             <Tooltip className='sourceTooltip' for='#individualModal' title='For friends, relatives, neighbors, or Craigslist posters rehoming their dog/litter of puppies.' tooltipPosition='right' />
