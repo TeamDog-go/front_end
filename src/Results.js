@@ -42,6 +42,8 @@ class Results extends Component {
     this.setState({
       final_feeling: event.target.value
     })
+    let feelingConfirmation = document.querySelector('.feelingConfirmation')
+    feelingConfirmation.classList.remove('hidden')
   }
 
   resultsIconClick (event) {
@@ -156,9 +158,9 @@ class Results extends Component {
             {this.state.color === 'yellow' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Medium Risk</strong></p>}
             {this.state.color === 'green' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Low Risk</strong></p>}
 
-            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
-            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
-            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!)</p>}
+            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else. </strong>Click "Show More About My Answers" below to find out more.</p>}
+            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. Click "Show More About My Answers" below to find out more.</p>}
+            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!)Click "Show More About My Answers" below to find out more.</p>}
 
             <div className='scale-container'>
               <div className='scale'>
@@ -183,15 +185,16 @@ class Results extends Component {
                     </div>)
                 })}
               </div>
+              <p className='feelingConfirmation hidden'><strong>Thank you for your feedback!</strong></p>
             </div>
           </div>
 
           <div className='detailedResults'>
             <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
-              Tell Me More About My Answers<FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
+              Show More About My Answers<FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
             </button>
             <Accordion className='accordion hidden'>
-              <AccordionTab className='detailedResultsAccordion' header={<FontAwesomeIcon icon='plus' /> + 'Are you allowed to visit the puppies?'}>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)
+              <AccordionTab className='detailedResultsAccordion' header='Are you allowed to visit the puppies?'>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)
               </AccordionTab>
               <AccordionTab header='Does the breeder ship puppies via airplane?'>
                 Young puppies are in a period of critical development. A flight is a potentially scary and dangerous experience. Heatstroke and crate phobias are real risks. Steer clear of any breeder who offers to ship you a pup!

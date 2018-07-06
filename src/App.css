@@ -506,11 +506,11 @@ header {
   background-color: var(--mainColor);
   color: var(--whiteText);
 }
-.ui-accordion-header.ui-widget.ui-state-default.ui-corner-all.detailedResultsAccordion:hover {
+/* .ui-accordion-header.ui-widget.ui-state-default.ui-corner-all.detailedResultsAccordion:hover {
   border: 2px solid var(--mainColor);
   background-color: var(--mainColor);
   color: var(--whiteText);
-}
+} */
 .ui-accordion-content {
 background-color: transparent;
 font-size: 1rem;
@@ -521,6 +521,7 @@ font-size: 1rem;
   border: .5px solid var(--tooltipBorder);
   font-family: Arial, Helvetica, sans-serif;
   color: var(--darkColor);
+  font-size: 1rem;
 }
 .ui-accordion-header:hover {
   background-color: var(--tooltipBackground);
@@ -596,6 +597,10 @@ font-size: 1rem;
     width: 20px;
     border-radius: 50%;
     box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, .85);
+}
+.feelingConfirmation {
+  text-align: center;
+  padding: 10px 0 20px 0;
 }
 
 .detailedResultsDiv {
