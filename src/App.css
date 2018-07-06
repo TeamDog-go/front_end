@@ -8,7 +8,9 @@
   /* --alertLvl1: #C3364E;
   --alertLvl2: #F4A881; */
   --alertLvl1: hsla(350, 57%, 49%, 0.65);
+  --alertLvl1-dark: hsla(350, 57%, 49%, 0.85);
   --alertLvl2: hsla(20, 84%, 73%, 0.65);
+  --alertLvl2-dark: hsla(20, 84%, 73%, 0.85);
   --alertLvl3: #F7F7F7;
   --alertLvl4: #92D1DD;
   --bodyBackground: #BEC1BE;
@@ -529,9 +531,6 @@ font-size: 1rem;
   font-weight: 700;
 }
 
-.ui-accordion-header-text {
-  word-break: keep-all;
-}
 .ui-accordion-toggle-icon {
   display: inline;
 }
@@ -540,6 +539,30 @@ font-size: 1rem;
   display:inline;
   text-decoration: none;
 }
+
+.Red.ui-accordion-header.ui-state-default.ui-corner-all {
+  background-color: var(--alertLvl1);
+  box-shadow: inset 0 0 5px #f4f4f4
+}
+.Red.ui-accordion-header.ui-state-default.ui-corner-all:hover {
+  background-color: var(--alertLvl1-dark);
+}
+.Green.ui-accordion-header.ui-state-default.ui-corner-all {
+  background-color: var(--mainColor-light);
+  box-shadow: inset 0 0 5px #f4f4f4
+}
+.Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
+  background-color: var(--mainColor);
+}
+.Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
+  background-color: var(--alertLvl2);
+  box-shadow: inset 0 0 5px #f4f4f4
+}
+.Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover {
+  background-color: var(--alertLvl2-dark);
+}
+
+
 /* .ui-accordion-header:hover {
   background-color: var(--tooltipBackground);
   border: .5px solid var(--tooltipBorder);

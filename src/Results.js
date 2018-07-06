@@ -25,6 +25,11 @@ class Results extends Component {
     this.resolveCalculation = this.resolveCalculation.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.resultsIconClick = this.resultsIconClick.bind(this)
+    this.capitalize = this.capitalize.bind(this)
+  }
+
+  capitalize (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
   resolveCalculation () {
@@ -96,7 +101,7 @@ class Results extends Component {
                 questionContent: entry.content,
                 answerContent: response.body.survey.answers[index].option_content,
                 answerFeedback: response.body.survey.answers[index].option_feedback,
-                answerColor: response.body.survey.answers[index].option_color
+                answerColor: this.capitalize(response.body.survey.answers[index].option_color)
               })
               console.log(feedbackArray)
               this.setState({
@@ -213,7 +218,7 @@ class Results extends Component {
                 {feedbackArray.map((entry, index) => {
                   return (
                     // <div key={index} className={entry.color}>
-                    <AccordionTab className='detailedResultsAccordion' header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><br />{entry.answerFeedback}
+                    <AccordionTab headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
                     </AccordionTab>
                     // </div>
                   )
