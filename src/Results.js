@@ -18,9 +18,9 @@ class Results extends Component {
       score: '',
       color: '',
       final_feeling: '',
-      // userid: '',
       resultsIcon: 'chevron-circle-down',
-      feedbackArray: ''
+      feedbackArray: '',
+      category_id: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
@@ -28,6 +28,7 @@ class Results extends Component {
     this.resultsIconClick = this.resultsIconClick.bind(this)
     this.capitalize = this.capitalize.bind(this)
     this.filterByColor = this.filterByColor.bind(this)
+    this.setCategoryId = this.setCategoryId.bind(this)
   }
 
   capitalize (string) {
@@ -69,6 +70,22 @@ class Results extends Component {
     feelingConfirmation.classList.remove('hidden')
   }
 
+  setCategoryId () {
+    if (this.props.match.path === '/breeder') {
+      this.setState({
+        category_id: 1
+      })
+    } else if (this.props.match.path === '/shelter') {
+      this.setState({
+        category_id: 2
+      })
+    } else if (this.props.match.path === 'individual') {
+      this.setState({
+        category_id: 3
+      })
+    }
+  }
+
   resultsIconClick (event) {
     if (this.state.resultsIcon === 'chevron-circle-down') {
       this.setState({
@@ -100,6 +117,7 @@ class Results extends Component {
           score: response.score,
           color: response.color
         })
+        this.setCategoryId()
         console.log(response)
         console.log(this.state.color, this.state.score, this.props.initial_feeling)
         console.log('pooop', answersArray)
@@ -112,12 +130,12 @@ class Results extends Component {
         }})
         request
           .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-          .send({survey: { user_id: window.localStorage.spotCheck_user_id,
-            category_id: 1,
+          .send({survey: { user_id: 1,
+            category_id: this.state.category_id,
             final_score: this.state.score,
             initial_feeling: this.props.initial_feeling,
             color: this.state.color,
-            answers_attributes: answersArray
+            answer_attributes: answersArray
           }})
           .then((response) => {
             const feedbackArrayUnfiltered = []
@@ -241,7 +259,7 @@ class Results extends Component {
 
           <div className='detailedResults'>
             <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
-            See My Answer Scores <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
+            See My Answer Ratings <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
             </button>
             {this.state.feedbackArray ? <div className='result-feeling-array'>
               <Accordion className='accordion hidden'>
