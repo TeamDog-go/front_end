@@ -19,7 +19,7 @@ class Feeling extends Component {
     const feelingValue = event.target.value
     setTimeout(() => {
       this.props.setInitialFeeling(feelingValue)
-    }, 1200)
+    }, 1000)
   }
 
   questionSubmit () {

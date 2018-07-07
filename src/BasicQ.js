@@ -46,7 +46,7 @@ class BasicQ extends Component {
           color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
         })
       }
-    }, 1200)
+    }, 1000)
   }
 
   questionSubmit () {
