@@ -46,7 +46,7 @@ class BasicQ extends Component {
           color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
         })
       }
-    }, 2750)
+    }, 1000)
   }
 
   questionSubmit () {
@@ -103,8 +103,8 @@ class BasicQ extends Component {
                 {this.props.question.options.map((entry, index) => {
                   return (
                     <div key={index} className='answer'>
-                      <input type='radio' id={entry.o_id} name={entry.o_content} data-points={entry.points} value={entry.o_color} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.o_content} />
-                      <label htmlFor={entry.o_id} >{entry.o_content}</label>
+                      <input type='radio' id={entry.id} name={entry.o_content} data-points={entry.points} value={entry.o_color} onChange={(e) => this.handleOptionChange(e)} checked={this.state.answer === entry.o_content} />
+                      <label htmlFor={entry.id} >{entry.o_content}</label>
                     </div>)
                 })}
               </form>

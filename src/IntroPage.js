@@ -32,7 +32,9 @@ class IntroPage extends Component {
         </div>
         <div className='introPageDiv'>
           {/* <img className='introPageImage' src={boyAndDog} alt='dog and girl' /> */}
-          {this.getRandomPhoto()}
+          <div className='introPageImgWrapper'>
+            {this.getRandomPhoto()}
+          </div>
           <ul className='introPageText'>
             <li><strong>Happy, healthy dogs</strong> come from quality shelters, breeders, and individuals.</li>
             {/* <li>Where are you going to get your next dog?</li> */}

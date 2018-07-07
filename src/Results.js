@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
+import uuid from 'uuid-v4'
 
 class Results extends Component {
   constructor (props) {
@@ -18,12 +19,34 @@ class Results extends Component {
       color: '',
       final_feeling: '',
       // userid: '',
-      resultsIcon: 'chevron-circle-down'
+      resultsIcon: 'chevron-circle-down',
+      feedbackArray: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
     this.resolveCalculation = this.resolveCalculation.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.resultsIconClick = this.resultsIconClick.bind(this)
+    this.capitalize = this.capitalize.bind(this)
+    this.filterByColor = this.filterByColor.bind(this)
+  }
+
+  capitalize (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
+  filterByColor (array) {
+    let feedbackArrayFilterRed = array.filter(val => {
+      return val.answerColor === 'Red'
+    })
+    let feedbackArrayFilterYellow = array.filter(val => {
+      return val.answerColor === 'Yellow'
+    })
+    let feedbackArrayFilterGreen = array.filter(val => {
+      return val.answerColor === 'Green'
+    })
+    this.setState({ feedbackArray: feedbackArrayFilterRed.concat(feedbackArrayFilterYellow.concat(feedbackArrayFilterGreen))
+    })
+    console.log(this.state.feedbackArray)
   }
 
   resolveCalculation () {
@@ -42,6 +65,8 @@ class Results extends Component {
     this.setState({
       final_feeling: event.target.value
     })
+    let feelingConfirmation = document.querySelector('.feelingConfirmation')
+    feelingConfirmation.classList.remove('hidden')
   }
 
   resultsIconClick (event) {
@@ -57,6 +82,9 @@ class Results extends Component {
   }
 
   componentDidMount () {
+    if (!window.localStorage.spotCheck_user_id) {
+      window.localStorage.spotCheck_user_id = uuid()
+    }
     console.log(this.props.questions, this.props.answers)
     const answersArray = []
     this.props.answers.map((entry, index) => {
@@ -74,9 +102,10 @@ class Results extends Component {
         })
         console.log(response)
         console.log(this.state.color, this.state.score, this.props.initial_feeling)
+        console.log('pooop', answersArray)
         request
           .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-          .send({survey: { user_id: 1,
+          .send({survey: { user_id: window.localStorage.spotCheck_user_id,
             category_id: 1,
             final_score: this.state.score,
             initial_feeling: this.props.initial_feeling,
@@ -84,11 +113,25 @@ class Results extends Component {
             answers_attributes: answersArray
           }})
           .then((response) => {
+            const feedbackArrayUnfiltered = []
             console.log(response)
             window.localStorage.surveyid = response.body.survey.id
             console.log(window.localStorage.surveyid)
-            // request
-            //   .get(`https://polar-castle-14061.herokuapp.com/surveys.json`)
+            this.props.questions.map((entry, index) => {
+              feedbackArrayUnfiltered.push({
+                questionContent: entry.content,
+                answerContent: response.body.survey.answers[index].option_content,
+                answerFeedback: response.body.survey.answers[index].option_feedback,
+                answerColor: this.capitalize(response.body.survey.answers[index].option_color)
+              })
+              console.log(feedbackArrayUnfiltered)
+              this.filterByColor(feedbackArrayUnfiltered)
+              // console.log(feedbackArray)
+              // this.setState({
+              //   feedbackArray: feedbackArray
+              // })
+              console.log(this.state.feedbackArray)
+            })
           })
       })
   }
@@ -127,6 +170,8 @@ class Results extends Component {
       {label: 'Very High', value: 5, class: 'answer result-feeling color-5'}
     ]
 
+    const feedbackArray = this.state.feedbackArray
+
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
     const capSource = source.charAt(0).toUpperCase() + source.slice(1)
@@ -156,9 +201,9 @@ class Results extends Component {
             {this.state.color === 'yellow' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Medium Risk</strong></p>}
             {this.state.color === 'green' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Low Risk</strong></p>}
 
-            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else.</strong></p>}
-            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. If you marked "I don't know" for several questions, do some more research and try again! Otherwise, strongly consider looking at other places.</p>}
-            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!)</p>}
+            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else. </strong>Click "Show More About My Answers" below to find out more.</p>}
+            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. Click "Show More About My Answers" below to find out more.</p>}
+            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!)Click "Show More About My Answers" below to find out more.</p>}
 
             <div className='scale-container'>
               <div className='scale'>
@@ -183,26 +228,30 @@ class Results extends Component {
                     </div>)
                 })}
               </div>
+              <p className='feelingConfirmation hidden'><strong>Thank you for your feedback!</strong></p>
             </div>
           </div>
 
           <div className='detailedResults'>
             <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
-              Show Detailed Results <FontAwesomeIcon icon={this.state.resultsIcon} />
+            See My Answer Scores <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
             </button>
-            <Accordion className='accordion hidden'>
-              <AccordionTab className='detailedResultsAccordion' header={<FontAwesomeIcon icon='plus' /> + 'Are you allowed to visit the puppies?'}>Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)
-              </AccordionTab>
-              <AccordionTab header='Does the breeder ship puppies via airplane?'>
-                Young puppies are in a period of critical development. A flight is a potentially scary and dangerous experience. Heatstroke and crate phobias are real risks. Steer clear of any breeder who offers to ship you a pup!
-              </AccordionTab>
-              <AccordionTab header='Is the breeder United States Department of Agriculture (USDA) licensed?'>
-                Excellent! The USDA oversees farms. If a breeder is USDA licensed, they are a puppy farm! Not having this license is a GOOD thing.
-              </AccordionTab>
-            </Accordion>
+            {this.state.feedbackArray ? <div className='result-feeling-array'>
+              <Accordion className='accordion hidden'>
+                {feedbackArray.map((entry, index) => {
+                  return (
+                    // <div key={index} className={entry.color}>
+                    <AccordionTab headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
+                    </AccordionTab>
+                    // </div>
+                  )
+                })}
+              </Accordion>
+            </div>
+              : <p>An error has occurred</p>}
           </div>
           <div className='navButtonDivIntro'>
-            <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' />
+            {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' /> */}
             <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another' />
           </div>
         </div>

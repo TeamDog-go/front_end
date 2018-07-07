@@ -10,14 +10,18 @@
     "firebase": "^5.1.0",
     "firebase-tools": "^3.19.3",
     "fontawesome": "^4.7.2",
+    "primeicons": "^1.0.0-beta.9",
     "primereact": "^1.6.2",
     "proptypes": "^1.1.0",
     "react": "^16.4.1",
+    "react-animated-slider": "^1.1.3",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "showdown": "^1.8.6",
     "storybook": "^1.0.0",
-    "superagent": "^3.8.3"
+    "superagent": "^3.8.3",
+    "uuid-v4": "^0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

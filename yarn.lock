@@ -8353,6 +8353,10 @@ pretty-format@^20.0.3:
     ansi-regex "^2.1.1"
     ansi-styles "^3.0.0"
 
+primeicons@^1.0.0-beta.9:
+  version "1.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-1.0.0-beta.9.tgz#e2fe9d586809e0fe0b9ee6109784e5340a1c3f05"
+
 primereact@^1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/primereact/-/primereact-1.6.2.tgz#128e11cecf8acd38d3addb99ae35d7fbb5aa35f5"
@@ -8604,6 +8608,12 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-animated-slider@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-animated-slider/-/react-animated-slider-1.1.3.tgz#8870e0264b260c6f9acf2dc3ab2bcd3c48bb14ab"
+  dependencies:
+    react "^16.4.1"
 
 react-dev-utils@^5.0.0, react-dev-utils@^5.0.1:
   version "5.0.1"
@@ -9610,6 +9620,12 @@ shelljs@^0.8.1:
 shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
+
+showdown@^1.8.6:
+  version "1.8.6"
+  resolved "https://registry.yarnpkg.com/showdown/-/showdown-1.8.6.tgz#91ea4ee3b7a5448aaca6820a4e27e690c6ad771c"
+  dependencies:
+    yargs "^10.0.3"
 
 signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
@@ -10703,6 +10719,10 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
+uuid-v4@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/uuid-v4/-/uuid-v4-0.1.0.tgz#62d7b310406f6cecfea1528c69f1e8e0bcec5a3a"
+
 uuid@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
@@ -11146,6 +11166,12 @@ yargs-parser@^7.0.0:
   dependencies:
     camelcase "^4.1.0"
 
+yargs-parser@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-8.1.0.tgz#f1376a33b6629a5d063782944da732631e966950"
+  dependencies:
+    camelcase "^4.1.0"
+
 yargs-parser@^9.0.2:
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-9.0.2.tgz#9ccf6a43460fe4ed40a9bb68f48d43b8a68cc077"
@@ -11168,6 +11194,23 @@ yargs@11.0.0:
     which-module "^2.0.0"
     y18n "^3.2.1"
     yargs-parser "^9.0.2"
+
+yargs@^10.0.3:
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-10.1.2.tgz#454d074c2b16a51a43e2fb7807e4f9de69ccb5c5"
+  dependencies:
+    cliui "^4.0.0"
+    decamelize "^1.1.1"
+    find-up "^2.1.0"
+    get-caller-file "^1.0.1"
+    os-locale "^2.0.0"
+    require-directory "^2.1.1"
+    require-main-filename "^1.0.1"
+    set-blocking "^2.0.0"
+    string-width "^2.0.0"
+    which-module "^2.0.0"
+    y18n "^3.2.1"
+    yargs-parser "^8.1.0"
 
 yargs@^3.10.0:
   version "3.32.0"
