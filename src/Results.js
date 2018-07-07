@@ -51,7 +51,6 @@ class Results extends Component {
   }
 
   resolveCalculation () {
-    console.log(this.props.answers)
     let answers = this.props.answers
     return new Promise(function (resolve, reject) {
       // if (this.props.answers) {
@@ -102,15 +101,13 @@ class Results extends Component {
     if (!window.localStorage.spotCheck_user_id) {
       window.localStorage.spotCheck_user_id = uuid()
     }
-    console.log(this.props.questions, this.props.answers)
     const answersArray = []
     this.props.answers.map((entry, index) => {
       answersArray.push({
-        option_id: this.props.answers[index].option_id
+        option_id: Number(this.props.answers[index].option_id)
       })
       return (entry)
     })
-    console.log(answersArray)
     this.resolveCalculation()
       .then((response) => {
         this.setState({
@@ -118,23 +115,19 @@ class Results extends Component {
           color: response.color
         })
         this.setCategoryId()
-        console.log(response)
-        console.log(this.state.color, this.state.score, this.props.initial_feeling)
-        console.log('pooop', answersArray)
         request
           .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-          .send({survey: { user_id: 1,
+          .send({ user_id: 1,
             category_id: this.state.category_id,
             final_score: this.state.score,
-            initial_feeling: this.props.initial_feeling,
+            initial_feeling: Number(this.props.initial_feeling),
             color: this.state.color,
-            answer_attributes: answersArray
-          }})
+            answers_attributes: answersArray
+          })
           .then((response) => {
             const feedbackArrayUnfiltered = []
             console.log(response)
             window.localStorage.surveyid = response.body.survey.id
-            console.log(window.localStorage.surveyid)
             this.props.questions.map((entry, index) => {
               feedbackArrayUnfiltered.push({
                 questionContent: entry.content,
@@ -142,13 +135,7 @@ class Results extends Component {
                 answerFeedback: response.body.survey.answers[index].option_feedback,
                 answerColor: this.capitalize(response.body.survey.answers[index].option_color)
               })
-              console.log(feedbackArrayUnfiltered)
               this.filterByColor(feedbackArrayUnfiltered)
-              // console.log(feedbackArray)
-              // this.setState({
-              //   feedbackArray: feedbackArray
-              // })
-              console.log(this.state.feedbackArray)
             })
           })
       })
