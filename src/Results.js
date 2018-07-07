@@ -103,6 +103,13 @@ class Results extends Component {
         console.log(response)
         console.log(this.state.color, this.state.score, this.props.initial_feeling)
         console.log('pooop', answersArray)
+        console.log('this whole shebang', {survey: { user_id: window.localStorage.spotCheck_user_id,
+          category_id: 1,
+          final_score: this.state.score,
+          initial_feeling: this.props.initial_feeling,
+          color: this.state.color,
+          answers_attributes: answersArray
+        }})
         request
           .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
           .send({survey: { user_id: window.localStorage.spotCheck_user_id,
