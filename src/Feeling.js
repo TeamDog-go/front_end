@@ -19,7 +19,7 @@ class Feeling extends Component {
     const feelingValue = event.target.value
     setTimeout(() => {
       this.props.setInitialFeeling(feelingValue)
-    }, 1500)
+    }, 1000)
   }
 
   questionSubmit () {
@@ -45,9 +45,8 @@ class Feeling extends Component {
             <h2 className='header'>&nbsp;Spot Check</h2>
           </header>
         </div>
-        <div className='feeling-question'>Right now, what quality do you feel this {source} is?
-        <p className='sideNote'>(Your answer does not effect the score.)</p>
-        </div>
+        <div className='feeling-question'>Right now, what quality do you feel this {source} is?</div>
+        <p className='feeling-sideNote'>(Your answer does not effect the score.)</p>
         <div className='feeling-array'>
           <div >
             <form>

@@ -54,6 +54,7 @@ class Quiz extends Component {
 
   render () {
     console.log('answers', this.state.answers)
+    console.log('questions', this.props.questions, 'current', this.state.currentQ)
     if (!this.state.feelingSet) {
       return (
         <div>
