@@ -535,7 +535,7 @@ a {
   width: 80%;
   border-radius: 0;
   background-color: var(--tooltipBackground);
-  border: 2px solid var(--mainColor);
+  border: 2px solid var(--tooltipBorder);
   color: var(--darkColor);
   margin: 8px 10%;
   font-size: 1rem;
@@ -587,22 +587,27 @@ font-size: 1rem;
 }
 
 .Red.ui-accordion-header.ui-state-default.ui-corner-all {
-  background-color: var(--alertLvl1);
-  box-shadow: inset 0 0 5px #f4f4f4
+  background-color: var(--tooltipBackground);
+  /* box-shadow: inset 0 0 5px #f4f4f4; */
+  border: 3px var(--alertLvl1) solid;
 }
 .Red.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl1-dark);
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all {
-  background-color: var(--mainColor-light);
-  box-shadow: inset 0 0 5px #f4f4f4
+  background-color: var(--tooltipBackground);
+  /* box-shadow: inset 0 0 5px #f4f4f4 */
+    border: 3px var(--mainColor-light) solid;
+
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--mainColor);
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
-  background-color: var(--alertLvl2);
-  box-shadow: inset 0 0 5px #f4f4f4
+  background-color: var(--tooltipBackground);
+  /* box-shadow: inset 0 0 5px #f4f4f4 */
+  border: 3px var(--alertLvl2) solid;
+
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl2-dark);

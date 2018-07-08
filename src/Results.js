@@ -219,6 +219,24 @@ class Results extends Component {
               <div className='paw' style={{right: position}} />
             </div>
           </div>
+          <div className='detailedResults'>
+            <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
+            Answers By Risk Level <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
+            </button>
+            {this.state.feedbackArray ? <div className='result-feeling-array'>
+              <Accordion className='accordion hidden'>
+                {feedbackArray.map((entry, index) => {
+                  return (
+                    // <div key={index} className={entry.color}>
+                    <AccordionTab headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
+                    </AccordionTab>
+                    // </div>
+                  )
+                })}
+              </Accordion>
+            </div>
+              : <p>An error has occurred</p>}
+          </div>
           <div className='result-box'>
 
             <div className='result-feeling-question'>
@@ -235,25 +253,6 @@ class Results extends Component {
               </div>
               <p className='feelingConfirmation hidden'><strong>Thank you for your feedback!</strong></p>
             </div>
-          </div>
-
-          <div className='detailedResults'>
-            <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
-            See My Answer Ratings <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
-            </button>
-            {this.state.feedbackArray ? <div className='result-feeling-array'>
-              <Accordion className='accordion hidden'>
-                {feedbackArray.map((entry, index) => {
-                  return (
-                    // <div key={index} className={entry.color}>
-                    <AccordionTab headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
-                    </AccordionTab>
-                    // </div>
-                  )
-                })}
-              </Accordion>
-            </div>
-              : <p>An error has occurred</p>}
           </div>
           <div className='navButtonDivIntro'>
             {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' /> */}
