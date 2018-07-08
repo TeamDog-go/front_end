@@ -40,7 +40,7 @@ class IntroPage extends Component {
             {/* <li>Where are you going to get your next dog?</li> */}
             <li><strong>Serious behavior and health problems</strong> are more likely if you get your dog from a bad source.</li>
             {/* <li><strong>Knowing the good from the bad</strong> can be very tricky!</li> */}
-            <li><strong>Quickly assess</strong> breeders, shelters, and individuals with the <strong>PupQuest Test!</strong></li>
+            <li><strong>Quickly assess</strong> breeders, shelters, and individuals with <strong>Spot Check!</strong></li>
           </ul>
           <div className='navButtonDivIntro'>
             <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Let&apos;s Go!' />

@@ -257,7 +257,7 @@ class Results extends Component {
           </div>
           <div className='navButtonDivIntro'>
             {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' /> */}
-            <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another' />
+            <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Check Another Spot' />
           </div>
         </div>
       </div>

@@ -367,6 +367,9 @@ a {
   width: 100%;
   margin-top: 12px;
 }
+.label {
+  cursor: pointer;
+}
 
 .color-1{
   background-color: var(--alertLvl1);
@@ -452,6 +455,9 @@ a {
   text-align: center;
   /* box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.35); */
   position: relative;
+}
+.answer label:hover {
+  cursor: pointer;
 }
 .answer input[type="radio"]:checked + label {
   background: var(--mainColor);
