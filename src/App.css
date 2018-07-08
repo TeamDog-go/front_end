@@ -593,6 +593,7 @@ font-size: 1rem;
 }
 .Red.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl1-dark);
+  border: 3px solid var(--alertLvl1);
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all {
   background-color: var(--tooltipBackground);
@@ -602,15 +603,17 @@ font-size: 1rem;
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--mainColor);
+  border: 3px solid var(--mainColor-dark);
+
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
   background-color: var(--tooltipBackground);
   /* box-shadow: inset 0 0 5px #f4f4f4 */
   border: 3px var(--alertLvl2) solid;
-
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl2-dark);
+  border: 3px var(--alertLvl2) solid;
 }
 
 

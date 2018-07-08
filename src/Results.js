@@ -221,7 +221,7 @@ class Results extends Component {
           </div>
           <div className='detailedResults'>
             <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
-            Answers By Risk Level <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
+            Answer Explanations <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
             </button>
             {this.state.feedbackArray ? <div className='result-feeling-array'>
               <Accordion className='accordion hidden'>
@@ -237,6 +237,7 @@ class Results extends Component {
             </div>
               : <p>An error has occurred</p>}
           </div>
+          
           <div className='result-box'>
 
             <div className='result-feeling-question'>
