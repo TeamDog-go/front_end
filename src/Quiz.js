@@ -55,6 +55,11 @@ class Quiz extends Component {
     })
   }
 
+  componentDidMount () {
+    window.onbeforeunload = function () {
+      return 'Are you sure you want to navigate away?'
+    }
+  }
   render () {
     if (!this.state.feelingSet) {
       return (

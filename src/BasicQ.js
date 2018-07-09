@@ -111,7 +111,8 @@ class BasicQ extends Component {
             </div>
           </div>
           <div className='navButtonDiv'>
-            <button className='arrow back active' onClick={this.previousQuestion} />
+            {this.props.index === 0 && <button className='arrow' disabled />}
+            {this.props.index > 0 && <button className='arrow back active' onClick={this.previousQuestion} />}
             {!this.state.answer && <button className='arrow next' onClick={() => { this.growl.show({ severity: 'warn', life: 1500, detail: 'Please choose a response before continuing the quiz' }) }} label='Next Question' />}
             {this.state.answer && <button className='arrow next active' onClick={this.questionSubmit} />}
           </div>
