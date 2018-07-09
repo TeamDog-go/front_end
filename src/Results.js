@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
 import uuid from 'uuid-v4'
+import { Markdown } from 'react-showdown'
 
 class Results extends Component {
   constructor (props) {
@@ -78,7 +79,7 @@ class Results extends Component {
       this.setState({
         category_id: 2
       })
-    } else if (this.props.match.path === 'individual') {
+    } else if (this.props.match.path === '/individual') {
       this.setState({
         category_id: 3
       })
@@ -135,8 +136,9 @@ class Results extends Component {
                 answerFeedback: response.body.survey.answers[index].option_feedback,
                 answerColor: this.capitalize(response.body.survey.answers[index].option_color)
               })
-              this.filterByColor(feedbackArrayUnfiltered)
+              return entry
             })
+            this.filterByColor(feedbackArrayUnfiltered)
           })
       })
   }
@@ -219,6 +221,25 @@ class Results extends Component {
               <div className='paw' style={{right: position}} />
             </div>
           </div>
+          <div className='detailedResults'>
+            <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
+              {capSource} Rating Details <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
+            </button>
+            {this.state.feedbackArray ? <div className='result-feeling-array'>
+              <Accordion className='accordion hidden'>
+                {feedbackArray.map((entry, index) => {
+                  return (
+                    // <div key={index} className={entry.color}>
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
+                    </AccordionTab>
+                    // </div>
+                  )
+                })}
+              </Accordion>
+            </div>
+              : <p>An error has occurred</p>}
+          </div>
+          
           <div className='result-box'>
 
             <div className='result-feeling-question'>
@@ -236,28 +257,9 @@ class Results extends Component {
               <p className='feelingConfirmation hidden'><strong>Thank you for your feedback!</strong></p>
             </div>
           </div>
-
-          <div className='detailedResults'>
-            <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
-            See My Answer Ratings <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
-            </button>
-            {this.state.feedbackArray ? <div className='result-feeling-array'>
-              <Accordion className='accordion hidden'>
-                {feedbackArray.map((entry, index) => {
-                  return (
-                    // <div key={index} className={entry.color}>
-                    <AccordionTab headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
-                    </AccordionTab>
-                    // </div>
-                  )
-                })}
-              </Accordion>
-            </div>
-              : <p>An error has occurred</p>}
-          </div>
           <div className='navButtonDivIntro'>
             {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' /> */}
-            <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Test another' />
+            <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Check Another Spot' />
           </div>
         </div>
       </div>

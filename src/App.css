@@ -281,7 +281,9 @@ a {
   text-align: center;
   margin: 20px auto;
 }
-
+.sourceButton .ui-button-text.ui-c{
+  font-size: 1rem;
+}
 .ui-button.ui-widget.ui-state-default.ui-corner-all.sourceButton{
   color: var(--whiteText);
   margin: 6px 0;
@@ -367,6 +369,9 @@ a {
   width: 100%;
   margin-top: 12px;
 }
+.label {
+  cursor: pointer;
+}
 
 .color-1{
   background-color: var(--alertLvl1);
@@ -402,17 +407,23 @@ a {
 
 /* ---------------------- GROWL INFO ---------------------- */
 
-.ui-growl.ui-growl-bottomright {
-	bottom: 10px;
-  right: 40px;
-  width: 15em;
+.ui-growl.ui-widget.ui-growl-bottomright {
+	bottom: 30px;
+  right: 50px;
+  width: 15rem;
 }
-.ui-growl-item-container {
+
+.ui-growl-item-container.ui-state-highlight.ui-corner-all.ui-growl-message-warn {
   background-color: var(--darkColor);
   color: var(--whiteText)
 }
+
+.ui-growl-image.pi.pi-exclamation-triangle{
+  padding-top: 1rem;
+}
 .ui-growl-message {
-	padding: .25em;
+  padding: .25em;
+  padding-left: 3rem;
   margin: 0;
 }
 
@@ -452,6 +463,9 @@ a {
   text-align: center;
   /* box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.35); */
   position: relative;
+}
+.answer label:hover {
+  cursor: pointer;
 }
 .answer input[type="radio"]:checked + label {
   background: var(--mainColor);
@@ -526,12 +540,12 @@ a {
 }
   
 .detailedResultsButton {
-  width: 80%;
+  width: 100%;
   border-radius: 0;
   background-color: var(--tooltipBackground);
-  border: 2px solid var(--mainColor);
+  border: 2px solid var(--tooltipBorder);
   color: var(--darkColor);
-  margin: 8px 10%;
+  /* margin: 8px 10%; */
   font-size: 1rem;
   padding:10px 0;
   font-weight: 700;
@@ -581,25 +595,33 @@ font-size: 1rem;
 }
 
 .Red.ui-accordion-header.ui-state-default.ui-corner-all {
-  background-color: var(--alertLvl1);
-  box-shadow: inset 0 0 5px #f4f4f4
+  background-color: var(--tooltipBackground);
+  /* box-shadow: inset 0 0 5px #f4f4f4; */
+  border: 3px var(--alertLvl1) solid;
 }
 .Red.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl1-dark);
+  border: 3px solid var(--alertLvl1);
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all {
-  background-color: var(--mainColor-light);
-  box-shadow: inset 0 0 5px #f4f4f4
+  background-color: var(--tooltipBackground);
+  /* box-shadow: inset 0 0 5px #f4f4f4 */
+    border: 3px var(--mainColor-light) solid;
+
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--mainColor);
+  border: 3px solid var(--mainColor-dark);
+
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
-  background-color: var(--alertLvl2);
-  box-shadow: inset 0 0 5px #f4f4f4
+  background-color: var(--tooltipBackground);
+  /* box-shadow: inset 0 0 5px #f4f4f4 */
+  border: 3px var(--alertLvl2) solid;
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl2-dark);
+  border: 3px var(--alertLvl2) solid;
 }
 
 
@@ -693,7 +715,7 @@ font-size: 1rem;
 
 @media all and (min-width: 768px) {
   html {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   body {
@@ -802,7 +824,7 @@ font-size: 1rem;
     margin: 0 auto 50px auto;
   }
   .answer.feeling input[type="radio"]:checked + label:after {
-    top: 25%;
+    top: 22%;
     left: -20px;
     height: 40px;
     width: 40px;
@@ -824,7 +846,7 @@ font-size: 1rem;
   }
 
   .answer input[type="radio"]:checked + label:after {
-    top: 16px;
+    top: 10px;
     left: -25px;
     height: 45px;
     width: 45px;
@@ -880,15 +902,15 @@ font-size: 1rem;
   overflow: hidden;
 }
 .scale-red{
-  width: 50%;
+  width: 51%;
   background-color: var(--alertLvl1);
 }
 .scale-yellow{
-  width: 30%;
+  width: 29%;
   background-color: var(--alertLvl2);
 }
 .scale-green{
-  width: 30%;
+  width: 20%;
   background-color: var(--mainColor);
 }
 
