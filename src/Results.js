@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
 import uuid from 'uuid-v4'
+import { Markdown } from 'react-showdown'
 
 class Results extends Component {
   constructor (props) {
@@ -78,7 +79,7 @@ class Results extends Component {
       this.setState({
         category_id: 2
       })
-    } else if (this.props.match.path === 'individual') {
+    } else if (this.props.match.path === '/individual') {
       this.setState({
         category_id: 3
       })
@@ -221,7 +222,7 @@ class Results extends Component {
           </div>
           <div className='detailedResults'>
             <button className='detailedResultsButton' onClick={this.expandDetailedResults}>
-            Answer Explanations <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
+              {capSource} Rating Details <FontAwesomeIcon className='detailedResultsIcon' icon={this.state.resultsIcon} />
             </button>
             {this.state.feedbackArray ? <div className='result-feeling-array'>
               <Accordion className='accordion hidden'>
