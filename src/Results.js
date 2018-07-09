@@ -186,10 +186,10 @@ class Results extends Component {
     let position
     if (this.state.score < 0) {
       position = 0
-    } else if (this.state.score > 100) {
+    } else if (this.state.score > 98) {
       position = 99 + '%'
     } else { position = this.state.score + '%' }
-
+    console.log({position})
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
@@ -229,22 +229,20 @@ class Results extends Component {
               <Accordion className='accordion hidden'>
                 {feedbackArray.map((entry, index) => {
                   return (
-                    // <div key={index} className={entry.color}>
                     <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
                     </AccordionTab>
-                    // </div>
                   )
                 })}
               </Accordion>
             </div>
               : <p>An error has occurred</p>}
           </div>
-          
+
           <div className='result-box'>
 
-            <div className='result-feeling-question'>
-              <h4>One Last Question!</h4>
-              <div>Now, what quality do you feel this {source} is?</div>
+            <div className='result-feeling-box'>
+              <p className='result-feeling-question-head'>One Last Question!</p>
+              <p className='result-feeling-question'>Now, what quality do you feel this {source} is?</p>
               <div className='result-feeling-array'>
                 {feeling.map((entry, index) => {
                   return (
