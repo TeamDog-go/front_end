@@ -244,7 +244,7 @@ class Results extends Component {
           <div className='result-box'>
 
             <div className='result-feeling-question'>
-              <h4>One Last Question!</h4>
+              <h3 className='finalFeelingHeader'>One Last Question!</h3>
               <div>Now, what quality do you feel this {source} is?</div>
               <div className='result-feeling-array'>
                 {feeling.map((entry, index) => {

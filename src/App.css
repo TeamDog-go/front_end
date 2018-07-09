@@ -615,7 +615,6 @@ div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
 .Red.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl1-dark);
   border: 3px solid var(--alertLvl1);
-  color: white;
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all {
   background-color: var(--tooltipBackground);
@@ -703,6 +702,9 @@ div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
 .result-feeling-array .result-feeling  input[type="radio"]:checked + label {
   background-color:initial;
   color: inherit;
+}
+.finalFeelingHeader {
+  margin: 0 0 20px 0;
 }
 .result-feeling input[type="radio"]:checked + label:after {
     background-color: var(--whiteText);
