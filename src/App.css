@@ -585,7 +585,15 @@ letter-spacing: 0.3px;
   font-weight: 700;
 }
 
-.ui-accordion-header:hover {
+div.Red.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
+  color: white;
+  font-weight: 400;
+}
+div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
+  color: white;
+  font-weight: 400;
+}
+div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
   color: white;
   font-weight: 400;
 }
@@ -613,12 +621,10 @@ letter-spacing: 0.3px;
   background-color: var(--tooltipBackground);
   /* box-shadow: inset 0 0 5px #f4f4f4 */
     border: 3px var(--mainColor-light) solid;
-
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--mainColor-light);
   border: 3px solid var(--mainColor);
-
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
   background-color: var(--tooltipBackground);
