@@ -38,7 +38,7 @@ class Feeling extends Component {
     ]
     return (
       <div className='megaWrapper'>
-        <Growl position='bottomright'ref={(el) => { this.growl = el }} />
+        <Growl position='bottomright'ref={(el) => { this.growl = el }} sticky />
         <div className='titleDiv'>
           <header>
             <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
@@ -62,7 +62,7 @@ class Feeling extends Component {
         </div>
         <div className='navButtonDiv'>
           <button className='arrow back active' onClick={() => this.props.history.push('/source')} />
-          {!this.state.feeling && <button className='arrow next' onClick={() => { this.growl.show({ severity: 'warn', detail: 'Please choose a response before continuing the quiz' }) }} label='Next Question' />}
+          {!this.state.feeling && <button className='arrow next' onClick={() => { this.growl.show({ severity: 'warn', life: 600000, detail: 'Please choose a response before continuing the quiz' }) }} label='Next Question' />}
           {this.state.feeling && <button className='arrow next active' onClick={this.questionSubmit} />}
         </div>
       </div>

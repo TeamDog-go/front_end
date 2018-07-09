@@ -78,7 +78,7 @@ class Results extends Component {
       this.setState({
         category_id: 2
       })
-    } else if (this.props.match.path === 'individual') {
+    } else if (this.props.match.path === '/individual') {
       this.setState({
         category_id: 3
       })
@@ -135,8 +135,9 @@ class Results extends Component {
                 answerFeedback: response.body.survey.answers[index].option_feedback,
                 answerColor: this.capitalize(response.body.survey.answers[index].option_color)
               })
-              this.filterByColor(feedbackArrayUnfiltered)
+              return entry
             })
+            this.filterByColor(feedbackArrayUnfiltered)
           })
       })
   }
@@ -246,7 +247,7 @@ class Results extends Component {
                 {feedbackArray.map((entry, index) => {
                   return (
                     // <div key={index} className={entry.color}>
-                    <AccordionTab headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
                     </AccordionTab>
                     // </div>
                   )

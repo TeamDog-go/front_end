@@ -12,32 +12,3 @@ function calculation (answerArray) {
 }
 
 export {calculation}
-
-function results (answers, questions) {
-  // add survey ID ?
-  const questionArray = []
-  questions.map((entry) => {
-    questionArray.push({
-      question_id: entry.id,
-      content: entry.content,
-      source_id: entry.source_id
-    })
-    return entry
-  })
-  const answerArray = []
-  answers.map((entry) => {
-    answerArray.push({
-      a_content: entry.answer,
-      question_id: entry.question_id,
-      a_color: entry.color,
-      points: entry.points,
-      option_id: entry.o_id
-    })
-    return entry
-  })
-  return {
-    questions: questionArray,
-    answers: answerArray
-  }
-}
-export {results}

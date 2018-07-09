@@ -404,17 +404,23 @@ a {
 
 /* ---------------------- GROWL INFO ---------------------- */
 
-.ui-growl.ui-growl-bottomright {
-	bottom: 10px;
-  right: 40px;
-  width: 15em;
+.ui-growl.ui-widget.ui-growl-bottomright {
+	bottom: 30px;
+  right: 50px;
+  width: 15rem;
 }
-.ui-growl-item-container {
+
+.ui-growl-item-container.ui-state-highlight.ui-corner-all.ui-growl-message-warn {
   background-color: var(--darkColor);
   color: var(--whiteText)
 }
+
+.ui-growl-image.pi.pi-exclamation-triangle{
+  padding-top: 1rem;
+}
 .ui-growl-message {
-	padding: .25em;
+  padding: .25em;
+  padding-left: 3rem;
   margin: 0;
 }
 
@@ -804,7 +810,7 @@ font-size: 1rem;
     margin: 0 auto 50px auto;
   }
   .answer.feeling input[type="radio"]:checked + label:after {
-    top: 25%;
+    top: 22%;
     left: -20px;
     height: 40px;
     width: 40px;
@@ -826,7 +832,7 @@ font-size: 1rem;
   }
 
   .answer input[type="radio"]:checked + label:after {
-    top: 16px;
+    top: 10px;
     left: -25px;
     height: 45px;
     width: 45px;
@@ -882,15 +888,15 @@ font-size: 1rem;
   overflow: hidden;
 }
 .scale-red{
-  width: 50%;
+  width: 51%;
   background-color: var(--alertLvl1);
 }
 .scale-yellow{
-  width: 30%;
+  width: 29%;
   background-color: var(--alertLvl2);
 }
 .scale-green{
-  width: 30%;
+  width: 20%;
   background-color: var(--mainColor);
 }
 
