@@ -139,6 +139,7 @@ class Results extends Component {
               return entry
             })
             this.filterByColor(feedbackArrayUnfiltered)
+            console.log('unfiltered array', feedbackArrayUnfiltered)
           })
       })
   }
@@ -210,7 +211,7 @@ class Results extends Component {
 
             {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else. </strong>Click "{capSource} Rating Details" to find out more.</p>}
             {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. Click "{capSource} Rating Details" to find out more.</p>}
-            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!)Click "{capSource} Rating Details" to find out more.</p>}
+            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!) Click "{capSource} Rating Details" to find out more.</p>}
 
             <div className='scale-container'>
               <div className='scale'>

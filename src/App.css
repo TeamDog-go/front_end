@@ -558,7 +558,6 @@ a {
 .detailedResultsIcon {
   margin-left: 20px;
   padding: 0;
-  /* line-height: 2rem; */
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover {
@@ -581,9 +580,14 @@ letter-spacing: 0.3px;
   background-color: var(--tooltipBackground);
   border: .5px solid var(--tooltipBorder);
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--darkColor);
+  /* color: var(--darkColor); */
   font-size: 1rem;
   font-weight: 700;
+}
+
+.ui-accordion-header:hover {
+  color: white;
+  font-weight: 400;
 }
 
 .ui-accordion-toggle-icon {
@@ -603,6 +607,7 @@ letter-spacing: 0.3px;
 .Red.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl1-dark);
   border: 3px solid var(--alertLvl1);
+  color: white;
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all {
   background-color: var(--tooltipBackground);
@@ -611,8 +616,8 @@ letter-spacing: 0.3px;
 
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
-  background-color: var(--mainColor);
-  border: 3px solid var(--mainColor-dark);
+  background-color: var(--mainColor-light);
+  border: 3px solid var(--mainColor);
 
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
