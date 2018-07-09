@@ -1,0 +1,230 @@
+{"source": "shelter",
+  "questions_attributes": [
+  {
+    "content": "What type of shelter/rescue is it?",
+    "options_attributes": [{
+      "o_content": "Open-admission / municipal",
+      "o_color": "yellow",
+      "avail_points": 10,
+      "feedback_text":"There are many terms for shelters and rescues, and they can be downright confusing, even misleading! These terms are NOT linked to the quality of the organization. Some terms can make them sound very appealing (like ‘no-kill’) while others might scare you (like ‘kill shelter’, sometimes used to refer to an open-admission shelter). Some of the best shelters out there are open admission! The other factors in this quiz are a much better measure of quality. Happy adopting!"
+    }, {
+      "o_content": "Limited-admission / “no-kill”",
+      "o_color": "yellow",
+      "avail_points": 10,
+      "feedback_text":"There are many terms for shelters and rescues, and they can be downright confusing, even misleading! These terms are NOT linked to the quality of the organization. Some terms can make them sound very appealing (like ‘no-kill’) while others might scare you (like ‘kill shelter’, sometimes used to refer to an open-admission shelter). Some of the best shelters out there are open admission! The other factors in this quiz are a much better measure of quality. Happy adopting!"
+    }, {
+      "o_content": "I don't know / other",
+      "o_color": "yellow",
+      "avail_points": 10,
+      "feedback_text":"There are many terms for shelters and rescues, and they can be downright confusing, even misleading! These terms are NOT linked to the quality of the organization. Some terms can make them sound very appealing (like ‘no-kill’) while others might scare you (like ‘kill shelter’, sometimes used to refer to an open-admission shelter). Some of the best shelters out there are open admission! The other factors in this quiz are a much better measure of quality. Happy adopting!"
+    }]
+  },
+  {
+    "content": "Does the shelter/rescue adopt out dogs directly over the internet? (You can adopt online and they ship you the dog.)",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "red",
+      "avail_points": -100,
+      "feedback_text":"Yikes! Many poorly run shelters/rescues will adopt out dogs that have significant behavior or health problems without telling you. If you don’t meet the dog before you adopt her, you have no way of knowing for sure what she’s like. Never adopt a dog or pup sight-unseen."
+    }, {
+      "o_content": "No, and they explicitly state this",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Woo! This is a very good sign. Many poorly run shelters/rescues will adopt out dogs that have significant behavior or health problems without telling you. Good places will require you to come get the dog from them."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Many poorly run shelters/rescues will adopt out dogs that have significant behavior or health problems without telling you. If you don’t meet the dog before you adopt her, you have no way of knowing for sure what she’s like. Sniff out the answer to this question!"
+    }]
+  },
+  {
+    "content": "Are you allowed to visit where the dogs are kept?",
+    "options_attributes": [{
+
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Yes! This is the most important step in getting a dog! Visiting is the only way to know for sure what kind of place a dog is coming from. It’s great that this shelter/rescue welcomes you to visit."
+    }, {
+      "o_content": "No, and it’s a shelter with a building",
+      "o_color": "red",
+      "avail_points": -100,
+      "feedback_text":"Uh oh… Visiting is the only way to know for sure what kind of place a dog is coming from. Good shelters insist potential owners visit them and will welcome you to see where the dogs are kept. If this shelter will not let you visit, what could they be hiding?"
+    }, {
+      "o_content": "No, and it’s a rescue",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text":"Hmm… Visiting is the only way to know for sure what kind of place a dog is coming from. Rescues often have their dogs in foster homes, and the foster owners may not want people knowing where they live. Meeting in a public place can sometimes be okay, but it can also be risky! Make sure this rescue is scoring well in other departments."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Hmm… Visiting is the only way to know for sure what kind of place a dog is coming from. Rescues often have their dogs in foster homes, and the foster owners may not want people knowing where they live. Meeting in a public place can sometimes be okay, but it can also be risky! Find out what this rescue does for meet and greets."
+    }]
+  },
+  {
+    "content": "Does the shelter perform temperment (personality) tests/aggression screenings?",
+    "options_attributes": [{
+      "o_content": "Yes, they use the SAFER test or Assess-A-Pet",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Excellent! These screenings test to see if a dog shows signs of aggression in common situations. (They’re not a guarantee, but science shows they really help!)"
+    }, {
+      "o_content": "Yes, they use their own methods",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"The quality of “custom” methods for assessing dog aggression varies greatly and we don’t know how accurate they are. Not every shelter/rescue has the resources to formally test all of their dogs. Consider hiring a reputable trainer to help you assess a dog’s behavior."
+    }, {
+      "o_content": "No, or they just “go by feel”",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text":"Formal screenings test to see if a dog shows signs of aggression in common situations. It’s very risky to adopt a dog who hasn’t had a behavior evaluation. Look for a shelter/rescue that thoroughly screens dogs before adopting them out."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Ask the shelter/rescue and find out! The SAFER test and Assess-A-Pet test to see if a dog shows signs of aggression in common situations. (They’re not a guarantee, but science shows they really help!) It’s very risky to adopt a dog who hasn’t been tested."
+    }]
+  },
+  {
+    "content": "Does the shelter/rescue require you to meet them in person?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Fantastic! Good organizations want to meet you and make sure their dogs are going to a good home. Expect to fill out an adoption application and talk to an adoption counselor."
+    }, {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -100,
+      "feedback_text":"Oh dear… Responsible shelters and rescues want to meet you and make sure their dogs are going to a good home. If they are willing to adopt to you knowing only your credit card info, that’s a red flag!"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"This is a good one to find out! Responsible shelters and rescues want to meet you and make sure their dogs are going to a good home. You should expect to fill out an adoption application and talk to an adoption counselor. If they are willing to adopt to you knowing only your credit card info, that’s a red flag!"
+    }]
+  },
+  {
+    "content": "Where are the puppies being raised?",
+    "options_attributes": [{
+      "o_content": "In the home with the family",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Woo hoo! Puppies need good experiences (socialization) with the things they will encounter as adults. They can grow up to be fearful of things they aren’t used to. Being raised in a home is the ideal way to prepare for life as a family pet."
+    }, {
+      "o_content": "In very crowded and/or dirty conditions",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text":"Uh oh. Puppies need lots of good experiences (socialization) with the things they will encounter as adults. Pups raised in poor conditions miss out on socialization and can be very stressed! This can make them more prone to fearful and aggressive behaviors as adults. If you feel the conditions aren’t healthy, look elsewhere."
+    }, {
+      "o_content": "In a kennel, garage, or outdoors",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text":"This can be a risk for young pups. Puppies need lots of good experiences (socialization) with the things they will encounter as adults. Pups raised outside of a home don’t get as much exposure to people and normal household sights and sounds. This can make them more prone to fearful and aggressive behaviors as adults. If you adopt a puppy who isn’t living in a home environment, know that you are accepting some risks. Adult dogs in kennels don’t face the same risks, they’re already developed! Have you considered adopting an adult?"
+    }, {
+      "o_content": "Not applicable, I’m looking for a dog over 4 months old",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"We’re excited you’re looking to adopt a teenager or adult! These dogs don’t face the same risks as young puppies do, since they’re already past their socialization period! It’s still important to make sure the environment is clean and the dogs look healthy."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Puppies need good experiences (socialization) with the things they will encounter as adults. Pups raised outside of a home don’t get as much exposure to people and normal household sights and sounds. This can make them more prone to fearful and aggressive behaviors. It’s super important to know where your puppy is being raised! It’s worth digging to find out the answer to this."
+    }]
+  },
+  {
+    "content": "Are the dogs seen by a veterinarian prior to adoption?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Excellent! Adoptable dogs should be examined by a licensed vet. Vets can find mild problems like hernias and major ones like neurological conditions. The dogs should also be tested for heartworm. It’s great that this shelter/rescue is being responsible!"
+    }, {
+      "o_content": "No, but the shelter/rescue vaccinates them",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text":"Vaccines are a good start. (And a heartworm test!) Adoptable dogs are ideally examined by a licensed vet. Vets can find mild problems like hernias and major ones like neurological conditions. It’s a risk (emotionally and financially) to adopt a dog who might already have a health problem. "
+    }, {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text":"All reputable shelters/rescues vaccinate their dogs prior to adoption! Ideally, adoptable dogs should be examined by a licensed vet. Vets can find mild problems like hernias and major ones like neurological conditions.It’s a huge risk (emotionally and financially) to adopt an unvaccinated dog who might already have a health problem."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Adoptable dogs should be examined by a licensed vet. Vets can find mild problems like hernias and major ones like neurological conditions. It’s a huge risk (emotionally and financially) to adopt a dog who might already have a health problem."
+    }]
+  },
+  {
+    "content": "Will the shelter/rescue take your adopted dog back if things don't work out?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Responsible shelters and rescues are committed to the dogs they adopt out. Most take their dogs back at any point. (It is common for them to require you to bring your dog back if you cannot keep her for any reason, rather than rehoming her yourself.)"
+    }, {
+      "o_content": "No",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text":"Some places just don’t have the resources to be able to take adopted dogs back in. Others are truly bad places and may be scamming you. (Sometimes people adopt and then can’t ever get in touch with the “rescue” again!) If you can’t bring your dog back, this means you might be faced with a lack of support when you need it most!"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Responsible shelters and rescues are committed to the dogs they adopt out. Most take their dogs back at any point. If you can’t bring your dog back, this means you might be faced with a lack of support when you need it most!"
+    }]
+  },
+  {
+    "content": "Has the shelter socialized the puppies to people, objects, and a normal home environment?",
+    "options_attributes": [{
+      "o_content": "Yes, and they are raised in the home ",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Woo hoo! Puppies need good experiences (socialization) with the things they will encounter as adults. They can grow up to be fearful of things they aren’t used to. Being raised in a home is the ideal way to prepare for life as a family pet."
+    }, {
+      "o_content": "Yes, and they are raised inside the shelter ",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Puppies need good experiences (socialization) with the things they will encounter as adults. They can grow up to be fearful of things they aren’t used to. A well-run shelter will expose their pups to homes or home-like environments. This isn’t as ideal as being in a foster home, and carries some bigger risks"
+    }, {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Puppies need good experiences (socialization) with the things they will encounter as adults. Some shelters do not have the time or people available to do this. Some are poorly run or don’t know any better. Pups growing up solely in a kennel are more prone to fearful and aggressive behaviors as adults. It’s good to recognize there is the potential for increased risk of behavior problems when young pups don’t grow up in a home-like environment."
+    }, {
+      "o_content": "Not applicable, I’m looking for a dog over 4 months old",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"We’re excited you’re looking to adopt a teenager or adult! These dogs don’t face the same risks as young puppies do, since they’re already past their socialization period! "
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Puppies need good experiences (socialization) with the things they will encounter as adults. They can grow up to be fearful of things they aren’t used to. Being raised in a home is the ideal way to prepare for life as a family pet. It’s worth digging to find out the answer to this question!"
+    }]
+  },
+  {
+    "content": "What is the adoption fee for the dog or puppy?",
+    "options_attributes": [{
+      "o_content": "Over $350",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text":"Uhoh! Normal adoption fees range from about $50 up to about $350. Going much higher than that is a red flag that the organization could be trying to make money off of adoptions, and may not even be a real shelter/rescue at all."
+    }, {
+      "o_content": "$0-350",
+      "o_color": "green",
+      "avail_points": 20,
+      "feedback_text":"Normal adoption fees range from about $50 all the way up to about $350. (Most organizations actually lose money on adoptions! They invest a lot in feeding, vetting, spaying/neutering, and caring for their dogs.) Usually, this is a very reasonable range for reputable places."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Normal adoption fees range from about $50 all the way up to about $350. (Most organizations actually lose money on adoptions! They invest a lot in feeding, vetting, spaying/neutering, and caring for their dogs.) Keep your eyes peeled for appropriate adoption fees."
+    }]
+  }
+]
+}

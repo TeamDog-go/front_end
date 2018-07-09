@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
 import uuid from 'uuid-v4'
-// import { Markdown } from 'react-showdown'
+import { Markdown } from 'react-showdown'
 
 class Results extends Component {
   constructor (props) {
@@ -171,11 +171,11 @@ class Results extends Component {
 
   render () {
     const feeling = [
-      {label: 'Very Poor', value: 1, class: 'answer result-feeling color-1'},
-      {label: 'Poor', value: 2, class: 'answer result-feeling color-2'},
-      {label: 'Average', value: 3, class: 'answer result-feeling color-3'},
+      {label: 'Very High', value: 5, class: 'answer result-feeling color-5'},
       {label: 'High', value: 4, class: 'answer result-feeling color-4'},
-      {label: 'Very High', value: 5, class: 'answer result-feeling color-5'}
+      {label: 'Average', value: 3, class: 'answer result-feeling color-3'},
+      {label: 'Poor', value: 2, class: 'answer result-feeling color-2'},
+      {label: 'Very Poor', value: 1, class: 'answer result-feeling color-1'}
     ]
 
     const feedbackArray = this.state.feedbackArray
@@ -195,7 +195,7 @@ class Results extends Component {
       <div className='megaWrapper'>
         <div className='titleDiv'>
           <header>
-            <img className='headerImage' src={PQlogo} alt='PupQuest Logo' />
+            <img className='headerImage' src={PQlogo} alt='PupQuest Logo' onClick={() => this.props.history.push('/')} />
             <h2 className='header'>&nbsp;Spot Check</h2>
           </header>
         </div>
@@ -230,7 +230,7 @@ class Results extends Component {
               <Accordion className='accordion hidden'>
                 {feedbackArray.map((entry, index) => {
                   return (
-                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{entry.answerColor}<br /><br /><Markdown markup={entry.answerFeedback} />
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{entry.answerColor}<br /><br /><Markdown markup={entry.answerFeedback} /></AccordionTab>
                   )
                 })}
               </Accordion>
