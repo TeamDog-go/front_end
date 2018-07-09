@@ -5,8 +5,6 @@
   --lightColor: hsla(0, 0%, 96%, 0.1);
   --darkColor: rgb(34, 33, 33);
   --whiteText: #F7F7F7;
-  /* --alertLvl1: #C3364E;
-  --alertLvl2: #F4A881; */
   --alertLvl1: hsla(350, 57%, 49%, 0.65);
   --alertLvl1-dark: hsla(350, 57%, 49%, 0.85);
   --alertLvl2: hsla(20, 84%, 73%, 0.65);
@@ -480,19 +478,6 @@ a {
 }
 
 
-/* ---------------------- Conditional Statements ---------------------- */
-
-.error{
-  width: 100%;
-  padding: 10px;
-  text-align: center;
-  border: 1px solid var(--tooltipBorder);
-  background-color:var(--alertLvl1);
-  margin-bottom: 1rem;
-  color: var(--darkColor);
-  font-style: italic;
-}
-
 /* ---------------------- Results Page ---------------------- */
 .resultsPageDiv{
   width: 95%;
@@ -542,119 +527,16 @@ a {
   padding: 0;
 }
 
-.ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover {
-  border: 2px solid var(--mainColor);
-  background-color: var(--mainColor);
-  color: var(--whiteText);
-}
-/* .ui-accordion-header.ui-widget.ui-state-default.ui-corner-all.detailedResultsAccordion:hover {
-  border: 2px solid var(--mainColor);
-  background-color: var(--mainColor);
-  color: var(--whiteText);
-} */
-.ui-accordion-content {
-background-color: transparent;
-font-size: 1rem;
-letter-spacing: 0.3px;
-}
-.ui-accordion-header {
-  border-radius: 0;
-  background-color: var(--tooltipBackground);
-  border: .5px solid var(--tooltipBorder);
-  font-family: Arial, Helvetica, sans-serif;
-  /* color: var(--darkColor); */
-  font-size: 1rem;
-  font-weight: 400;
-}
 
-div.Red.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
-  color: white;
-  font-weight: 400;
-}
-div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
-  color: white;
-  font-weight: 400;
-}
-div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
-  color: white;
-  font-weight: 400;
-}
-
-.ui-accordion-toggle-icon {
-  display: inline;
-}
-
-.pi-caret-right:before, .ui-accordion .ui-accordion-header a>span {
-  display:inline;
-  text-decoration: none;
-}
-
-.Red.ui-accordion-header.ui-state-default.ui-corner-all {
-  background-color: var(--tooltipBackground);
-  /* box-shadow: inset 0 0 5px #f4f4f4; */
-  border: 3px var(--alertLvl1) solid;
-}
-.Red.ui-accordion-header.ui-state-default.ui-corner-all:hover {
-  background-color: var(--alertLvl1-dark);
-  border: 3px solid var(--alertLvl1);
-}
-.Green.ui-accordion-header.ui-state-default.ui-corner-all {
-  background-color: var(--tooltipBackground);
-  /* box-shadow: inset 0 0 5px #f4f4f4 */
-    border: 3px var(--mainColor-light) solid;
-}
-.Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
-  background-color: var(--mainColor-light);
-  border: 3px solid var(--mainColor);
-}
-.Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
-  background-color: var(--tooltipBackground);
-  /* box-shadow: inset 0 0 5px #f4f4f4 */
-  border: 3px var(--alertLvl2) solid;
-}
-.Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover {
-  background-color: var(--alertLvl2-dark);
-  border: 3px var(--alertLvl2) solid;
-}
-.feedbackBoldText {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bolder;
-}
-
-
-/* .ui-accordion-header:hover {
-  background-color: var(--tooltipBackground);
-  border: .5px solid var(--tooltipBorder);
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--darkColor); */
-  /* box-shadow: none; */
-/* } */
-/* .ui-accordion-header .ui-state-default .ui-corner-all .ui-state-active {
-  background-color: var(--tooltipBackground)
-}
-.ui-accordion-content-wrapper .ui-accordion-content-wrapper-collapsed {
-  background-color: (var(--tooltipBackground))
-} */
-/* .ui-accordion-header-text {
-  color: var(--darkColor)
-} */
-
-.nav-results{
-  width: 100%;
-  margin-top: 1rem;
-}
 .result-id{
   font-size: 125%;
   font-weight: 700;
-  /* border: green 1px solid; */
 }
 .result-rank{
   font-size: 135%;
   font-weight: 700;
-  /* border: red 1px solid; */
 }
 .result-text{
-  /* border:blue 1px solid; */
   margin: 20px
 }
 
@@ -664,14 +546,11 @@ div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
   flex-direction: column;
 }
 .result-feeling-question-head{
-  /* border: green solid 2px; */
   margin-bottom: 15px;
   font-weight: 700;
   font-size: 1.3rem;
 }
-
 .result-feeling-question{
-  /* border: green solid 2px; */
   margin-bottom: 15px;
 }
 .result-feeling-array{
@@ -680,6 +559,7 @@ div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
   flex-wrap: nowrap;
   margin: 1rem auto;
 }
+
 .result-feeling{
   margin: 0 auto;
   display: flex;
@@ -695,9 +575,6 @@ div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
 .result-feeling-array .result-feeling  input[type="radio"]:checked + label {
   background-color:initial;
   color: inherit;
-}
-.finalFeelingHeader {
-  margin: 0 0 20px 0;
 }
 .result-feeling input[type="radio"]:checked + label:after {
     background-color: var(--whiteText);
@@ -716,26 +593,115 @@ div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
   padding: 10px 0 20px 0;
 }
 
-.detailedResultsDiv {
-  margin: 1rem auto;
-  display: flex;
-  flex-direction: column;
+/*-------------FEEDBACK ACCORDION--------------*/
+.ui-accordion-content {
+  background-color: transparent;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+.ui-accordion-header {
+  border-radius: 0;
+  background-color: var(--tooltipBackground);
+  border: .5px solid var(--tooltipBorder);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
-/* ---------------------- Media Queries ---------------------- */
-@media all and (min-width: 768px) {
-/* .introPageImgWrapper{
-  position: relative;
-  background-color: #CCC;
-  width: 95%;
-  height: 23vh;
-  align-self: center;
-  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
-  margin: 10px 0;
-  overflow: hidden;
-  order: 1;
-} */
+.ui-accordion-toggle-icon {
+  display: inline;
 }
+
+.pi-caret-right:before, .ui-accordion .ui-accordion-header a>span {
+  display:inline;
+  text-decoration: none;
+}
+
+.Red.ui-accordion-header.ui-state-default.ui-corner-all {
+  background-color: var(--tooltipBackground);
+  border: 3px var(--alertLvl1) solid;
+}
+div.Red.ui-accordion-header.ui-state-default.ui-corner-all:hover {
+  background-color: var(--alertLvl1-dark);
+  border: 3px solid var(--alertLvl1);
+}
+div.Red.ui-accordion-header.ui-state-default.ui-corner-all:hover a{
+  color: white;
+  font-weight: 400;
+}
+
+.Green.ui-accordion-header.ui-state-default.ui-corner-all {
+  background-color: var(--tooltipBackground);
+  border: 3px var(--mainColor-light) solid;
+}
+.Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
+  background-color: var(--mainColor-light);
+  border: 3px solid var(--mainColor);
+}
+div.Green.ui-accordion-header.ui-state-default.ui-corner-all:hover a{
+  color: white;
+  font-weight: 400;
+}
+
+.Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
+  background-color: var(--tooltipBackground);
+  border: 3px var(--alertLvl2) solid;
+}
+.Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover {
+  background-color: var(--alertLvl2-dark);
+  border: 3px var(--alertLvl2) solid;
+}
+div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover a {
+  color: white;
+  font-weight: 400;
+}
+.feedbackBoldText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
+
+/* ---------------------- Result Scale ---------------------- */
+.scale-container{
+  margin: 1rem 5%;
+  width:90%;
+  height: 3vh;
+  position: relative;
+}
+.scale{
+  width:100%;
+  height:3vh;
+  display: flex;
+  flex-direction:row;
+  border: var(--mainColor-dark) 1px solid;
+  overflow: hidden;
+}
+.scale-red{
+  width: 51%;
+  background-color: var(--alertLvl1);
+}
+.scale-yellow{
+  width: 29%;
+  background-color: var(--alertLvl2);
+}
+.scale-green{
+  width: 20%;
+  background-color: var(--mainColor);
+}
+
+.paw {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  background-image: url('./Media/pawprint-white-drop2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top:-0.4rem;
+}
+
+
+/* ---------------------- Media Queries ---------------------- */
 
 @media all and (min-width: 768px) {
   html {
@@ -903,44 +869,7 @@ div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
   }
 
 }
-/* ---------------------- Result Scale ---------------------- */
-.scale-container{
-  margin: 1rem 5%;
-  width:90%;
-  height: 3vh;
-  position: relative;
-}
-.scale{
-  width:100%;
-  height:3vh;
-  display: flex;
-  flex-direction:row;
-  border: var(--mainColor-dark) 1px solid;
-  overflow: hidden;
-}
-.scale-red{
-  width: 51%;
-  background-color: var(--alertLvl1);
-}
-.scale-yellow{
-  width: 29%;
-  background-color: var(--alertLvl2);
-}
-.scale-green{
-  width: 20%;
-  background-color: var(--mainColor);
-}
 
-.paw {
-  width: 45px;
-  height: 45px;
-  position: absolute;
-  background-image: url('./Media/pawprint-white-drop2.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  top:-0.4rem;
-}
 
 
 /* ----------------_TEMPORARY COLOR TEST STUFF----------------------------- */

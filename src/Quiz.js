@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import BasicQ from './BasicQ'
 import Results from './Results'
 import Feeling from './Feeling'
@@ -84,3 +85,10 @@ class Quiz extends Component {
 }
 
 export default Quiz
+
+Quiz.propTypes = {
+  questions: PropTypes.array.isRequired,
+  firstQ: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired
+}

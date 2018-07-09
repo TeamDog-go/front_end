@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import {Growl} from 'primereact/components/growl/Growl'
+import PropTypes from 'prop-types'
 
 class Feeling extends Component {
   constructor (props) {
@@ -71,3 +72,9 @@ class Feeling extends Component {
 }
 
 export default Feeling
+
+Feeling.propTypes = {
+  setInitialFeeling: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired
+}
