@@ -128,7 +128,7 @@ export default BasicQ
 BasicQ.PropTypes = {
   question: PropTypes.object.isRequired,
   savedanswers: PropTypes.array.isRequired,
-  index: PropTypes.integer.isRequired,
+  index: PropTypes.number.isRequired,
   addAnswer: PropTypes.func.isRequired,
   prevAnswer: PropTypes.func.isRequired
 }

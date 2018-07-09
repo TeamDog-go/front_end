@@ -261,7 +261,7 @@ export default Results
 Results.PropTypes = {
   answers: PropTypes.array.isRequired,
   questions: PropTypes.array.isRequired,
-  initial_feeling: PropTypes.integer.isRequired,
+  initial_feeling: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired
 }
