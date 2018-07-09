@@ -11,6 +11,7 @@ import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
 import uuid from 'uuid-v4'
 import { Markdown } from 'react-showdown'
+import { showdown, openLinksInNewWindow } from 'showdown'
 
 class Results extends Component {
   constructor (props) {
@@ -30,6 +31,7 @@ class Results extends Component {
     this.capitalize = this.capitalize.bind(this)
     this.filterByColor = this.filterByColor.bind(this)
     this.setCategoryId = this.setCategoryId.bind(this)
+    showdown.setOption(openLinksInNewWindow, true)
   }
 
   capitalize (string) {
@@ -190,7 +192,6 @@ class Results extends Component {
     } else if (this.state.score > 98) {
       position = 99 + '%'
     } else { position = this.state.score + '%' }
-    console.log({position})
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
@@ -230,7 +231,10 @@ class Results extends Component {
               <Accordion className='accordion hidden'>
                 {feedbackArray.map((entry, index) => {
                   return (
-                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{entry.answerColor}<br /><br /><Markdown markup={entry.answerFeedback} /></AccordionTab>
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>
+                      {entry.answerColor}<br /><br />
+                      <Markdown markup={entry.answerFeedback} />
+                    </AccordionTab>
                   )
                 })}
               </Accordion>
@@ -241,7 +245,7 @@ class Results extends Component {
           <div className='result-box'>
             <div className='result-feeling-box'>
               <p className='result-feeling-question-head'>One Last Question!</p>
-              <p className='result-feeling-question'>Now, what quality do you feel this {source} is?</p>
+              <p className='result-feeling-question'>Now, how would you personally rate the quality of this {source}?</p>
               <div className='result-feeling-array'>
                 {feeling.map((entry, index) => {
                   return (
