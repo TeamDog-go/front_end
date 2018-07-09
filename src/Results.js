@@ -230,7 +230,7 @@ class Results extends Component {
                 {feedbackArray.map((entry, index) => {
                   return (
                     // <div key={index} className={entry.color}>
-                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br /><Markdown markup={entry.answerFeedback} />
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{entry.answerColor}<br /><br /><Markdown markup={entry.answerFeedback} />
                     </AccordionTab>
                     // </div>
                   )
