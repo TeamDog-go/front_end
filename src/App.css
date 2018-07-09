@@ -570,6 +570,8 @@ letter-spacing: 0.3px;
 div.Red.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
   color: white;
   font-weight: 400;
+  background-color: var(--alertLvl1-dark);
+  border: 3px solid var(--alertLvl1);
 }
 div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
   color: white;
