@@ -1,0 +1,204 @@
+{"source": "breeder",
+  "questions_attributes":[
+  {
+    "content": "Are you allowed to visit where the puppies are kept?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Yes! This is the most important step in getting a dog! Visiting is the only way to know for sure what kind of place a puppy is coming from. It’s great that this breeder welcomes you to visit the puppies!"
+    },
+    {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -100,
+      "feedback_text":"Uh oh… Visiting is the only way to know for sure what kind of place a puppy is coming from. Good breeders insist potential owners visit their puppies and will welcome you to see where they are raised. If this breeder will not let you visit, what could they be hiding? (Don’t be fooled by claims of “We don’t want our puppies to get sick”, walk away.)"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text":"This is the most important step in getting a dog! Visiting is the only way to know for sure what kind of place a puppy is coming from. Definitely find out whether or not this is allowed. (And if it’s not, start looking somewhere else!)"
+    }
+    ]
+  },
+  {
+    "content": "Does the breeder ship puppies via airplane?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Yikes! An unsupervised flight is a potentially scary and dangerous experience. Heatstroke and crate phobias are real risks. (Housetraining is extra difficult if this happens!) Check out other breeders or shelters that don’t ship their precious pups as cargo."
+    },
+    {
+      "o_content": "No",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Great! Young puppies are in a period of critical development. A flight is a potentially scary and dangerous experience. Heatstroke and crate phobias are real risks. Not shipping young pups is a great breeder decision!"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "Young puppies are in a period of critical development. A flight is a potentially scary and dangerous experience. Heatstroke and crate phobias are real risks. Steer clear of any breeder who offers to ship you a pup!"
+    }
+    ]
+  },
+  {
+    "content": "Is the breeder United States Department of Agriculture (USDA) licensed?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "red",
+      "avail_points": -100,
+      "feedback_text":"This surprises a lot of people! If a breeder is USDA licensed, they are a puppy farm. (AKA puppy mill) Buying a pup from a farm/mill allows these businesses to continue and puts your pup at high risk for health and behavior problems."
+    },
+    {
+      "o_content": "No",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Excellent! The USDA oversees farms. If a breeder is USDA licensed, they are a puppy farm! Not having this license is a GOOD thing."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"The USDA oversees farms. If a breeder is USDA licensed, they are a puppy farm! Buying a pup from a farm/mill allows these businesses to continue and puts your pup at high risk for health and behavior problems. Keep your eyes open for this and steer clear of any ‘breeders’ with this license."
+    }
+    ]},
+  {
+    "content": "Where are the puppies being raised?",
+    "options_attributes": [{
+      "o_content": "In the home with the family",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Woo hoo! Puppies need good experiences (socialization) with the things they will encounter as adults. They can grow up to be fearful of things they aren’t used to. Being raised in a home is the ideal way to prepare for life as a family pet."
+    }, {
+      "o_content": "In a warehouse/rows of cages",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text":"Yikes, it’s time to walk away, as hard as it might be. Puppies need lots of good experiences (socialization) with the things they will encounter as adults. Pups raised outside of a home don’t get as much exposure to people and normal household sights and sounds, and they can be more stressed. This can make them more prone to fearful and aggressive behaviors as adults."
+    }, {
+      "o_content": "In a kennel or garage",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"This answer isn’t a great sign… Puppies need lots of good experiences (socialization) with the things they will encounter as adults. Pups raised outside of a home don’t get as much exposure to people and normal household sights and sounds. This can make them more prone to fearful and aggressive behaviors as adults. (And socialization starts when they are just 3 weeks!)"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text": "Puppies need good experiences (socialization) with the things they will encounter as adults. Pups raised outside of a home don’t get as much exposure to people and normal household sights and sounds. This can make them more prone to fearful and aggressive behaviors. It’s super important to know where your puppy is being raised! It’s worth digging to find out the answer to this."
+    }]
+  },
+  {
+    "content": "Are the puppies seen by a veterinarian prior to going home?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Anybody selling puppies should have them examined by a licensed vet. Vets can find mild problems like hernias and major ones like neurological conditions. It’s great that this breeder is being responsible!"
+    }, {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text":"Anybody selling puppies should have them examined by a licensed vet. Vets can find mild problems like hernias and major ones like neurological conditions. It’s a huge risk (emotionally and financially) to buy a puppy who might already have a health problem."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Anybody selling puppies should have them examined by a licensed vet. They can find mild problems like hernias and major ones like neurological conditions. It’s a huge risk (emotionally and financially) to buy a puppy who might already have a health problem. Ask the breeder what vet they use."
+    }]
+  },
+  {
+    "content": "Will the breeder take their dog/puppy back at any point in their lives?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Responsible breeders are committed to the dogs they produce. They take their pups back at any point. (It is common for breeders to require you to bring the dog back to them if you cannot keep her for any reason, rather than rehoming her yourself.)"
+    }, {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text":"Responsible breeders are committed to the dogs they produce. They take their pups back at any point. Not offering this is a sign you might be faced with a lack of support when you need it most!"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"Responsible breeders are committed to the dogs they produce. They take their pups back at any point. (It is common for breeders to require you to bring the dog back to them if you cannot keep her for any reason, rather than rehoming her yourself.) Avoid breeders who will not take their dogs back, it’s a sign you might not have support when you need it most!"
+    }]
+  },
+  {
+    "content": "Does the breeder require you to meet them in person?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Fantastic! Responsible breeders want to meet you and make sure their pups are going to a good home. "
+    }, {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -100,
+      "feedback_text":"Oh dear… Responsible breeders want to meet you and make sure their pups are going to a good home. They are proud to show you where their pups are raised, too. If a breeder is willing to sell you a puppy knowing only your credit card info, that’s a red flag!"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text":"Responsible breeders want to meet you and make sure their pups are going to a good home. They are proud to show you where their pups are raised, too. If a breeder is willing to sell you a puppy knowing only your credit card info, that’s a red flag!"
+    }]
+  },
+  {
+    "content": "How many breeds does the breeder have available?",
+    "options_attributes": [{
+      "o_content": "1-2",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"This is a good sign. The more breeds a breeder has available, the more likely they are to be a puppy farm. One or two breeds is great!"
+    }, {
+      "o_content": "3",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "The more breeds a breeder has available, the more likely they are to be a puppy farm or to sell puppies from puppy farms. Make sure you’re seeing the breeder and home in person to verify they are reputable."
+    }, {
+      "o_content": "4 or more",
+      "o_color": "red",
+      "avail_points": -100,
+      "feedback_text":"Not so good! The more breeds a breeder has available, the more likely they are to be a puppy farm or to sell puppies from puppy farms. Best to steer clear of places offering 4 or more breeds."
+    }]
+  },
+  {
+    "content": "Does the breeder provide proof that both parents are screened for health problems (hip dysplasia, heart problems, etc.)?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"Bravo! Good breeders always have their breeding dogs checked for health problems common to their breed. Check out this list (<http://www.caninehealthinfo.org/breeds.html>) to see what your breeder should be screening for. Proof can be in the form of veterinary records or a special number, called a CHIC number, that you can look up on this website (<http://www.caninehealthinfo.org/search.html>)."
+    }, {
+      "o_content": "No",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text":"This is a big part of why you would pay somebody money for a puppy! Check out this list (<http://www.caninehealthinfo.org/breeds.html>) to see what your breeder should be screening for. Without parental health screenings, your pup is at greater risk for genetic problems like hip dysplasia. (Painful and expensive!)"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text":"Hmm…. Good breeders always have their breeding dogs checked for health problems common to their breed. Check out this list (<http://www.caninehealthinfo.org/breeds.html>) to see what your breeder should be screening for. Without parental health screenings, your pup s at greater risk for genetic problems like hip dysplasia. (Painful and expensive!)"
+    }]
+  },
+  {
+    "content": "How much do puppies cost?",
+    "options_attributes": [{
+      "o_content": "Up to $2000",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text":"It’s not uncommon for breeders to charge within this range for “pet quality” puppies. (Pups that won’t be shown or bred.) If you are paying closer to $2,000, the parents should absolutely have health testing done. (To see what tests your breed should have, check out this list (<http://www.caninehealthinfo.org/breeds.html>)."
+    }, {
+      "o_content": "Between $2000 and $3000 ",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text":"This is on the very high end of what breeders charge for “pet quality” puppies. (Pups that won’t be shown or bred.) If you are paying this much, be sure that the breeder is checking ALL the boxes of this test! (What are you paying for? There is value in puppies vaccinated and examined by vets and whose parents both have all of their health testing done and documented.) To see what tests your breed should have, check out this list (<http://www.caninehealthinfo.org/breeds.html>)."
+    }, {
+      "o_content": "Over $3000",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text":"Woof! Unless you are looking for a competitive show puppy (not just a pet), it’s unlikely that a reputable breeder would charge this much! Best to look elsewhere..."
+    }]
+  }
+]
+}

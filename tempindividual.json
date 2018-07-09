@@ -1,0 +1,221 @@
+{"source": "individual",
+  "questions_attributes": [
+  {
+    "content": "Will the owner allow you to visit where the puppies/dogs are kept?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Yes! This is the most important step in getting a dog! Visiting is the only way to know for sure what kind of place a dog is coming from. It’s great that this individual welcomes you to visit."
+    }, {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Not so good… Visiting is the only way to know for sure what kind of place a dog is coming from.  If this person will not let you visit, what could they be hiding? Some owners may not want people knowing where they live. Meeting in a public place can sometimes be okay, but it can also be risky! Make sure this individual is scoring well in other departments. "
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "Hmm… Visiting is the only way to know for sure what kind of place a dog is coming from. Some owners may not want people knowing where they live. Meeting in a public place can be risky! Try to find somebody who will let you visit the dog in his home environment. (You’ll also get a better idea of what his behavior is like in a home!)"
+    }]
+  },
+  {
+    "content": "Where is the dog living?",
+    "options_attributes": [{
+      "o_content": "In the home with the family",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Good! This is especially critical for puppies, who need positive exposure (socialization) to a home and humans. Adult dogs living indoors are more likely to be housetrained and adjusted to living in a home."
+    }, {
+      "o_content": "In rows of cages/warehouse",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Time to walk away! You may be looking at a potential hoarding situation or puppy farm. This type of living makes all dogs more prone to health and behavior problems. If you’re looking at a puppy, it’s all the more critical for him to be raised inside a home, where he gets the socialization he needs to be a well-adjusted house pet."
+    }, {
+      "o_content": "In a kennel, garage, or outdoors",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text": "Woah there, why is the dog kept outside? All puppies should be raised inside a home, where they get the socialization they need to be good house pets. If you’re looking at an adult dog, why isn’t he indoors? (Some people will do this if the dog is not housetrained, has lots of energy, or tears up the house.)"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "Find out, for sure.  If you’re looking at an adult dog, being kept outside the home can be a red flag. (Some people will do this if the dog is not housetrained, has lots of energy, or tears up the house.) Being raised in a home is especially critical for puppies, who need positive exposure (socialization) to a home and humans. "
+    }]
+  },
+  {
+    "content": "Do you know this individual?",
+    "options_attributes": [{
+      "o_content": "Yes, I know them personally and trust them",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Excellent! This helps you really know where your dog is coming from."
+    }, {
+      "o_content": "No, they are a friend of a friend or family member",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "This comes with some inherent risks. The less you know a person, the easier it is to be scammed or have your calls/texts ignored if you are given a sick or aggressive dog. "
+    }, {
+      "o_content": "No, I found them on a website such as Craigslist or Facebook",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text": "There are some great people and pets on these sites, and some that are the complete opposite. The less you know a person, the easier it is to be scammed or have your calls/texts ignored if you are given a sick or aggressive dog. (This happens way more than you’d think…) Make sure this individual is scoring well on the rest of the quiz!"
+    }]
+  },
+  {
+    "content": "Why is the individual giving this dog/puppy away?",
+    "options_attributes": [{
+      "o_content": "Their own dog had puppies",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "This is a very “mixed bag” and it’s hard to know how risky it might be. These are often dog-loving people who don’t do health testing or really understand genetics. (Unfortunately they are sometimes money-hungry backyard breeders.) Whether an accidental or intentional litter, random breeding can sometimes put pups at higher risk of behavior and health problems. These could be great pups, just keep your eyes open when assessing things."
+    }, {
+      "o_content": "Moving",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Moving can be stressful and expensive, especially with pets. Most apartment complexes charge high, non-refundable fees just to have a pet. As long as the individual is not lying, this is generally not a bad sign."
+    }, {
+      "o_content": "Behavior problem(s)",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Behavior problems can be very difficult to live with, and very difficult to treat. Unlike what you’ve seen on TV, serious behavior problems aren’t magically “fixed” forever with training. Issues like aggression or separation anxiety require lifelong treatment and lifestyle changes. Simpler problems, like jumping on people, can generally be fixed with a qualified trainer."
+    }, {
+      "o_content": "Allergies",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text": "This is one reason people sometimes give to cover up the real reason they are getting rid of their dog. It may be completely true, and it may not."
+    }, {
+      "o_content": "Too much work/too energetic",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text": "Just how energetic is this pup? Is energy the only problem? Find out how much the owners are walking/playing with/exercising the dog. Is he destroying things in the home? Digging up the yard? If you don’t think you can give the dog more than they are, it might be time to look elsewhere."
+    }, {
+      "o_content": "Can’t afford the dog",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "Pets are expensive! This is not an uncommon reason for people to give them up. Do your best to make sure this is truly the reason they are doing it. (People sometimes give reasons like this to cover up the real reason.)"
+    }]
+  },
+  {
+    "content": "Is the individual offering a trial period before the adoption is final? (You can take the dog home for a short time to make sure it’s a good fit.)",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 30,
+      "feedback_text": "Great! This gives you a chance to get to know the dog and not take responsibility for rehoming a dog you just met (as long as the person is being honest)."
+    }, {
+      "o_content": "No",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text": "This can get sticky! If you know pretty quickly the dog isn’t a good match, you may be responsible for rehoming him."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "This can get sticky! If you know pretty quickly the dog isn’t a good match, you may be responsible for rehoming him."
+    }]
+  }, {
+    "content": "Has the individual socialized the puppies to people, objects, and a normal home environment?",
+    "options_attributes": [{
+      "o_content": "Yes, and they are raised in the home ",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Woo hoo! Puppies need good experiences (socialization) with the things they will encounter as adults. They can grow up to be fearful of things they aren’t used to. Being raised in a home is the ideal way to prepare for life as a family pet."
+    }, {
+      "o_content": "Yes, and they are not raised inside the home ",
+      "o_color": "yellow",
+      "avail_points": -10,
+      "feedback_text": "This answer isn’t a great sign… Puppies need lots of good experiences (socialization) with the things they will encounter as adults. Pups raised outside of a home don’t get as much exposure to people and normal household sights and sounds. This can make them more prone to fearful and aggressive behaviors as adults. "
+    }, {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Yikes, it’s time to walk away, as hard as it might be. Puppies need lots of good experiences (socialization) with the things they will encounter as adults. Undersocialized puppies are more prone to fearful and aggressive behaviors as adults."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "Puppies need good experiences (socialization) with the things they will encounter as adults. Pups raised outside of a home don’t get as much exposure to people and normal household sights and sounds. This can make them more prone to fearful and aggressive behaviors. It’s super important to know where your puppy is being raised! It’s worth digging to find out the answer to this."
+    }, {
+      "o_content": "Not applicable, adult dog(s)",
+      "o_color": "yellow",
+      "avail_points": 10,
+      "feedback_text": "Puppies need good experiences (socialization) with the things they will encounter as adults. They can grow up to be fearful of things they aren’t used to. Being raised in a home is the ideal way to prepare for life as a family pet. If you happen to start looking at pups, it’s good to know!"
+    }]
+  },
+  {
+    "content": "Does the individual have vet records for the puppy/dog showing it is up to date on vaccines?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Excellent! The dog should, at minimum, be up to date on her rabies and distemper/parvo (sometimes called DHPP) vaccines. Ideally, she’s also been examined by a vet within the last year."
+    }, {
+      "o_content": "No",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Uhoh. This dog could have unknown health issues. She should, at minimum, be up to date on her rabies and distemper/parvo (sometimes called DHPP) vaccines. Ideally, she’s also been examined by a vet within the last year."
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "This dog could have unknown health issues. She should, at minimum, be up to date on her rabies and distemper/parvo (sometimes called DHPP) vaccines. Ideally, she’s also been examined by a vet within the last year. Find out if you can have a copy of the pet’s vet records or have permission to get records directly from their vet."
+    }]
+  },
+  {
+    "content": "Does the dog have any history of behavior problems such as fear, aggression, or separation anxiety?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Behavior problems can be very difficult to live with, and very difficult to treat. Unlike what you’ve seen on TV, serious behavior problems aren’t magically “fixed” forever with training. Issues like aggression or separation anxiety require lifelong treatment and lifestyle changes. Are you prepared to spend the time and money required to deal with these?"
+    }, {
+      "o_content": "No",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Hooray! As long as the individual is being truthful, this is great to know. (Behavior problems are not easy to treat!)"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "This is an important question to ask. Behavior problems are not easy to treat, and can require lifelong training and lifestyle changes. The person might not be truthful, but it’s absolutely worth asking!"
+    }]
+  }, {
+    "content": "Are any of the following types of phrases used in the dog’s description: “outside dog”, “protective”, “needs a firm hand”, “dominant”, “good guard dog”?",
+    "options_attributes": [{
+      "o_content": "Yes",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Oh dear… This can mean that the dog may have some serious behavior problems. Maybe he’s called “protective” because he growls at strangers. Maybe he “needs a firm hand” because he bites. Probably not something you want to start off with!"
+    }, {
+      "o_content": "No",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "Great! These kinds of phrases can mean the dog has some serious behavior problems. (Maybe he’s called “protective” because he growls at strangers.) A lack of concerning words is a good thing!"
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "These kinds of phrases can mean the dog has some serious behavior problems. Maybe he’s called “protective” because he growls at strangers. Maybe he “needs a firm hand” because he bites. Keep your eyes peeled for phrases that might be hiding something."
+    }]
+  }, {
+    "content": "What is the adoption fee for the individual’s dog or puppy?",
+    "options_attributes": [{
+      "o_content": "Over $350",
+      "o_color": "red",
+      "avail_points": -30,
+      "feedback_text": "Woah, is this person trying to ensure a good home for their dog or make some money? Be careful of high adoption fees. If someone is charging a large amount for young puppies, what are you paying for? AKC papers or being purebred do not indicate quality and you shouldn’t pay more because of that. What is worth the extra dough? Pups who have been examined and vaccinated by a vet (not the owner) and parents who have health tests done!"
+    }, {
+      "o_content": "$0-350",
+      "o_color": "green",
+      "avail_points": 10,
+      "feedback_text": "A good sign! Generally, this is a reasonable range for somebody rehoming their own dog/puppy or accidental litter. "
+    }, {
+      "o_content": "I don't know",
+      "o_color": "yellow",
+      "avail_points": 0,
+      "feedback_text": "Be careful of high adoption fees. If someone is charging a large amount for young puppies, what are you paying for? AKC papers or being purebred do not indicate quality and you shouldn’t pay more because of that. What is worth the extra dough? Pups who have been examined and vaccinated by a vet (not the owner) and parents who have health tests done! (To see what tests your breed should have, check out this list (<http://www.caninehealthinfo.org/breeds.html>)."
+    }]
+  }
+]
+}

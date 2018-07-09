@@ -30,11 +30,11 @@ class Feeling extends Component {
     var sourcePath = this.props.match.path
     var source = sourcePath.match(/\/([^/]+)$/)[1]
     const feeling = [
-      {label: 'Very Poor', value: 1, class: 'answer feeling color-1'},
-      {label: 'Poor', value: 2, class: 'answer feeling color-2'},
-      {label: 'Average', value: 3, class: 'answer feeling color-3'},
+      {label: 'Very High', value: 5, class: 'answer feeling color-5'},
       {label: 'High', value: 4, class: 'answer feeling color-4'},
-      {label: 'Very High', value: 5, class: 'answer feeling color-5'}
+      {label: 'Average', value: 3, class: 'answer feeling color-3'},
+      {label: 'Poor', value: 2, class: 'answer feeling color-2'},
+      {label: 'Very Poor', value: 1, class: 'answer feeling color-1'}
     ]
     return (
       <div className='megaWrapper'>
