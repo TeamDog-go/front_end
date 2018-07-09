@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
 import uuid from 'uuid-v4'
-import { Markdown } from 'react-showdown'
+// import { Markdown } from 'react-showdown'
 
 class Results extends Component {
   constructor (props) {
@@ -139,6 +139,7 @@ class Results extends Component {
               return entry
             })
             this.filterByColor(feedbackArrayUnfiltered)
+            console.log('unfiltered array', feedbackArrayUnfiltered)
           })
       })
   }
@@ -186,10 +187,10 @@ class Results extends Component {
     let position
     if (this.state.score < 0) {
       position = 0
-    } else if (this.state.score > 100) {
+    } else if (this.state.score > 98) {
       position = 99 + '%'
     } else { position = this.state.score + '%' }
-
+    console.log({position})
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
@@ -208,9 +209,9 @@ class Results extends Component {
             {this.state.color === 'yellow' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Medium Risk</strong></p>}
             {this.state.color === 'green' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Low Risk</strong></p>}
 
-            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else. </strong>Click "Show More About My Answers" below to find out more.</p>}
-            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. Click "Show More About My Answers" below to find out more.</p>}
-            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!)Click "Show More About My Answers" below to find out more.</p>}
+            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else. </strong>Click "{capSource} Rating Details" to find out more.</p>}
+            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. Click "{capSource} Rating Details" to find out more.</p>}
+            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!) Click "{capSource} Rating Details" to find out more.</p>}
 
             <div className='scale-container'>
               <div className='scale'>
@@ -229,22 +230,18 @@ class Results extends Component {
               <Accordion className='accordion hidden'>
                 {feedbackArray.map((entry, index) => {
                   return (
-                    // <div key={index} className={entry.color}>
-                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
-                    </AccordionTab>
-                    // </div>
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{entry.answerColor}<br /><br /><Markdown markup={entry.answerFeedback} />
                   )
                 })}
               </Accordion>
             </div>
               : <p>An error has occurred</p>}
           </div>
-          
-          <div className='result-box'>
 
-            <div className='result-feeling-question'>
-              <h4>One Last Question!</h4>
-              <div>Now, what quality do you feel this {source} is?</div>
+          <div className='result-box'>
+            <div className='result-feeling-box'>
+              <p className='result-feeling-question-head'>One Last Question!</p>
+              <p className='result-feeling-question'>Now, what quality do you feel this {source} is?</p>
               <div className='result-feeling-array'>
                 {feeling.map((entry, index) => {
                   return (

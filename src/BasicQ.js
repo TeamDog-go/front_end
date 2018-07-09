@@ -17,7 +17,6 @@ class BasicQ extends Component {
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.previousQuestion = this.previousQuestion.bind(this)
   }
-
   handleOptionChange (event) {
     if (this.cancelTimeout) {
       clearTimeout(this.cancelTimeout)
@@ -84,7 +83,7 @@ class BasicQ extends Component {
   }
 
   render () {
-    if (this.props.question) {
+    if (this.props.question.options) {
       return (
         <div className='megaWrapper'>
           <Growl position='bottomright'ref={(el) => { this.growl = el }} />

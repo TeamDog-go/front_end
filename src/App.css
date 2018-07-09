@@ -96,19 +96,6 @@ a {
   border: 2px solid var(--mainColor);
 }
 
- /* {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
-  background-color: var(--mainColor);
-  color: var(--whiteText);
-  min-width: 200px;
-  max-width: 300px;
-  padding: 5px 0;
-  border-radius: 0;
-  margin-top: 10px;
-  border: 2px solid var(--mainColor);
-} */
-
 .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.ui-button-text-only:hover{
   padding: 5px 0;
   border: 2px solid var(--mainColor);
@@ -127,7 +114,9 @@ a {
   width: 46px;
   border: none;
   margin: 2px;
+  background-color:white;
 }
+
 .arrow.back.active {
   height: 46px;
   width: 46px;
@@ -195,7 +184,7 @@ a {
   position: relative;
   background-color: #CCC;
   width: 95%;
-  height: 25vh;
+  height: 26vh;
   align-self: center;
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
   margin: 10px 0;
@@ -205,10 +194,10 @@ a {
 
 .introPageImage {
   width: 100%;
-  height: auto;
-  /* max-height: 100%; */
+  height: 100%;
   position: absolute;
-  object-position: 50% 50%;
+  object-position: 50% 40%;
+  object-fit: cover;
 }
 
 .introPageText {
@@ -242,12 +231,6 @@ a {
   width: 75%;
   margin: 10px auto 15px auto;
 }
-
-/* .registerToSaveText {
-  font-size: .6rem;
-  margin: 0;
-  padding: 0;
-} */
 
 /* --------------------------- Source Page -------------------------- */
 .selectSourcePageDiv {
@@ -534,7 +517,6 @@ a {
 
 .result-box{
   box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
-  /* padding: 20px 10px; */
   border: 1px solid var(--bodyBackground);
   margin: 2rem 0;
 }
@@ -558,7 +540,6 @@ a {
 .detailedResultsIcon {
   margin-left: 20px;
   padding: 0;
-  /* line-height: 2rem; */
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover {
@@ -574,15 +555,29 @@ a {
 .ui-accordion-content {
 background-color: transparent;
 font-size: 1rem;
+letter-spacing: 0.3px;
 }
 .ui-accordion-header {
   border-radius: 0;
   background-color: var(--tooltipBackground);
   border: .5px solid var(--tooltipBorder);
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--darkColor);
+  /* color: var(--darkColor); */
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
+}
+
+div.Red.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
+  color: white;
+  font-weight: 400;
+}
+div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
+  color: white;
+  font-weight: 400;
+}
+div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
+  color: white;
+  font-weight: 400;
 }
 
 .ui-accordion-toggle-icon {
@@ -607,12 +602,10 @@ font-size: 1rem;
   background-color: var(--tooltipBackground);
   /* box-shadow: inset 0 0 5px #f4f4f4 */
     border: 3px var(--mainColor-light) solid;
-
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
-  background-color: var(--mainColor);
-  border: 3px solid var(--mainColor-dark);
-
+  background-color: var(--mainColor-light);
+  border: 3px solid var(--mainColor);
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
   background-color: var(--tooltipBackground);
@@ -622,6 +615,10 @@ font-size: 1rem;
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl2-dark);
   border: 3px var(--alertLvl2) solid;
+}
+.feedbackBoldText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
 }
 
 
@@ -658,13 +655,24 @@ font-size: 1rem;
 }
 .result-text{
   /* border:blue 1px solid; */
-  margin-top: 20px
+  margin: 20px
 }
 
-.result-feeling-question{
+.result-feeling-box{
   margin: 2rem 1.2rem;
   display: flex;
   flex-direction: column;
+}
+.result-feeling-question-head{
+  /* border: green solid 2px; */
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.result-feeling-question{
+  /* border: green solid 2px; */
+  margin-bottom: 15px;
 }
 .result-feeling-array{
   display: flex;
@@ -687,6 +695,9 @@ font-size: 1rem;
 .result-feeling-array .result-feeling  input[type="radio"]:checked + label {
   background-color:initial;
   color: inherit;
+}
+.finalFeelingHeader {
+  margin: 0 0 20px 0;
 }
 .result-feeling input[type="radio"]:checked + label:after {
     background-color: var(--whiteText);
@@ -712,6 +723,19 @@ font-size: 1rem;
 }
 
 /* ---------------------- Media Queries ---------------------- */
+@media all and (min-width: 768px) {
+/* .introPageImgWrapper{
+  position: relative;
+  background-color: #CCC;
+  width: 95%;
+  height: 23vh;
+  align-self: center;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
+  margin: 10px 0;
+  overflow: hidden;
+  order: 1;
+} */
+}
 
 @media all and (min-width: 768px) {
   html {
@@ -864,9 +888,6 @@ font-size: 1rem;
     min-width: 40px;
     font-size: .75rem;
   }
-  .result-feeling-question{
-    margin: 25px 20px 0 25px;
-  }
 
   .result-feeling-array{
     width: 100%;
@@ -881,10 +902,6 @@ font-size: 1rem;
     width: 30px;
   }
 
-
-  /* .megaWrapper {
-    background-color: #3c849440;
-  } */
 }
 /* ---------------------- Result Scale ---------------------- */
 .scale-container{
@@ -925,3 +942,59 @@ font-size: 1rem;
   top:-0.4rem;
 }
 
+
+/* ----------------_TEMPORARY COLOR TEST STUFF----------------------------- */
+.color-test{
+  background-color: var(--mainColor);
+  color: var(--whiteText);
+  width: 100%;
+  height: 1.5rem;
+  padding: 5px 20px 5px 20px;
+}
+
+.main{
+  background-color: var(--mainColor);
+  color: var(--whiteText);
+}
+.main-dark{
+  background-color: var(--mainColor-dark);
+  color: var(--whiteText);
+}
+.main-light{
+  background-color: var(--mainColor-light);
+  color: var(--whiteText);
+}
+.alert1{
+  background-color: var(--alertLvl1);
+  color: var(--whiteText);
+}
+.alert1-dark{
+  background-color: var(--alertLvl1-dark);
+  color: var(--whiteText);
+}
+.alert2{
+  background-color: var(--alertLvl2);
+  color: var(--whiteText);
+}
+.alert2-dark{
+  background-color: var(--alertLvl2-dark);
+  color: var(--whiteText);
+}
+.alert3{
+  background-color: var(--alertLvl3);
+  color: var(--whiteText);
+}
+.alert4{
+  background-color: var(--alertLvl4);
+  color: var(--whiteText);
+}
+
+.darkFont{
+  color: var(--darkColor);
+}
+
+/* --lightColor: hsla(0, 0%, 96%, 0.1);
+--darkColor: rgb(34, 33, 33);
+--bodyBackground: #BEC1BE;
+--tooltipBorder: #c1c1c1;
+--tooltipBackground: #f4f4f4; */
