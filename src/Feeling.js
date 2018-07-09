@@ -46,8 +46,8 @@ class Feeling extends Component {
             <h2 className='header'>&nbsp;Spot Check</h2>
           </header>
         </div>
-        <div className='feeling-question'>Right now, what quality do you feel this {source} is?</div>
-        <p className='feeling-sideNote'>(Your answer does not effect the score.)</p>
+        <div className='feeling-question'>Right now, how would you personally rate the quality of this {source}?</div>
+        <p className='feeling-sideNote'>(Your answer does not affect the score.)</p>
         <div className='feeling-array'>
           <div >
             <form>
