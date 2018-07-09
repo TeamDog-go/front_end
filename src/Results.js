@@ -139,6 +139,7 @@ class Results extends Component {
               return entry
             })
             this.filterByColor(feedbackArrayUnfiltered)
+            console.log('unfiltered array', feedbackArrayUnfiltered)
           })
       })
   }
@@ -208,9 +209,9 @@ class Results extends Component {
             {this.state.color === 'yellow' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Medium Risk</strong></p>}
             {this.state.color === 'green' && <p className='result-id'>{capSource} rating: <strong className='result-rank'>Low Risk</strong></p>}
 
-            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else. </strong>Click "Show More About My Answers" below to find out more.</p>}
-            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. Click "Show More About My Answers" below to find out more.</p>}
-            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!)Click "Show More About My Answers" below to find out more.</p>}
+            {this.state.color === 'red' && <p className='result-text'>This {source} has one or more practices that are seriously risky for your dog and/or family. <strong>It's best to look for a dog from somewhere else. </strong>Click "{capSource} Rating Details" to find out more.</p>}
+            {this.state.color === 'yellow' && <p className='result-text'>This {source} has one or more practices that are risky for dogs and/or your family. Click "{capSource} Rating Details" to find out more.</p>}
+            {this.state.color === 'green' && <p className='result-text'>This {source} has good practices. This gives you the best chance of getting a happy, healthy dog! (It's not a guarantee, but it's a great start!) Click "{capSource} Rating Details" to find out more.</p>}
 
             <div className='scale-container'>
               <div className='scale'>
@@ -229,8 +230,7 @@ class Results extends Component {
               <Accordion className='accordion hidden'>
                 {feedbackArray.map((entry, index) => {
                   return (
-                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong>Your Answer:</strong> {entry.answerContent} <br /><strong>Risk Level: </strong>{entry.answerColor}<br /><br />{entry.answerFeedback}
-                    </AccordionTab>
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{entry.answerColor}<br /><br /><Markdown markup={entry.answerFeedback} />
                   )
                 })}
               </Accordion>
@@ -239,7 +239,6 @@ class Results extends Component {
           </div>
 
           <div className='result-box'>
-
             <div className='result-feeling-box'>
               <p className='result-feeling-question-head'>One Last Question!</p>
               <p className='result-feeling-question'>Now, what quality do you feel this {source} is?</p>

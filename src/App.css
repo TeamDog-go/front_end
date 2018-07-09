@@ -540,7 +540,6 @@ a {
 .detailedResultsIcon {
   margin-left: 20px;
   padding: 0;
-  /* line-height: 2rem; */
 }
 
 .ui-button.ui-widget.ui-state-default.ui-corner-all.detailedResultsButton:hover {
@@ -556,15 +555,29 @@ a {
 .ui-accordion-content {
 background-color: transparent;
 font-size: 1rem;
+letter-spacing: 0.3px;
 }
 .ui-accordion-header {
   border-radius: 0;
   background-color: var(--tooltipBackground);
   border: .5px solid var(--tooltipBorder);
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--darkColor);
+  /* color: var(--darkColor); */
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
+}
+
+div.Red.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
+  color: white;
+  font-weight: 400;
+}
+div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
+  color: white;
+  font-weight: 400;
+}
+div.Green.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
+  color: white;
+  font-weight: 400;
 }
 
 .ui-accordion-toggle-icon {
@@ -589,12 +602,10 @@ font-size: 1rem;
   background-color: var(--tooltipBackground);
   /* box-shadow: inset 0 0 5px #f4f4f4 */
     border: 3px var(--mainColor-light) solid;
-
 }
 .Green.ui-accordion-header.ui-state-default.ui-corner-all:hover {
-  background-color: var(--mainColor);
-  border: 3px solid var(--mainColor-dark);
-
+  background-color: var(--mainColor-light);
+  border: 3px solid var(--mainColor);
 }
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all{
   background-color: var(--tooltipBackground);
@@ -604,6 +615,10 @@ font-size: 1rem;
 .Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover {
   background-color: var(--alertLvl2-dark);
   border: 3px var(--alertLvl2) solid;
+}
+.feedbackBoldText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
 }
 
 
@@ -680,6 +695,9 @@ font-size: 1rem;
 .result-feeling-array .result-feeling  input[type="radio"]:checked + label {
   background-color:initial;
   color: inherit;
+}
+.finalFeelingHeader {
+  margin: 0 0 20px 0;
 }
 .result-feeling input[type="radio"]:checked + label:after {
     background-color: var(--whiteText);
