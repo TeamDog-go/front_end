@@ -582,7 +582,7 @@ letter-spacing: 0.3px;
   font-family: Arial, Helvetica, sans-serif;
   /* color: var(--darkColor); */
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 div.Red.ui-accordion-header.ui-state-default.ui-corner-all a:hover {
