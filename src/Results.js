@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {Button} from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
 import uuid from 'uuid-v4'
-import { Markdown } from 'react-showdown'
+// import { Markdown } from 'react-showdown'
 
 class Results extends Component {
   constructor (props) {

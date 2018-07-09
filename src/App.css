@@ -96,19 +96,6 @@ a {
   border: 2px solid var(--mainColor);
 }
 
- /* {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
-  background-color: var(--mainColor);
-  color: var(--whiteText);
-  min-width: 200px;
-  max-width: 300px;
-  padding: 5px 0;
-  border-radius: 0;
-  margin-top: 10px;
-  border: 2px solid var(--mainColor);
-} */
-
 .ui-button.ui-widget.ui-state-default.ui-corner-all.navButton.ui-button-text-only:hover{
   padding: 5px 0;
   border: 2px solid var(--mainColor);
@@ -242,12 +229,6 @@ a {
   width: 75%;
   margin: 10px auto 15px auto;
 }
-
-/* .registerToSaveText {
-  font-size: .6rem;
-  margin: 0;
-  padding: 0;
-} */
 
 /* --------------------------- Source Page -------------------------- */
 .selectSourcePageDiv {
@@ -901,10 +882,6 @@ font-size: 1rem;
     width: 30px;
   }
 
-
-  /* .megaWrapper {
-    background-color: #3c849440;
-  } */
 }
 /* ---------------------- Result Scale ---------------------- */
 .scale-container{
