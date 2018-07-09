@@ -114,7 +114,9 @@ a {
   width: 46px;
   border: none;
   margin: 2px;
+  background-color:white;
 }
+
 .arrow.back.active {
   height: 46px;
   width: 46px;
