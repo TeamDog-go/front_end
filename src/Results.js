@@ -1,17 +1,17 @@
 import React, {Component} from 'react'
-import {calculation} from './Calculation'
+import { calculateScore } from './Calculation'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button } from 'primereact/components/button/Button'
+import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
+import { Markdown } from 'react-showdown'
+import PropTypes from 'prop-types'
 import request from 'superagent'
+// import uuid from 'uuid-v4'
+
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/ResultDogR.jpg'
 import yellowDog from './Media/ResultDogY.jpg'
 import greenDog from './Media/ResultDogG.jpg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import {Button} from 'primereact/components/button/Button'
-import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
-import uuid from 'uuid-v4'
-import { Markdown } from 'react-showdown'
-import { showdown, openLinksInNewWindow } from 'showdown'
 
 class Results extends Component {
   constructor (props) {
@@ -25,7 +25,7 @@ class Results extends Component {
       category_id: ''
     }
     this.expandDetailedResults = this.expandDetailedResults.bind(this)
-    this.resolveCalculation = this.resolveCalculation.bind(this)
+    this.resolveCalculateScore = this.resolveCalculateScore.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.resultsIconClick = this.resultsIconClick.bind(this)
     this.capitalize = this.capitalize.bind(this)
@@ -50,20 +50,19 @@ class Results extends Component {
     })
     this.setState({ feedbackArray: feedbackArrayFilterRed.concat(feedbackArrayFilterYellow.concat(feedbackArrayFilterGreen))
     })
-    console.log(this.state.feedbackArray)
   }
 
-  resolveCalculation () {
+  resolveCalculateScore () {
     let answers = this.props.answers
     return new Promise(function (resolve, reject) {
       // if (this.props.answers) {
-      resolve(calculation(answers))
+      resolve(calculateScore(answers))
       // } else {
       // reject(new Error('Invalid Data'))
       // }
-    }
-    )
+    })
   }
+
   handleOptionChange (event) {
     this.setState({
       final_feeling: event.target.value
@@ -90,20 +89,13 @@ class Results extends Component {
 
   resultsIconClick (event) {
     if (this.state.resultsIcon === 'chevron-circle-down') {
-      this.setState({
-        resultsIcon: 'chevron-circle-up'
-      })
+      this.setState({ resultsIcon: 'chevron-circle-up' })
     } else {
-      this.setState({
-        resultsIcon: 'chevron-circle-down'
-      })
+      this.setState({ resultsIcon: 'chevron-circle-down' })
     }
   }
 
   componentDidMount () {
-    if (!window.localStorage.spotCheck_user_id) {
-      window.localStorage.spotCheck_user_id = uuid()
-    }
     const answersArray = []
     this.props.answers.map((entry, index) => {
       answersArray.push({
@@ -111,7 +103,7 @@ class Results extends Component {
       })
       return (entry)
     })
-    this.resolveCalculation()
+    this.resolveCalculateScore()
       .then((response) => {
         this.setState({
           score: response.score,
@@ -141,7 +133,6 @@ class Results extends Component {
               return entry
             })
             this.filterByColor(feedbackArrayUnfiltered)
-            console.log('unfiltered array', feedbackArrayUnfiltered)
           })
       })
   }
@@ -192,6 +183,7 @@ class Results extends Component {
     } else if (this.state.score > 98) {
       position = 99 + '%'
     } else { position = this.state.score + '%' }
+
     return (
       <div className='megaWrapper'>
         <div className='titleDiv'>
@@ -269,3 +261,11 @@ class Results extends Component {
 }
 
 export default Results
+
+Results.PropTypes = {
+  answers: PropTypes.array.isRequired,
+  questions: PropTypes.array.isRequired,
+  initial_feeling: PropTypes.number.isRequired,
+  history: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired
+}

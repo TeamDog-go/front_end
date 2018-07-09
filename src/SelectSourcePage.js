@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 import {Tooltip} from 'primereact/components/tooltip/Tooltip'
-import PQlogo from './Media/PQlogo_rev-02.svg'
 import {Dialog} from 'primereact/components/dialog/Dialog'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {makeSourceQuestions} from './Calculation'
 import request from 'superagent'
 import moment from 'moment'
+import PropTypes from 'prop-types'
 
+import PQlogo from './Media/PQlogo_rev-02.svg'
 import dog1 from './Media/adorable-blur.jpg'
 import dog2 from './Media/aussie-puppies.jpg'
 import dog3 from './Media/lab-puppies.jpg'
@@ -56,19 +58,7 @@ class SelectSourcePage extends Component {
             .get(`https://polar-castle-14061.herokuapp.com/categories/2`)
             .then((response) => {
               window.localStorage.spotCheck_shelterQuestions_updated = response.body.category.last_updated
-              return response.body.category.questions.map((entry, index) => {
-                return {
-                  content: entry.content,
-                  id: entry.id,
-                  options: response.body.category.options[index].map((entry, index) => {
-                    return {
-                      o_content: entry.o_content,
-                      o_color: entry.o_color,
-                      points: entry.avail_points,
-                      question_id: entry.question_id,
-                      id: entry.id}
-                  })}
-              })
+              return makeSourceQuestions(response.body.category.questions, response.body.category.options)
             })
             .then((response) => {
               window.localStorage.spotCheck_shelterQuestions = JSON.stringify(response)
@@ -93,19 +83,7 @@ class SelectSourcePage extends Component {
             .get(`https://polar-castle-14061.herokuapp.com/categories/1`)
             .then((response) => {
               window.localStorage.spotCheck_breederQuestions_updated = response.body.category.last_updated
-              return response.body.category.questions.map((entry, index) => {
-                return {
-                  content: entry.content,
-                  id: entry.id,
-                  options: response.body.category.options[index].map((entry, index) => {
-                    return {
-                      o_content: entry.o_content,
-                      o_color: entry.o_color,
-                      points: entry.avail_points,
-                      question_id: entry.question_id,
-                      id: entry.id}
-                  })}
-              })
+              return makeSourceQuestions(response.body.category.questions, response.body.category.options)
             })
             .then((response) => {
               window.localStorage.spotCheck_breederQuestions = JSON.stringify(response)
@@ -129,19 +107,7 @@ class SelectSourcePage extends Component {
             .get(`https://polar-castle-14061.herokuapp.com/categories/3`)
             .then((response) => {
               window.localStorage.spotCheck_individualQuestions_updated = response.body.category.last_updated
-              return response.body.category.questions.map((entry, index) => {
-                return {
-                  content: entry.content,
-                  id: entry.id,
-                  options: response.body.category.options[index].map((entry, index) => {
-                    return {
-                      o_content: entry.o_content,
-                      o_color: entry.o_color,
-                      points: entry.avail_points,
-                      question_id: entry.question_id,
-                      id: entry.id}
-                  })}
-              })
+              return makeSourceQuestions(response.body.category.questions, response.body.category.options)
             })
             .then((response) => {
               window.localStorage.spotCheck_individualQuestions = JSON.stringify(response)
@@ -214,3 +180,10 @@ class SelectSourcePage extends Component {
 }
 
 export default SelectSourcePage
+
+SelectSourcePage.propTypes = {
+  updateBreederQ: PropTypes.func.isRequired,
+  updateIndividualQ: PropTypes.func.isRequired,
+  updateShelterQ: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
+}

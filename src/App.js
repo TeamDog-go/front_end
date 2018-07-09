@@ -41,12 +41,6 @@ class App extends Component {
     this.setState({ shelterQuestions: questions })
   }
 
-  // componentDidMount () {
-  //   window.onbeforeunload = function () {
-  //     return 'Are you sure you want to navigate away?'
-  //   }
-  // }
-
   render () {
     return (
       <div className='App'>

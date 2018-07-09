@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {ProgressBar} from 'primereact/components/progressbar/ProgressBar'
 import {Growl} from 'primereact/components/growl/Growl'
+import PropTypes from 'prop-types'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 
 class BasicQ extends Component {
@@ -123,3 +124,11 @@ class BasicQ extends Component {
 }
 
 export default BasicQ
+
+BasicQ.PropTypes = {
+  question: PropTypes.object.isRequired,
+  savedanswers: PropTypes.array.isRequired,
+  index: PropTypes.number.isRequired,
+  addAnswer: PropTypes.func.isRequired,
+  prevAnswer: PropTypes.func.isRequired
+}
