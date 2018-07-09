@@ -72,6 +72,7 @@ class SelectSourcePage extends Component {
             })
             .then((response) => {
               window.localStorage.spotCheck_shelterQuestions = JSON.stringify(response)
+              this.props.updateShelterQ(response)
             })
         } else { console.log('shelterQ not updated') }
       })
@@ -108,6 +109,7 @@ class SelectSourcePage extends Component {
             })
             .then((response) => {
               window.localStorage.spotCheck_breederQuestions = JSON.stringify(response)
+              this.props.updateBreederQ(response)
             })
         } else { console.log('BreederQs Not Updated', newer) }
       })
@@ -143,6 +145,7 @@ class SelectSourcePage extends Component {
             })
             .then((response) => {
               window.localStorage.spotCheck_individualQuestions = JSON.stringify(response)
+              this.props.updateIndividualQ(response)
             })
         } else { console.log('IndividualQs Not Updated', newer) }
       })
@@ -160,7 +163,6 @@ class SelectSourcePage extends Component {
   getRandomPhoto () {
     const photoArray = [dog1, dog2, dog3, dog4]
     const photoindex = Math.floor(Math.random() * Math.floor(photoArray.length))
-    // return photoArray[photoindex]
     const photoSource = photoArray[photoindex]
     return (<img className='selectSourcePageImage' src={photoSource} alt='adorable dogs' />)
   }

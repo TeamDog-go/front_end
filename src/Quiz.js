@@ -9,7 +9,7 @@ class Quiz extends Component {
     this.state = {
       answers: [],
       currentIndex: 0,
-      currentQ: {},
+      currentQ: this.props.firstQ,
       initial_feeling: '',
       feelingSet: false
     }
@@ -41,6 +41,12 @@ class Quiz extends Component {
     })
   }
 
+  componentDidUpdate () {
+    if (!this.state.currentQ) {
+      this.setState({currentQ: this.props.firstQ})
+    }
+  }
+
   setInitialFeeling (value) {
     this.setState({
       initial_feeling: value,
@@ -48,13 +54,7 @@ class Quiz extends Component {
     })
   }
 
-  componentDidMount () {
-    this.setState({currentQ: this.props.questions[0]})
-  }
-
   render () {
-    console.log('answers', this.state.answers)
-    console.log('questions', this.props.questions, 'current', this.state.currentQ)
     if (!this.state.feelingSet) {
       return (
         <div>

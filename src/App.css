@@ -281,7 +281,9 @@ a {
   text-align: center;
   margin: 20px auto;
 }
-
+.sourceButton .ui-button-text.ui-c{
+  font-size: 1rem;
+}
 .ui-button.ui-widget.ui-state-default.ui-corner-all.sourceButton{
   color: var(--whiteText);
   margin: 6px 0;
@@ -693,7 +695,7 @@ font-size: 1rem;
 
 @media all and (min-width: 768px) {
   html {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   body {
