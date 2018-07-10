@@ -35,12 +35,12 @@
       "o_content": "In a kennel, garage, or outdoors",
       "o_color": "yellow",
       "avail_points": -10,
-      "feedback_text": "Woah there! If you’re looking at an adult dog, why isn’t he indoors? (Is he not houstrained? Too energetic? Tearing up the house?) All puppies should be raised inside a home, where they get the socialization they need."
+      "feedback_text": "Woah there! If you’re looking at an adult dog, why aren't they indoors? (Are they not houstrained? Too energetic? Tearing up the house?) All puppies should be raised inside a home, where they get the socialization they need."
     }, {
       "o_content": "I don't know",
       "o_color": "yellow",
       "avail_points": 0,
-      "feedback_text": "Find out, for sure. If you’re looking at an adult dog and he doesn't live indoors, why  not? (Is he not houstrained? Too energetic? Tearing up the house?) All puppies should be raised inside a home, where they get the socialization they need."
+      "feedback_text": "Find out, for sure. If you’re looking at an adult dog and they don't live indoors, why not? (Are they not houstrained? Too energetic? Tearing up the house?) All puppies should be raised inside a home, where they get the socialization they need."
     }]
   },
   {
@@ -88,7 +88,7 @@
       "o_content": "Too much work/too energetic",
       "o_color": "yellow",
       "avail_points": -10,
-      "feedback_text": "Just how energetic is this pup? Is he destroying things in the home? Digging up the yard? If you don’t think you can give the dog more than she's getting right now, it's time to look elsewhere."
+      "feedback_text": "Just how energetic is this pup?  Are they destroying things in the home? Digging up the yard? If you don’t think you can give the dog more attention than they're getting right now, it's time to look elsewhere."
     }, {
       "o_content": "Can’t afford the dog",
       "o_color": "yellow",
@@ -149,12 +149,12 @@
       "o_content": "Yes",
       "o_color": "green",
       "avail_points": 10,
-      "feedback_text": "Excellent! The dog should be up to date on her rabies and distemper/parvo (DHPP) vaccines. Ideally, she’s also been examined by a vet within the last year."
+      "feedback_text": "Excellent! The dog should be up to date on their rabies and distemper/parvo (DHPP) vaccines. Ideally, they've also been examined by a vet within the last year."
     }, {
       "o_content": "No",
       "o_color": "red",
       "avail_points": -30,
-      "feedback_text": "Uh oh. This dog could have unknown health issues. She should be up to date on her rabies and distemper/parvo (DHPP) vaccines. Ideally, she should also be examined by a vet within the last year."
+      "feedback_text": "Uh oh. This dog could have unknown health issues. They should be up to date on their rabies and distemper/parvo (DHPP) vaccines. Ideally, they should also be examined by a vet within the last year."
     }, {
       "o_content": "I don't know",
       "o_color": "yellow",
@@ -186,17 +186,17 @@
       "o_content": "Yes",
       "o_color": "red",
       "avail_points": -30,
-      "feedback_text": "Oh dear… This can mean that the dog may have some serious behavior problems. Maybe he’s called “protective” because he growls at strangers. Maybe he “needs a firm hand” because he bites. Probably not something you want to start off with!"
+      "feedback_text": "Oh dear… This can mean that the dog may have some serious behavior problems. Maybe they’re called “protective” because they growl at strangers. Maybe they “need a firm hand” because they bite. Probably not something you want to start off with!"
     }, {
       "o_content": "No",
       "o_color": "green",
       "avail_points": 10,
-      "feedback_text": "Great! These kinds of phrases can mean the dog has some serious behavior problems. (Maybe he’s called “protective” because he growls at strangers.)"
+      "feedback_text": "Great! These kinds of phrases can mean the dog has some serious behavior problems. (Maybe they're called “protective” because they growls at strangers.)"
     }, {
       "o_content": "I don't know",
       "o_color": "yellow",
       "avail_points": 0,
-      "feedback_text": "These kinds of phrases can mean the dog has some serious behavior problems. Maybe he’s “protective” because he growls at strangers. Maybe he “needs a firm hand” because he bites. Be aware of phrases that might be hiding something."
+      "feedback_text": "These kinds of phrases can mean the dog has some serious behavior problems. Maybe they're “protective” because they growl at strangers. Maybe they “need a firm hand” because they bite. Be aware of phrases that might be hiding something."
     }]
   }, {
     "content": "What is the adoption fee for the individual’s dog or puppy?",
