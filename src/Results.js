@@ -78,6 +78,7 @@ class Results extends Component {
     let answers = this.props.answers
     return new Promise(function (resolve, reject) {
       resolve(calculateScore(answers))
+      reject(new Error('Invalid Data'))
     })
   }
 
@@ -153,7 +154,7 @@ class Results extends Component {
         .put(`https://polar-castle-14061.herokuapp.com/surveys/${window.localStorage.surveyid}.json`)
         .send({ final_feeling: this.state.final_feeling })
         .then((response) => {
-          console.log(response)
+          console.log('Posted Final Feeling', response)
         })
     }
   }

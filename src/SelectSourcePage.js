@@ -52,7 +52,7 @@ class SelectSourcePage extends Component {
     this.compareUpdate(2, window.localStorage.spotCheck_shelterQuestions_updated)
       .then((newer) => {
         if (!window.localStorage.spotCheck_shelterQuestions || newer) {
-          console.log('shelter Qs Updated', newer)
+          console.log('Shelter Qs Updated', newer)
           request
             .get(`https://polar-castle-14061.herokuapp.com/categories/2`)
             .then((response) => {
@@ -61,12 +61,11 @@ class SelectSourcePage extends Component {
             })
             .then((response) => {
               window.localStorage.spotCheck_shelterQuestions = JSON.stringify(response)
-              this.props.updateShelterQ(response)
+              this.props.updateSource(`shelterQuestions`, response)
             })
-        } else { console.log('shelterQ not updated') }
+        } else { console.log('ShelterQ Not Updated') }
       })
     this.props.history.push('/shelter')
-    // console.log('this is where we nav')
   }
 
   onClickBreederInfo (event) {
@@ -86,12 +85,11 @@ class SelectSourcePage extends Component {
             })
             .then((response) => {
               window.localStorage.spotCheck_breederQuestions = JSON.stringify(response)
-              this.props.updateBreederQ(response)
+              this.props.updateSource(`breederQuestions`, response)
             })
         } else { console.log('BreederQs Not Updated', newer) }
       })
     this.props.history.push('/breeder')
-    // console.log('this is where we nav')
   }
 
   onClickIndividualInfo (event) {
@@ -101,7 +99,7 @@ class SelectSourcePage extends Component {
     this.compareUpdate(3, window.localStorage.spotCheck_individualQuestions_updated)
       .then((newer) => {
         if (!window.localStorage.spotCheck_individualQuestions || newer) {
-          console.log('individual Qs Updated', newer)
+          console.log('Individual Qs Updated', newer)
           request
             .get(`https://polar-castle-14061.herokuapp.com/categories/3`)
             .then((response) => {
@@ -110,12 +108,11 @@ class SelectSourcePage extends Component {
             })
             .then((response) => {
               window.localStorage.spotCheck_individualQuestions = JSON.stringify(response)
-              this.props.updateIndividualQ(response)
+              this.props.updateSource(`individualQuestions`, response)
             })
         } else { console.log('IndividualQs Not Updated', newer) }
       })
     this.props.history.push('/individual')
-    // console.log('this is where we nav')
   }
 
   onHide (event) {
@@ -181,8 +178,6 @@ class SelectSourcePage extends Component {
 export default SelectSourcePage
 
 SelectSourcePage.propTypes = {
-  updateBreederQ: PropTypes.func.isRequired,
-  updateIndividualQ: PropTypes.func.isRequired,
-  updateShelterQ: PropTypes.func.isRequired,
+  updateSource: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 }

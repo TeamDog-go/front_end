@@ -32,7 +32,6 @@ class Quiz extends Component {
       currentQ: this.props.questions[index],
       currentIndex: index
     })
-    console.log(this.state.answers)
   }
 
   prevAnswer () {

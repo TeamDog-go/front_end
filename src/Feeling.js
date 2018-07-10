@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import PQlogo from './Media/PQlogo_rev-02.svg'
 import {Growl} from 'primereact/components/growl/Growl'
+import PQlogo from './Media/PQlogo_rev-02.svg'
 import PropTypes from 'prop-types'
 
 class Feeling extends Component {

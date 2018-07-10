@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {ProgressBar} from 'primereact/components/progressbar/ProgressBar'
+import {ProgressSpinner} from 'primereact/components/progressspinner/ProgressSpinner'
 import {Growl} from 'primereact/components/growl/Growl'
 import PropTypes from 'prop-types'
 import PQlogo from './Media/PQlogo_rev-02.svg'
@@ -17,7 +18,9 @@ class BasicQ extends Component {
     this.questionSubmit = this.questionSubmit.bind(this)
     this.handleOptionChange = this.handleOptionChange.bind(this)
     this.previousQuestion = this.previousQuestion.bind(this)
+    this.backToFeedback = this.backToFeedback.bind(this)
   }
+
   handleOptionChange (event) {
     if (this.cancelTimeout) {
       clearTimeout(this.cancelTimeout)
@@ -26,7 +29,7 @@ class BasicQ extends Component {
       answer: event.target.name,
       points: event.target.dataset.points,
       color: event.target.value,
-      value: 10 + 10 * this.props.savedanswers.length,
+      value: Math.max(10 + 10 * this.props.index, 10 * this.props.savedanswers.length),
       option_id: event.target.id
     })
     const body = {
@@ -38,15 +41,7 @@ class BasicQ extends Component {
     }
     this.cancelTimeout = setTimeout(() => {
       this.props.addAnswer(this.props.index, body)
-      const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
-      if (this.props.index <= this.props.savedanswers.length && this.props.index < 9) {
-        this.setState({
-          answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
-          points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
-          option_id: this.props.savedanswers[next] ? this.props.savedanswers[next].option_id : '',
-          color: this.props.savedanswers[next] ? this.props.savedanswers[next].color : ''
-        })
-      }
+      this.preloadNext(0)
     }, 1000)
   }
 
@@ -58,10 +53,14 @@ class BasicQ extends Component {
       answer: this.state.answer,
       points: this.state.points,
       color: this.state.color,
-      question_id: this.props.question.id,
-      option_id: this.state.option_id
+      option_id: this.state.option_id,
+      question_id: this.props.question.id
     })
-    const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
+    this.preloadNext(1)
+  }
+
+  preloadNext (number) {
+    const next = Math.min(this.props.index + number, this.props.savedanswers.length)
     if (this.props.index <= this.props.savedanswers.length && this.props.index < 9) {
       this.setState({
         answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
@@ -116,14 +115,14 @@ class BasicQ extends Component {
             </div>
           </div>
           <div className='navButtonDiv'>
-            {this.props.index === 0 && <button className='arrow back active' onClick={() => this.backToFeedback} />}
+            {this.props.index === 0 && <button className='arrow back active' onClick={this.backToFeedback} />}
             {this.props.index > 0 && <button className='arrow back active' onClick={this.previousQuestion} />}
             {!this.state.answer && <button className='arrow next' onClick={() => { this.growl.show({ severity: 'warn', life: 1500, detail: 'Please choose a response before continuing the quiz' }) }} label='Next Question' />}
             {this.state.answer && <button className='arrow next active' onClick={this.questionSubmit} />}
           </div>
         </div>
       )
-    } else { return null }
+    } else { return <ProgressSpinner /> }
   }
 }
 
