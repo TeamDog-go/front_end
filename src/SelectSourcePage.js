@@ -52,7 +52,7 @@ class SelectSourcePage extends Component {
     this.compareUpdate(2, window.localStorage.spotCheck_shelterQuestions_updated)
       .then((newer) => {
         if (!window.localStorage.spotCheck_shelterQuestions || newer) {
-          console.log('Shelter Qs Updated', newer)
+          // console.log('Shelter Qs Updated', newer)
           request
             .get(`https://polar-castle-14061.herokuapp.com/categories/2`)
             .then((response) => {
@@ -63,7 +63,7 @@ class SelectSourcePage extends Component {
               window.localStorage.spotCheck_shelterQuestions = JSON.stringify(response)
               this.props.updateSource(2, response)
             })
-        } else { console.log('ShelterQ Not Updated') }
+        } else { console.log('ShelterQ Not Updated, Local Version is Current') }
       })
     this.props.history.push('/shelter')
   }
@@ -76,7 +76,7 @@ class SelectSourcePage extends Component {
     this.compareUpdate(1, window.localStorage.spotCheck_breederQuestions_updated)
       .then((newer) => {
         if (!window.localStorage.spotCheck_breederQuestions || newer) {
-          console.log('Breeder Qs Updated', newer)
+          // console.log('Breeder Qs Updated', newer)
           request
             .get(`https://polar-castle-14061.herokuapp.com/categories/1`)
             .then((response) => {
@@ -87,7 +87,7 @@ class SelectSourcePage extends Component {
               window.localStorage.spotCheck_breederQuestions = JSON.stringify(response)
               this.props.updateSource(1, response)
             })
-        } else { console.log('BreederQs Not Updated', newer) }
+        } else { console.log('BreederQs Not Updated, Local Version is Current') }
       })
     this.props.history.push('/breeder')
   }
@@ -99,7 +99,7 @@ class SelectSourcePage extends Component {
     this.compareUpdate(3, window.localStorage.spotCheck_individualQuestions_updated)
       .then((newer) => {
         if (!window.localStorage.spotCheck_individualQuestions || newer) {
-          console.log('Individual Qs Updated', newer)
+          // console.log('Individual Qs Updated', newer)
           request
             .get(`https://polar-castle-14061.herokuapp.com/categories/3`)
             .then((response) => {
@@ -110,7 +110,7 @@ class SelectSourcePage extends Component {
               window.localStorage.spotCheck_individualQuestions = JSON.stringify(response)
               this.props.updateSource(3, response)
             })
-        } else { console.log('IndividualQs Not Updated', newer) }
+        } else { console.log('IndividualQs Not Updated, Local Version is Current') }
       })
     this.props.history.push('/individual')
   }

@@ -43,8 +43,6 @@ class Quiz extends Component {
   }
 
   componentDidUpdate () {
-    console.log(this.props.questions, Boolean(this.props.questions), this.props.firstQ)
-    console.log(this.state.currentQ, Boolean(this.state.currentQ))
     if (this.props.questions.length > 0 && !this.state.currentQ) {
       this.setState({currentQ: this.props.firstQ})
     }
