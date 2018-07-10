@@ -300,11 +300,16 @@ a {
 
 .moreInfoModal {
   display: inline-flex;
-  padding-left: 5px;
+  padding-left: 10px;
 }
+
 .moreInfoModal:hover {
   cursor: pointer;
 }
+.svg-inline--fa {
+  font-size: 20px;
+}
+
 .ui-dialog .ui-digalog-text {
   font-family: Arial, Helvetica, sans-serif;
   padding: 10px;
