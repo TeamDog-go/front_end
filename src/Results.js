@@ -258,10 +258,10 @@ class Results extends Component {
 
 export default Results
 
-Results.PropTypes = {
+Results.propTypes = {
   answers: PropTypes.array.isRequired,
   questions: PropTypes.array.isRequired,
-  initial_feeling: PropTypes.number.isRequired,
+  initial_feeling: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired
 }

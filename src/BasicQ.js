@@ -39,7 +39,7 @@ class BasicQ extends Component {
     this.cancelTimeout = setTimeout(() => {
       this.props.addAnswer(this.props.index, body)
       const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
-      if (this.props.index <= this.props.savedanswers.length) {
+      if (this.props.index <= this.props.savedanswers.length && this.props.index < 9) {
         this.setState({
           answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
           points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
@@ -62,7 +62,7 @@ class BasicQ extends Component {
       option_id: this.state.option_id
     })
     const next = Math.min(this.props.index + 1, this.props.savedanswers.length)
-    if (this.props.index <= this.props.savedanswers.length) {
+    if (this.props.index <= this.props.savedanswers.length && this.props.index < 9) {
       this.setState({
         answer: this.props.savedanswers[next] ? this.props.savedanswers[next].answer : '',
         points: this.props.savedanswers[next] ? this.props.savedanswers[next].points : '',
@@ -81,6 +81,10 @@ class BasicQ extends Component {
       option_id: this.props.savedanswers[prev] ? this.props.savedanswers[prev].option_id : '',
       color: this.props.savedanswers[prev] ? this.props.savedanswers[prev].color : ''
     })
+  }
+
+  backToFeedback () {
+    this.props.setInitialFeeling(null)
   }
 
   render () {
@@ -112,7 +116,7 @@ class BasicQ extends Component {
             </div>
           </div>
           <div className='navButtonDiv'>
-            {this.props.index === 0 && <button className='arrow' disabled />}
+            {this.props.index === 0 && <button className='arrow back active' onClick={() => this.backToFeedback} />}
             {this.props.index > 0 && <button className='arrow back active' onClick={this.previousQuestion} />}
             {!this.state.answer && <button className='arrow next' onClick={() => { this.growl.show({ severity: 'warn', life: 1500, detail: 'Please choose a response before continuing the quiz' }) }} label='Next Question' />}
             {this.state.answer && <button className='arrow next active' onClick={this.questionSubmit} />}
@@ -125,7 +129,7 @@ class BasicQ extends Component {
 
 export default BasicQ
 
-BasicQ.PropTypes = {
+BasicQ.propTypes = {
   question: PropTypes.object.isRequired,
   savedanswers: PropTypes.array.isRequired,
   index: PropTypes.number.isRequired,
