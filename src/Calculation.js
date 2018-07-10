@@ -44,5 +44,4 @@ function colorToRiskLevel (color) {
   }
   return riskLevel
 }
-
 export {colorToRiskLevel}

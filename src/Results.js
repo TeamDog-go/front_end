@@ -6,7 +6,6 @@ import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordi
 import { Markdown } from 'react-showdown'
 import PropTypes from 'prop-types'
 import request from 'superagent'
-// import uuid from 'uuid-v4'
 import showdown from 'showdown'
 
 import PQlogo from './Media/PQlogo_rev-02.svg'
@@ -39,6 +38,20 @@ class Results extends Component {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
+  expandDetailedResults () {
+    let detailedResults = document.querySelector('.accordion')
+    detailedResults.classList.toggle('hidden')
+    if (this.state.resultsIcon === 'chevron-circle-down') {
+      this.setState({
+        resultsIcon: 'chevron-circle-up'
+      })
+    } else {
+      this.setState({
+        resultsIcon: 'chevron-circle-down'
+      })
+    }
+  }
+
   filterByColor (array) {
     let feedbackArrayFilterRed = array.filter(val => {
       return val.answerColor === 'Red'
@@ -53,23 +66,27 @@ class Results extends Component {
     })
   }
 
-  resolveCalculateScore () {
-    let answers = this.props.answers
-    return new Promise(function (resolve, reject) {
-      // if (this.props.answers) {
-      resolve(calculateScore(answers))
-      // } else {
-      // reject(new Error('Invalid Data'))
-      // }
-    })
-  }
-
   handleOptionChange (event) {
     this.setState({
       final_feeling: event.target.value
     })
     let feelingConfirmation = document.querySelector('.feelingConfirmation')
     feelingConfirmation.classList.remove('hidden')
+  }
+
+  resolveCalculateScore () {
+    let answers = this.props.answers
+    return new Promise(function (resolve, reject) {
+      resolve(calculateScore(answers))
+    })
+  }
+
+  resultsIconClick (event) {
+    if (this.state.resultsIcon === 'chevron-circle-down') {
+      this.setState({ resultsIcon: 'chevron-circle-up' })
+    } else {
+      this.setState({ resultsIcon: 'chevron-circle-down' })
+    }
   }
 
   setCategoryId () {
@@ -85,14 +102,6 @@ class Results extends Component {
       this.setState({
         category_id: 3
       })
-    }
-  }
-
-  resultsIconClick (event) {
-    if (this.state.resultsIcon === 'chevron-circle-down') {
-      this.setState({ resultsIcon: 'chevron-circle-up' })
-    } else {
-      this.setState({ resultsIcon: 'chevron-circle-down' })
     }
   }
 
@@ -146,20 +155,6 @@ class Results extends Component {
         .then((response) => {
           console.log(response)
         })
-    }
-  }
-
-  expandDetailedResults () {
-    let detailedResults = document.querySelector('.accordion')
-    detailedResults.classList.toggle('hidden')
-    if (this.state.resultsIcon === 'chevron-circle-down') {
-      this.setState({
-        resultsIcon: 'chevron-circle-up'
-      })
-    } else {
-      this.setState({
-        resultsIcon: 'chevron-circle-down'
-      })
     }
   }
 
@@ -252,7 +247,6 @@ class Results extends Component {
             </div>
           </div>
           <div className='navButtonDivIntro'>
-            {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' /> */}
             <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Check Another Spot' />
           </div>
         </div>
