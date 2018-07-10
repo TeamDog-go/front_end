@@ -224,7 +224,7 @@ class Results extends Component {
               <Accordion className='accordion hidden'>
                 {feedbackArray.map((entry, index) => {
                   return (
-                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{this.colorToRiskLevel(entry.color)}
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{colorToRiskLevel(entry.answerColor)}
                       <br /><br />
                       <Markdown markup={entry.answerFeedback} />
                     </AccordionTab>
