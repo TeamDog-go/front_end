@@ -7,6 +7,7 @@ import { Markdown } from 'react-showdown'
 import PropTypes from 'prop-types'
 import request from 'superagent'
 // import uuid from 'uuid-v4'
+// import { showdown, openLinksInNewWindow } from 'showdown'
 
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/ResultDogR.jpg'
@@ -31,7 +32,7 @@ class Results extends Component {
     this.capitalize = this.capitalize.bind(this)
     this.filterByColor = this.filterByColor.bind(this)
     this.setCategoryId = this.setCategoryId.bind(this)
-    showdown.setOption(openLinksInNewWindow, true)
+    // showdown.setOption(openLinksInNewWindow, true)
   }
 
   capitalize (string) {
@@ -224,14 +225,14 @@ class Results extends Component {
                 {feedbackArray.map((entry, index) => {
                   return (
                     <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>
-                      {entry.answerColor}<br /><br />
+                      <br /><br />
                       <Markdown markup={entry.answerFeedback} />
                     </AccordionTab>
                   )
                 })}
               </Accordion>
             </div>
-              : <p>An error has occurred</p>}
+              : <p>Oops, you need a WiFi or cellular connection to see this!</p>}
           </div>
 
           <div className='result-box'>
