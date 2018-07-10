@@ -61,7 +61,7 @@ class SelectSourcePage extends Component {
             })
             .then((response) => {
               window.localStorage.spotCheck_shelterQuestions = JSON.stringify(response)
-              this.props.updateSource(`shelterQuestions`, response)
+              this.props.updateSource(2, response)
             })
         } else { console.log('ShelterQ Not Updated') }
       })
@@ -85,7 +85,7 @@ class SelectSourcePage extends Component {
             })
             .then((response) => {
               window.localStorage.spotCheck_breederQuestions = JSON.stringify(response)
-              this.props.updateSource(`breederQuestions`, response)
+              this.props.updateSource(1, response)
             })
         } else { console.log('BreederQs Not Updated', newer) }
       })
@@ -108,7 +108,7 @@ class SelectSourcePage extends Component {
             })
             .then((response) => {
               window.localStorage.spotCheck_individualQuestions = JSON.stringify(response)
-              this.props.updateSource(`individualQuestions`, response)
+              this.props.updateSource(3, response)
             })
         } else { console.log('IndividualQs Not Updated', newer) }
       })
