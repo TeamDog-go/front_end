@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { calculateScore } from './Calculation'
+import { calculateScore, colorToRiskLevel } from './Calculation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
@@ -224,7 +224,7 @@ class Results extends Component {
               <Accordion className='accordion hidden'>
                 {feedbackArray.map((entry, index) => {
                   return (
-                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{this.colorToRiskLevel(entry.color)}
                       <br /><br />
                       <Markdown markup={entry.answerFeedback} />
                     </AccordionTab>
