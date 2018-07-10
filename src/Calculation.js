@@ -30,3 +30,16 @@ function makeSourceQuestions (questions, options) {
   })
 }
 export {makeSourceQuestions}
+
+function colorToRiskLevel (color) {
+  let riskLevel
+  if (color === 'Red') {
+    riskLevel = 'High'
+  } else if (color === 'Yellow') {
+    riskLevel = 'Medium'
+  } else if (color === 'Green') {
+    riskLevel = 'High'
+  }
+  return riskLevel
+}
+export {colorToRiskLevel}

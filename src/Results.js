@@ -1,17 +1,18 @@
 import React, {Component} from 'react'
-import { calculateScore } from './Calculation'
+import { calculateScore, colorToRiskLevel } from './Calculation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from 'primereact/components/button/Button'
 import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordion'
 import { Markdown } from 'react-showdown'
 import PropTypes from 'prop-types'
 import request from 'superagent'
-// import { showdown, openLinksInNewWindow } from 'showdown'
+import showdown from 'showdown'
 
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/ResultDogR.jpg'
 import yellowDog from './Media/ResultDogY.jpg'
 import greenDog from './Media/ResultDogG.jpg'
+showdown.setOption('openLinksInNewWindow', true)
 
 class Results extends Component {
   constructor (props) {
@@ -31,11 +32,24 @@ class Results extends Component {
     this.capitalize = this.capitalize.bind(this)
     this.filterByColor = this.filterByColor.bind(this)
     this.setCategoryId = this.setCategoryId.bind(this)
-    // showdown.setOption(openLinksInNewWindow, true)
   }
 
   capitalize (string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
+  expandDetailedResults () {
+    let detailedResults = document.querySelector('.accordion')
+    detailedResults.classList.toggle('hidden')
+    if (this.state.resultsIcon === 'chevron-circle-down') {
+      this.setState({
+        resultsIcon: 'chevron-circle-up'
+      })
+    } else {
+      this.setState({
+        resultsIcon: 'chevron-circle-down'
+      })
+    }
   }
 
   filterByColor (array) {
@@ -52,6 +66,14 @@ class Results extends Component {
     })
   }
 
+  handleOptionChange (event) {
+    this.setState({
+      final_feeling: event.target.value
+    })
+    let feelingConfirmation = document.querySelector('.feelingConfirmation')
+    feelingConfirmation.classList.remove('hidden')
+  }
+
   resolveCalculateScore () {
     let answers = this.props.answers
     return new Promise(function (resolve, reject) {
@@ -60,12 +82,12 @@ class Results extends Component {
     })
   }
 
-  handleOptionChange (event) {
-    this.setState({
-      final_feeling: event.target.value
-    })
-    let feelingConfirmation = document.querySelector('.feelingConfirmation')
-    feelingConfirmation.classList.remove('hidden')
+  resultsIconClick (event) {
+    if (this.state.resultsIcon === 'chevron-circle-down') {
+      this.setState({ resultsIcon: 'chevron-circle-up' })
+    } else {
+      this.setState({ resultsIcon: 'chevron-circle-down' })
+    }
   }
 
   setCategoryId () {
@@ -81,14 +103,6 @@ class Results extends Component {
       this.setState({
         category_id: 3
       })
-    }
-  }
-
-  resultsIconClick (event) {
-    if (this.state.resultsIcon === 'chevron-circle-down') {
-      this.setState({ resultsIcon: 'chevron-circle-up' })
-    } else {
-      this.setState({ resultsIcon: 'chevron-circle-down' })
     }
   }
 
@@ -142,20 +156,6 @@ class Results extends Component {
         .then((response) => {
           console.log('Posted Final Feeling', response)
         })
-    }
-  }
-
-  expandDetailedResults () {
-    let detailedResults = document.querySelector('.accordion')
-    detailedResults.classList.toggle('hidden')
-    if (this.state.resultsIcon === 'chevron-circle-down') {
-      this.setState({
-        resultsIcon: 'chevron-circle-up'
-      })
-    } else {
-      this.setState({
-        resultsIcon: 'chevron-circle-down'
-      })
     }
   }
 
@@ -220,7 +220,7 @@ class Results extends Component {
               <Accordion className='accordion hidden'>
                 {feedbackArray.map((entry, index) => {
                   return (
-                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>
+                    <AccordionTab key={index} headerClassName={entry.answerColor} header={entry.questionContent}><strong className='feedbackBoldText'>Your Answer:</strong> {entry.answerContent} <br /><strong className='feedbackBoldText'>Risk Level: </strong>{colorToRiskLevel(entry.answerColor)}
                       <br /><br />
                       <Markdown markup={entry.answerFeedback} />
                     </AccordionTab>
@@ -248,7 +248,6 @@ class Results extends Component {
             </div>
           </div>
           <div className='navButtonDivIntro'>
-            {/* <Button className='navButton' onClick={() => { window.location = `http://www.pupquest.org/` }} label='Learn more' /> */}
             <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Check Another Spot' />
           </div>
         </div>
