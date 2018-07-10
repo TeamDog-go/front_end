@@ -26,7 +26,13 @@ class App extends Component {
   }
 
   updateSourceQ (source, questions) {
-    this.setState({source: questions})
+    if (source === 1) {
+      this.setState({breederQuestions: questions})
+    } if (source === 2) {
+      this.setState({shelterQuestions: questions})
+    } if (source === 3) {
+      this.setState({individualQuestions: questions})
+    }
   }
 
   render () {
