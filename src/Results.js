@@ -7,12 +7,13 @@ import { Markdown } from 'react-showdown'
 import PropTypes from 'prop-types'
 import request from 'superagent'
 // import uuid from 'uuid-v4'
-// import { showdown, openLinksInNewWindow } from 'showdown'
+import showdown from 'showdown'
 
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import redDog from './Media/ResultDogR.jpg'
 import yellowDog from './Media/ResultDogY.jpg'
 import greenDog from './Media/ResultDogG.jpg'
+showdown.setOption('openLinksInNewWindow', true)
 
 class Results extends Component {
   constructor (props) {
@@ -32,7 +33,6 @@ class Results extends Component {
     this.capitalize = this.capitalize.bind(this)
     this.filterByColor = this.filterByColor.bind(this)
     this.setCategoryId = this.setCategoryId.bind(this)
-    // showdown.setOption(openLinksInNewWindow, true)
   }
 
   capitalize (string) {
