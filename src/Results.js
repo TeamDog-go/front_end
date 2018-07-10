@@ -123,7 +123,7 @@ class Results extends Component {
         this.setCategoryId()
         request
           .post(`https://polar-castle-14061.herokuapp.com/surveys.json`)
-          .send({ user_id: 1,
+          .send({ user_id: 2,
             category_id: this.state.category_id,
             final_score: this.state.score,
             initial_feeling: Number(this.props.initial_feeling),
