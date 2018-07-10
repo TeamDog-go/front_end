@@ -14,12 +14,10 @@ function calculateScore (answerArray) {
 export {calculateScore}
 
 function makeSourceQuestions (questions, options) {
-  // return response.body.category.questions.map((entry, index) => {
   return questions.map((entry, index) => {
     return {
       content: entry.content,
       id: entry.id,
-      // options: response.body.category.options[index].map((entry, index) => {
       options: options[index].map((entry, index) => {
         return {
           o_content: entry.o_content,

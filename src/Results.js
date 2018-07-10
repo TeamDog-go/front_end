@@ -6,7 +6,6 @@ import { Accordion, AccordionTab } from 'primereact/components/accordion/Accordi
 import { Markdown } from 'react-showdown'
 import PropTypes from 'prop-types'
 import request from 'superagent'
-// import uuid from 'uuid-v4'
 // import { showdown, openLinksInNewWindow } from 'showdown'
 
 import PQlogo from './Media/PQlogo_rev-02.svg'
@@ -56,11 +55,8 @@ class Results extends Component {
   resolveCalculateScore () {
     let answers = this.props.answers
     return new Promise(function (resolve, reject) {
-      // if (this.props.answers) {
       resolve(calculateScore(answers))
-      // } else {
-      // reject(new Error('Invalid Data'))
-      // }
+      reject(new Error('Invalid Data'))
     })
   }
 
@@ -144,7 +140,7 @@ class Results extends Component {
         .put(`https://polar-castle-14061.herokuapp.com/surveys/${window.localStorage.surveyid}.json`)
         .send({ final_feeling: this.state.final_feeling })
         .then((response) => {
-          console.log(response)
+          console.log('Posted Final Feeling', response)
         })
     }
   }

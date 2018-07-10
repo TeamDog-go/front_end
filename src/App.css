@@ -189,7 +189,6 @@ a {
   overflow: hidden;
   order: 1;
 }
-
 .introPageImage {
   width: 100%;
   height: 100%;
@@ -238,6 +237,7 @@ a {
   flex-direction: column;
   align-items: center;
 }
+
 .selectSourcePageImageWrapper{
   position: relative;
   background-color: #CCC;
@@ -265,6 +265,7 @@ a {
 .sourceButton .ui-button-text.ui-c{
   font-size: 1rem;
 }
+
 .ui-button.ui-widget.ui-state-default.ui-corner-all.sourceButton{
   color: var(--whiteText);
   margin: 6px 0;
@@ -276,7 +277,6 @@ a {
   border: 2px solid var(--mainColor);
   font-size: 1.2rem;
 }
-
 .ui-button.ui-widget.ui-state-default.ui-corner-all.sourceButton:hover {
   background: var(--mainColor-dark);
   color: var(--whiteText);
@@ -302,9 +302,9 @@ a {
   display: inline-flex;
   padding-left: 5px;
 }
-.moreInfoModal:hover {
+/* .moreInfoModal:hover {
   cursor: pointer;
-}
+} */
 .ui-dialog .ui-digalog-text {
   font-family: Arial, Helvetica, sans-serif;
   padding: 10px;
@@ -316,14 +316,8 @@ a {
 .ui-dialog {
   background-color: var(--tooltipBackground);
 }
-
 .dialogInfo {
   font-size: .9rem;
-}
-
-.sideNote {
-  font-size: 1rem;
-  margin: 15px;
 }
 
 /* ---------------------- feeling Page ---------------------- */
@@ -349,9 +343,6 @@ a {
 .feeling {
   width: 100%;
   margin-top: 12px;
-}
-.label {
-  cursor: pointer;
 }
 
 .color-1{
@@ -380,7 +371,7 @@ a {
   color: inherit;
 }
 .answer.feeling input[type="radio"]:checked + label:after {
-  top: 25%;
+  top: 23%;
   left: -15px;
   height: 26px;
   width: 26px;
@@ -393,12 +384,10 @@ a {
   right: 50px;
   width: 15rem;
 }
-
 .ui-growl-item-container.ui-state-highlight.ui-corner-all.ui-growl-message-warn {
   background-color: var(--darkColor);
   color: var(--whiteText)
 }
-
 .ui-growl-image.pi.pi-exclamation-triangle{
   padding-top: 1rem;
 }
@@ -426,6 +415,7 @@ a {
 .basicQuestion-Answers{
   margin-top: 1rem
 }
+
 .answer{
   width: 80%;
   margin: 0 auto;
@@ -433,7 +423,6 @@ a {
 .answer input[type="radio"] {
   display: none;
 }
-
 .answer label {
   width: 100%;
   display: block;
@@ -442,7 +431,6 @@ a {
   padding: 1rem;
   margin-bottom: 1rem;
   text-align: center;
-  /* box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.35); */
   position: relative;
 }
 .answer label:hover {
@@ -451,7 +439,6 @@ a {
 .answer input[type="radio"]:checked + label {
   background: var(--mainColor);
   color: var(--whiteText);
-  /* box-shadow: 0px 0px 20px hsla(191, 42%, 41%, 0.75); */
 }
 .answer input[type="radio"]:checked + label:after {
     background-color: var(--whiteText);
@@ -465,6 +452,7 @@ a {
     border-radius: 50%;
     box-shadow: 0px 2px 5px -2px hsla(0, 0%, 0%, .85);
 }
+
 /* ------------- ProgressBar ------------ */
 .ui-progressbar{
   width: 95%;
@@ -472,11 +460,9 @@ a {
   background-color: var(--tooltipBackground);
   color: var(--whiteText);
 }
-
 .ui-progressbar-value.ui-progressbar-value-animate.ui-widget-header.ui-corner-all{
   background-color: var(--mainColor);
 }
-
 
 /* ---------------------- Results Page ---------------------- */
 .resultsPageDiv{
@@ -499,34 +485,6 @@ a {
   border: 1px solid var(--bodyBackground);
   margin: 2rem 0;
 }
-
-.result-box{
-  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--bodyBackground);
-  margin: 2rem 0;
-}
-  
-.detailedResultsButton {
-  width: 100%;
-  border-radius: 0;
-  background-color: var(--tooltipBackground);
-  border: 2px solid var(--tooltipBorder);
-  color: var(--darkColor);
-  /* margin: 8px 10%; */
-  font-size: 1rem;
-  padding:10px 0;
-  font-weight: 700;
-  line-height: 1.5rem;
-}
-.detailedResultsButton:focus {
-  outline: none;
-}
-
-.detailedResultsIcon {
-  margin-left: 20px;
-  padding: 0;
-}
-
 .result-id{
   font-size: 125%;
   font-weight: 700;
@@ -539,6 +497,72 @@ a {
   margin: 20px
 }
 
+/* ---------------------- Result Scale ---------------------- */
+.scale-container{
+  margin: 1rem 5%;
+  width:90%;
+  height: 3vh;
+  position: relative;
+}
+.scale{
+  width:100%;
+  height:3vh;
+  display: flex;
+  flex-direction:row;
+  border: var(--mainColor-dark) 1px solid;
+  overflow: hidden;
+}
+.scale-red{
+  width: 51%;
+  background-color: var(--alertLvl1);
+}
+.scale-yellow{
+  width: 29%;
+  background-color: var(--alertLvl2);
+}
+.scale-green{
+  width: 20%;
+  background-color: var(--mainColor);
+}
+
+.paw {
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  background-image: url('./Media/pawprint-white-drop2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top:-0.4rem;
+}
+/* ----------------------^ Result Scale ^---------------------- */
+
+
+.detailedResultsButton {
+  width: 100%;
+  border-radius: 0;
+  background-color: var(--tooltipBackground);
+  border: 2px solid var(--tooltipBorder);
+  color: var(--darkColor);
+  font-size: 1rem;
+  padding:10px 0;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+.detailedResultsButton:focus {
+  outline: none;
+}
+.detailedResultsIcon {
+  margin-left: 20px;
+  padding: 0;
+}
+
+
+.result-box{
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--bodyBackground);
+  margin: 2rem 0;
+}
 .result-feeling-box{
   margin: 2rem 1.2rem;
   display: flex;
@@ -558,7 +582,6 @@ a {
   flex-wrap: nowrap;
   margin: 1rem auto;
 }
-
 .result-feeling{
   margin: 0 auto;
   display: flex;
@@ -568,7 +591,7 @@ a {
 }
 .result-feeling label{
   margin: 0;
-  border-bottom: none;
+  border-top: none;
   padding: 7px 0;
 }
 .result-feeling-array .result-feeling  input[type="radio"]:checked + label {
@@ -606,11 +629,9 @@ a {
   font-size: 1rem;
   font-weight: 400;
 }
-
 .ui-accordion-toggle-icon {
   display: inline;
 }
-
 .pi-caret-right:before, .ui-accordion .ui-accordion-header a>span {
   display:inline;
   text-decoration: none;
@@ -660,45 +681,6 @@ div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover a {
 }
 
 
-/* ---------------------- Result Scale ---------------------- */
-.scale-container{
-  margin: 1rem 5%;
-  width:90%;
-  height: 3vh;
-  position: relative;
-}
-.scale{
-  width:100%;
-  height:3vh;
-  display: flex;
-  flex-direction:row;
-  border: var(--mainColor-dark) 1px solid;
-  overflow: hidden;
-}
-.scale-red{
-  width: 51%;
-  background-color: var(--alertLvl1);
-}
-.scale-yellow{
-  width: 29%;
-  background-color: var(--alertLvl2);
-}
-.scale-green{
-  width: 20%;
-  background-color: var(--mainColor);
-}
-
-.paw {
-  width: 45px;
-  height: 45px;
-  position: absolute;
-  background-image: url('./Media/pawprint-white-drop2.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  top:-0.4rem;
-}
-
 
 /* ---------------------- Media Queries ---------------------- */
 
@@ -726,7 +708,6 @@ div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover a {
   .navButton{
     width: 500px;
   }
-
 
   .arrow {
     height: 56px;
@@ -783,6 +764,7 @@ div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover a {
   .introPageText li {
     padding-left: 45px;
   }
+
   .navButtonDivIntro {
     justify-content: center;
     order: 3;
@@ -920,9 +902,3 @@ div.Yellow.ui-accordion-header.ui-state-default.ui-corner-all:hover a {
 .darkFont{
   color: var(--darkColor);
 }
-
-/* --lightColor: hsla(0, 0%, 96%, 0.1);
---darkColor: rgb(34, 33, 33);
---bodyBackground: #BEC1BE;
---tooltipBorder: #c1c1c1;
---tooltipBackground: #f4f4f4; */

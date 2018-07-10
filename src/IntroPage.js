@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
-import PQlogo from './Media/PQlogo_rev-02.svg'
 
+import PQlogo from './Media/PQlogo_rev-02.svg'
 import cover1 from './Media/boyAndDog.jpg'
 import cover2 from './Media/cover2.jpg'
 import cover3 from './Media/cover3.jpg'
@@ -26,26 +26,19 @@ class IntroPage extends Component {
           </header>
         </div>
         <div className='taglineDiv'>
-          {/* <p className='tagline'>Helping you find a happy, healthy puppy!</p> */}
           <p className='tagline'>Because <em>where</em> your pup comes from matters!</p>
         </div>
         <div className='introPageDiv'>
-          {/* <img className='introPageImage' src={boyAndDog} alt='dog and girl' /> */}
           <div className='introPageImgWrapper'>
             {this.getRandomPhoto()}
           </div>
           <ul className='introPageText'>
             <li><strong>Happy, healthy dogs</strong> come from quality shelters, breeders, and individuals.</li>
-            {/* <li>Where are you going to get your next dog?</li> */}
             <li><strong>Serious behavior and health problems</strong> are more likely if you get your dog from a bad source.</li>
-            {/* <li><strong>Knowing the good from the bad</strong> can be very tricky!</li> */}
             <li><strong>Quickly assess</strong> breeders, shelters, and individuals with <strong>Spot Check!</strong></li>
           </ul>
           <div className='navButtonDivIntro'>
             <Button className='navButton' onClick={() => this.props.history.push('/source')} label='Let&apos;s Go!' />
-            {/* <p className='registerToSaveText'>Want to save all your results? Sign In or Register!</p> */}
-            {/* <Button className='navButton' id='loginButton' onClick={() => this.props.history.push('/login')} label='Login/Register' /> */}
-            {/* <Tooltip tooltipStyleClass='sourceTooltip' for='#loginButton' title='Register or log in to keep a personalized record of your PupQuest Test results' tooltipPosition='top' /> */}
           </div>
         </div>
       </div>
