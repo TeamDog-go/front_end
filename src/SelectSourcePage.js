@@ -11,7 +11,6 @@ import PropTypes from 'prop-types'
 import PQlogo from './Media/PQlogo_rev-02.svg'
 import dog1 from './Media/adorable-blur.jpg'
 import dog2 from './Media/aussie-puppies.jpg'
-import dog3 from './Media/lab-puppies.jpg'
 import dog4 from './Media/puppy-basket.jpg'
 
 class SelectSourcePage extends Component {
@@ -127,7 +126,7 @@ class SelectSourcePage extends Component {
   }
 
   getRandomPhoto () {
-    const photoArray = [dog1, dog2, dog3, dog4]
+    const photoArray = [dog1, dog2, dog4]
     const photoindex = Math.floor(Math.random() * Math.floor(photoArray.length))
     const photoSource = photoArray[photoindex]
     return (<img className='selectSourcePageImage' src={photoSource} alt='adorable dogs' />)
