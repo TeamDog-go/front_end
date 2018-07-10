@@ -14,16 +14,22 @@ class Feeling extends Component {
   }
 
   handleOptionChange (event) {
+    if (this.cancelTimeout) {
+      clearTimeout(this.cancelTimeout)
+    }
     this.setState({
       feeling: event.target.value
     })
     const feelingValue = event.target.value
-    setTimeout(() => {
+    this.cancelTimeout = setTimeout(() => {
       this.props.setInitialFeeling(feelingValue)
     }, 1000)
   }
 
   questionSubmit () {
+    if (this.cancelTimeout) {
+      clearTimeout(this.cancelTimeout)
+    }
     this.props.setInitialFeeling(this.state.feeling)
   }
 

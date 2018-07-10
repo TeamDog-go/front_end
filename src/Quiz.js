@@ -52,7 +52,7 @@ class Quiz extends Component {
   setInitialFeeling (value) {
     this.setState({
       initial_feeling: value,
-      feelingSet: true
+      feelingSet: !this.state.feelingSet
     })
   }
 
@@ -71,7 +71,7 @@ class Quiz extends Component {
     } else if (this.state.answers.length < this.props.questions.length) {
       return (
         <div>
-          <BasicQ question={this.state.currentQ} savedanswers={this.state.answers} index={this.state.currentIndex} addAnswer={this.addAnswer} prevAnswer={this.prevAnswer} />
+          <BasicQ question={this.state.currentQ} savedanswers={this.state.answers} setInitialFeeling={this.setInitialFeeling} index={this.state.currentIndex} addAnswer={this.addAnswer} prevAnswer={this.prevAnswer} />
         </div>
       )
     } else if (this.state.answers.length === this.props.questions.length) {
@@ -88,7 +88,7 @@ export default Quiz
 
 Quiz.propTypes = {
   questions: PropTypes.array.isRequired,
-  firstQ: PropTypes.object.isRequired,
+  firstQ: PropTypes.object,
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired
 }

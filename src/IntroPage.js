@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 import {Button} from 'primereact/components/button/Button'
 import PQlogo from './Media/PQlogo_rev-02.svg'
-// import Link from 'react-router-dom'
-// import {Tooltip} from 'primereact/components/tooltip/Tooltip'
+
 import cover1 from './Media/boyAndDog.jpg'
 import cover2 from './Media/cover2.jpg'
 import cover3 from './Media/cover3.jpg'
