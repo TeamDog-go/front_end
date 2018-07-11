@@ -38,7 +38,7 @@ function colorToRiskLevel (color) {
   } else if (color === 'Yellow') {
     riskLevel = 'Medium'
   } else if (color === 'Green') {
-    riskLevel = 'High'
+    riskLevel = 'Low'
   }
   return riskLevel
 }
